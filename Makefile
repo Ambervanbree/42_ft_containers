@@ -6,7 +6,7 @@
 #    By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/06/20 11:12:53 by avan-bre         ###   ########.fr        #
+#    Updated: 2022/06/20 13:41:41 by avan-bre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,14 +50,12 @@ MEM			=	-fsanitize=address
 all:	$(NAME)
 
 $(NAME):	$(OBJ_DIR) $(OBJS)
-		@echo line 1
 		$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJ_DIR):
 		mkdir $(OBJ_DIR) $(SUB_DIR)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp
-		@echo line 2
 		$(CC) $(CFLAGS) -c $< -o $@ $(INCL)
 
 clean:
