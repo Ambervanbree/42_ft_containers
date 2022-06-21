@@ -6,7 +6,7 @@
 #    By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/06/20 13:41:41 by avan-bre         ###   ########.fr        #
+#    Updated: 2022/06/21 14:49:49 by avan-bre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS		=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
 
-SRC_FILES	=	main.cpp $(NAMESPACE) $(VECTOR)
+SRC_FILES	=	main.cpp # $(NAMESPACE) $(VECTOR)
 #NAMESPACE	=	$(addprefix namespace/, ft.cpp)
 VECTOR		=	$(addprefix vector/, vector.cpp)
 
@@ -38,7 +38,7 @@ RM			=	rm -rf
 #                               FLAGS                                          #
 # **************************************************************************** #
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		=	-Wall -Wextra -Werror #-std=c++98
 INCL		=	-Iinclude/
 MEM			=	-fsanitize=address
 
