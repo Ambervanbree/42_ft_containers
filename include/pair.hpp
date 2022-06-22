@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:24:39 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/21 17:23:31 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/22 12:15:16 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 namespace ft{
 	template <class T1, class T2>
-	struct pair {
-		typedef T1	first_type;
-		typedef T2	second_type;
-		
+	struct pair {		
 		T1	first;
 		T2	second;
 		

@@ -6,55 +6,37 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:01:42 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/21 15:53:39 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/22 18:57:47 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "equal.hpp"
 #include <iostream>
-#include <iomanip>
-#include <type_traits>
- 
-class A {};
- 
-template <typename T>
-void isintegral(T a){
-	(void)a;
-	std::cout << std::boolalpha;
-	std::cout << std::is_integral<T>::value << std::endl;
-}
- 
-int main()
-{
-	bool		t1 = 12;
-	char		t2 = 14;
-	char16_t	t3 = 3857;
-	char32_t	t4 = -5;
-	wchar_t		t5 = 73;
-	short		t6 = -389;
-	int			t7 = 3423235;
-	long		t8 = 23749237492374;
-	long long	t9 = 1468764983276498763;
-	float		t10 = 1.25;
-	double		t11 = 5.25;
-	long double	t12 = 856487356387465893.2;
-	A			t13;
-	std::string	t14 = "Hello";
-	int			t15[3];
-	
+#include <algorithm>
+#include <vector>
 
-	isintegral(t1);
-	isintegral(t2);
-	isintegral(t3);
-	isintegral(t4);
-	isintegral(t5);
-	isintegral(t6);
-	isintegral(t7);
-	isintegral(t8);
-	isintegral(t9);
-	isintegral(t10);
-	isintegral(t11);
-	isintegral(t12);
-	isintegral(t13);
-	isintegral(t14);
-	isintegral(t15);
+bool is_equal_adjacent(std::vector<int> &array1, std::vector<int> &array2){
+	return std::equal(array1.begin(), array1.end(), array2.begin() + 1);
+}
+
+bool ft_is_equal_adjacent(std::vector<int> &array1, std::vector<int> &array2){
+	return ft::equal(array1.begin(), array1.end(), array2.begin() + 1);
+}
+
+
+int main(void){
+	std::vector<int>	array1;
+	std::vector<int>	array2;
+	int 				i = 0;
+	
+	for (; i < 10; i++){
+		array1.push_back(i + 1);
+		array2.push_back(i);
+	}
+	array2.push_back(i);
+	
+	std::cout << is_equal_adjacent(array1, array2) << std::endl;
+	std::cout << ft_is_equal_adjacent(array1, array2) << std::endl;
+
+	// EXPECT_EQ(is_equal_adjacent(array1, array2), true);
 }

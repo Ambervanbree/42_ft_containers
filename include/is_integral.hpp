@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:45:38 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/21 17:47:37 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/22 14:33:11 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@
 namespace ft{
 
 	template< class T, T v >
-	struct integral_constant{
-		static constexpr T value = v;
-	};
+	struct integral_constant{ static const T value = v;};
 
 	typedef	integral_constant<bool, true>	true_type;
 	typedef integral_constant<bool, false>	false_type;
-
 	
 	template <typename T> struct is_integral : public false_type {};
 
@@ -30,8 +27,6 @@ namespace ft{
 	template <> struct is_integral<char> : public true_type {};
 	template <> struct is_integral<signed char> : public true_type {};
 	template <> struct is_integral<unsigned char> : public true_type {};
-	template <> struct is_integral<char16_t> : public true_type {};
-	template <> struct is_integral<char32_t> : public true_type {};
 	template <> struct is_integral<wchar_t> : public true_type {};
 
 	// int types
@@ -43,11 +38,8 @@ namespace ft{
 	template <> struct is_integral<unsigned long int> : public true_type {};
 	template <> struct is_integral<long long int> : public true_type {};
 	template <> struct is_integral<unsigned long long int> : public true_type {};
-	// template <> struct is_integral<signed __int64> : public true_type {};
-	// template <> struct is_integral<unsigned __int64> : public true_type {};
 	
 	// other
-	// template <> struct is_integral<enum> : public true_type {};
 	template <> struct is_integral<bool> : public true_type {};
 }
 

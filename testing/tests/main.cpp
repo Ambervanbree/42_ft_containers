@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 11:13:00 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/20 11:13:05 by avan-bre         ###   ########.fr       */
+/*   Created: 2022/06/21 12:45:50 by avan-bre          #+#    #+#             */
+/*   Updated: 2022/06/21 15:33:39 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.hpp"
+#include "gtest/gtest.h"
 
-// ft::vector::vector() : _name("veccieeee") {}
-
-// ft::vector::~vector() {}
-
-// void ft::vector::printVector(void){
-// 	std::cout << "Printing name: " << this->_name << std::endl;
-// }
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
