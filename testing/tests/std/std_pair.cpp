@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   std_pair.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 15:46:31 by avan-bre          #+#    #+#             */
+/*   Updated: 2022/06/23 15:46:33 by avan-bre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <utility>
 #include <gtest/gtest.h>
 
-TEST(stl_pair, creatingUninitialised){
+TEST(std_pair, creatingUninitialised){
 	std::pair <int, char> 		p1;
 	std::pair <int, double>		p2;
 
@@ -22,7 +34,7 @@ TEST(stl_pair, creatingUninitialised){
 	EXPECT_EQ(p2.second, 5.67);
 }
 
-TEST(stl_pair, creatingInitialised){
+TEST(std_pair, creatingInitialised){
 	std::pair <int, int>			p1(1, -3);
 	std::pair <int, int>			p2(0, -5);
 	std::pair <int, char>			p3(101, 'E');
@@ -44,7 +56,7 @@ TEST(stl_pair, creatingInitialised){
 	EXPECT_EQ(p6.second, "Chleo");
 }
 
-TEST(stl_pair, testingOperators){
+TEST(std_pair, testingOperators){
 	std::pair <int, char> 			p1(100, 'G');
 	std::pair <int, double>			p2(3, 3.57);
 	std::pair <int, char>			p3(101, 'E');

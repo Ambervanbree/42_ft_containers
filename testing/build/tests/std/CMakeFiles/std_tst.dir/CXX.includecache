@@ -366,11 +366,11 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/std/std_equal.cpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/std/std_stack.cpp
+stack
+-
 gtest/gtest.h
 -
 iostream
--
-algorithm
 -
 

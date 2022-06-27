@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../../include/equal.hpp
+../../include/stack.hpp
+iostream
+-
+vector
+-
+memory
+-
 
 ../googletest/googletest/include/gtest/gtest-assertion-result.h
 memory
@@ -368,13 +374,9 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_equal.cpp
-equal.hpp
-/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/equal.hpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_stack.cpp
+stack.hpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/stack.hpp
 gtest/gtest.h
--
-iostream
--
-algorithm
 -
 

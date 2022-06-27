@@ -225,6 +225,33 @@ ft_is_integral.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.s
 .PHONY : ft_is_integral.cpp.s
 
+ft_lexicographical_compare.o: ft_lexicographical_compare.cpp.o
+
+.PHONY : ft_lexicographical_compare.o
+
+# target to build an object file
+ft_lexicographical_compare.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o
+.PHONY : ft_lexicographical_compare.cpp.o
+
+ft_lexicographical_compare.i: ft_lexicographical_compare.cpp.i
+
+.PHONY : ft_lexicographical_compare.i
+
+# target to preprocess a source file
+ft_lexicographical_compare.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.i
+.PHONY : ft_lexicographical_compare.cpp.i
+
+ft_lexicographical_compare.s: ft_lexicographical_compare.cpp.s
+
+.PHONY : ft_lexicographical_compare.s
+
+# target to generate assembly for a file
+ft_lexicographical_compare.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.s
+.PHONY : ft_lexicographical_compare.cpp.s
+
 ft_make_pair.o: ft_make_pair.cpp.o
 
 .PHONY : ft_make_pair.o
@@ -279,6 +306,33 @@ ft_pair.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.s
 .PHONY : ft_pair.cpp.s
 
+ft_stack.o: ft_stack.cpp.o
+
+.PHONY : ft_stack.o
+
+# target to build an object file
+ft_stack.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o
+.PHONY : ft_stack.cpp.o
+
+ft_stack.i: ft_stack.cpp.i
+
+.PHONY : ft_stack.i
+
+# target to preprocess a source file
+ft_stack.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.i
+.PHONY : ft_stack.cpp.i
+
+ft_stack.s: ft_stack.cpp.s
+
+.PHONY : ft_stack.s
+
+# target to generate assembly for a file
+ft_stack.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.s
+.PHONY : ft_stack.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -325,12 +379,18 @@ help:
 	@echo "... ft_is_integral.o"
 	@echo "... ft_is_integral.i"
 	@echo "... ft_is_integral.s"
+	@echo "... ft_lexicographical_compare.o"
+	@echo "... ft_lexicographical_compare.i"
+	@echo "... ft_lexicographical_compare.s"
 	@echo "... ft_make_pair.o"
 	@echo "... ft_make_pair.i"
 	@echo "... ft_make_pair.s"
 	@echo "... ft_pair.o"
 	@echo "... ft_pair.i"
 	@echo "... ft_pair.s"
+	@echo "... ft_stack.o"
+	@echo "... ft_stack.i"
+	@echo "... ft_stack.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

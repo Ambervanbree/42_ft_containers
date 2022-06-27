@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 17:59:36 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/22 19:01:21 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:37:18 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,15 @@ TEST(std_equal, reverse){
 	EXPECT_EQ(is_reverse("spongebob", "bobengops"), false);
 }
 
-bool is_equal_adjacent(std::vector<int> &array1, std::vector<int> &array2){
-	return std::equal(array1.begin(), array1.end(), array2.begin() + 1);
+bool pred(int &a, int &b){
+	return a == b ? 1 : 0;
 }
 
-TEST(std_equal, adjacent){
+bool is_equal_adjacent(std::vector<int> &array1, std::vector<int> &array2){
+	return std::equal(array1.begin(), array1.end(), array2.begin() + 1, pred);
+}
+
+TEST(std_equal, adjacentPred){
 	std::vector<int>	array1;
 	std::vector<int>	array2;
 	int 				i = 0;
@@ -55,5 +59,13 @@ TEST(std_equal, adjacent){
 	}
 	array2.push_back(i);	
 	
+	EXPECT_EQ(is_equal_adjacent(array1, array2), true);
+	
+	array1.push_back(++i);
+
+	EXPECT_EQ(is_equal_adjacent(array1, array2), false);
+
+	array2.push_back(i);
+
 	EXPECT_EQ(is_equal_adjacent(array1, array2), true);
 }

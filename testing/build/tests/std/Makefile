@@ -252,6 +252,33 @@ std_is_integral.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_is_integral.cpp.s
 .PHONY : std_is_integral.cpp.s
 
+std_lexicographical_compare.o: std_lexicographical_compare.cpp.o
+
+.PHONY : std_lexicographical_compare.o
+
+# target to build an object file
+std_lexicographical_compare.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_lexicographical_compare.cpp.o
+.PHONY : std_lexicographical_compare.cpp.o
+
+std_lexicographical_compare.i: std_lexicographical_compare.cpp.i
+
+.PHONY : std_lexicographical_compare.i
+
+# target to preprocess a source file
+std_lexicographical_compare.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_lexicographical_compare.cpp.i
+.PHONY : std_lexicographical_compare.cpp.i
+
+std_lexicographical_compare.s: std_lexicographical_compare.cpp.s
+
+.PHONY : std_lexicographical_compare.s
+
+# target to generate assembly for a file
+std_lexicographical_compare.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_lexicographical_compare.cpp.s
+.PHONY : std_lexicographical_compare.cpp.s
+
 std_make_pair.o: std_make_pair.cpp.o
 
 .PHONY : std_make_pair.o
@@ -306,6 +333,33 @@ std_pair.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_pair.cpp.s
 .PHONY : std_pair.cpp.s
 
+std_stack.o: std_stack.cpp.o
+
+.PHONY : std_stack.o
+
+# target to build an object file
+std_stack.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_stack.cpp.o
+.PHONY : std_stack.cpp.o
+
+std_stack.i: std_stack.cpp.i
+
+.PHONY : std_stack.i
+
+# target to preprocess a source file
+std_stack.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_stack.cpp.i
+.PHONY : std_stack.cpp.i
+
+std_stack.s: std_stack.cpp.s
+
+.PHONY : std_stack.s
+
+# target to generate assembly for a file
+std_stack.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/std_stack.cpp.s
+.PHONY : std_stack.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -328,12 +382,18 @@ help:
 	@echo "... std_is_integral.o"
 	@echo "... std_is_integral.i"
 	@echo "... std_is_integral.s"
+	@echo "... std_lexicographical_compare.o"
+	@echo "... std_lexicographical_compare.i"
+	@echo "... std_lexicographical_compare.s"
 	@echo "... std_make_pair.o"
 	@echo "... std_make_pair.i"
 	@echo "... std_make_pair.s"
 	@echo "... std_pair.o"
 	@echo "... std_pair.i"
 	@echo "... std_pair.s"
+	@echo "... std_stack.o"
+	@echo "... std_stack.i"
+	@echo "... std_stack.s"
 .PHONY : help
 
 
