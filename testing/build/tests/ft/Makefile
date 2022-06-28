@@ -171,6 +171,33 @@ ft_tst/fast:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/build
 .PHONY : ft_tst/fast
 
+ft_enable_if.o: ft_enable_if.cpp.o
+
+.PHONY : ft_enable_if.o
+
+# target to build an object file
+ft_enable_if.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o
+.PHONY : ft_enable_if.cpp.o
+
+ft_enable_if.i: ft_enable_if.cpp.i
+
+.PHONY : ft_enable_if.i
+
+# target to preprocess a source file
+ft_enable_if.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.i
+.PHONY : ft_enable_if.cpp.i
+
+ft_enable_if.s: ft_enable_if.cpp.s
+
+.PHONY : ft_enable_if.s
+
+# target to generate assembly for a file
+ft_enable_if.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.s
+.PHONY : ft_enable_if.cpp.s
+
 ft_equal.o: ft_equal.cpp.o
 
 .PHONY : ft_equal.o
@@ -373,6 +400,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_tst"
+	@echo "... ft_enable_if.o"
+	@echo "... ft_enable_if.i"
+	@echo "... ft_enable_if.s"
 	@echo "... ft_equal.o"
 	@echo "... ft_equal.i"
 	@echo "... ft_equal.s"

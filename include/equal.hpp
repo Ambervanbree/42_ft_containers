@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 16:03:16 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/23 13:57:12 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/28 11:31:30 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ namespace ft{
 			}
 		}
 		return true;	
-	};
+	}
 
 	template<class InputIt1, class InputIt2, class BinPredicate>
 	bool equal(InputIt1 first1, InputIt1 last1, InputIt2 first2, BinPredicate pred){
@@ -32,7 +32,7 @@ namespace ft{
 			}
 		}
 		return true;	
-	};
+	}
 };
 
 #endif

@@ -57,9 +57,22 @@ include tests/ft/CMakeFiles/ft_tst.dir/progress.make
 # Include the compile flags for this target's objects.
 include tests/ft/CMakeFiles/ft_tst.dir/flags.make
 
+tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
+tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o: ../tests/ft/ft_enable_if.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_enable_if.cpp
+
+tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_tst.dir/ft_enable_if.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_enable_if.cpp > CMakeFiles/ft_tst.dir/ft_enable_if.cpp.i
+
+tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_tst.dir/ft_enable_if.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_enable_if.cpp -o CMakeFiles/ft_tst.dir/ft_enable_if.cpp.s
+
 tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.o: ../tests/ft/ft_equal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_equal.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_equal.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.i: cmake_force
@@ -72,7 +85,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o: ../tests/ft/ft_is_integral.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_is_integral.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.i: cmake_force
@@ -85,7 +98,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o: ../tests/ft/ft_lexicographical_compare.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_lexicographical_compare.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.i: cmake_force
@@ -98,7 +111,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.o: ../tests/ft/ft_make_pair.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_make_pair.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_make_pair.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.i: cmake_force
@@ -111,7 +124,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_make_pair.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.o: ../tests/ft/ft_pair.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_pair.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_pair.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.i: cmake_force
@@ -124,7 +137,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_pair.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o: ../tests/ft/ft_stack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/ft_stack.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_stack.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.i: cmake_force
@@ -137,7 +150,7 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.s: cmake_force
 
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o: tests/ft/CMakeFiles/ft_tst.dir/flags.make
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o: ../tests/ft/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_tst.dir/main.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/main.cpp
 
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.i: cmake_force
@@ -150,6 +163,7 @@ tests/ft/CMakeFiles/ft_tst.dir/main.cpp.s: cmake_force
 
 # Object files for target ft_tst
 ft_tst_OBJECTS = \
+"CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o" \
 "CMakeFiles/ft_tst.dir/ft_equal.cpp.o" \
 "CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o" \
 "CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o" \
@@ -161,6 +175,7 @@ ft_tst_OBJECTS = \
 # External object files for target ft_tst
 ft_tst_EXTERNAL_OBJECTS =
 
+tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/ft_enable_if.cpp.o
 tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/ft_equal.cpp.o
 tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/ft_is_integral.cpp.o
 tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/ft_lexicographical_compare.cpp.o
@@ -171,7 +186,7 @@ tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o
 tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/build.make
 tests/ft/ft_tst: lib/libgtest.a
 tests/ft/ft_tst: tests/ft/CMakeFiles/ft_tst.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ft_tst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable ft_tst"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/ft && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_tst.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

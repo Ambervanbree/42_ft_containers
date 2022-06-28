@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:33:06 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/23 13:58:08 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/06/28 11:31:02 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ namespace ft{
 			if (*first2 < *first1) return false;
 		}
 		return (first1 == last1) && (first2 != last2);
-		};
+		}
 
 	template<class InputIt1, class InputIt2, class Compare>
 	bool lexicographical_compare(InputIt1 first1, InputIt1 last1, 
@@ -32,7 +32,7 @@ namespace ft{
 			if (comp(*first2, *first1)) return false;
 		}
 		return (first1 == last1) && (first2 != last2);		
-		};
+		}
 }
 
 #endif
