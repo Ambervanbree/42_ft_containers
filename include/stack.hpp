@@ -19,14 +19,29 @@
 # include <cstddef>
 
 namespace ft {
-	template <class T, class Container = std::vector<T> >
+	template <class T, class Container = std::vector<T>>
 	class stack {
+	public:
+		// member types
+		typedef typename Container::value_type	value_type;
+		typedef typename Container::size_type 	size_type;
+		typedef Container 						container_type;
+	
+	protected:
+		// member objects
+		Container c;
 
 	public:
-		typedef typename Container::value_type value_type;
-		typedef typename Container::size_type size_type;
-		typedef Container container_type;
-
+		// member functions
+		explicit stack(const Container& = Container()) {}
+		bool empty() const { return c.empty(); }
+		size_type size() const { return c.size(); }
+		value_type& top() { return c.back(); }
+		const value_type& top() const { return c.back(); }
+		void push(const value_type& x) { c.push_back(x); }
+		void pop() { c.pop_back(); }
+			
+		// Non-member operators
 		friend bool operator==(const ft::stack<T, Container>& x, const ft::stack<T, Container>& y){
 			return x.c == y.c;
 		}
@@ -51,27 +66,11 @@ namespace ft {
 			return x.c <= y.c;
 		}
 
-	protected:
-		Container c;
-
-	public:
-		explicit stack(const Container& = Container()) {}
-		
-		bool empty() const { return c.empty(); }
-
-		size_type size() const { return c.size(); }
-		
-		value_type& top() { return c.back(); }
-
-		const value_type& top() const { return c.back(); }
-		
-		void push(const value_type& x) { c.push_back(x); }
-	
-		void pop() { c.pop_back(); }
-		
-		
-	};
-	
+		// ** Non-member operators use the friend keyword, because within this scope
+		// ** we don't have access to the private and protected variables of the target. 
+		// ** The friend declaration grants access to the private and protect variables
+		// ** of the class it is associated with, so also to the member objects of the target.
+	};	
 }
 
 #endif
