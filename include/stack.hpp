@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:50 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/28 11:30:07 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:33:43 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ namespace ft {
 		const value_type& top() const { return c.back(); }
 		void push(const value_type& x) { c.push_back(x); }
 		void pop() { c.pop_back(); }
-			
+
 		// Non-member operators
 		friend bool operator==(const ft::stack<T, Container>& x, const ft::stack<T, Container>& y){
 			return x.c == y.c;
