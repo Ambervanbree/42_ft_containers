@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/std_tst.dir/std_make_pair.cpp.o"
   "CMakeFiles/std_tst.dir/std_pair.cpp.o"
   "CMakeFiles/std_tst.dir/std_stack.cpp.o"
+  "CMakeFiles/std_tst.dir/std_vector.cpp.o"
   "std_tst"
   "std_tst.pdb"
 )

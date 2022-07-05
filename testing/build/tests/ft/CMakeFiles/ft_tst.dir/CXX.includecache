@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-../../include/enable_if.hpp
+../../include/vector.hpp
+memory
+-
+iostream
+-
 
 ../googletest/googletest/include/gtest/gtest-assertion-result.h
 memory
@@ -368,11 +372,9 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_enable_if.cpp
-enable_if.hpp
-/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/enable_if.hpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/ft_vector.cpp
+vector.hpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests/ft/vector.hpp
 gtest/gtest.h
--
-iostream
 -
 

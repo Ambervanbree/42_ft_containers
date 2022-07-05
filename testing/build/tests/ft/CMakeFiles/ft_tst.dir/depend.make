@@ -169,6 +169,30 @@ tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o: ../googletest/googletest/include/
 tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
 tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.o: ../tests/ft/ft_stack.cpp
 
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../../include/vector.hpp
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-message.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-param-test.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-printers.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-test-part.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest-typed-test.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest_pred_impl.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/gtest_prod.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-internal.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
+tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o: ../tests/ft/ft_vector.cpp
+
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
 tests/ft/CMakeFiles/ft_tst.dir/main.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h

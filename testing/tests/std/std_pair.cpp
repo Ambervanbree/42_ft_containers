@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:46:31 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/23 15:46:33 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:20:32 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,10 @@ TEST(std_pair, testingOperators){
 
 	EXPECT_EQ(p3.first, 100);
 	EXPECT_EQ(p3.second, 'G');
-	EXPECT_EQ(p1 < p5, true);
-	EXPECT_EQ(p1 > p5, false);
-	EXPECT_EQ(p1 <= p5, true);
-	EXPECT_EQ(p1 >= p5, false);
-	EXPECT_EQ(p3 == p5, false);
-	EXPECT_EQ(p3 != p1, false);
+	EXPECT_TRUE(p1 < p5);
+	EXPECT_FALSE(p1 > p5);
+	EXPECT_TRUE(p1 <= p5);
+	EXPECT_FALSE(p1 >= p5);
+	EXPECT_FALSE(p3 == p5);
+	EXPECT_FALSE(p3 != p1);
 }

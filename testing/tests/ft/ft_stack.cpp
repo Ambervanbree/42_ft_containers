@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:07:59 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/28 11:24:40 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:42:29 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,28 @@
 TEST(ft_stack, operations){
 	ft::stack<int>	s1;
 
-	EXPECT_EQ(s1.empty(), true);
+	EXPECT_TRUE(s1.empty());
 	
 	s1.push(5);
 	s1.push(7);
 	s1.push(9);
 	s1.push(11);
 
-	EXPECT_EQ(s1.empty(), false);
+	EXPECT_FALSE(s1.empty());
 	EXPECT_EQ(s1.top(), 11);
 	EXPECT_EQ(s1.size(), 4);
 	
 	s1.pop();
 	s1.pop();
 
-	EXPECT_EQ(s1.empty(), false);
+	EXPECT_FALSE(s1.empty());
 	EXPECT_EQ(s1.top(), 7);
 	EXPECT_EQ(s1.size(), 2);
 
 	s1.pop();
 	s1.pop();
 
-	EXPECT_EQ(s1.empty(), true);
-	EXPECT_EQ(s1.top(), 0); // *** should segfault but doesn't
+	EXPECT_TRUE(s1.empty());
 	EXPECT_EQ(s1.size(), 0);
 }
 
@@ -53,14 +52,14 @@ TEST(ft_stack, operators){
 	s2.push (-1);
 	s2.push (0);
 
-	EXPECT_EQ(s1 == s2, true);
+	EXPECT_TRUE(s1 == s2);
 	
 	s2.pop();
 
-	EXPECT_EQ(s1 <= s2, false);
-	EXPECT_EQ(s1 >= s2, true);
-	EXPECT_EQ(s1 < s2, false);
-	EXPECT_EQ(s1 > s2, true);
-	EXPECT_EQ(s1 != s2, true);
-	EXPECT_EQ(s1 == s2, false);
+	EXPECT_FALSE(s1 <= s2);
+	EXPECT_TRUE(s1 >= s2);
+	EXPECT_FALSE(s1 < s2);
+	EXPECT_TRUE(s1 > s2);
+	EXPECT_TRUE(s1 != s2);
+	EXPECT_FALSE(s1 == s2);
 }

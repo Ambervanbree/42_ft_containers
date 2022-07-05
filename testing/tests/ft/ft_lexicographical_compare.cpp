@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:39:25 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/23 15:41:01 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:15:07 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ TEST(ft_lexicographical_compare, string){
 	std::string		string3 = "Hello you";
 	std::string		string4 = "Hello there all";
 
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string1.begin(), string1.end()), 0);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string2.begin(), string2.end()), 0);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string3.begin(), string3.end()), 1);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string4.begin(), string4.end()), 1);
+	EXPECT_FALSE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string1.begin(), string1.end()));
+	EXPECT_FALSE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string2.begin(), string2.end()));
+	EXPECT_TRUE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string3.begin(), string3.end()));
+	EXPECT_TRUE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string4.begin(), string4.end()));
 }
 
 TEST(ft_lexicographical_compare, vector){	
@@ -47,14 +47,14 @@ TEST(ft_lexicographical_compare, vector){
 	vec3.push_back(i + 2);
 	vec4.push_back(i - 1);
 
-	EXPECT_EQ(ft::lexicographical_compare(vec1.begin(), vec1.end(),
-		vec1.begin(), vec1.end()), 0);
-	EXPECT_EQ(ft::lexicographical_compare(vec1.begin(), vec1.end(),
-		vec2.begin(), vec2.end()), 0);
-	EXPECT_EQ(ft::lexicographical_compare(vec1.begin(), vec1.end(),
-		vec3.begin(), vec3.end()), 1);
-	EXPECT_EQ(ft::lexicographical_compare(vec1.begin(), vec1.end(),
-		vec4.begin(), vec4.end()), 0);
+	EXPECT_FALSE(ft::lexicographical_compare(vec1.begin(), vec1.end(),
+		vec1.begin(), vec1.end()));
+	EXPECT_FALSE(ft::lexicographical_compare(vec1.begin(), vec1.end(),
+		vec2.begin(), vec2.end()));
+	EXPECT_TRUE(ft::lexicographical_compare(vec1.begin(), vec1.end(),
+		vec3.begin(), vec3.end()));
+	EXPECT_FALSE(ft::lexicographical_compare(vec1.begin(), vec1.end(),
+		vec4.begin(), vec4.end()));
 }
 
 bool	compare(char &a, char &b){
@@ -67,12 +67,12 @@ TEST(ft_lexicographical_compare, stringComp){
 	std::string		string3 = "Hello you";
 	std::string		string4 = "Hello there all";
 
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string1.begin(), string1.end(), compare), 0);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string2.begin(), string2.end(), compare), 0);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string3.begin(), string3.end(), compare), 1);
-	EXPECT_EQ(ft::lexicographical_compare(string1.begin(), string1.end(),
-		string4.begin(), string4.end(), compare), 1);
+	EXPECT_FALSE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string1.begin(), string1.end(), compare));
+	EXPECT_FALSE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string2.begin(), string2.end(), compare));
+	EXPECT_TRUE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string3.begin(), string3.end(), compare));
+	EXPECT_TRUE(ft::lexicographical_compare(string1.begin(), string1.end(),
+		string4.begin(), string4.end(), compare));
 }

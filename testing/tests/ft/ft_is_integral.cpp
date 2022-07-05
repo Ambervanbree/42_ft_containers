@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 18:04:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/22 18:04:09 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:12:03 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class A {};
  
 template <typename T>
-bool ft_isintegral(T a){
+bool isintegral(T a){
 	(void)a;
 	return ft::is_integral<T>::value;
 }
@@ -38,19 +38,19 @@ TEST(ft_is_integral, general){
 	const bool	t14 = false;
 	const int	t15 = 8349;
 
-	EXPECT_EQ(ft_isintegral(t1), true);
-	EXPECT_EQ(ft_isintegral(t2), true);
-	EXPECT_EQ(ft_isintegral(t3), true);
-	EXPECT_EQ(ft_isintegral(t4), true);
-	EXPECT_EQ(ft_isintegral(t5), true);
-	EXPECT_EQ(ft_isintegral(t6), true);
-	EXPECT_EQ(ft_isintegral(t7), true);
-	EXPECT_EQ(ft_isintegral(t8), false);
-	EXPECT_EQ(ft_isintegral(t9), false);
-	EXPECT_EQ(ft_isintegral(t10), false);
-	EXPECT_EQ(ft_isintegral(t11), false);
-	EXPECT_EQ(ft_isintegral(t12), false);
-	EXPECT_EQ(ft_isintegral(t13), false);
-	EXPECT_EQ(ft_isintegral(t14), true);
-	EXPECT_EQ(ft_isintegral(t15), true);
+	EXPECT_TRUE(isintegral(t1));
+	EXPECT_TRUE(isintegral(t2));
+	EXPECT_TRUE(isintegral(t3));
+	EXPECT_TRUE(isintegral(t4));
+	EXPECT_TRUE(isintegral(t5));
+	EXPECT_TRUE(isintegral(t6));
+	EXPECT_TRUE(isintegral(t7));
+	EXPECT_FALSE(isintegral(t8));
+	EXPECT_FALSE(isintegral(t9));
+	EXPECT_FALSE(isintegral(t10));
+	EXPECT_FALSE(isintegral(t11));
+	EXPECT_FALSE(isintegral(t12));
+	EXPECT_FALSE(isintegral(t13));
+	EXPECT_TRUE(isintegral(t14));
+	EXPECT_TRUE(isintegral(t15));
 }

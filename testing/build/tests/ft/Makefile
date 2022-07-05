@@ -360,6 +360,33 @@ ft_stack.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_stack.cpp.s
 .PHONY : ft_stack.cpp.s
 
+ft_vector.o: ft_vector.cpp.o
+
+.PHONY : ft_vector.o
+
+# target to build an object file
+ft_vector.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.o
+.PHONY : ft_vector.cpp.o
+
+ft_vector.i: ft_vector.cpp.i
+
+.PHONY : ft_vector.i
+
+# target to preprocess a source file
+ft_vector.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.i
+.PHONY : ft_vector.cpp.i
+
+ft_vector.s: ft_vector.cpp.s
+
+.PHONY : ft_vector.s
+
+# target to generate assembly for a file
+ft_vector.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/ft_vector.cpp.s
+.PHONY : ft_vector.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -421,6 +448,9 @@ help:
 	@echo "... ft_stack.o"
 	@echo "... ft_stack.i"
 	@echo "... ft_stack.s"
+	@echo "... ft_vector.o"
+	@echo "... ft_vector.i"
+	@echo "... ft_vector.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
