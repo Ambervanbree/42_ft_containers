@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:06:22 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/05 15:57:26 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:28:18 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,32 @@ int main(void){
 		<< ", 2nd el " << v3[2] << ", 3rd el " << v3[3] << std::endl;
 	}
 }
+
+
+	// {
+	// std::vector<int>	v1;
+
+	// std::cout << "VECTOR UNITIALISED: " << std::endl;
+	// std::cout << "Size v1 = 	" << v1.size() << std::endl;
+	// std::cout << "Capacity v1 =	" << v1.capacity() << std::endl << std::endl;
+
+	// for (int i = 0; i < 18; i++){
+	// 	v1.push_back(42);
+	// 	std::cout << "Size v1 =	" << v1.size() << std::endl;
+	// 	std::cout << "Capacity V1 =	" << v1.capacity() << std::endl << std::endl;		
+	// }
+
+	// std::vector<int>	v2(5);
+
+	// std::cout << "Elements: " << v2[0] << v2[1] << v2[2] << v2[3] << v2[4] << std::endl << std::endl;
+
+	// std::cout << "VECTOR INITIALISED WITH A SIZE OF 5: " << std::endl;
+	// std::cout << "Size v2 = 	" << v2.size() << std::endl;
+	// std::cout << "Capacity v2 =	" << v2.capacity() << std::endl << std::endl;
+
+	// for (int i = 0; i < 18; i++){
+	// 	v2.push_back(42);
+	// 	std::cout << "Size v2 =	" << v2.size() << std::endl;
+	// 	std::cout << "Capacity v2 =	" << v2.capacity() << std::endl << std::endl;		
+	// }
+	// }
