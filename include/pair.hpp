@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:24:39 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/06/28 11:30:29 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/06 14:52:54 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ namespace ft{
 		T1	first;
 		T2	second;
 		
-		pair() : first(0), second(0) {}
+		pair() : first(T1()), second (T2()) {}
 		
 		pair(const T1& x, const T2& y) : first(x), second(y) {}
 		

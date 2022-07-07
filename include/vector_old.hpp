@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/05 17:33:53 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:32:13 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ namespace ft{
 			
 			// explicit vector(size_type n, const T& value = T(), const Allocator& = Allocator());
 			
-			template <class InputIterator> 
-			vector(InputIterator first, InputIterator last, const Allocator& = Allocator());
+			// template <class InputIterator> 
+			// vector(InputIterator first, InputIterator last, const Allocator& = Allocator());
 			
 			// vector(const vector<T,Allocator>& x);
 			
@@ -54,7 +54,7 @@ namespace ft{
 			
 			void assign(size_type n, const T& u);
 			
-			allocator_type get_allocator() const;
+			// allocator_type get_allocator() const;
 
 			// iterators:
 			iterator begin();
@@ -88,12 +88,12 @@ namespace ft{
 			// void push_back(const T& x);
 			void pop_back();
 
-			iterator insert(iterator position, const T& x);
+			// iterator insert(iterator position, const T& x);
 			
-			void insert(iterator position, size_type n, const T& x);
+			// void insert(iterator position, size_type n, const T& x);
 			
-			template <class InputIterator>
-			void insert(iterator position, InputIterator first, InputIterator last);
+			// template <class InputIterator>
+			// void insert(iterator position, InputIterator first, InputIterator last);
 
 			iterator erase(iterator position);
 
