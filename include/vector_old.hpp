@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/07 15:32:13 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/08 11:05:11 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ namespace ft{
 			// types:
 			// typedef typename Allocator::reference 			reference;
 			// typedef typename Allocator::const_reference 	const_reference;
-			typedef implementation defined iterator; // See 23.1
-			typedef implementation defined const_iterator; // See 23.1
+			// typedef implementation defined iterator; // See 23.1
+			// typedef implementation defined const_iterator; // See 23.1
 			// typedef size_t									size_type;
 			// typedef size_t									difference_type;
 			// typedef T 										value_type;
 			// typedef Allocator								allocator_type;
 			// typedef typename Allocator::pointer 			pointer;
 			// typedef typename Allocator::const_pointer 		const_pointer;
-			typedef std::reverse_iterator<iterator> 		reverse_iterator;
-			typedef std::reverse_iterator<const_iterator> 	const_reverse_iterator;
+			// typedef std::reverse_iterator<iterator> 		reverse_iterator;
+			// typedef std::reverse_iterator<const_iterator> 	const_reverse_iterator;
 
 			// constructors, assignment operator and descructor:
 			// explicit vector(const Allocator& = Allocator()) : 
@@ -57,14 +57,14 @@ namespace ft{
 			// allocator_type get_allocator() const;
 
 			// iterators:
-			iterator begin();
-			const_iterator begin() const;
-			iterator end();
-			const_iterator end() const;
-			reverse_iterator rbegin();
-			const_reverse_iterator rbegin() const;
-			reverse_iterator rend();
-			const_reverse_iterator rend() const;
+			// iterator begin();
+			// const_iterator begin() const;
+			// iterator end();
+			// const_iterator end() const;
+			// reverse_iterator rbegin();
+			// const_reverse_iterator rbegin() const;
+			// reverse_iterator rend();
+			// const_reverse_iterator rend() const;
 
 			// capacity:
 			// size_type size() const;
@@ -85,15 +85,15 @@ namespace ft{
 			const_reference back() const;
 	
 			// 23.2.4.3 modifiers:
-			// void push_back(const T& x);
+			void push_back(const T& x);
 			void pop_back();
 
-			// iterator insert(iterator position, const T& x);
+			iterator insert(iterator position, const T& x);
 			
-			// void insert(iterator position, size_type n, const T& x);
+			void insert(iterator position, size_type n, const T& x);
 			
-			// template <class InputIterator>
-			// void insert(iterator position, InputIterator first, InputIterator last);
+			template <class InputIterator>
+			void insert(iterator position, InputIterator first, InputIterator last);
 
 			iterator erase(iterator position);
 
