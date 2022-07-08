@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/08 11:05:11 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/08 17:26:45 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,15 @@ namespace ft{
 			const_reference back() const;
 	
 			// 23.2.4.3 modifiers:
-			void push_back(const T& x);
+			// void push_back(const T& x);
 			void pop_back();
 
-			iterator insert(iterator position, const T& x);
+			// iterator insert(iterator position, const T& x);
 			
-			void insert(iterator position, size_type n, const T& x);
+			// void insert(iterator position, size_type n, const T& x);
 			
-			template <class InputIterator>
-			void insert(iterator position, InputIterator first, InputIterator last);
+			// template <class InputIterator>
+			// void insert(iterator position, InputIterator first, InputIterator last);
 
 			iterator erase(iterator position);
 

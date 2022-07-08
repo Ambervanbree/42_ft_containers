@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:39:15 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/08 15:12:04 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/08 18:14:32 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <memory>
 # include <iostream>
 # include <algorithm>
+# include <new>
 # include "enable_if.hpp"
 # include "is_integral.hpp"
 
 namespace ft {
-	template <class T, class Allocator = std::allocator<T>>
+	template <class T, class Allocator = std::allocator<T> >
 	class vector_new{
 		public:
 			// types:
@@ -92,6 +93,17 @@ namespace ft {
 			size_type size() const {return _size; }
 			size_type capacity() const {return _capacity; }
 			bool empty() const { return _size < 1 ? 1 : 0; }
+			
+			void reserve (size_type n){
+				value_type	*temp;
+				size_type	new_capacity = n;
+
+				temp = get_allocator().allocate(new_capacity);
+				copy(begin(), end(), temp);
+				_alloc.deallocate(_array, _capacity);
+				_array = temp;
+				_capacity = new_capacity;
+			}
 
 			// element access:
 			reference operator[](size_type n) {return _array[n]; }
@@ -102,19 +114,53 @@ namespace ft {
 			void push_back(const T& x) {
 				if (_size + 1 > _capacity)
 					reallocate();
-				(void)x;
 				*end() = x;
 				_size++;
 			}
-			// void pop_back();
+			
+			void pop_back() { 
+				value_type	*p = &(_array[_size - 1]);
+				// std::cout << "p is " << *p << std::endl;
+				// // value_type	*p = *(end() - 1);
+				// _alloc.destroy_at(p); 
+				std::destroy_at(p);
+			}
 			
 			iterator insert(iterator position, const T& x){
 				size_type	offset = position - begin();
 				
 				if (_size + 1 > _capacity)
 					reallocate();
-				// copy(begin(), begin())
-				// copy_backward(begin() + offset, end(), end() + 1);
+				copy(begin(), begin() + offset, begin());
+				copy_backward(begin() + offset, end(), end() + 1);
+				*(begin() + offset) = x;
+				_size++;
+				return begin() + offset;
+			}
+
+			void insert(iterator position, size_type n, const T& x){
+				size_type	offset = position - begin();
+				
+				if (_size + n > _capacity)
+					reserve(_capacity + n * 2);				
+				copy(begin(), begin() + offset, begin());
+				copy_backward(begin() + offset, end(), end() + n);
+				fill(begin() + offset, begin() + offset + n, x);
+				_size += n;
+			}
+// TODO --------->> capacity reallocation is not right yet for the last 2 inserts
+
+			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type>
+			void insert(iterator position, InputIterator first, InputIterator last){
+				size_type	offset = position - begin();
+				size_type	n = last - first;
+
+				if (_size + n > _capacity)
+					reserve(_capacity + n * 2);
+				copy(begin(), begin() + offset, begin());
+				copy_backward(begin() + offset, end(), end() + n);
+				copy(first, last, begin() + offset);
+				_size += n;	
 			}
 
 // TODO --------->> delete!!!
