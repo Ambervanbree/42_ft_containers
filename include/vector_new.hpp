@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:39:15 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/11 12:48:36 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:38:57 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,25 @@ namespace ft {
 				copy(x.begin(), x.end(), begin());
 				return *this;
 			}
+			
+			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type> 
+			void assign(InputIterator first, InputIterator last){
+				size_type	new_size = last - first;
+				
+				clear();
+				if (new_size > _capacity)
+					reserve(new_size);
+				copy(first, last, begin());
+				_size = new_size;
+			}
+
+			void assign(size_type n, const value_type& u){
+				clear();
+				if (n > _capacity)
+					reserve(n);
+				fill(begin(), begin() + n, u);
+				_size = n;
+			}
 
 			allocator_type get_allocator() const {return _alloc; }
 
@@ -96,13 +115,13 @@ namespace ft {
 			
 			void reserve (size_type n){
 				value_type	*temp;
-				size_type	new_capacity = n;
 
-				temp = get_allocator().allocate(new_capacity);
-				copy(begin(), end(), temp);
+				temp = get_allocator().allocate(n);
+				if (_size)
+					copy(begin(), end(), temp);
 				_alloc.deallocate(_array, _capacity);
 				_array = temp;
-				_capacity = new_capacity;
+				_capacity = n;
 			}
 
 			// element access:
@@ -124,36 +143,7 @@ namespace ft {
 				_alloc.destroy(p);
 				_size--;
 			}
-			
-			// returns: Iterator following the last removed element.
-			// If pos refers to the last element, then the end() iterator is returned.
-			// If last==end() prior to removal, then the updated end() iterator is returned.
-			// If [first, last) is an empty range, then last is returned.
 
-			iterator erase(iterator position){
-				size_type	offset 	= position - begin();
-				value_type	*p 		= &(_array[offset]);
-
-				_alloc.destroy(p);
-				copy(begin() + offset + 1, end(), begin() + offset);
-				_size--;
-				return begin() + offset;
-			}
-
-			iterator erase(iterator first, iterator last){
-				size_type	offset 	= first - begin();
-				size_type	range	= last - first;
-
-				for (size_type i = 0; i < range; i++){
-					_alloc.destroy(&(_array[offset + i]));
-					std::cout << "destroyed: " << *&(_array[offset + i]) << std::endl;
-				}
-				copy(begin() + offset + range, end(), begin() + offset);
-				_size -= range;
-				return begin() + offset;
-			}
-
-			
 			iterator insert(iterator position, const T& x){
 				size_type	offset = position - begin();
 				
@@ -174,7 +164,6 @@ namespace ft {
 				fill(begin() + offset, begin() + offset + n, x);
 				_size += n;
 			}
-// TODO --------->> capacity reallocation is not right yet for the last 2 inserts
 
 			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type>
 			void insert(iterator position, InputIterator first, InputIterator last){
@@ -186,6 +175,44 @@ namespace ft {
 				copy_backward(begin() + offset, end(), end() + n);
 				copy(first, last, begin() + offset);
 				_size += n;	
+			}
+
+			iterator erase(iterator position){
+				size_type	offset 	= position - begin();
+				value_type	*p 		= &(_array[offset]);
+
+				_alloc.destroy(p);
+				copy(begin() + offset + 1, end(), begin() + offset);
+				_size--;
+				return begin() + offset;
+			}
+
+			iterator erase(iterator first, iterator last){
+				size_type	offset 	= first - begin();
+				size_type	range	= last - first;
+
+				for (size_type i = 0; i < range; i++)
+					_alloc.destroy(&(_array[offset + i]));
+				copy(begin() + offset + range, end(), begin() + offset);
+				_size -= range;
+				return begin() + offset;
+			}
+
+			void clear(){
+				for (size_type i = 0; i < _size; i++)
+					_alloc.destroy(&(_array[i]));
+				_size = 0;
+			}
+
+			void swap(ft::vector_new<T,Allocator>& x){
+				ft::vector_new<value_type>	temp;
+
+				temp = *this;
+				temp._capacity = _capacity;
+				*this = x;
+				_capacity = x._capacity;
+				x = temp;
+				x._capacity = temp._capacity;
 			}
 
 // TODO --------->> delete!!!
@@ -203,14 +230,11 @@ namespace ft {
 			size_t			_capacity;
 			allocator_type	_alloc;
 
-			void	reallocate(size_type n){
-				size_type	new_capacity = 0;
-				
+			void	reallocate(size_type n){			
 				if (_size > n)
-					new_capacity = _size * 2;
+					reserve(_size * 2);
 				else
-					new_capacity = _size + n;
-				reserve(new_capacity);
+					reserve(_size + n);
 			}
 	};
 }

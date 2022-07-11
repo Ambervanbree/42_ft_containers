@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:06:22 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/11 12:46:46 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:35:45 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,21 @@ int main(void){
 		v1.pop_back();
 		std::cout << *(v1.erase(v1.end() - 3)) << std::endl;
 		print_veccie(v1, "v1");
-		v1.erase(v1.end() - 4, v1.end() - 3);
+		v1.erase(v1.begin() + 2, v1.begin() + 16);
 		print_veccie(v1, "v1");
+		v1.assign(10, 2);
+		print_veccie(v1, "v1");
+		print_veccie(v2, "v2");
+		v1.assign(v2.begin() + 1, v2.end());
+		print_veccie(v1, "v1");
+		v2.assign(3, 3);
+		print_veccie(v2, "v2");
+		v2.assign(11, 11);
+		print_veccie(v1, "v1");
+		print_veccie(v2, "v2");
+		v1.swap(v2);
+		print_veccie(v1, "v1");
+		print_veccie(v2, "v2");
 	}
 	{
 		// std::cout << std::endl;
@@ -86,7 +99,20 @@ int main(void){
 		v1.pop_back();
 		std::cout << *(v1.erase(v1.end() - 3)) << std::endl;
 		v1.print_veccie("v1");
-		v1.erase(v1.end() - 4, v1.end() - 3);
+		v1.erase(v1.begin() + 2, v1.begin() + 16);
 		v1.print_veccie("v1");
+		v1.assign(10, 2);
+		v1.print_veccie("v1");
+		v2.print_veccie("v2");
+		v1.assign(v2.begin() + 1, v2.end());
+		v1.print_veccie("v1");
+		v2.assign(3, 3);
+		v2.print_veccie("v2");
+		v2.assign(11, 11);
+		v1.print_veccie("v1");
+		v2.print_veccie("v2");
+		v1.swap(v2);
+		v1.print_veccie("v1");
+		v2.print_veccie("v2");
 	}
 }

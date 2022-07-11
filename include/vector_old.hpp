@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/11 12:40:36 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:43:17 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ namespace ft{
 			
 			// vector<T,Allocator>& operator=(const vector<T,Allocator>& x);
 			
-			template <class InputIterator> 
-			void assign(InputIterator first, InputIterator last);
+			// template <class InputIterator> 
+			// void assign(InputIterator first, InputIterator last);
 			
-			void assign(size_type n, const T& u);
+			// void assign(size_type n, const T& u);
 			
 			// allocator_type get_allocator() const;
 
@@ -86,7 +86,7 @@ namespace ft{
 	
 			// 23.2.4.3 modifiers:
 			// void push_back(const T& x);
-			void pop_back();
+			// void pop_back();
 
 			// iterator insert(iterator position, const T& x);
 			
@@ -97,11 +97,11 @@ namespace ft{
 
 			// iterator erase(iterator position);
 
-			iterator erase(iterator first, iterator last);
+			// iterator erase(iterator first, iterator last);
 
-			void swap(vector<T,Allocator>&);
+			// void swap(vector<T,Allocator>&);
 			
-			void clear();
+			// void clear();
 
 
 		// public:
