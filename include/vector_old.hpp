@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/11 15:43:17 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 16:24:18 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ namespace ft{
 
 			// capacity:
 			// size_type size() const;
-			size_type max_size() const;
-			void resize(size_type sz, T c = T());
+			// size_type max_size() const;
+			// void resize(size_type sz, T c = T());
 			// size_type capacity() const;
 			// bool empty() const;
 			// void reserve(size_type n);
@@ -77,12 +77,12 @@ namespace ft{
 			// element access:
 			// reference operator[](size_type n);
 			// const_reference operator[](size_type n) const;
-			const_reference at(size_type n) const;
-			reference at(size_type n);
-			reference front();
-			const_reference front() const;
-			reference back();
-			const_reference back() const;
+			// const_reference at(size_type n) const;
+			// reference at(size_type n);
+			// reference front();
+			// const_reference front() const;
+			// reference back();
+			// const_reference back() const;
 	
 			// 23.2.4.3 modifiers:
 			// void push_back(const T& x);
