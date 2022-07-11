@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 14:55:35 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/08 17:26:45 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:40:36 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ namespace ft{
 			// template <class InputIterator>
 			// void insert(iterator position, InputIterator first, InputIterator last);
 
-			iterator erase(iterator position);
+			// iterator erase(iterator position);
 
 			iterator erase(iterator first, iterator last);
 

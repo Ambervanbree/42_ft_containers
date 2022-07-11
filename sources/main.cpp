@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 15:06:22 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/08 17:39:21 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:46:46 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,21 @@ void print_veccie(std::vector<int> &vec, std::string name){
 	std::cout << std::endl;
 }
 
+class Amber{
+	public:
+		Amber() {std::cout << "constructor called" << std::endl; }
+		~Amber() {std::cout << "destructor called" << std::endl; };
+
+};
+
 int main(void){
 	{
+		// std::vector<Amber>	v1(2);
+		
+		// v1.pop_back();
+
+		// std::vector<Amber>	v2(2);
+
 		std::vector<int>	v1(5);
 		std::vector<int>	v2(5);
 
@@ -40,9 +53,20 @@ int main(void){
 		print_veccie(v2, "v2");
 
 		v1.pop_back();
+		std::cout << *(v1.erase(v1.end() - 3)) << std::endl;
+		print_veccie(v1, "v1");
+		v1.erase(v1.end() - 4, v1.end() - 3);
 		print_veccie(v1, "v1");
 	}
 	{
+		// std::cout << std::endl;
+		
+		// ft::vector_new<Amber>	v1(2);
+
+		// v1.pop_back();
+
+		// ft::vector_new<Amber>	v2(2);
+
 		std::cout << std::endl << std::endl;
 		ft::vector_new<int>	v1(5);
 		ft::vector_new<int>	v2(5);
@@ -60,6 +84,9 @@ int main(void){
 		v2.print_veccie("v2");
 
 		v1.pop_back();
+		std::cout << *(v1.erase(v1.end() - 3)) << std::endl;
+		v1.print_veccie("v1");
+		v1.erase(v1.end() - 4, v1.end() - 3);
 		v1.print_veccie("v1");
 	}
 }

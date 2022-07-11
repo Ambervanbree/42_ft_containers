@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:39:15 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/08 18:14:32 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:48:36 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,25 +113,52 @@ namespace ft {
 			// modifiers:
 			void push_back(const T& x) {
 				if (_size + 1 > _capacity)
-					reallocate();
+					reallocate(1);
 				*end() = x;
 				_size++;
 			}
 			
 			void pop_back() { 
-				value_type	*p = &(_array[_size - 1]);
-				// std::cout << "p is " << *p << std::endl;
-				// // value_type	*p = *(end() - 1);
-				// _alloc.destroy_at(p); 
-				std::destroy_at(p);
+				value_type		*p	= &(_array[_size - 1]);
+
+				_alloc.destroy(p);
+				_size--;
 			}
+			
+			// returns: Iterator following the last removed element.
+			// If pos refers to the last element, then the end() iterator is returned.
+			// If last==end() prior to removal, then the updated end() iterator is returned.
+			// If [first, last) is an empty range, then last is returned.
+
+			iterator erase(iterator position){
+				size_type	offset 	= position - begin();
+				value_type	*p 		= &(_array[offset]);
+
+				_alloc.destroy(p);
+				copy(begin() + offset + 1, end(), begin() + offset);
+				_size--;
+				return begin() + offset;
+			}
+
+			iterator erase(iterator first, iterator last){
+				size_type	offset 	= first - begin();
+				size_type	range	= last - first;
+
+				for (size_type i = 0; i < range; i++){
+					_alloc.destroy(&(_array[offset + i]));
+					std::cout << "destroyed: " << *&(_array[offset + i]) << std::endl;
+				}
+				copy(begin() + offset + range, end(), begin() + offset);
+				_size -= range;
+				return begin() + offset;
+			}
+
 			
 			iterator insert(iterator position, const T& x){
 				size_type	offset = position - begin();
 				
 				if (_size + 1 > _capacity)
-					reallocate();
-				copy(begin(), begin() + offset, begin());
+					reallocate(1);
 				copy_backward(begin() + offset, end(), end() + 1);
 				*(begin() + offset) = x;
 				_size++;
@@ -142,8 +169,7 @@ namespace ft {
 				size_type	offset = position - begin();
 				
 				if (_size + n > _capacity)
-					reserve(_capacity + n * 2);				
-				copy(begin(), begin() + offset, begin());
+					reallocate(n);
 				copy_backward(begin() + offset, end(), end() + n);
 				fill(begin() + offset, begin() + offset + n, x);
 				_size += n;
@@ -156,8 +182,7 @@ namespace ft {
 				size_type	n = last - first;
 
 				if (_size + n > _capacity)
-					reserve(_capacity + n * 2);
-				copy(begin(), begin() + offset, begin());
+					reallocate(n);
 				copy_backward(begin() + offset, end(), end() + n);
 				copy(first, last, begin() + offset);
 				_size += n;	
@@ -178,19 +203,14 @@ namespace ft {
 			size_t			_capacity;
 			allocator_type	_alloc;
 
-			void	reallocate(){
-				value_type	*temp;
+			void	reallocate(size_type n){
 				size_type	new_capacity = 0;
 				
-				if (_capacity)
-					new_capacity = _capacity * 2;
+				if (_size > n)
+					new_capacity = _size * 2;
 				else
-					new_capacity = 1;
-				temp = get_allocator().allocate(new_capacity);
-				copy(begin(), end(), temp);
-				_alloc.deallocate(_array, _capacity);
-				_array = temp;
-				_capacity = new_capacity;
+					new_capacity = _size + n;
+				reserve(new_capacity);
 			}
 	};
 }
