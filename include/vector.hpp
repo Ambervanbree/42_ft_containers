@@ -17,13 +17,14 @@
 # include <iostream>
 # include <algorithm>
 # include <new>
+# include <vector>
 # include "enable_if.hpp"
 # include "is_integral.hpp"
 # include "lexicographical_compare.hpp"
 
 namespace ft {
 	template <class T, class Allocator = std::allocator<T> >
-	class vector{
+	class vector {
 		public:
 			// types:
 			typedef typename Allocator::reference 			reference;
@@ -41,19 +42,19 @@ namespace ft {
 
 			// construct/copy/destroy:
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
-			_array(0), _size(0), _capacity(0), _alloc(alloc) {}
+			_array(0), _size(0), _capacity(0), _alloc(alloc) { }
 
 			explicit vector(size_type n, const value_type& value = value_type(), const allocator_type& alloc= allocator_type()) :
 			_size(n), _capacity(n), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
-				fill(begin(), end(), value);
+				std::fill(begin(), end(), value);
 			}
 
-			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type> 
-			vector(InputIterator first, InputIterator last, const Allocator& alloc = Allocator()) :
+			template <class InputIterator> 
+			vector(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, const Allocator& alloc = Allocator()) :
 			_size(last - first), _capacity(last - first), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
-				copy(first, last, begin());
+				std::copy(first, last, begin());
 			}
 
 			vector(const vector<T,Allocator>& x) :
@@ -62,14 +63,16 @@ namespace ft {
 			}
 
 			~vector(){
-				if (_capacity)
-					_alloc.deallocate(_array, _capacity);
+				clear();
+				_alloc.deallocate(_array, _capacity);
 			}
 
 			vector<T,Allocator>& operator=(const vector<T,Allocator>& x) {
 				if (x.size() > _capacity){
 					if (_capacity)
 						_alloc.deallocate(_array, _capacity);
+					if (size())
+						clear();
 					_capacity = x.size();
 					_array = _alloc.allocate(_capacity);
 				}
@@ -78,14 +81,14 @@ namespace ft {
 				return *this;
 			}
 			
-			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type> 
-			void assign(InputIterator first, InputIterator last){
+			template <class InputIterator> 
+			void assign(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
 				size_type	new_size = last - first;
 				
 				clear();
 				if (new_size > _capacity)
 					reserve(new_size);
-				copy(first, last, begin());
+				std::copy(first, last, begin());
 				_size = new_size;
 			}
 
@@ -93,9 +96,13 @@ namespace ft {
 				clear();
 				if (n > _capacity)
 					reserve(n);
-				fill(begin(), begin() + n, u);
+				for (size_type i = 0; i < n; i++)
+					_array[i] = u;
+				// std::fill(begin(), begin() + n, u);
 				_size = n;
 			}
+
+// TODO --------> if vector is 0, begin() and end(). 
 
 			allocator_type get_allocator() const {return _alloc; }
 
@@ -114,10 +121,13 @@ namespace ft {
 			size_type max_size() const {return _alloc.max_size(); }
 
 			void resize(size_type sz, T c = T()){
-				if (sz > size())
-					insert(end(), sz - size(), c);
-				else if (sz < size())
+				if (sz < size())
 					erase(begin() + sz, end());
+				else if (sz > size()){
+					if (sz > capacity())
+						reallocate(sz - size());
+					insert(end(), sz - size(), c);
+				}
 				else
 				;
 			}
@@ -127,10 +137,18 @@ namespace ft {
 			
 			void reserve (size_type n){
 				value_type	*temp;
+				size_type	new_size = size();
 
+				if (n > max_size())
+					throw std::length_error("vector::reserve");
+				if (!(n > _capacity))
+					return ;
 				temp = get_allocator().allocate(n);
-				if (_size)
+				if (_size){
 					copy(begin(), end(), temp);
+					clear();
+					_size = new_size;
+				}
 				_alloc.deallocate(_array, _capacity);
 				_array = temp;
 				_capacity = n;
@@ -155,7 +173,7 @@ namespace ft {
 			reference front() {return _array[0]; }
 			const_reference front() const {return _array[0]; } 
 			reference back() {return _array[_size - 1]; }
-			const_reference back() const {return _array[_size - 1]; }
+			const_reference back() const {return (end() - 1); }
 
 			// modifiers:
 			void push_back(const T& x) {
@@ -193,8 +211,8 @@ namespace ft {
 				_size += n;
 			}
 
-			template <class InputIterator, class = typename ft::enable_if<ft::is_integral<InputIterator>::value == false>::type>
-			void insert(iterator position, InputIterator first, InputIterator last){
+			template <class InputIterator>
+			void insert(iterator position, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
 				size_type	offset = position - begin();
 				size_type	n = last - first;
 
@@ -244,13 +262,13 @@ namespace ft {
 			}
 
 // TODO --------->> delete!!!
-			// void print_veccie(std::string name){
-			// 	std::cout << "Veccie " << name << " (size " 
-			// 	<< _size << ", capacity " << _capacity << ") contains: " << std::endl;
-			// 	for (size_type i = 0; i < _size; i++)
-			// 		std::cout << _array[i] << " ";
-			// 	std::cout << std::endl;
-			// }
+			void print_veccie(std::string name){
+				std::cout << "Veccie " << name << " (size " 
+				<< _size << ", capacity " << _capacity << ") contains: " << std::endl;
+				for (size_type i = 0; i < _size; i++)
+					std::cout << _array[i] << " ";
+				std::cout << std::endl;
+			}
 
 			// non-member operators:
 			friend bool operator==(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
@@ -264,13 +282,7 @@ namespace ft {
 			}
 
 			friend bool operator!=(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
-				if (x.size() == y.size())
-					return false;
-				else
-					for (size_type i = 0; i < x.size(); i++)
-						if (x._array[i] == y._array[i])
-							return false;
-				return true;
+				return !(x == y);
 			}
 
 			friend bool operator<(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
@@ -286,7 +298,7 @@ namespace ft {
 			}
 
 			friend bool operator>=(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
-				return !ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end()) || x == y ;
+				return !ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 			}
 			
 		private:
