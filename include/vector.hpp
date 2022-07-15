@@ -69,17 +69,19 @@ namespace ft {
 			}
 
 			vector<T,Allocator>& operator=(const vector<T,Allocator>& x) {
-				if (x.size() > _capacity){
-					if (size())
-						clear();
-					if (_capacity)
-						_alloc.deallocate(_array, _capacity);
-					_capacity = x.size();
-					_array = _alloc.allocate(_capacity);
+				if (*this != x){
+					if (x.size() > _capacity){
+						if (size())
+							clear();
+						if (_capacity)
+							_alloc.deallocate(_array, _capacity);
+						_capacity = x.size();
+						_array = _alloc.allocate(_capacity);
+					}
+					_size = x.size();
+					construct_copy(_array, x._array, _size);
 				}
-				_size = x.size();
-				construct_copy(_array, x._array, _size);
-				return *this;
+				return *this;			
 			}
 
 			template <class InputIterator> 
@@ -171,7 +173,7 @@ namespace ft {
 			reference front() {return _array[0]; }
 			const_reference front() const {return _array[0]; } 
 			reference back() {return _array[_size - 1]; }
-			const_reference back() const {return (end() - 1); }
+			const_reference back() const {return _array[_size - 1]; }
 
 			// modifiers:
 			void push_back(const T& x) {
@@ -201,7 +203,9 @@ namespace ft {
 
 			void insert(iterator position, size_type n, const T& value){
 				size_type	offset = position - begin();
-				
+
+				if (n == 0)
+					return ;				
 				if (_size + n > _capacity)
 					reallocate(n);
 				construct_copy_backward(offset, n);
@@ -215,6 +219,8 @@ namespace ft {
 				size_type	offset = position - begin();
 				size_type	n = last - first;
 
+				if (n == 0)
+					return ;
 				if (_size + n > _capacity)
 					reallocate(n);
 				construct_copy_backward(offset, n);
@@ -239,12 +245,15 @@ namespace ft {
 			iterator erase(iterator first, iterator last){
 				size_type	offset 	= first - begin();
 				size_type	range	= last - first;
+				size_type	i = 0;
 
-				for (size_type i = 0; i < range; i++)
-					_alloc.destroy(&(_array[offset + i]));
-				for (size_type i = 0; i < range; i++){
-					_alloc.construct(&*first, *(first + range));
-					_alloc.destroy(&*(first + range));
+				for (; i < range; i++)
+					_alloc.destroy(&*(first + i));
+				if (first + i != end()){
+					for (i = 0; i < _size - offset - range; i++){
+						_alloc.construct(&*(first + i), *(first + range + i));
+						_alloc.destroy(&*(first + range + i));
+					}
 				}
 				_size -= range;
 				return begin() + offset;
@@ -257,18 +266,14 @@ namespace ft {
 			}
 
 			void swap(ft::vector<T,Allocator>& x){
-				ft::vector<value_type>	temp;
-
-				temp = *this;
-				temp._capacity = _capacity;
-				*this = x;
-				_capacity = x._capacity;
-				x = temp;
-				x._capacity = temp._capacity;
+				std::swap(_array, x._array);
+				std::swap(_size, x._size);
+				std::swap(_capacity, x._capacity);
+				std::swap(_alloc, x._alloc);
 			}
 
 // TODO --------->> delete!!!
-			void print_veccie(std::string name){
+			void print_veccie(std::string name) const{
 				std::cout << "Veccie " << name << " (size " 
 				<< _size << ", capacity " << _capacity << ") contains: " << std::endl;
 				for (size_type i = 0; i < _size; i++)
@@ -306,6 +311,8 @@ namespace ft {
 			friend bool operator>=(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
 				return !ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 			}
+
+			friend void swap(vector<T,Allocator>& x, vector<T,Allocator>& y) {y.swap(x);}
 			
 		private:
 			value_type*		_array;

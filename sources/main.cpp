@@ -5,28 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 09:14:09 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/15 09:59:56 by avan-bre         ###   ########.fr       */
+/*   Created: 2022/07/12 12:05:00 by avan-bre          #+#    #+#             */
+/*   Updated: 2022/07/15 15:56:13 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.hpp"
-#include "../42TESTERS-CONTAINERS/test_utils.hpp"
+#include "stack.hpp"
+#include <list>
+#include "../containers_test/srcs/vector/common.hpp"
+#include "../containers_test/srcs/base.hpp"
 
-int	main(void){
-	std::cout << "\nINSERT\n";
-	ft::vector<std::string>	v1;
-	for (size_t i = 0; i < 15; i++)
-		v1.push_back("        hbaudet\n");
-	std::cout << "after push_back, before at\n";
-	for (size_t i = 0; i < v1.size(); i++)
-		std::cout << v1.at(i) << ' ';
-	std::cout << '\n';
+#define TESTED_TYPE int
 
-	ft::vector<std::string>::iterator	tmp;
-	tmp = v1.begin() + 4;
-	v1.insert(tmp, 8, "t");
-// 	for (size_t i = 0; i < v1.size(); i++)
-// 		std::cout << v1.at(i) << ' ';
-// 	std::cout << '\n';
+template <typename T>
+void	printSize(ft::vector<T> const &vct, bool print_content = true)
+{
+	const T_SIZE_TYPE size = vct.size();
+	const T_SIZE_TYPE capacity = vct.capacity();
+	const std::string isCapacityOk = (capacity >= size) ? "OK" : "KO";
+	// Cannot limit capacity's max value because it's implementation dependent
+
+	std::cout << "size: " << size << std::endl;
+	std::cout << "capacity: " << isCapacityOk << std::endl;
+	std::cout << "max_size: " << vct.max_size() << std::endl;
+	if (print_content)
+	{
+		typename ft::vector<T>::const_iterator it = vct.begin();
+		typename ft::vector<T>::const_iterator ite = vct.end();
+		std::cout << std::endl << "Content is:" << std::endl;
+		for (; it != ite; ++it)
+			std::cout << "- " << *it << std::endl;
+	}
+	std::cout << "###############################################" << std::endl;
+}
+
+
+int		main(void)
+{
+	std::list<TESTED_TYPE> lst;
+	std::list<TESTED_TYPE>::iterator lst_it;
+	for (int i = 1; i < 5; ++i)
+		lst.push_back(i * 3);
+
+	ft::vector<TESTED_TYPE> vct(lst.begin(), lst.end());
+	printSize(vct);
+
+	lst_it = lst.begin();
+	for (int i = 1; lst_it != lst.end(); ++i)
+		*lst_it++ = i * 5;
+	vct.assign(lst.begin(), lst.end());
+	printSize(vct);
+
+	vct.insert(vct.end(), lst.rbegin(), lst.rend());
+	printSize(vct);
+	return (0);
 }
