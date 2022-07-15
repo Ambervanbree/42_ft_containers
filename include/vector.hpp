@@ -47,14 +47,14 @@ namespace ft {
 			explicit vector(size_type n, const value_type& value = value_type(), const allocator_type& alloc= allocator_type()) :
 			_size(n), _capacity(n), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
-				std::fill(begin(), end(), value);
+				construct_copy(value);
 			}
 
 			template <class InputIterator> 
 			vector(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, const Allocator& alloc = Allocator()) :
 			_size(last - first), _capacity(last - first), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
-				std::copy(first, last, begin());
+				construct_copy(first, last, begin());
 			}
 
 			vector(const vector<T,Allocator>& x) :
@@ -64,23 +64,24 @@ namespace ft {
 
 			~vector(){
 				clear();
-				_alloc.deallocate(_array, _capacity);
+				if (_capacity)
+					_alloc.deallocate(_array, _capacity);
 			}
 
 			vector<T,Allocator>& operator=(const vector<T,Allocator>& x) {
 				if (x.size() > _capacity){
-					if (_capacity)
-						_alloc.deallocate(_array, _capacity);
 					if (size())
 						clear();
+					if (_capacity)
+						_alloc.deallocate(_array, _capacity);
 					_capacity = x.size();
 					_array = _alloc.allocate(_capacity);
 				}
 				_size = x.size();
-				copy(x.begin(), x.end(), begin());
+				construct_copy(_array, x._array, _size);
 				return *this;
 			}
-			
+
 			template <class InputIterator> 
 			void assign(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
 				size_type	new_size = last - first;
@@ -88,21 +89,17 @@ namespace ft {
 				clear();
 				if (new_size > _capacity)
 					reserve(new_size);
-				std::copy(first, last, begin());
+				construct_copy(first, last, begin());			
 				_size = new_size;
 			}
 
-			void assign(size_type n, const value_type& u){
+			void assign(size_type n, const value_type& value){
 				clear();
 				if (n > _capacity)
 					reserve(n);
-				for (size_type i = 0; i < n; i++)
-					_array[i] = u;
-				// std::fill(begin(), begin() + n, u);
 				_size = n;
+				construct_copy(value);		
 			}
-
-// TODO --------> if vector is 0, begin() and end(). 
 
 			allocator_type get_allocator() const {return _alloc; }
 
@@ -111,10 +108,10 @@ namespace ft {
 			const_iterator begin() const {return const_iterator(_array); }
 			iterator end() {return iterator(_array + _size); }
 			const_iterator end() const {return const_iterator(_array + _size); }
-			reverse_iterator rbegin() {return reverse_iterator(_array); }
-			const_reverse_iterator rbegin() const {return const_reverse_iterator(_array); }
-			reverse_iterator rend() {return reverse_iterator(_array + _size); }
-			const_reverse_iterator rend() const {return const_reverse_iterator(_array + _size); }
+			reverse_iterator rbegin() {return reverse_iterator(end()); }
+			const_reverse_iterator rbegin() const {return const_reverse_iterator(end()); }
+			reverse_iterator rend() {return reverse_iterator(begin()); }
+			const_reverse_iterator rend() const {return const_reverse_iterator(begin()); }
 
 			// capacity:
 			size_type size() const {return _size; }
@@ -139,17 +136,18 @@ namespace ft {
 				value_type	*temp;
 				size_type	new_size = size();
 
+				if (n <= _capacity)
+					return ;
 				if (n > max_size())
 					throw std::length_error("vector::reserve");
-				if (!(n > _capacity))
-					return ;
 				temp = get_allocator().allocate(n);
 				if (_size){
-					copy(begin(), end(), temp);
+					construct_copy(temp, _array, new_size);
 					clear();
 					_size = new_size;
 				}
-				_alloc.deallocate(_array, _capacity);
+				if (_capacity)
+					_alloc.deallocate(_array, _capacity);
 				_array = temp;
 				_capacity = n;
 			}
@@ -179,7 +177,7 @@ namespace ft {
 			void push_back(const T& x) {
 				if (_size + 1 > _capacity)
 					reallocate(1);
-				*end() = x;
+				_alloc.construct(&_array[_size], x);
 				_size++;
 			}
 			
@@ -191,23 +189,24 @@ namespace ft {
 			}
 
 			iterator insert(iterator position, const T& x){
-				size_type	offset = position - begin();
-				
+				size_type	offset =	position - begin();
+
 				if (_size + 1 > _capacity)
 					reallocate(1);
-				copy_backward(begin() + offset, end(), end() + 1);
-				*(begin() + offset) = x;
+				construct_copy_backward(offset, 1);
+				_alloc.construct(&*(begin() + offset), x);
 				_size++;
 				return begin() + offset;
 			}
 
-			void insert(iterator position, size_type n, const T& x){
+			void insert(iterator position, size_type n, const T& value){
 				size_type	offset = position - begin();
 				
 				if (_size + n > _capacity)
 					reallocate(n);
-				copy_backward(begin() + offset, end(), end() + n);
-				fill(begin() + offset, begin() + offset + n, x);
+				construct_copy_backward(offset, n);
+				position = begin() + offset;
+				construct_copy(position, n, value);
 				_size += n;
 			}
 
@@ -218,17 +217,21 @@ namespace ft {
 
 				if (_size + n > _capacity)
 					reallocate(n);
-				copy_backward(begin() + offset, end(), end() + n);
-				copy(first, last, begin() + offset);
+				construct_copy_backward(offset, n);
+				construct_copy(first, last, begin() + offset);
 				_size += n;	
 			}
 
 			iterator erase(iterator position){
 				size_type	offset 	= position - begin();
-				value_type	*p 		= &(_array[offset]);
+				iterator	first	= begin() + offset + 1;
+				iterator	last	= end();
 
-				_alloc.destroy(p);
-				copy(begin() + offset + 1, end(), begin() + offset);
+				_alloc.destroy(&*position);
+				for (size_type i = 0; first != last; first++, i++){
+					_alloc.construct(&*(position + i), *first);
+					_alloc.destroy(&*first);
+				}
 				_size--;
 				return begin() + offset;
 			}
@@ -239,7 +242,10 @@ namespace ft {
 
 				for (size_type i = 0; i < range; i++)
 					_alloc.destroy(&(_array[offset + i]));
-				copy(begin() + offset + range, end(), begin() + offset);
+				for (size_type i = 0; i < range; i++){
+					_alloc.construct(&*first, *(first + range));
+					_alloc.destroy(&*(first + range));
+				}
 				_size -= range;
 				return begin() + offset;
 			}
@@ -313,6 +319,34 @@ namespace ft {
 				else
 					reserve(_size + n);
 			}
+
+			template <class InputIterator> 
+			void	construct_copy(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, iterator position){
+				for (size_type i = 0; first != last; first++, i++)
+					_alloc.construct(&*(position + i), *first);
+			}
+
+			void	construct_copy(iterator position, size_type n, value_type value){
+				for (size_type i = 0; i < n; i++)
+					_alloc.construct(&*(position + i), value);
+			}
+
+			void	construct_copy(value_type *destination, value_type *source, size_type n){
+				for (size_type i = 0; i < n; i++)
+					_alloc.construct(&destination[i], source[i]);
+			}
+
+			void	construct_copy(value_type value){
+				for (size_type i = 0; i < _size; i++)
+					_alloc.construct(&_array[i], value);
+			}
+
+			void	construct_copy_backward(size_type offset, size_type n){
+				for (size_type i = _size; i > offset; i--){
+					_alloc.construct(&_array[i + n - 1], _array[i - 1]);
+					_alloc.destroy(&_array[i - 1]);
+				}
+			}		
 	};
 }
 
