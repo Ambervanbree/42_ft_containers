@@ -18,6 +18,7 @@
 # include <algorithm>
 # include <new>
 # include <vector>
+# include "reverse_iterators.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
 # include "lexicographical_compare.hpp"
@@ -27,18 +28,18 @@ namespace ft {
 	class vector {
 		public:
 			// types:
-			typedef typename Allocator::reference 			reference;
-			typedef typename Allocator::const_reference 	const_reference;
-			typedef typename std::vector<T>::iterator		iterator;
-			typedef typename std::vector<T>::const_iterator	const_iterator;
-			typedef size_t									size_type;
-			typedef size_t									difference_type;
-			typedef T 										value_type;
-			typedef Allocator								allocator_type;
-			typedef typename Allocator::pointer 			pointer;
-			typedef typename Allocator::const_pointer 		const_pointer;
-			typedef typename std::vector<T>::reverse_iterator 		reverse_iterator;
-			typedef typename std::vector<T>::const_reverse_iterator	const_reverse_iterator;
+			typedef typename Allocator::reference 					reference;
+			typedef typename Allocator::const_reference 			const_reference;
+			typedef typename Allocator::pointer 					pointer;
+			typedef typename Allocator::const_pointer 				const_pointer;
+			typedef pointer											iterator;
+			typedef const_pointer									const_iterator;
+			typedef size_t											size_type;
+			typedef size_t											difference_type;
+			typedef T 												value_type;
+			typedef Allocator										allocator_type;
+			typedef typename ft::reverse_iterator<iterator>			reverse_iterator;
+			typedef typename ft::reverse_iterator<const iterator>	const_reverse_iterator;
 
 			// construct/copy/destroy:
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
