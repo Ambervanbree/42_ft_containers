@@ -39,7 +39,7 @@ namespace ft {
 			typedef T 												value_type;
 			typedef Allocator										allocator_type;
 			typedef typename ft::reverse_iterator<iterator>			reverse_iterator;
-			typedef typename ft::reverse_iterator<const iterator>	const_reverse_iterator;
+			typedef typename ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
 			// construct/copy/destroy:
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
