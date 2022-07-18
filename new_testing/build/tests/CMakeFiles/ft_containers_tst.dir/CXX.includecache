@@ -6,11 +6,37 @@
 
 #IncludeRegexTransform: 
 
+../../include/enable_if.hpp
+
+../../include/is_integral.hpp
+
+../../include/iterator_traits.hpp
+
+../../include/lexicographical_compare.hpp
+
+../../include/reverse_iterators.hpp
+iterator_traits.hpp
+../../include/iterator_traits.hpp
+
 ../../include/vector.hpp
 memory
 -
 iostream
 -
+algorithm
+-
+new
+-
+vector
+-
+reverse_iterators.hpp
+../../include/reverse_iterators.hpp
+enable_if.hpp
+../../include/enable_if.hpp
+is_integral.hpp
+../../include/is_integral.hpp
+lexicographical_compare.hpp
+../../include/lexicographical_compare.hpp
 
 ../googletest/googletest/include/gtest/gtest-assertion-result.h
 memory
@@ -372,6 +398,14 @@ cxxabi.h
 acxx_demangle.h
 -
 
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/capacity.cpp
+gtest/gtest.h
+-
+parameters.hpp
+/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
+memory
+-
+
 /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/constructors.cpp
 gtest/gtest.h
 -
@@ -379,6 +413,8 @@ parameters.hpp
 /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
 
 /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
+iostream
+-
 vector
 -
 vector.hpp

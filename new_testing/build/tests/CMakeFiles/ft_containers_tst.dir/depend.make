@@ -169,7 +169,13 @@ tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o: ../googletest/googletes
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o: ../tests/other/pair.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o: ../tests/other/parameters.hpp
 
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/enable_if.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/is_integral.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/iterator_traits.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/lexicographical_compare.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/reverse_iterators.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/stack.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../../include/vector.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -194,7 +200,13 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../googletest/g
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../tests/stack/constructors.cpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../tests/stack/parameters.hpp
 
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/enable_if.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/is_integral.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/iterator_traits.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/lexicographical_compare.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/reverse_iterators.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/stack.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../../include/vector.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -219,7 +231,13 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../googlete
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../tests/stack/member_functions.cpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../tests/stack/parameters.hpp
 
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/enable_if.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/is_integral.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/iterator_traits.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/lexicographical_compare.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/reverse_iterators.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/stack.hpp
+tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../../include/vector.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -244,6 +262,41 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../googletest/goog
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../tests/stack/operators.cpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../tests/stack/parameters.hpp
 
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/enable_if.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/is_integral.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/iterator_traits.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/lexicographical_compare.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/reverse_iterators.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../../include/vector.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-matchers.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-message.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-param-test.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-printers.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-test-part.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest-typed-test.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest_pred_impl.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/gtest_prod.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-internal.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../tests/vector/capacity.cpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../tests/vector/parameters.hpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/enable_if.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/is_integral.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/iterator_traits.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/lexicographical_compare.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/reverse_iterators.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../../include/vector.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../googletest/googletest/include/gtest/gtest-assertion-result.h
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../googletest/googletest/include/gtest/gtest-death-test.h
@@ -268,4 +321,12 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../googletest/
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../tests/vector/constructors.cpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../tests/vector/parameters.hpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o: ../tests/vector/element_acces.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o: ../tests/vector/iterators.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o: ../tests/vector/modifiers.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o: ../tests/vector/operators.cpp
 

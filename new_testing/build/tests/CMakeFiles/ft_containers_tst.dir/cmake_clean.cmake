@@ -9,7 +9,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o"
   "CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o"
   "CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o"
   "CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
   "ft_containers_tst"
   "ft_containers_tst.pdb"
 )

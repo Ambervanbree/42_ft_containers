@@ -17,7 +17,7 @@
 # include <iostream>
 # include <algorithm>
 # include <new>
-# include <vector>
+# include <iterator>
 # include "reverse_iterators.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
@@ -50,12 +50,14 @@ namespace ft {
 				_array = _alloc.allocate(_capacity);
 				construct_copy(value);
 			}
+			
+			template <class SomeIterator> 
+			vector(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last, const Allocator& alloc = Allocator()) :
+			_size(std::distance(first, last)), _capacity(_size), _alloc(alloc) {
+				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
 
-			template <class InputIterator> 
-			vector(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, const Allocator& alloc = Allocator()) :
-			_size(last - first), _capacity(last - first), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
-				construct_copy(first, last, begin());
+				iterator_construct(first, last, category());
 			}
 
 			vector(const vector<T,Allocator>& x) :
@@ -85,14 +87,15 @@ namespace ft {
 				return *this;			
 			}
 
-			template <class InputIterator> 
-			void assign(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
-				size_type	new_size = last - first;
+			template <class SomeIterator> 
+			void assign(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last){
+				size_type	new_size = std::distance(first, last);
+				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
 				
 				clear();
 				if (new_size > _capacity)
 					reserve(new_size);
-				construct_copy(first, last, begin());			
+				iterator_construct(first, last, category());
 				_size = new_size;
 			}
 
@@ -215,17 +218,18 @@ namespace ft {
 				_size += n;
 			}
 
-			template <class InputIterator>
-			void insert(iterator position, typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
+			template <class SomeIterator>
+			void insert(iterator position, typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last){
 				size_type	offset = position - begin();
-				size_type	n = last - first;
+				size_type	n = std::distance(first, last);
+				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
 
 				if (n == 0)
 					return ;
 				if (_size + n > _capacity)
 					reallocate(n);
 				construct_copy_backward(offset, n);
-				construct_copy(first, last, begin() + offset);
+				insert_copy(first, last, offset, category());
 				_size += n;	
 			}
 
@@ -328,8 +332,34 @@ namespace ft {
 					reserve(_size + n);
 			}
 
+			template<typename RandomAccessIterator>
+			void iterator_construct(RandomAccessIterator first, RandomAccessIterator last, std::random_access_iterator_tag){
+				construct_copy(first, last, begin());
+			}
+
+			template<typename input_iterator>
+			void iterator_construct(input_iterator first, input_iterator last, std::input_iterator_tag){
+				for (size_type i = 0; first != last; i++, first++)
+					_alloc.construct(&_array[i], *first);
+			}
+
 			template <class InputIterator> 
-			void	construct_copy(typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, iterator position){
+			void	insert_copy(InputIterator first, InputIterator last, size_type offset, std::input_iterator_tag){
+				iterator	it = begin();
+
+				for (size_type i = 0; i < offset; i++)
+					it++;
+				for (size_type i = 0; first != last; first++, i++)
+					_alloc.construct(&*(it + i), *first);
+			}
+
+			template <class InputIterator> 
+			void	insert_copy(InputIterator first, InputIterator last, size_type offset, std::random_access_iterator_tag){
+				construct_copy(first, last, begin() + offset);
+			}
+
+			template <class InputIterator> 
+			void	construct_copy(InputIterator first, InputIterator last, iterator position){
 				for (size_type i = 0; first != last; first++, i++)
 					_alloc.construct(&*(position + i), *first);
 			}

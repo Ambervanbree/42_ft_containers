@@ -187,9 +187,22 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/operators.cpp -o CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s
 
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../tests/vector/capacity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/capacity.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/capacity.cpp > CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/capacity.cpp -o CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s
+
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../tests/vector/constructors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/constructors.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.i: cmake_force
@@ -199,6 +212,58 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.i: cmake_force
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/constructors.cpp -o CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o: ../tests/vector/element_acces.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/element_acces.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/element_acces.cpp > CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/element_acces.cpp -o CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o: ../tests/vector/iterators.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/iterators.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/iterators.cpp > CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/iterators.cpp -o CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o: ../tests/vector/modifiers.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/modifiers.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/modifiers.cpp > CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/modifiers.cpp -o CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o: ../tests/vector/operators.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/operators.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/operators.cpp > CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/operators.cpp -o CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s
 
 # Object files for target ft_containers_tst
 ft_containers_tst_OBJECTS = \
@@ -212,7 +277,12 @@ ft_containers_tst_OBJECTS = \
 "CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o" \
-"CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
+"CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
 
 # External object files for target ft_containers_tst
 ft_containers_tst_EXTERNAL_OBJECTS =
@@ -227,11 +297,16 @@ tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/build.make
 tests/ft_containers_tst: lib/libgtest.a
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ft_containers_tst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ft_containers_tst"
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_containers_tst.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

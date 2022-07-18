@@ -441,6 +441,33 @@ stack/operators.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s
 .PHONY : stack/operators.cpp.s
 
+vector/capacity.o: vector/capacity.cpp.o
+
+.PHONY : vector/capacity.o
+
+# target to build an object file
+vector/capacity.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o
+.PHONY : vector/capacity.cpp.o
+
+vector/capacity.i: vector/capacity.cpp.i
+
+.PHONY : vector/capacity.i
+
+# target to preprocess a source file
+vector/capacity.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i
+.PHONY : vector/capacity.cpp.i
+
+vector/capacity.s: vector/capacity.cpp.s
+
+.PHONY : vector/capacity.s
+
+# target to generate assembly for a file
+vector/capacity.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s
+.PHONY : vector/capacity.cpp.s
+
 vector/constructors.o: vector/constructors.cpp.o
 
 .PHONY : vector/constructors.o
@@ -467,6 +494,114 @@ vector/constructors.s: vector/constructors.cpp.s
 vector/constructors.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s
 .PHONY : vector/constructors.cpp.s
+
+vector/element_acces.o: vector/element_acces.cpp.o
+
+.PHONY : vector/element_acces.o
+
+# target to build an object file
+vector/element_acces.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o
+.PHONY : vector/element_acces.cpp.o
+
+vector/element_acces.i: vector/element_acces.cpp.i
+
+.PHONY : vector/element_acces.i
+
+# target to preprocess a source file
+vector/element_acces.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i
+.PHONY : vector/element_acces.cpp.i
+
+vector/element_acces.s: vector/element_acces.cpp.s
+
+.PHONY : vector/element_acces.s
+
+# target to generate assembly for a file
+vector/element_acces.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s
+.PHONY : vector/element_acces.cpp.s
+
+vector/iterators.o: vector/iterators.cpp.o
+
+.PHONY : vector/iterators.o
+
+# target to build an object file
+vector/iterators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o
+.PHONY : vector/iterators.cpp.o
+
+vector/iterators.i: vector/iterators.cpp.i
+
+.PHONY : vector/iterators.i
+
+# target to preprocess a source file
+vector/iterators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i
+.PHONY : vector/iterators.cpp.i
+
+vector/iterators.s: vector/iterators.cpp.s
+
+.PHONY : vector/iterators.s
+
+# target to generate assembly for a file
+vector/iterators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s
+.PHONY : vector/iterators.cpp.s
+
+vector/modifiers.o: vector/modifiers.cpp.o
+
+.PHONY : vector/modifiers.o
+
+# target to build an object file
+vector/modifiers.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o
+.PHONY : vector/modifiers.cpp.o
+
+vector/modifiers.i: vector/modifiers.cpp.i
+
+.PHONY : vector/modifiers.i
+
+# target to preprocess a source file
+vector/modifiers.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i
+.PHONY : vector/modifiers.cpp.i
+
+vector/modifiers.s: vector/modifiers.cpp.s
+
+.PHONY : vector/modifiers.s
+
+# target to generate assembly for a file
+vector/modifiers.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s
+.PHONY : vector/modifiers.cpp.s
+
+vector/operators.o: vector/operators.cpp.o
+
+.PHONY : vector/operators.o
+
+# target to build an object file
+vector/operators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o
+.PHONY : vector/operators.cpp.o
+
+vector/operators.i: vector/operators.cpp.i
+
+.PHONY : vector/operators.i
+
+# target to preprocess a source file
+vector/operators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i
+.PHONY : vector/operators.cpp.i
+
+vector/operators.s: vector/operators.cpp.s
+
+.PHONY : vector/operators.s
+
+# target to generate assembly for a file
+vector/operators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s
+.PHONY : vector/operators.cpp.s
 
 # Help Target
 help:
@@ -511,9 +646,24 @@ help:
 	@echo "... stack/operators.o"
 	@echo "... stack/operators.i"
 	@echo "... stack/operators.s"
+	@echo "... vector/capacity.o"
+	@echo "... vector/capacity.i"
+	@echo "... vector/capacity.s"
 	@echo "... vector/constructors.o"
 	@echo "... vector/constructors.i"
 	@echo "... vector/constructors.s"
+	@echo "... vector/element_acces.o"
+	@echo "... vector/element_acces.i"
+	@echo "... vector/element_acces.s"
+	@echo "... vector/iterators.o"
+	@echo "... vector/iterators.i"
+	@echo "... vector/iterators.s"
+	@echo "... vector/modifiers.o"
+	@echo "... vector/modifiers.i"
+	@echo "... vector/modifiers.s"
+	@echo "... vector/operators.o"
+	@echo "... vector/operators.i"
+	@echo "... vector/operators.s"
 .PHONY : help
 
 
