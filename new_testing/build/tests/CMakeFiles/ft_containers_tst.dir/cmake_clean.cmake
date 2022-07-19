@@ -15,6 +15,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o"
   "CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o"
   "CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
+  "CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o"
   "ft_containers_tst"
   "ft_containers_tst.pdb"
 )

@@ -25,7 +25,6 @@ tests/CMakeFiles/ft_containers_tst.dir/main.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/main.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o
- ../../include/enable_if.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -49,7 +48,6 @@ tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/enable_if.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o
- ../../include/equal.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -73,7 +71,6 @@ tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/equal.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o
- ../../include/is_integral.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -97,7 +94,6 @@ tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/is_integral.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o
- ../../include/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -121,7 +117,6 @@ tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/lexicographical_compare.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o
- ../../include/pair.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -145,7 +140,6 @@ tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/make_pair.cpp
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o
- ../../include/pair.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -170,13 +164,13 @@ tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/pair.cpp
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/other/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o
- ../../include/enable_if.hpp
- ../../include/is_integral.hpp
- ../../include/iterator_traits.hpp
- ../../include/lexicographical_compare.hpp
- ../../include/reverse_iterators.hpp
- ../../include/stack.hpp
- ../../include/vector.hpp
+ ../../include/containers/stack.hpp
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -201,13 +195,13 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/constructors.cpp
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o
- ../../include/enable_if.hpp
- ../../include/is_integral.hpp
- ../../include/iterator_traits.hpp
- ../../include/lexicographical_compare.hpp
- ../../include/reverse_iterators.hpp
- ../../include/stack.hpp
- ../../include/vector.hpp
+ ../../include/containers/stack.hpp
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -232,13 +226,13 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/member_functions.cpp
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o
- ../../include/enable_if.hpp
- ../../include/is_integral.hpp
- ../../include/iterator_traits.hpp
- ../../include/lexicographical_compare.hpp
- ../../include/reverse_iterators.hpp
- ../../include/stack.hpp
- ../../include/vector.hpp
+ ../../include/containers/stack.hpp
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -263,12 +257,12 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/operators.cpp
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/stack/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o
- ../../include/enable_if.hpp
- ../../include/is_integral.hpp
- ../../include/iterator_traits.hpp
- ../../include/lexicographical_compare.hpp
- ../../include/reverse_iterators.hpp
- ../../include/vector.hpp
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -293,12 +287,14 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/capacity.cpp
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o
- ../../include/enable_if.hpp
- ../../include/is_integral.hpp
- ../../include/iterator_traits.hpp
- ../../include/lexicographical_compare.hpp
- ../../include/reverse_iterators.hpp
- ../../include/vector.hpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/constructors.cpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
  ../googletest/googletest/include/gtest/gtest-assertion-result.h
  ../googletest/googletest/include/gtest/gtest-death-test.h
  ../googletest/googletest/include/gtest/gtest-matchers.h
@@ -320,13 +316,125 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-port.h
  ../googletest/googletest/include/gtest/internal/gtest-string.h
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
- /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/constructors.cpp
- /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
-tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/element_acces.cpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
+ ../googletest/googletest/include/gtest/gtest-assertion-result.h
+ ../googletest/googletest/include/gtest/gtest-death-test.h
+ ../googletest/googletest/include/gtest/gtest-matchers.h
+ ../googletest/googletest/include/gtest/gtest-message.h
+ ../googletest/googletest/include/gtest/gtest-param-test.h
+ ../googletest/googletest/include/gtest/gtest-printers.h
+ ../googletest/googletest/include/gtest/gtest-test-part.h
+ ../googletest/googletest/include/gtest/gtest-typed-test.h
+ ../googletest/googletest/include/gtest/gtest.h
+ ../googletest/googletest/include/gtest/gtest_pred_impl.h
+ ../googletest/googletest/include/gtest/gtest_prod.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+ ../googletest/googletest/include/gtest/internal/gtest-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+ ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+ ../googletest/googletest/include/gtest/internal/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/gtest-string.h
+ ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/iterators.cpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
+ ../googletest/googletest/include/gtest/gtest-assertion-result.h
+ ../googletest/googletest/include/gtest/gtest-death-test.h
+ ../googletest/googletest/include/gtest/gtest-matchers.h
+ ../googletest/googletest/include/gtest/gtest-message.h
+ ../googletest/googletest/include/gtest/gtest-param-test.h
+ ../googletest/googletest/include/gtest/gtest-printers.h
+ ../googletest/googletest/include/gtest/gtest-test-part.h
+ ../googletest/googletest/include/gtest/gtest-typed-test.h
+ ../googletest/googletest/include/gtest/gtest.h
+ ../googletest/googletest/include/gtest/gtest_pred_impl.h
+ ../googletest/googletest/include/gtest/gtest_prod.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+ ../googletest/googletest/include/gtest/internal/gtest-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+ ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+ ../googletest/googletest/include/gtest/internal/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/gtest-string.h
+ ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/modifiers.cpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
 tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
+ ../googletest/googletest/include/gtest/gtest-assertion-result.h
+ ../googletest/googletest/include/gtest/gtest-death-test.h
+ ../googletest/googletest/include/gtest/gtest-matchers.h
+ ../googletest/googletest/include/gtest/gtest-message.h
+ ../googletest/googletest/include/gtest/gtest-param-test.h
+ ../googletest/googletest/include/gtest/gtest-printers.h
+ ../googletest/googletest/include/gtest/gtest-test-part.h
+ ../googletest/googletest/include/gtest/gtest-typed-test.h
+ ../googletest/googletest/include/gtest/gtest.h
+ ../googletest/googletest/include/gtest/gtest_pred_impl.h
+ ../googletest/googletest/include/gtest/gtest_prod.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+ ../googletest/googletest/include/gtest/internal/gtest-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+ ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+ ../googletest/googletest/include/gtest/internal/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/gtest-string.h
+ ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/operators.cpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
+tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o
+ ../../include/containers/vector.hpp
+ ../../include/iterators/iterator_traits.hpp
+ ../../include/iterators/reverse_iterators.hpp
+ ../../include/other/enable_if.hpp
+ ../../include/other/is_integral.hpp
+ ../../include/other/lexicographical_compare.hpp
+ ../googletest/googletest/include/gtest/gtest-assertion-result.h
+ ../googletest/googletest/include/gtest/gtest-death-test.h
+ ../googletest/googletest/include/gtest/gtest-matchers.h
+ ../googletest/googletest/include/gtest/gtest-message.h
+ ../googletest/googletest/include/gtest/gtest-param-test.h
+ ../googletest/googletest/include/gtest/gtest-printers.h
+ ../googletest/googletest/include/gtest/gtest-test-part.h
+ ../googletest/googletest/include/gtest/gtest-typed-test.h
+ ../googletest/googletest/include/gtest/gtest.h
+ ../googletest/googletest/include/gtest/gtest_pred_impl.h
+ ../googletest/googletest/include/gtest/gtest_prod.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/custom/gtest-printers.h
+ ../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-filepath.h
+ ../googletest/googletest/include/gtest/internal/gtest-internal.h
+ ../googletest/googletest/include/gtest/internal/gtest-param-util.h
+ ../googletest/googletest/include/gtest/internal/gtest-port-arch.h
+ ../googletest/googletest/include/gtest/internal/gtest-port.h
+ ../googletest/googletest/include/gtest/internal/gtest-string.h
+ ../googletest/googletest/include/gtest/internal/gtest-type-util.h
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/parameters.hpp
+ /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests/vector/reverse_iterators.cpp

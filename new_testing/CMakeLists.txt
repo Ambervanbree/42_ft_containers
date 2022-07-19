@@ -5,7 +5,9 @@ project(ft_containers)
 set(CMAKE_CXX_STANDARD 11)
 
 # including headers
-include_directories(../include)
+include_directories(../include/other)
+include_directories(../include/containers)
+include_directories(../include/iterators)
 
 # including sources
 # add_subdirectory(tests/ft)

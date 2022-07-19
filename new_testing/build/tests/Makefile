@@ -603,6 +603,33 @@ vector/operators.cpp.s:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s
 .PHONY : vector/operators.cpp.s
 
+vector/reverse_iterators.o: vector/reverse_iterators.cpp.o
+
+.PHONY : vector/reverse_iterators.o
+
+# target to build an object file
+vector/reverse_iterators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o
+.PHONY : vector/reverse_iterators.cpp.o
+
+vector/reverse_iterators.i: vector/reverse_iterators.cpp.i
+
+.PHONY : vector/reverse_iterators.i
+
+# target to preprocess a source file
+vector/reverse_iterators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.i
+.PHONY : vector/reverse_iterators.cpp.i
+
+vector/reverse_iterators.s: vector/reverse_iterators.cpp.s
+
+.PHONY : vector/reverse_iterators.s
+
+# target to generate assembly for a file
+vector/reverse_iterators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.s
+.PHONY : vector/reverse_iterators.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -664,6 +691,9 @@ help:
 	@echo "... vector/operators.o"
 	@echo "... vector/operators.i"
 	@echo "... vector/operators.s"
+	@echo "... vector/reverse_iterators.o"
+	@echo "... vector/reverse_iterators.i"
+	@echo "... vector/reverse_iterators.s"
 .PHONY : help
 
 

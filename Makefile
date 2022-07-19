@@ -6,7 +6,7 @@
 #    By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/07/16 10:52:52 by avan-bre         ###   ########.fr        #
+#    Updated: 2022/07/18 20:48:09 by avan-bre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ RM			=	rm -rf
 # **************************************************************************** #
 
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g
-INCL		=	-Iinclude/
+INCL		=	-Iinclude/other/ -Iinclude/containers/ -Iinclude/iterators
 MEM			=	-fsanitize=address
 
 

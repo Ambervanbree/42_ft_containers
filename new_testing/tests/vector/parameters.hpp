@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/18 12:46:57 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/19 15:06:12 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,24 +27,9 @@ using SimpleType = ::testing::Types
 	std::vector<int>
 >;
 
-class A {};
+struct A {};
 
-struct B {
-	private:
-		int			_n;
-		// std::string	_str;
-
-	public:
-		B() : _n(124) {}
-		// _str("Hiyaa") {}
-		B(int n, std::string str) : _n(n) {}
-		//, _str(str) {}
-		B(B const &x ) {*this = x;}
-		virtual ~B(void) {}
-		
-		B &operator=(B const &x) {_n = x._n; return *this; }
-		// _str = x._str; return *this; }
-};
+class B {};
 
 using ComplexTypes = ::testing::Types
 <
@@ -58,12 +43,11 @@ using ComplexTypes = ::testing::Types
 	std::vector<B>
 >;
 
-using StringTypes = ::testing::Types
+using StringType = ::testing::Types
 <
 	ft::vector<std::string>,
 	std::vector<std::string>
 >;
-
 
 // Test suites
 template<typename T>
@@ -76,10 +60,38 @@ TYPED_TEST_SUITE(VectorSimpleConstruct, SimpleType);
 
 template<typename T>
 struct VectorStringConstruct : public testing::Test { using Types = T; };
-TYPED_TEST_SUITE(VectorStringConstruct, StringTypes);
+TYPED_TEST_SUITE(VectorStringConstruct, StringType);
 
 template<typename T>
 struct VectorCapacity : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(VectorCapacity, SimpleType);
+
+template<typename T>
+struct VectorCapacityString : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorCapacityString, StringType);
+
+template<typename T>
+struct VectorAccess : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorAccess, SimpleType);
+
+template<typename T>
+struct VectorModifiers : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorModifiers, SimpleType);
+
+template<typename T>
+struct VectorModifiersString : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorModifiersString, StringType);
+
+template<typename T>
+struct VectorOperators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorOperators, SimpleType);
+
+template<typename T>
+struct VectorIterators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorIterators, SimpleType);
+
+template<typename T>
+struct VectorReverseIterators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorReverseIterators, SimpleType);
 
 #endif
