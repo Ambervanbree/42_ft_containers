@@ -53,22 +53,19 @@ CMAKE_BINARY_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_contain
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: tests/ft/all
-all: tests/std/all
+all: tests/all
 all: googletest/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: tests/ft/preinstall
-preinstall: tests/std/preinstall
+preinstall: tests/preinstall
 preinstall: googletest/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: tests/ft/clean
-clean: tests/std/clean
+clean: tests/clean
 clean: googletest/clean
 
 .PHONY : clean
@@ -134,104 +131,59 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : googletest/googletest/clean
 
 #=============================================================================
-# Directory level rules for directory tests/ft
+# Directory level rules for directory tests
 
 # Recursive "all" directory target.
-tests/ft/all: tests/ft/CMakeFiles/ft_tst.dir/all
+tests/all: tests/CMakeFiles/ft_containers_tst.dir/all
 
-.PHONY : tests/ft/all
-
-# Recursive "preinstall" directory target.
-tests/ft/preinstall:
-
-.PHONY : tests/ft/preinstall
-
-# Recursive "clean" directory target.
-tests/ft/clean: tests/ft/CMakeFiles/ft_tst.dir/clean
-
-.PHONY : tests/ft/clean
-
-#=============================================================================
-# Directory level rules for directory tests/std
-
-# Recursive "all" directory target.
-tests/std/all: tests/std/CMakeFiles/std_tst.dir/all
-
-.PHONY : tests/std/all
+.PHONY : tests/all
 
 # Recursive "preinstall" directory target.
-tests/std/preinstall:
+tests/preinstall:
 
-.PHONY : tests/std/preinstall
+.PHONY : tests/preinstall
 
 # Recursive "clean" directory target.
-tests/std/clean: tests/std/CMakeFiles/std_tst.dir/clean
+tests/clean: tests/CMakeFiles/ft_containers_tst.dir/clean
 
-.PHONY : tests/std/clean
-
-#=============================================================================
-# Target rules for target tests/ft/CMakeFiles/ft_tst.dir
-
-# All Build rule for target.
-tests/ft/CMakeFiles/ft_tst.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/depend
-	$(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target ft_tst"
-.PHONY : tests/ft/CMakeFiles/ft_tst.dir/all
-
-# Build rule for subdir invocation for target.
-tests/ft/CMakeFiles/ft_tst.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 12
-	$(MAKE) -f CMakeFiles/Makefile2 tests/ft/CMakeFiles/ft_tst.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 0
-.PHONY : tests/ft/CMakeFiles/ft_tst.dir/rule
-
-# Convenience name for target.
-ft_tst: tests/ft/CMakeFiles/ft_tst.dir/rule
-
-.PHONY : ft_tst
-
-# clean rule for target.
-tests/ft/CMakeFiles/ft_tst.dir/clean:
-	$(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/clean
-.PHONY : tests/ft/CMakeFiles/ft_tst.dir/clean
+.PHONY : tests/clean
 
 #=============================================================================
-# Target rules for target tests/std/CMakeFiles/std_tst.dir
+# Target rules for target tests/CMakeFiles/ft_containers_tst.dir
 
 # All Build rule for target.
-tests/std/CMakeFiles/std_tst.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/depend
-	$(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28 "Built target std_tst"
-.PHONY : tests/std/CMakeFiles/std_tst.dir/all
+tests/CMakeFiles/ft_containers_tst.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/depend
+	$(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target ft_containers_tst"
+.PHONY : tests/CMakeFiles/ft_containers_tst.dir/all
 
 # Build rule for subdir invocation for target.
-tests/std/CMakeFiles/std_tst.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 12
-	$(MAKE) -f CMakeFiles/Makefile2 tests/std/CMakeFiles/std_tst.dir/all
+tests/CMakeFiles/ft_containers_tst.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 20
+	$(MAKE) -f CMakeFiles/Makefile2 tests/CMakeFiles/ft_containers_tst.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 0
-.PHONY : tests/std/CMakeFiles/std_tst.dir/rule
+.PHONY : tests/CMakeFiles/ft_containers_tst.dir/rule
 
 # Convenience name for target.
-std_tst: tests/std/CMakeFiles/std_tst.dir/rule
+ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/rule
 
-.PHONY : std_tst
+.PHONY : ft_containers_tst
 
 # clean rule for target.
-tests/std/CMakeFiles/std_tst.dir/clean:
-	$(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/clean
-.PHONY : tests/std/CMakeFiles/std_tst.dir/clean
+tests/CMakeFiles/ft_containers_tst.dir/clean:
+	$(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/clean
+.PHONY : tests/CMakeFiles/ft_containers_tst.dir/clean
 
 #=============================================================================
 # Target rules for target googletest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMakeFiles/gmock.dir/all
 googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+googletest/googlemock/CMakeFiles/gmock_main.dir/all: googletest/googlemock/CMakeFiles/gmock.dir/all
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=13,14 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=21,22 "Built target gmock_main"
 .PHONY : googletest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -258,7 +210,7 @@ googletest/googlemock/CMakeFiles/gmock_main.dir/clean:
 googletest/googlemock/CMakeFiles/gmock.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=11,12 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=19,20 "Built target gmock"
 .PHONY : googletest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -285,7 +237,7 @@ googletest/googlemock/CMakeFiles/gmock.dir/clean:
 googletest/googletest/CMakeFiles/gtest_main.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=17,18 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=25,26 "Built target gtest_main"
 .PHONY : googletest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -312,7 +264,7 @@ googletest/googletest/CMakeFiles/gtest_main.dir/clean:
 googletest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=15,16 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=23,24 "Built target gtest"
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.

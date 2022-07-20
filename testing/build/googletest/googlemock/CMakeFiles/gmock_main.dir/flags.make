@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wshadow -Wconversion -DGTEST_HAS_PTHREAD=1 -fexceptions 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/../include -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googlemock/include -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googlemock -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/include -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest 
+CXX_INCLUDES = -I/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/../include/other -I/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/../include/containers -I/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/../include/iterators -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googlemock/include -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googlemock -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/include -isystem /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest 
 

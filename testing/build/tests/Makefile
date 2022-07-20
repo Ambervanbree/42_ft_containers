@@ -171,491 +171,464 @@ ft_containers_tst/fast:
 	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/build
 .PHONY : ft_containers_tst/fast
 
-ft/ft_enable_if.o: ft/ft_enable_if.cpp.o
+main.o: main.cpp.o
 
-.PHONY : ft/ft_enable_if.o
-
-# target to build an object file
-ft/ft_enable_if.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_enable_if.cpp.o
-.PHONY : ft/ft_enable_if.cpp.o
-
-ft/ft_enable_if.i: ft/ft_enable_if.cpp.i
-
-.PHONY : ft/ft_enable_if.i
-
-# target to preprocess a source file
-ft/ft_enable_if.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_enable_if.cpp.i
-.PHONY : ft/ft_enable_if.cpp.i
-
-ft/ft_enable_if.s: ft/ft_enable_if.cpp.s
-
-.PHONY : ft/ft_enable_if.s
-
-# target to generate assembly for a file
-ft/ft_enable_if.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_enable_if.cpp.s
-.PHONY : ft/ft_enable_if.cpp.s
-
-ft/ft_equal.o: ft/ft_equal.cpp.o
-
-.PHONY : ft/ft_equal.o
+.PHONY : main.o
 
 # target to build an object file
-ft/ft_equal.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_equal.cpp.o
-.PHONY : ft/ft_equal.cpp.o
+main.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-ft/ft_equal.i: ft/ft_equal.cpp.i
+main.i: main.cpp.i
 
-.PHONY : ft/ft_equal.i
+.PHONY : main.i
 
 # target to preprocess a source file
-ft/ft_equal.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_equal.cpp.i
-.PHONY : ft/ft_equal.cpp.i
+main.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-ft/ft_equal.s: ft/ft_equal.cpp.s
+main.s: main.cpp.s
 
-.PHONY : ft/ft_equal.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-ft/ft_equal.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_equal.cpp.s
-.PHONY : ft/ft_equal.cpp.s
+main.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/main.cpp.s
+.PHONY : main.cpp.s
 
-ft/ft_is_integral.o: ft/ft_is_integral.cpp.o
+other/enable_if.o: other/enable_if.cpp.o
 
-.PHONY : ft/ft_is_integral.o
+.PHONY : other/enable_if.o
 
 # target to build an object file
-ft/ft_is_integral.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_is_integral.cpp.o
-.PHONY : ft/ft_is_integral.cpp.o
+other/enable_if.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o
+.PHONY : other/enable_if.cpp.o
 
-ft/ft_is_integral.i: ft/ft_is_integral.cpp.i
+other/enable_if.i: other/enable_if.cpp.i
 
-.PHONY : ft/ft_is_integral.i
+.PHONY : other/enable_if.i
 
 # target to preprocess a source file
-ft/ft_is_integral.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_is_integral.cpp.i
-.PHONY : ft/ft_is_integral.cpp.i
+other/enable_if.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.i
+.PHONY : other/enable_if.cpp.i
 
-ft/ft_is_integral.s: ft/ft_is_integral.cpp.s
+other/enable_if.s: other/enable_if.cpp.s
 
-.PHONY : ft/ft_is_integral.s
+.PHONY : other/enable_if.s
 
 # target to generate assembly for a file
-ft/ft_is_integral.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_is_integral.cpp.s
-.PHONY : ft/ft_is_integral.cpp.s
+other/enable_if.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.s
+.PHONY : other/enable_if.cpp.s
 
-ft/ft_lexicographical_compare.o: ft/ft_lexicographical_compare.cpp.o
+other/equal.o: other/equal.cpp.o
 
-.PHONY : ft/ft_lexicographical_compare.o
+.PHONY : other/equal.o
 
 # target to build an object file
-ft/ft_lexicographical_compare.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_lexicographical_compare.cpp.o
-.PHONY : ft/ft_lexicographical_compare.cpp.o
+other/equal.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o
+.PHONY : other/equal.cpp.o
 
-ft/ft_lexicographical_compare.i: ft/ft_lexicographical_compare.cpp.i
+other/equal.i: other/equal.cpp.i
 
-.PHONY : ft/ft_lexicographical_compare.i
+.PHONY : other/equal.i
 
 # target to preprocess a source file
-ft/ft_lexicographical_compare.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_lexicographical_compare.cpp.i
-.PHONY : ft/ft_lexicographical_compare.cpp.i
+other/equal.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.i
+.PHONY : other/equal.cpp.i
 
-ft/ft_lexicographical_compare.s: ft/ft_lexicographical_compare.cpp.s
+other/equal.s: other/equal.cpp.s
 
-.PHONY : ft/ft_lexicographical_compare.s
+.PHONY : other/equal.s
 
 # target to generate assembly for a file
-ft/ft_lexicographical_compare.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_lexicographical_compare.cpp.s
-.PHONY : ft/ft_lexicographical_compare.cpp.s
+other/equal.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.s
+.PHONY : other/equal.cpp.s
 
-ft/ft_make_pair.o: ft/ft_make_pair.cpp.o
+other/is_integral.o: other/is_integral.cpp.o
 
-.PHONY : ft/ft_make_pair.o
+.PHONY : other/is_integral.o
 
 # target to build an object file
-ft/ft_make_pair.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_make_pair.cpp.o
-.PHONY : ft/ft_make_pair.cpp.o
+other/is_integral.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o
+.PHONY : other/is_integral.cpp.o
 
-ft/ft_make_pair.i: ft/ft_make_pair.cpp.i
+other/is_integral.i: other/is_integral.cpp.i
 
-.PHONY : ft/ft_make_pair.i
+.PHONY : other/is_integral.i
 
 # target to preprocess a source file
-ft/ft_make_pair.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_make_pair.cpp.i
-.PHONY : ft/ft_make_pair.cpp.i
+other/is_integral.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.i
+.PHONY : other/is_integral.cpp.i
 
-ft/ft_make_pair.s: ft/ft_make_pair.cpp.s
+other/is_integral.s: other/is_integral.cpp.s
 
-.PHONY : ft/ft_make_pair.s
+.PHONY : other/is_integral.s
 
 # target to generate assembly for a file
-ft/ft_make_pair.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_make_pair.cpp.s
-.PHONY : ft/ft_make_pair.cpp.s
+other/is_integral.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.s
+.PHONY : other/is_integral.cpp.s
 
-ft/ft_pair.o: ft/ft_pair.cpp.o
+other/lexicographical_compare.o: other/lexicographical_compare.cpp.o
 
-.PHONY : ft/ft_pair.o
+.PHONY : other/lexicographical_compare.o
 
 # target to build an object file
-ft/ft_pair.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_pair.cpp.o
-.PHONY : ft/ft_pair.cpp.o
+other/lexicographical_compare.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o
+.PHONY : other/lexicographical_compare.cpp.o
 
-ft/ft_pair.i: ft/ft_pair.cpp.i
+other/lexicographical_compare.i: other/lexicographical_compare.cpp.i
 
-.PHONY : ft/ft_pair.i
+.PHONY : other/lexicographical_compare.i
 
 # target to preprocess a source file
-ft/ft_pair.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_pair.cpp.i
-.PHONY : ft/ft_pair.cpp.i
+other/lexicographical_compare.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.i
+.PHONY : other/lexicographical_compare.cpp.i
 
-ft/ft_pair.s: ft/ft_pair.cpp.s
+other/lexicographical_compare.s: other/lexicographical_compare.cpp.s
 
-.PHONY : ft/ft_pair.s
+.PHONY : other/lexicographical_compare.s
 
 # target to generate assembly for a file
-ft/ft_pair.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_pair.cpp.s
-.PHONY : ft/ft_pair.cpp.s
+other/lexicographical_compare.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.s
+.PHONY : other/lexicographical_compare.cpp.s
 
-ft/ft_stack.o: ft/ft_stack.cpp.o
+other/make_pair.o: other/make_pair.cpp.o
 
-.PHONY : ft/ft_stack.o
+.PHONY : other/make_pair.o
 
 # target to build an object file
-ft/ft_stack.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_stack.cpp.o
-.PHONY : ft/ft_stack.cpp.o
+other/make_pair.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o
+.PHONY : other/make_pair.cpp.o
 
-ft/ft_stack.i: ft/ft_stack.cpp.i
+other/make_pair.i: other/make_pair.cpp.i
 
-.PHONY : ft/ft_stack.i
+.PHONY : other/make_pair.i
 
 # target to preprocess a source file
-ft/ft_stack.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_stack.cpp.i
-.PHONY : ft/ft_stack.cpp.i
+other/make_pair.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.i
+.PHONY : other/make_pair.cpp.i
 
-ft/ft_stack.s: ft/ft_stack.cpp.s
+other/make_pair.s: other/make_pair.cpp.s
 
-.PHONY : ft/ft_stack.s
+.PHONY : other/make_pair.s
 
 # target to generate assembly for a file
-ft/ft_stack.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_stack.cpp.s
-.PHONY : ft/ft_stack.cpp.s
+other/make_pair.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.s
+.PHONY : other/make_pair.cpp.s
 
-ft/ft_vector.o: ft/ft_vector.cpp.o
+other/pair.o: other/pair.cpp.o
 
-.PHONY : ft/ft_vector.o
+.PHONY : other/pair.o
 
 # target to build an object file
-ft/ft_vector.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_vector.cpp.o
-.PHONY : ft/ft_vector.cpp.o
+other/pair.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o
+.PHONY : other/pair.cpp.o
 
-ft/ft_vector.i: ft/ft_vector.cpp.i
+other/pair.i: other/pair.cpp.i
 
-.PHONY : ft/ft_vector.i
+.PHONY : other/pair.i
 
 # target to preprocess a source file
-ft/ft_vector.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_vector.cpp.i
-.PHONY : ft/ft_vector.cpp.i
+other/pair.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.i
+.PHONY : other/pair.cpp.i
 
-ft/ft_vector.s: ft/ft_vector.cpp.s
+other/pair.s: other/pair.cpp.s
 
-.PHONY : ft/ft_vector.s
+.PHONY : other/pair.s
 
 # target to generate assembly for a file
-ft/ft_vector.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/ft_vector.cpp.s
-.PHONY : ft/ft_vector.cpp.s
+other/pair.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.s
+.PHONY : other/pair.cpp.s
 
-ft/main.o: ft/main.cpp.o
+stack/constructors.o: stack/constructors.cpp.o
 
-.PHONY : ft/main.o
+.PHONY : stack/constructors.o
 
 # target to build an object file
-ft/main.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/main.cpp.o
-.PHONY : ft/main.cpp.o
+stack/constructors.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o
+.PHONY : stack/constructors.cpp.o
 
-ft/main.i: ft/main.cpp.i
+stack/constructors.i: stack/constructors.cpp.i
 
-.PHONY : ft/main.i
+.PHONY : stack/constructors.i
 
 # target to preprocess a source file
-ft/main.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/main.cpp.i
-.PHONY : ft/main.cpp.i
+stack/constructors.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.i
+.PHONY : stack/constructors.cpp.i
 
-ft/main.s: ft/main.cpp.s
+stack/constructors.s: stack/constructors.cpp.s
 
-.PHONY : ft/main.s
+.PHONY : stack/constructors.s
 
 # target to generate assembly for a file
-ft/main.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/ft/main.cpp.s
-.PHONY : ft/main.cpp.s
+stack/constructors.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.s
+.PHONY : stack/constructors.cpp.s
 
-std/main.o: std/main.cpp.o
+stack/member_functions.o: stack/member_functions.cpp.o
 
-.PHONY : std/main.o
+.PHONY : stack/member_functions.o
 
 # target to build an object file
-std/main.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/main.cpp.o
-.PHONY : std/main.cpp.o
+stack/member_functions.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o
+.PHONY : stack/member_functions.cpp.o
 
-std/main.i: std/main.cpp.i
+stack/member_functions.i: stack/member_functions.cpp.i
 
-.PHONY : std/main.i
+.PHONY : stack/member_functions.i
 
 # target to preprocess a source file
-std/main.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/main.cpp.i
-.PHONY : std/main.cpp.i
+stack/member_functions.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.i
+.PHONY : stack/member_functions.cpp.i
 
-std/main.s: std/main.cpp.s
+stack/member_functions.s: stack/member_functions.cpp.s
 
-.PHONY : std/main.s
+.PHONY : stack/member_functions.s
 
 # target to generate assembly for a file
-std/main.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/main.cpp.s
-.PHONY : std/main.cpp.s
+stack/member_functions.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.s
+.PHONY : stack/member_functions.cpp.s
 
-std/std_enable_if.o: std/std_enable_if.cpp.o
+stack/operators.o: stack/operators.cpp.o
 
-.PHONY : std/std_enable_if.o
+.PHONY : stack/operators.o
 
 # target to build an object file
-std/std_enable_if.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_enable_if.cpp.o
-.PHONY : std/std_enable_if.cpp.o
+stack/operators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o
+.PHONY : stack/operators.cpp.o
 
-std/std_enable_if.i: std/std_enable_if.cpp.i
+stack/operators.i: stack/operators.cpp.i
 
-.PHONY : std/std_enable_if.i
+.PHONY : stack/operators.i
 
 # target to preprocess a source file
-std/std_enable_if.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_enable_if.cpp.i
-.PHONY : std/std_enable_if.cpp.i
+stack/operators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.i
+.PHONY : stack/operators.cpp.i
 
-std/std_enable_if.s: std/std_enable_if.cpp.s
+stack/operators.s: stack/operators.cpp.s
 
-.PHONY : std/std_enable_if.s
+.PHONY : stack/operators.s
 
 # target to generate assembly for a file
-std/std_enable_if.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_enable_if.cpp.s
-.PHONY : std/std_enable_if.cpp.s
+stack/operators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s
+.PHONY : stack/operators.cpp.s
 
-std/std_equal.o: std/std_equal.cpp.o
+vector/capacity.o: vector/capacity.cpp.o
 
-.PHONY : std/std_equal.o
+.PHONY : vector/capacity.o
 
 # target to build an object file
-std/std_equal.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_equal.cpp.o
-.PHONY : std/std_equal.cpp.o
+vector/capacity.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o
+.PHONY : vector/capacity.cpp.o
 
-std/std_equal.i: std/std_equal.cpp.i
+vector/capacity.i: vector/capacity.cpp.i
 
-.PHONY : std/std_equal.i
+.PHONY : vector/capacity.i
 
 # target to preprocess a source file
-std/std_equal.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_equal.cpp.i
-.PHONY : std/std_equal.cpp.i
+vector/capacity.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i
+.PHONY : vector/capacity.cpp.i
 
-std/std_equal.s: std/std_equal.cpp.s
+vector/capacity.s: vector/capacity.cpp.s
 
-.PHONY : std/std_equal.s
+.PHONY : vector/capacity.s
 
 # target to generate assembly for a file
-std/std_equal.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_equal.cpp.s
-.PHONY : std/std_equal.cpp.s
+vector/capacity.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s
+.PHONY : vector/capacity.cpp.s
 
-std/std_is_integral.o: std/std_is_integral.cpp.o
+vector/constructors.o: vector/constructors.cpp.o
 
-.PHONY : std/std_is_integral.o
+.PHONY : vector/constructors.o
 
 # target to build an object file
-std/std_is_integral.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_is_integral.cpp.o
-.PHONY : std/std_is_integral.cpp.o
+vector/constructors.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o
+.PHONY : vector/constructors.cpp.o
 
-std/std_is_integral.i: std/std_is_integral.cpp.i
+vector/constructors.i: vector/constructors.cpp.i
 
-.PHONY : std/std_is_integral.i
+.PHONY : vector/constructors.i
 
 # target to preprocess a source file
-std/std_is_integral.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_is_integral.cpp.i
-.PHONY : std/std_is_integral.cpp.i
+vector/constructors.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.i
+.PHONY : vector/constructors.cpp.i
 
-std/std_is_integral.s: std/std_is_integral.cpp.s
+vector/constructors.s: vector/constructors.cpp.s
 
-.PHONY : std/std_is_integral.s
+.PHONY : vector/constructors.s
 
 # target to generate assembly for a file
-std/std_is_integral.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_is_integral.cpp.s
-.PHONY : std/std_is_integral.cpp.s
+vector/constructors.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s
+.PHONY : vector/constructors.cpp.s
 
-std/std_lexicographical_compare.o: std/std_lexicographical_compare.cpp.o
+vector/element_acces.o: vector/element_acces.cpp.o
 
-.PHONY : std/std_lexicographical_compare.o
+.PHONY : vector/element_acces.o
 
 # target to build an object file
-std/std_lexicographical_compare.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_lexicographical_compare.cpp.o
-.PHONY : std/std_lexicographical_compare.cpp.o
+vector/element_acces.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o
+.PHONY : vector/element_acces.cpp.o
 
-std/std_lexicographical_compare.i: std/std_lexicographical_compare.cpp.i
+vector/element_acces.i: vector/element_acces.cpp.i
 
-.PHONY : std/std_lexicographical_compare.i
+.PHONY : vector/element_acces.i
 
 # target to preprocess a source file
-std/std_lexicographical_compare.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_lexicographical_compare.cpp.i
-.PHONY : std/std_lexicographical_compare.cpp.i
+vector/element_acces.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i
+.PHONY : vector/element_acces.cpp.i
 
-std/std_lexicographical_compare.s: std/std_lexicographical_compare.cpp.s
+vector/element_acces.s: vector/element_acces.cpp.s
 
-.PHONY : std/std_lexicographical_compare.s
+.PHONY : vector/element_acces.s
 
 # target to generate assembly for a file
-std/std_lexicographical_compare.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_lexicographical_compare.cpp.s
-.PHONY : std/std_lexicographical_compare.cpp.s
+vector/element_acces.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s
+.PHONY : vector/element_acces.cpp.s
 
-std/std_make_pair.o: std/std_make_pair.cpp.o
+vector/iterators.o: vector/iterators.cpp.o
 
-.PHONY : std/std_make_pair.o
+.PHONY : vector/iterators.o
 
 # target to build an object file
-std/std_make_pair.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_make_pair.cpp.o
-.PHONY : std/std_make_pair.cpp.o
+vector/iterators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o
+.PHONY : vector/iterators.cpp.o
 
-std/std_make_pair.i: std/std_make_pair.cpp.i
+vector/iterators.i: vector/iterators.cpp.i
 
-.PHONY : std/std_make_pair.i
+.PHONY : vector/iterators.i
 
 # target to preprocess a source file
-std/std_make_pair.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_make_pair.cpp.i
-.PHONY : std/std_make_pair.cpp.i
+vector/iterators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i
+.PHONY : vector/iterators.cpp.i
 
-std/std_make_pair.s: std/std_make_pair.cpp.s
+vector/iterators.s: vector/iterators.cpp.s
 
-.PHONY : std/std_make_pair.s
+.PHONY : vector/iterators.s
 
 # target to generate assembly for a file
-std/std_make_pair.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_make_pair.cpp.s
-.PHONY : std/std_make_pair.cpp.s
+vector/iterators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s
+.PHONY : vector/iterators.cpp.s
 
-std/std_pair.o: std/std_pair.cpp.o
+vector/modifiers.o: vector/modifiers.cpp.o
 
-.PHONY : std/std_pair.o
+.PHONY : vector/modifiers.o
 
 # target to build an object file
-std/std_pair.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_pair.cpp.o
-.PHONY : std/std_pair.cpp.o
+vector/modifiers.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o
+.PHONY : vector/modifiers.cpp.o
 
-std/std_pair.i: std/std_pair.cpp.i
+vector/modifiers.i: vector/modifiers.cpp.i
 
-.PHONY : std/std_pair.i
+.PHONY : vector/modifiers.i
 
 # target to preprocess a source file
-std/std_pair.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_pair.cpp.i
-.PHONY : std/std_pair.cpp.i
+vector/modifiers.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i
+.PHONY : vector/modifiers.cpp.i
 
-std/std_pair.s: std/std_pair.cpp.s
+vector/modifiers.s: vector/modifiers.cpp.s
 
-.PHONY : std/std_pair.s
+.PHONY : vector/modifiers.s
 
 # target to generate assembly for a file
-std/std_pair.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_pair.cpp.s
-.PHONY : std/std_pair.cpp.s
+vector/modifiers.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s
+.PHONY : vector/modifiers.cpp.s
 
-std/std_stack.o: std/std_stack.cpp.o
+vector/operators.o: vector/operators.cpp.o
 
-.PHONY : std/std_stack.o
+.PHONY : vector/operators.o
 
 # target to build an object file
-std/std_stack.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_stack.cpp.o
-.PHONY : std/std_stack.cpp.o
+vector/operators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o
+.PHONY : vector/operators.cpp.o
 
-std/std_stack.i: std/std_stack.cpp.i
+vector/operators.i: vector/operators.cpp.i
 
-.PHONY : std/std_stack.i
+.PHONY : vector/operators.i
 
 # target to preprocess a source file
-std/std_stack.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_stack.cpp.i
-.PHONY : std/std_stack.cpp.i
+vector/operators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i
+.PHONY : vector/operators.cpp.i
 
-std/std_stack.s: std/std_stack.cpp.s
+vector/operators.s: vector/operators.cpp.s
 
-.PHONY : std/std_stack.s
+.PHONY : vector/operators.s
 
 # target to generate assembly for a file
-std/std_stack.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_stack.cpp.s
-.PHONY : std/std_stack.cpp.s
+vector/operators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s
+.PHONY : vector/operators.cpp.s
 
-std/std_vector.o: std/std_vector.cpp.o
+vector/reverse_iterators.o: vector/reverse_iterators.cpp.o
 
-.PHONY : std/std_vector.o
+.PHONY : vector/reverse_iterators.o
 
 # target to build an object file
-std/std_vector.cpp.o:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_vector.cpp.o
-.PHONY : std/std_vector.cpp.o
+vector/reverse_iterators.cpp.o:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o
+.PHONY : vector/reverse_iterators.cpp.o
 
-std/std_vector.i: std/std_vector.cpp.i
+vector/reverse_iterators.i: vector/reverse_iterators.cpp.i
 
-.PHONY : std/std_vector.i
+.PHONY : vector/reverse_iterators.i
 
 # target to preprocess a source file
-std/std_vector.cpp.i:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_vector.cpp.i
-.PHONY : std/std_vector.cpp.i
+vector/reverse_iterators.cpp.i:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.i
+.PHONY : vector/reverse_iterators.cpp.i
 
-std/std_vector.s: std/std_vector.cpp.s
+vector/reverse_iterators.s: vector/reverse_iterators.cpp.s
 
-.PHONY : std/std_vector.s
+.PHONY : vector/reverse_iterators.s
 
 # target to generate assembly for a file
-std/std_vector.cpp.s:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/std/std_vector.cpp.s
-.PHONY : std/std_vector.cpp.s
+vector/reverse_iterators.cpp.s:
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.s
+.PHONY : vector/reverse_iterators.cpp.s
 
 # Help Target
 help:
@@ -670,60 +643,57 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ft_containers_tst"
-	@echo "... ft/ft_enable_if.o"
-	@echo "... ft/ft_enable_if.i"
-	@echo "... ft/ft_enable_if.s"
-	@echo "... ft/ft_equal.o"
-	@echo "... ft/ft_equal.i"
-	@echo "... ft/ft_equal.s"
-	@echo "... ft/ft_is_integral.o"
-	@echo "... ft/ft_is_integral.i"
-	@echo "... ft/ft_is_integral.s"
-	@echo "... ft/ft_lexicographical_compare.o"
-	@echo "... ft/ft_lexicographical_compare.i"
-	@echo "... ft/ft_lexicographical_compare.s"
-	@echo "... ft/ft_make_pair.o"
-	@echo "... ft/ft_make_pair.i"
-	@echo "... ft/ft_make_pair.s"
-	@echo "... ft/ft_pair.o"
-	@echo "... ft/ft_pair.i"
-	@echo "... ft/ft_pair.s"
-	@echo "... ft/ft_stack.o"
-	@echo "... ft/ft_stack.i"
-	@echo "... ft/ft_stack.s"
-	@echo "... ft/ft_vector.o"
-	@echo "... ft/ft_vector.i"
-	@echo "... ft/ft_vector.s"
-	@echo "... ft/main.o"
-	@echo "... ft/main.i"
-	@echo "... ft/main.s"
-	@echo "... std/main.o"
-	@echo "... std/main.i"
-	@echo "... std/main.s"
-	@echo "... std/std_enable_if.o"
-	@echo "... std/std_enable_if.i"
-	@echo "... std/std_enable_if.s"
-	@echo "... std/std_equal.o"
-	@echo "... std/std_equal.i"
-	@echo "... std/std_equal.s"
-	@echo "... std/std_is_integral.o"
-	@echo "... std/std_is_integral.i"
-	@echo "... std/std_is_integral.s"
-	@echo "... std/std_lexicographical_compare.o"
-	@echo "... std/std_lexicographical_compare.i"
-	@echo "... std/std_lexicographical_compare.s"
-	@echo "... std/std_make_pair.o"
-	@echo "... std/std_make_pair.i"
-	@echo "... std/std_make_pair.s"
-	@echo "... std/std_pair.o"
-	@echo "... std/std_pair.i"
-	@echo "... std/std_pair.s"
-	@echo "... std/std_stack.o"
-	@echo "... std/std_stack.i"
-	@echo "... std/std_stack.s"
-	@echo "... std/std_vector.o"
-	@echo "... std/std_vector.i"
-	@echo "... std/std_vector.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
+	@echo "... other/enable_if.o"
+	@echo "... other/enable_if.i"
+	@echo "... other/enable_if.s"
+	@echo "... other/equal.o"
+	@echo "... other/equal.i"
+	@echo "... other/equal.s"
+	@echo "... other/is_integral.o"
+	@echo "... other/is_integral.i"
+	@echo "... other/is_integral.s"
+	@echo "... other/lexicographical_compare.o"
+	@echo "... other/lexicographical_compare.i"
+	@echo "... other/lexicographical_compare.s"
+	@echo "... other/make_pair.o"
+	@echo "... other/make_pair.i"
+	@echo "... other/make_pair.s"
+	@echo "... other/pair.o"
+	@echo "... other/pair.i"
+	@echo "... other/pair.s"
+	@echo "... stack/constructors.o"
+	@echo "... stack/constructors.i"
+	@echo "... stack/constructors.s"
+	@echo "... stack/member_functions.o"
+	@echo "... stack/member_functions.i"
+	@echo "... stack/member_functions.s"
+	@echo "... stack/operators.o"
+	@echo "... stack/operators.i"
+	@echo "... stack/operators.s"
+	@echo "... vector/capacity.o"
+	@echo "... vector/capacity.i"
+	@echo "... vector/capacity.s"
+	@echo "... vector/constructors.o"
+	@echo "... vector/constructors.i"
+	@echo "... vector/constructors.s"
+	@echo "... vector/element_acces.o"
+	@echo "... vector/element_acces.i"
+	@echo "... vector/element_acces.s"
+	@echo "... vector/iterators.o"
+	@echo "... vector/iterators.i"
+	@echo "... vector/iterators.s"
+	@echo "... vector/modifiers.o"
+	@echo "... vector/modifiers.i"
+	@echo "... vector/modifiers.s"
+	@echo "... vector/operators.o"
+	@echo "... vector/operators.i"
+	@echo "... vector/operators.s"
+	@echo "... vector/reverse_iterators.o"
+	@echo "... vector/reverse_iterators.i"
+	@echo "... vector/reverse_iterators.s"
 .PHONY : help
 
 

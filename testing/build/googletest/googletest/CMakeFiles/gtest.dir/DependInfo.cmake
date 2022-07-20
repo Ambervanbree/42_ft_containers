@@ -10,7 +10,9 @@ set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../include"
+  "../../include/other"
+  "../../include/containers"
+  "../../include/iterators"
   "../googletest/googletest/include"
   "../googletest/googletest"
   )

@@ -136,16 +136,14 @@ namespace ft {
 			}
 				
 			size_type capacity() const {return _capacity; }
-			bool empty() const { return _size < 1 ? 1 : 0; }
+			bool empty() const {return _size < 1 ? 1 : 0; }
 			
 			void reserve (size_type n){
 				value_type	*temp;
 				size_type	new_size = size();
 
-				if (n <= _capacity)
-					return ;
-				if (n > max_size())
-					throw std::length_error("vector::reserve");
+				if (n <= _capacity) return ;
+				if (n > max_size()) throw std::length_error("vector::reserve");
 				temp = get_allocator().allocate(n);
 				if (_size){
 					construct_copy(temp, _array, new_size);
@@ -164,13 +162,13 @@ namespace ft {
 			
 			const_reference at(size_type n) const {
 				if (n >= _size)
-					throw std::out_of_range("out of range");
+					throw std::out_of_range("vector::at");
 				return _array[n]; 
 			}
 			
 			reference at(size_type n) {
 				if (n >= _size)
-					throw std::out_of_range("out of range");
+					throw std::out_of_range("vector::at");
 				return _array[n];	
 			}
 			
@@ -275,15 +273,6 @@ namespace ft {
 				std::swap(_size, x._size);
 				std::swap(_capacity, x._capacity);
 				std::swap(_alloc, x._alloc);
-			}
-
-// TODO --------->> delete!!!
-			void print_veccie(std::string name) const{
-				std::cout << "Veccie " << name << " (size " 
-				<< _size << ", capacity " << _capacity << ") contains: " << std::endl;
-				for (size_type i = 0; i < _size; i++)
-					std::cout << _array[i] << " ";
-				std::cout << std::endl;
 			}
 
 			// non-member operators:
