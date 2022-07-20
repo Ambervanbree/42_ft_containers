@@ -3,62 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/18 20:50:01 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/20 09:49:35 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.hpp"
-#include <vector>
-#include <list>
+#include <map>
 #include <iostream>
 
-	// ft::vector<B> v1(5);
-	// std::vector<B> v2(5);
-
-	// std::cout << "size v1: " << v1.size() << std::endl;
-	// std::cout << "size v2: " << v2.size() << std::endl;
-	// std::cout << "capacity v1: " << v1.capacity() << std::endl;
-	// std::cout << "capacity v2: " << v2.capacity() << std::endl;
-
-	// {
-	// 	ft::vector<std::string>	v1;
-
-	// 	v1.push_back("hello");
-	// 	v1.push_back("how");
-	// 	v1.push_back("are");
-	// 	v1.push_back("you");
-	// 	v1.push_back("silly");
-
-	// 	ft::vector<std::string>::reverse_iterator	rit	= v1.rbegin();
-	// 	ft::vector<std::string>::reverse_iterator 	rit2 = v1.rbegin() + 3;
-
-	// 	std::cout << "rit - rit2 is: " << rit - rit2 << std::endl;
-	// 	std::cout << "rit2 - rit is: " << rit2 - rit << std::endl;
-	// }
-	// {
-	// 	std::vector<std::string>	v1;
-
-	// 	v1.push_back("hello");
-	// 	v1.push_back("how");
-	// 	v1.push_back("are");
-	// 	v1.push_back("you");
-	// 	v1.push_back("silly");
-
-	// 	std::vector<std::string>::reverse_iterator	rit	= v1.rbegin();
-	// 	std::vector<std::string>::reverse_iterator 	rit2 = v1.rbegin() + 3;
-
-	// 	std::cout << "rit - rit2 is: " << rit - rit2 << std::endl;
-	// 	std::cout << "rit2 - rit is: " << rit2 - rit << std::endl;
-	// }
-// }
-
-
-
-
-
 int		main(void){
-	std::cout << "gelukt!" << std::endl;
+	std::map<int, std::string>	m1;
+
+	m1.insert(std::pair<int, std::string>(33, "Joehoe"));
+	m1.insert(std::pair<int, std::string>(2, "Amber"));
+
+	std::map<int, std::string>::iterator	i = m1.begin();
+
+	std::cout << "Map size is: " << m1.size() << std::endl;
+	for (; i != m1.end(); i++)
+		std::cout << "Map item: " << (*i).first << ", " << (*i).second << std::endl;
+
+	std::cout << std::endl;
+	std::map<std::string, int>	m2;
+
+	m2.insert(std::make_pair("Arthur", 2));
+	m2.insert(std::make_pair("Amber", 20));
+	m2.insert(std::make_pair("Morgan", 12));
+
+	std::map<std::string, int>::iterator	it = m2.begin();
+
+	std::cout << "Map size is: " << m2.size() << std::endl;
+	for (; it != m2.end(); it++)
+		std::cout << "Map item: " << (*it).first << ", " << (*it).second << std::endl;
 }
