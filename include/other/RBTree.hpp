@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 08:26:58 by amber             #+#    #+#             */
-/*   Updated: 2022/07/20 08:35:56 by amber            ###   ########.fr       */
+/*   Updated: 2022/07/20 18:30:51 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ namespace ft{
 	struct RBtree{
 		RBnode<T, U>	*root;
 	};
+
+	RBinsert(RBtree *T, struct RBnode *N, struct RBnode *P, byte dir){
+		struct RBnode	*G;
+		struct RBnode	*A;
+
+		N->color = RED;
+		N->left = NIL;
+		N->right = NIL;
+		N->parent = P;
+		if (P == NULL)
+			T->root = N; return ;
+		P->child[dir] N;
+	}
 }
 
 #endif
