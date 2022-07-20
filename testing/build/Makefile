@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing
+CMAKE_SOURCE_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build
+CMAKE_BINARY_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -157,30 +157,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ft_tst
+# Target rules for targets named ft_containers_tst
 
 # Build rule for target.
-ft_tst: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ft_tst
-.PHONY : ft_tst
+ft_containers_tst: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ft_containers_tst
+.PHONY : ft_containers_tst
 
 # fast build rule for target.
-ft_tst/fast:
-	$(MAKE) -f tests/ft/CMakeFiles/ft_tst.dir/build.make tests/ft/CMakeFiles/ft_tst.dir/build
-.PHONY : ft_tst/fast
-
-#=============================================================================
-# Target rules for targets named std_tst
-
-# Build rule for target.
-std_tst: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_tst
-.PHONY : std_tst
-
-# fast build rule for target.
-std_tst/fast:
-	$(MAKE) -f tests/std/CMakeFiles/std_tst.dir/build.make tests/std/CMakeFiles/std_tst.dir/build
-.PHONY : std_tst/fast
+ft_containers_tst/fast:
+	$(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/build
+.PHONY : ft_containers_tst/fast
 
 #=============================================================================
 # Target rules for targets named gmock_main
@@ -246,8 +233,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ft_tst"
-	@echo "... std_tst"
+	@echo "... ft_containers_tst"
 	@echo "... gmock_main"
 	@echo "... gmock"
 	@echo "... gtest_main"

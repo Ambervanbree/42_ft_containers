@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:50 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/12 14:28:11 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:12:38 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define STACK_HPP
 
 # include <iostream>
-# include <vector>
 # include <memory>
 # include <cstddef>
 # include "vector.hpp"
+// # include <deque> // << Uncomment to test with std::deque<T> in stead of ft::vector<T>
 
 namespace ft {
-	template <class T, class Container = std::vector<T> >
+	template <class T, class Container = ft::vector<T> >
 	class stack {
 	public:
 		// member types
@@ -68,12 +68,11 @@ namespace ft {
 			return x.c <= y.c;
 		}
 
-		// ** Non-member operators use the friend keyword, because within this scope
-		// ** we don't have access to the private and protected variables of the target. 
-		// ** The friend declaration grants access to the private and protect variables
-		// ** of the class it is associated with, so also to the member objects of the target.
-
-
+		/*	The operator overloads are based on protected and/or private variables of the class,
+			which they can't use, because they are not member functions. Adding the friend declaration
+			to the class will grant these specific functions accecs to the private and protected
+			variables of the class it is associated with.
+		*/
 	};	
 }
 

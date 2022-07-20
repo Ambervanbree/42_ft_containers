@@ -20,8 +20,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../googletest/googletest/cmake/gtest.pc.in"
   "../googletest/googletest/cmake/gtest_main.pc.in"
   "../googletest/googletest/cmake/internal_utils.cmake"
-  "../tests/ft/CMakeLists.txt"
-  "../tests/std/CMakeLists.txt"
+  "../tests/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
@@ -68,8 +67,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/ft/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "tests/std/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "googletest/googlemock/CMakeFiles/CMakeDirectoryInformation.cmake"
   "googletest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -77,8 +75,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "tests/ft/CMakeFiles/ft_tst.dir/DependInfo.cmake"
-  "tests/std/CMakeFiles/std_tst.dir/DependInfo.cmake"
+  "tests/CMakeFiles/ft_containers_tst.dir/DependInfo.cmake"
   "googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   "googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"

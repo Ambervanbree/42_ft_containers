@@ -1,4 +1,4 @@
-# Install script for directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/tests
+# Install script for directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/tests
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest
-# Build directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest
+# Source directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest
+# Build directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

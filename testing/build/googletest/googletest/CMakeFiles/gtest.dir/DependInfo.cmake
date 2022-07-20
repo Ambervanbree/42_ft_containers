@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/src/gtest-all.cc" "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+  "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest/src/gtest-all.cc" "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../../include"
+  "../../include/other"
+  "../../include/containers"
+  "../../include/iterators"
   "../googletest/googletest/include"
   "../googletest/googletest"
   )
