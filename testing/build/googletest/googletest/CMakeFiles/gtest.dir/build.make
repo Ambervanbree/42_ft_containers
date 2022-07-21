@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing
+CMAKE_SOURCE_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build
+CMAKE_BINARY_DIR = /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build
 
 # Include any dependencies generated for this target.
 include googletest/googletest/CMakeFiles/gtest.dir/depend.make
@@ -59,16 +59,16 @@ include googletest/googletest/CMakeFiles/gtest.dir/flags.make
 
 googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: googletest/googletest/CMakeFiles/gtest.dir/flags.make
 googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: ../googletest/googletest/src/gtest-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest/src/gtest-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/src/gtest-all.cc
 
 googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest.dir/src/gtest-all.cc.i"
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest/src/gtest-all.cc > CMakeFiles/gtest.dir/src/gtest-all.cc.i
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/src/gtest-all.cc > CMakeFiles/gtest.dir/src/gtest-all.cc.i
 
 googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest.dir/src/gtest-all.cc.s"
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest/src/gtest-all.cc -o CMakeFiles/gtest.dir/src/gtest-all.cc.s
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest/src/gtest-all.cc -o CMakeFiles/gtest.dir/src/gtest-all.cc.s
 
 # Object files for target gtest
 gtest_OBJECTS = \
@@ -80,9 +80,9 @@ gtest_EXTERNAL_OBJECTS =
 lib/libgtest.a: googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
 lib/libgtest.a: googletest/googletest/CMakeFiles/gtest.dir/build.make
 lib/libgtest.a: googletest/googletest/CMakeFiles/gtest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../lib/libgtest.a"
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && $(CMAKE_COMMAND) -P CMakeFiles/gtest.dir/cmake_clean_target.cmake
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../lib/libgtest.a"
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && $(CMAKE_COMMAND) -P CMakeFiles/gtest.dir/cmake_clean_target.cmake
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gtest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 googletest/googletest/CMakeFiles/gtest.dir/build: lib/libgtest.a
@@ -90,10 +90,10 @@ googletest/googletest/CMakeFiles/gtest.dir/build: lib/libgtest.a
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/build
 
 googletest/googletest/CMakeFiles/gtest.dir/clean:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest && $(CMAKE_COMMAND) -P CMakeFiles/gtest.dir/cmake_clean.cmake
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest && $(CMAKE_COMMAND) -P CMakeFiles/gtest.dir/cmake_clean.cmake
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/clean
 
 googletest/googletest/CMakeFiles/gtest.dir/depend:
-	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/googletest/googletest /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : googletest/googletest/CMakeFiles/gtest.dir/depend
 

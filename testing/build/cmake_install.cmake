@@ -1,4 +1,4 @@
-# Install script for directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing
+# Install script for directory: /sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/tests/cmake_install.cmake")
+  include("/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/tests/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/googletest/cmake_install.cmake")
+  include("/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -55,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/new_testing/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

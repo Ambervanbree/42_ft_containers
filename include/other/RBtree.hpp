@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 08:26:58 by amber             #+#    #+#             */
-/*   Updated: 2022/07/20 18:21:01 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/21 15:57:23 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define RBTREE_HPP
 
 # include "pair.hpp"
+# include <memory>
 
 # define NIL   NULL // null pointer  or  pointer to sentinel node
 # define LEFT  0
@@ -25,55 +26,59 @@ namespace ft{
 	enum	color_t {BLACK, RED};
 
 	template <class key, class value>
-	struct RBnode{
+	class RBnode{
 		RBnode					*parent;
 		RBnode					*child[2];
 		color_t					color;
 		ft::pair<key, value>	content;
+		
+		// RBnode() {
+		// 	left = NIL;
+		// 	right = NIL;
+		// 	color = RED;
+		// }
 
-		RBnode() {
-			child[LEFT] = NIL;
-			child[RIGHT] = NIL;
-			color = RED;
-		}
-
-		RBnode(key Key, value Value) {
-			content = ft::make_pair(Key, Value);
-			child[LEFT] = NIL;
-			child[RIGHT] = NIL;
-			color = RED;
-		}
+		// RBnode(key Key, value Value) {
+		// 	content = ft::make_pair(Key, Value);
+		// 	left = NIL;
+		// 	right = NIL;
+		// 	color = RED;
+		// }
 	};
 
-	template <class key, class value>
-	struct RBtree{
+	template <class key, class value, class Allocator = std::allocator<ft::pair<const key, value> >
+	class RBtree{
 		RBnode<key, value>		*root;
-	};
 
+		RBtree(const Allocator& alloc){
+			
+		}
+	};
+}
 	// template<class key, class value>
 	// struct RBnode<key, value> *RB_find_parent(RBtree<key, value> *T, struct RBnode<key, value> *N){
 	// 	// if ()
 	// 	// while (T->)
 	// }
 
-	template <class key, class value>
-	void	RB_insert_one(RBtree<key, value> *T, RBnode<key, value> *N, RBnode<key, value> *P, int dir){
-		// N->color = RED;
-		// N->left = NIL;
-		// N->right = NIL;
-		// N->parent = P;
+// 	template <class key, class value>
+// 	void	RB_insert_one(RBtree<key, value> *T, RBnode<key, value> *N, RBnode<key, value> *P, int dir){
+// 		// N->color = RED;
+// 		// N->left = NIL;
+// 		// N->right = NIL;
+// 		// N->parent = P;
 
-		if (P == NULL) {
-			T->root = N; return;
-		}
-		P->child[dir] = N;
-		if (P->parent == NULL) {
-			P->color = BLACK; return; 
-		}
+// 		if (P == NULL) {
+// 			T->root = N; return;
+// 		}
+// 		P->child[dir] = N;
+// 		if (P->parent == NULL) {
+// 			P->color = BLACK; return; 
+// 		}
 
-		// if ()
-	}
-}
+// 		// if ()
+// 	}
+// }
 
 
 
@@ -85,15 +90,15 @@ namespace ft{
 // 		N->right = NIL;
 // 		N->parent = P;
 
-// 		if (P == NULL)
-// 			T->root = N; return ;
-// 		P->child[dir] = N;
-// 		do{
-// 			if (P->color == BLACK) {return; }
-// 			if ((G = P->parent) == NULL) {goto Case_I4; }
-// 			dir = childDir(P);
-// 			A = G->child[1 - dir];
-// 			if (A == NULL || A->color == BLACK) {goto Case_I56; }
+			// 		if (P == NULL)
+			// 			T->root = N; return ;
+			// 		P->child[dir] = N;
+			// 		do{
+			// 			if (P->color == BLACK) {return; }
+			// 			if ((G = P->parent) == NULL) {goto Case_I4; }
+			// 			dir = childDir(P);
+			// 			A = G->child[1 - dir];
+			// 			if (A == NULL || A->color == BLACK) {goto Case_I56; }
 // 			P->color = BLACK;
 // 			A->color = BLACK;
 // 			G->color = RED;

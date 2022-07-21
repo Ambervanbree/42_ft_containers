@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/20 17:38:34 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/21 10:12:03 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ namespace ft{
 
 			// 23.3.1.1 construct/copy/destroy:
 			explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator()) :
-			_size(0), _alloc(alloc), _comp(comp) {}
+			_size(0), _alloc(alloc), _tree(RBtree<key, value>(_alloc)), _comp(comp) {}
 
 		// 	template <class InputIterator>
 		// 	map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& = Allocator());
