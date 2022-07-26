@@ -6,19 +6,20 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/26 16:19:31 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:34:24 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <map>
-// #include "map.hpp"
+// #include <map>
+#include "map.hpp"
 #include "test_tree.hpp"
 #include <iostream>
 
 int		main(void){
-	// ft::tree<key, value>	tree;
+	ft::map<int, std::string>	map;
 
-	ft::node<int, std::string>	node(5, "hoi");
+	// ft::node<int, std::string>	node(5, "hoi");
+	// ft::node<int, std::string>	node2(6, "doei");
 	// ft::node	*node2 = ft::create_node(6);
 	// ft::node	*node3 = ft::create_node(4);
 	// ft::node	*node4 = ft::create_node(1);
@@ -34,7 +35,8 @@ int		main(void){
 	// ft::node	*node14 = ft::create_node(13);
 
 	
-	// tree.insert_node(node, NULL, 0);
+	// tree.insert_node(&node, NULL, 0);
+	// tree.insert_node(&node2, &node, 0);
 	// tree.insert_node(node2, node, node->_n < node2->_n);
 	// tree.insert_node(node3, node, node->_n < node3->_n);
 	// tree.insert_node(node4, node3, node3->_n < node4->_n);

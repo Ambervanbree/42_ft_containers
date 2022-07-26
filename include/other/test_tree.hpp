@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/26 16:21:36 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:45:08 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 namespace ft{
 	enum	color_t {RED, BLACK};
 	
-	template <class key, class value, class Allocator = std::allocator<ft::pair<key, value> > >
+	template <class key, class value>
 	struct node{
 			typedef	node *		node_ptr;
 
@@ -62,9 +62,9 @@ namespace ft{
 
 	template <class key, class value>
 	struct tree{
-		public:
-			typedef ft::node<key, value> *		node_ptr;
 			node_ptr							_root;
+		
+			typedef ft::node<key, value> *			node_ptr;	
 			
 			tree() {_root = NULL; }
 			node_ptr get_root() {return _root; }
@@ -157,7 +157,7 @@ namespace ft{
 					std::cout << "L----";
 					indent += "|    ";
 				}
-				std::cout << node->_n << "(" << (node->_color ? "BLACK" : "RED") << ")" << std::endl;
+				std::cout << node->_content.first << "(" << (node->_color ? "BLACK" : "RED") << ")" << std::endl;
 				visualise(node->_left, indent, false);
 				visualise(node->_right, indent, true);
 			}

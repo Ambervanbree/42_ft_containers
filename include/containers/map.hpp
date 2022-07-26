@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/21 10:12:03 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:32:21 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <iostream>
 # include <algorithm>
 # include "pair.hpp"
-# include "RBtree.hpp"
+# include "test_tree.hpp"
 
 namespace ft{
 	template<class key, class value, class Compare = std::less<key>, class Allocator = std::allocator<ft::pair<const key, value> > >
@@ -31,6 +31,7 @@ namespace ft{
 			typedef pair<const key, value>							value_type;
 			typedef Compare											key_compare;
 			typedef Allocator										allocator_type;
+			typedef typename Allocator::rebind::other		node_allocator_type;
 			typedef typename Allocator::reference					reference;
 			typedef typename Allocator::const_reference				const_reference;
 			typedef typename std::map<key, value>::iterator			iterator;
@@ -41,8 +42,8 @@ namespace ft{
 			typedef typename Allocator::const_pointer				const_pointer;
 			typedef std::reverse_iterator<iterator>					reverse_iterator;
 			typedef std::reverse_iterator<const_iterator>			const_reverse_iterator;
-			
-			class value_compare : public std::binary_function<value_type,value_type,bool> {
+
+			class value_compare : public std::binary_function<value_type,value_type, bool> {
 				friend class map;
 					protected:
 						Compare 	comp;
@@ -50,13 +51,13 @@ namespace ft{
 					
 					public:
 						bool operator()(const value_type& x, const value_type& y) const {
-						return comp(x.first, y.first);
+							return comp(x.first, y.first);
 						}
 			};
 
 			// 23.3.1.1 construct/copy/destroy:
-			explicit map(const Compare& comp = Compare(), const Allocator& alloc = Allocator()) :
-			_size(0), _alloc(alloc), _tree(RBtree<key, value>(_alloc)), _comp(comp) {}
+			explicit map(const Compare& comp = Compare(), const node_allocator_type& alloc = node_allocator_type()) :
+			_size(0), _alloc(alloc), _tree(tree<key, value>(_alloc)), _comp(comp) {}
 
 		// 	template <class InputIterator>
 		// 	map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& = Allocator());
@@ -113,7 +114,7 @@ namespace ft{
 		// 	pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
 
 			private:
-				RBtree<key, value>	_tree;
+				tree<key, value>	_tree;
 				size_type			_size;
 				allocator_type		_alloc;
 				key_compare			_comp;
