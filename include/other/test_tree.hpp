@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_tree.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/22 12:48:12 by amber            ###   ########.fr       */
+/*   Updated: 2022/07/26 16:21:36 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ namespace ft{
 			node_ptr				_parent;
 			node_ptr				_child[2];
 			color_t					_color;
-			int						 _n;
 			ft::pair<key, value>	_content;
 
-			node(int n) : _n(n){
+			node<key, value> (key Key, value Value){
+				_content = ft::make_pair(Key, Value);
 				_parent = NULL;
 				_left = NULL;
 				_right = NULL;
@@ -45,7 +45,8 @@ namespace ft{
 			}
 			
 			node & operator=(const node& x){
-				_n = x._n;
+				// _n = x._n;
+				_content = x._content;
 				_parent = x._parent;
 				_left = x._left;
 				_right = x._right;
@@ -53,15 +54,17 @@ namespace ft{
 			}
 	};
 
-	template <class key, class value>
-	node<key, value> * create_node(int n){
-		node *new_node	= new node(n);
-		return new_node;
-	}
+	// // template <class key, class value>
+	// node * create_node(int n){
+	// 	node *new_node	= new node(n);
+	// 	return new_node;
+	// }
 
-	class tree{
+	template <class key, class value>
+	struct tree{
 		public:
-			typedef ft::node *		node_ptr;
+			typedef ft::node<key, value> *		node_ptr;
+			node_ptr							_root;
 			
 			tree() {_root = NULL; }
 			node_ptr get_root() {return _root; }
@@ -78,50 +81,50 @@ namespace ft{
 				}
 			}
 
-			node_ptr rotate_dir(node_ptr parent, int dir){
-				node_ptr	grandma = parent->_parent;
-				node_ptr	daughter = parent->_child[1 - dir];
+			node_ptr rotate_dir(node_ptr current, int dir){
+				node_ptr	grandma = current->_parent;
+				node_ptr	daughter = current->_child[1 - dir];
 				node_ptr	temp;
 
 				assert(daughter != NULL);
 				temp = daughter->_child[dir];
-				parent->_child[1 - dir] = temp;
-				if (temp != NULL) {temp->_parent = parent;}
-				daughter->_child[dir] = parent;
-				parent->_parent = daughter;
+				current->_child[1 - dir] = temp;
+				if (temp != NULL) {temp->_parent = current;}
+				daughter->_child[dir] = current;
+				current->_parent = daughter;
 				daughter->_parent = grandma;
 				if (grandma != NULL)
-					grandma->_child[parent == grandma->_right ? RIGHT : LEFT] = daughter;
+					grandma->_child[current == grandma->_right ? RIGHT : LEFT] = daughter;
 				else
 					_root = daughter;
 				return daughter;
 			}
 			
 		void insert_node(node_ptr current, node_ptr parent, int dir){
+			node_ptr	grandma;
+			node_ptr	aunt;
+			
 			current->_parent = parent;
-			if (_root == NULL) {
-				_root = current;
-				std::cout << "Node with n " << current->_n << " is now root " << std::endl;
-				return ;
-				}
+			// If tree is empty, current becomes root.
+			if (_root == NULL) {_root = current; return; }
 			parent->_child[dir] = current;
 			do{	
-				// case 1
+				// case 1: tree is valid, no action needed
 				if (parent->_color == BLACK) {return; }	
-				node_ptr	grandma = parent->_parent;
-				// case 4 (parent is now red)
-				if (grandma == NULL){
+			
+				// case 4: parent is red and root, parent changes color
+				// and tree is balanced
+				if ((grandma = parent->_parent) == NULL){
 					parent->_color = BLACK;
 					return;
 				}
 				dir = childDir(parent);
-				node_ptr	aunt = grandma->_child[1 - dir];
+				aunt = grandma->_child[1 - dir];
 				
-				// case 5 + 6 (grandma exists)
+				// case 5 + 6: grandma exists and aunt is black or NULL,
+				// we have to do a color flip (case 6). If the node is the inner grand 
+				// child we put it between parent and grandparent first (case 5 + 6).
 				if (aunt == NULL || aunt->_color == BLACK){
-					std::cout << "in aunt black " << current->_n << " dir " << dir << std::endl;
-					// if the node is the inner grand child we put it between parent and grandparent
-					// before we do the color flip
 					if (current == parent->_child[1 - dir]){
 						rotate_dir(parent, dir);
 						current = parent;
@@ -132,7 +135,10 @@ namespace ft{
 					grandma->_color = RED;
 					return;
 				}
-				// case 2, aunt, parent and grandma can be repainted
+				
+				// case 2: we repaint grandma, aunt and parent. With these color changes
+				// it's possible multiple red nodes follow each other. To check that
+				// we iterate through the tree until the top or until it's balanced.
 				parent->_color = BLACK;
 				aunt->_color = BLACK;
 				grandma->_color = RED;
@@ -158,8 +164,6 @@ namespace ft{
 			
 		}
 
-		private:
-			node_ptr	_root;
 	};
 }
 

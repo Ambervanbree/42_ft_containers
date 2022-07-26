@@ -268,7 +268,7 @@ namespace ft {
 				_size = 0;
 			}
 
-			void swap(ft::vector<T,Allocator>& x){
+			void swap(ft::vector<T, Allocator>& x){
 				std::swap(_array, x._array);
 				std::swap(_size, x._size);
 				std::swap(_capacity, x._capacity);
