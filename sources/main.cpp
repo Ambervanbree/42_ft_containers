@@ -6,19 +6,52 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/26 16:34:24 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:30:41 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <map>
+#include <map>
 #include "map.hpp"
-#include "test_tree.hpp"
+#include "RBtree.hpp"
 #include <iostream>
 
 int		main(void){
-	ft::map<int, std::string>	map;
+	{
+		ft::map<int, std::string>	map;
+		std::cout << "Map is empty: " << map.empty() << std::endl;
+		std::cout << "Size map: " << map.size() << std::endl;
 
-	// ft::node<int, std::string>	node(5, "hoi");
+	}
+	{
+		std::map<int, char *>	map;
+		std::cout << "Map is empty: " << map.empty() << std::endl;
+		std::cout << "Size map: " << map.size() << std::endl;
+	}
+
+	// ft::RBtree<int, const std::less<int> >  tree;
+	// ft::RBnode<int, const std::less<int> >	node(5);
+	// ft::RBnode<int, const std::less<int> >	node1(6);
+	// ft::RBnode<int, const std::less<int> >	node2(4);
+
+	// ft::RBnode<int, const std::less<int> >	node3(11);
+
+	// ft::RBnode<int, const std::less<int> >	node4(3);
+	// ft::RBnode<int, const std::less<int> >	node5(1);
+
+
+	// tree.insert_node(&node, NULL, 0);
+	// ft::RBnode<int, const std::less<int> > *parent = tree.find_parent(&node1);
+	// tree.insert_node(&node1, parent, parent->_content < node1._content);
+	// parent = tree.find_parent(&node2);
+	// tree.insert_node(&node2, parent, parent->_content < node2._content);
+	// parent = tree.find_parent(&node3);
+	// tree.insert_node(&node3, parent, parent->_content < node3._content);
+	// parent = tree.find_parent(&node4);
+	// tree.insert_node(&node4, parent, parent->_content < node4._content);
+	// parent = tree.find_parent(&node5);
+	// tree.insert_node(&node5, parent, parent->_content < node5._content);
+	// tree.visualise();
+	
 	// ft::node<int, std::string>	node2(6, "doei");
 	// ft::node	*node2 = ft::create_node(6);
 	// ft::node	*node3 = ft::create_node(4);

@@ -27,7 +27,11 @@ namespace ft {
 	template <class T, class Allocator = std::allocator<T> >
 	class vector {
 		public:
-			// types:
+
+			/* ******************************************************************** */
+			/* types and definitions												*/
+			/* ******************************************************************** */
+
 			typedef typename Allocator::reference 					reference;
 			typedef typename Allocator::const_reference 			const_reference;
 			typedef typename Allocator::pointer 					pointer;
@@ -41,9 +45,12 @@ namespace ft {
 			typedef typename ft::reverse_iterator<iterator>			reverse_iterator;
 			typedef typename ft::reverse_iterator<const_iterator>	const_reverse_iterator;
 
-			// construct/copy/destroy:
+			/* ******************************************************************** */
+			/* construct, copy, destruct											*/
+			/* ******************************************************************** */
+
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
-			_array(0), _size(0), _capacity(0), _alloc(alloc) { }
+			_array(0), _size(0), _capacity(0), _alloc(alloc) {}
 
 			explicit vector(size_type n, const value_type& value = value_type(), const allocator_type& alloc= allocator_type()) :
 			_size(n), _capacity(n), _alloc(alloc) {
@@ -87,29 +94,16 @@ namespace ft {
 				return *this;			
 			}
 
-			template <class SomeIterator> 
-			void assign(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last){
-				size_type	new_size = std::distance(first, last);
-				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
-				
-				clear();
-				if (new_size > _capacity)
-					reserve(new_size);
-				iterator_construct(first, last, category());
-				_size = new_size;
-			}
-
-			void assign(size_type n, const value_type& value){
-				clear();
-				if (n > _capacity)
-					reserve(n);
-				_size = n;
-				construct_copy(value);		
-			}
-
+			/* ******************************************************************** */
+			/* allocator															*/
+			/* ******************************************************************** */
+			
 			allocator_type get_allocator() const {return _alloc; }
 
-			// iterators:
+			/* ******************************************************************** */
+			/* iterators															*/
+			/* ******************************************************************** */
+
 			iterator begin() {return iterator(_array); }
 			const_iterator begin() const {return const_iterator(_array); }
 			iterator end() {return iterator(_array + _size); }
@@ -119,7 +113,10 @@ namespace ft {
 			reverse_iterator rend() {return reverse_iterator(begin()); }
 			const_reverse_iterator rend() const {return const_reverse_iterator(begin()); }
 
-			// capacity:
+			/* ******************************************************************** */
+			/* capacity																*/
+			/* ******************************************************************** */
+
 			size_type size() const {return _size; }
 			size_type max_size() const {return _alloc.max_size(); }
 
@@ -156,7 +153,10 @@ namespace ft {
 				_capacity = n;
 			}
 
-			// element access:
+			/* ******************************************************************** */
+			/* element access														*/
+			/* ******************************************************************** */
+
 			reference operator[](size_type n) {return _array[n]; }
 			const_reference operator[](size_type n) const {return _array[n]; }
 			
@@ -177,7 +177,30 @@ namespace ft {
 			reference back() {return _array[_size - 1]; }
 			const_reference back() const {return _array[_size - 1]; }
 
-			// modifiers:
+			/* ******************************************************************** */
+			/* modifiers															*/
+			/* ******************************************************************** */
+
+			template <class SomeIterator> 
+			void assign(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last){
+				size_type	new_size = std::distance(first, last);
+				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
+				
+				clear();
+				if (new_size > _capacity)
+					reserve(new_size);
+				iterator_construct(first, last, category());
+				_size = new_size;
+			}
+
+			void assign(size_type n, const value_type& value){
+				clear();
+				if (n > _capacity)
+					reserve(n);
+				_size = n;
+				construct_copy(value);		
+			}
+
 			void push_back(const T& x) {
 				if (_size + 1 > _capacity)
 					reallocate(1);
@@ -275,7 +298,10 @@ namespace ft {
 				std::swap(_alloc, x._alloc);
 			}
 
-			// non-member operators:
+			/* ******************************************************************** */
+			/* non member operators													*/
+			/* ******************************************************************** */
+
 			friend bool operator==(const ft::vector<T, Allocator>& x, const ft::vector<T, Allocator>& y){
 				if (x.size() != y.size())
 					return false;
@@ -307,12 +333,21 @@ namespace ft {
 			}
 
 			friend void swap(vector<T,Allocator>& x, vector<T,Allocator>& y) {y.swap(x);}
-			
+						
 		private:
+
+			/* ******************************************************************** */
+			/* variables															*/
+			/* ******************************************************************** */
+
 			value_type*		_array;
 			size_t			_size;
 			size_t			_capacity;
 			allocator_type	_alloc;
+
+			/* ******************************************************************** */
+			/* private member functions												*/
+			/* ******************************************************************** */
 
 			void	reallocate(size_type n){			
 				if (_size > n)
