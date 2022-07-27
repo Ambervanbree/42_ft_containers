@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/27 16:34:43 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:25:53 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,9 +193,72 @@ namespace ft{
 				}while ((parent = current->_parent) != NULL);
 			}
 
-			// void delete_node(node_ptr current){
+			bool simple_delete(node_ptr current){
+				if (current->_left == NULL && current->_right == NULL){
+					if (current == _root) { _root = NULL; }
+					else {current->_parent->_child[childDir(current)] = NULL; }
+				}
+				else if (current->_color == BLACK){
+					if (current == _root){
+						if (current->_left) {_root = current->_left; }
+						else {_root = current->_right; }
+					}
+					else{
+						if (current->_left) {current->_parent->_left = current->_left; }
+						else {current->_parent->_right = current->_right; }
+					}
+				}
+				else
+					return false;
+				// delete current node
+				return true;
+			} // en deze klopt niet omdat hij ook zwarte weghaalt of zo 
+
+			// bool simple_delete(node_ptr current){
+			// 	if (current->_left == NULL && current->_right == NULL){
+			// 		if (current == _root) { _root = NULL; }
+			// 		else {current->_parent->_child[childDir(current)] = NULL; }
+			// 	}
+			// 	else if (current->_left == NULL && current->_right){
+			// 		if (current == _root) {_root = current->_right; }
+			// 		else {current->_parent->_right = current->_right; }
+			// 	}
+			// 	else if (current->_right == NULL && current->_left){
+			// 		if (current == _root) {_root = current->_left; }
+			// 		else {current->_parent->_left = current->_left; }
+			// 	}
+			// 	else
+			// 		return false;
+			// 	// delete current node;
+			// 	return true;
+			// } -> dit is nieuwe versie, maar klopt niet, want hij kleurt niet
+			// opnieuw als hij een zwarte weghaalt. 
+
+			void delete_node(node_ptr current){
+				if (simple_delete(current)) {return; }
+				std::cout << "not simple delete" << std::endl;
+			// 	if (current == _root){
+			// 		if (current->_left == NULL && current->_right == NULL){
+			// 			_root = NULL;
+			// 			// delete current
+			// 			return ;
+			// 		}
+			// 		else if (current->_color = RED){
+						
+			// 		}
+			// 		else if (current->_left == NULL){
+			// 			_root = current->_right;
+			// 			// delete current;
+			// 			return ;
+			// 		}
+			// 		else{
+			// 			_root = current->_left;
+			// 			// delet current;
+			// 			return ;
+			// 		}
+			// 	}
 				
-			// }
+			}
 
 			void visualise(){
 				visualise(_root, "", false);
