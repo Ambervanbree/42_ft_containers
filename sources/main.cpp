@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/29 14:29:29 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:51:13 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,4 @@ int		main(void){
 	tree.delete_node(&node[15]);
 	tree.delete_node(&node[21]);
 	tree.visualise();
-
-
-	// ft::RBnode<int, const std::less<int> >	node7(7);
-	// ft::RBnode<int, const std::less<int> >	node3(3);
-	// ft::RBnode<int, const std::less<int> >	node6(6);
-
-
-	// tree.insert_node(&node5, NULL, 0);
-	// ft::RBnode<int, const std::less<int> > *parent = tree.find_parent(&node7);
-	// tree.insert_node(&node7, parent, parent->_content < node7._content);
-	// parent = tree.find_parent(&node3);
-	// tree.insert_node(&node3, parent, parent->_content < node3._content);
-	// parent = tree.find_parent(&node6);
-	// tree.insert_node(&node6, parent, parent->_content < node6._content);
-	// tree.visualise();
-	// tree.delete_node(&node3);
-	// tree.visualise();
-	// // tree.delete_node(&node6);
 }

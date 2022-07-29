@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/29 14:38:23 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:56:50 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,7 +268,7 @@ namespace ft{
 				}while ((parent = current->_parent) != NULL);
 			}
 
-			void complex_delete(node_ptr node){
+			void delete_black_leaf(node_ptr node){
 				std::cout << "Moet ik nog schrijven" << std::endl;
 				std::cout << "Trying to delete: " << node->_content << std::endl;				
 			}
@@ -288,7 +288,7 @@ namespace ft{
 					replace->_parent->_child[Rdir] = NULL;
 					node->_color = BLACK;
 				}
-				else {complex_delete(replace); }
+				else {delete_black_leaf(replace); }
 			}
 			
 			void delete_node(node_ptr node){
@@ -298,7 +298,7 @@ namespace ft{
 						int dir = childDir(node);
 						node->_parent->_child[dir] = NULL; return; 
 					}
-					else {complex_delete(node); }
+					else {delete_black_leaf(node); }
 				}
 				else if (node->_left && node->_right){two_child_delete(node); return; }
 				else if (node->_left && node->_left->_color != node->_color){
@@ -309,7 +309,7 @@ namespace ft{
 					node->_right->_color = BLACK;					
 					node->_parent->_right = node->_right;
 				}
-				else {complex_delete(node); }
+				else {delete_black_leaf(node); }
 			}
 
 			/* ******************************************************************** */
