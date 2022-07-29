@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:30:28 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/18 19:51:05 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/29 10:57:24 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ namespace ft {
 			Iterator current;
 
 		public:
+
+			/* ******************************************************************** */
+			/* types and definitions												*/
+			/* ******************************************************************** */
+			
 			typedef 			Iterator										iterator_type;
 			typedef typename	ft::iterator_traits<Iterator>::difference_type 	difference_type;
 			typedef typename	ft::iterator_traits<Iterator>::reference		reference;

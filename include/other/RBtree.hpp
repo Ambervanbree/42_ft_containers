@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/27 18:25:53 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:38:23 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ namespace ft{
 			typedef ft::RBnode<T, Compare>				node_type;
 			typedef node_type *							node_ptr;
 			typedef node_type &							node_ref;
+			typedef size_t								size_type;
 			typedef const node_type &					const_node_ref;
 			typedef Compare								value_compare;
 
@@ -50,17 +51,30 @@ namespace ft{
 			color_t			_color;
 			value_type		_content;
 			value_compare	_comp;
+			size_type		_depth;
 
 			/* ******************************************************************** */
 			/* constructors															*/
 			/* ******************************************************************** */
 
 			RBnode(value_type value, value_compare &comp = Compare()) :
-				_parent(NULL), _color(RED), _content(value), _comp(comp){
+				_parent(NULL), 
+				_color(RED), 
+				_content(value), 
+				_comp(comp){
 				_left = NULL;
 				_right = NULL;
 			}
 			
+			RBnode(value_compare &comp = Compare()) :
+				_parent(NULL), 
+				_color(RED), 
+				_content(), 
+				_comp(comp){
+				_left = NULL;
+				_right = NULL;
+			}
+						
 			node_ref operator=(const_node_ref x){
 				_comp = x._comp;
 				_content = x._content;
@@ -69,6 +83,14 @@ namespace ft{
 				_left = x._left;
 				_right = x._right;
 				return *this;
+			}
+
+			void swap(node_ptr other){
+				node_ptr	temp = NULL;
+
+				*temp = *other;
+				*other = *this;
+				*this = *temp;
 			}
 	};
 
@@ -92,6 +114,7 @@ namespace ft{
 			typedef node_type &							node_ref;
 			typedef tree_type *							tree_ptr;
 			typedef tree_type &							tree_ref;
+			typedef size_t								size_type;
 			typedef Allocator							allocator_type;
 			typedef Compare								value_compare;
 			typedef typename Allocator::template rebind<node_type>::other	node_allocator;
@@ -104,28 +127,80 @@ namespace ft{
 			node_ptr									_root;
 			node_allocator								_alloc;
 			value_compare								_comp;
+			size_type									_height;
 			
 			/* ******************************************************************** */
 			/* constructors															*/
 			/* ******************************************************************** */
 			
-			RBtree() : _root(NULL), _alloc(node_allocator()), _comp(value_compare()){}
+			RBtree() : 
+				_root(NULL), 
+				_alloc(node_allocator()), 
+				_comp(value_compare()), 
+				_height(0) {}
 			
 			/* ******************************************************************** */
-			/* member functions														*/
+			/* accessors															*/
 			/* ******************************************************************** */
+			
+			node_ptr min_value(node_ptr subtree){
+				node_ptr current = subtree;
+
+				while (current->_left != NULL)
+					current = current->_left;
+				return current;
+			}
+			
+			node_ptr max_value(node_ptr subtree){
+				node_ptr current = subtree;
+
+				while (current->_right != NULL)
+					current = current->_right;
+				return current;
+			}
+			
+			node_ptr successor(node_ptr node){
+				if (node->_right != NULL)
+					return min_value(node->_right);
+				else{
+					node_ptr parent = node->_parent;
+					while(parent != NULL && node == parent->_right){
+						node = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
+
+			node_ptr predecessor(node_ptr node){
+				if (node->_left != NULL)
+					return (max_value(node->_left));
+				else{
+					node_ptr parent = node->_parent;
+					while(parent != NULL && node == parent->_left){
+						node = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
 			
 			node_ptr find_parent(node_ptr new_node){
 				node_ptr	current = _root;
 				
 				while (1){
 					node_ptr next = current->_child[_comp(current->_content, new_node->_content)];
+					
 					if (next == NULL)
 						return current;
 					else
 						current = next;
 				}
 			}
+
+			/* ******************************************************************** */
+			/* insert and delete													*/
+			/* ******************************************************************** */
 
 			node_ptr rotate_dir(node_ptr current, int dir){
 				node_ptr	grandma = current->_parent;
@@ -193,72 +268,53 @@ namespace ft{
 				}while ((parent = current->_parent) != NULL);
 			}
 
-			bool simple_delete(node_ptr current){
-				if (current->_left == NULL && current->_right == NULL){
-					if (current == _root) { _root = NULL; }
-					else {current->_parent->_child[childDir(current)] = NULL; }
-				}
-				else if (current->_color == BLACK){
-					if (current == _root){
-						if (current->_left) {_root = current->_left; }
-						else {_root = current->_right; }
-					}
-					else{
-						if (current->_left) {current->_parent->_left = current->_left; }
-						else {current->_parent->_right = current->_right; }
-					}
-				}
-				else
-					return false;
-				// delete current node
-				return true;
-			} // en deze klopt niet omdat hij ook zwarte weghaalt of zo 
-
-			// bool simple_delete(node_ptr current){
-			// 	if (current->_left == NULL && current->_right == NULL){
-			// 		if (current == _root) { _root = NULL; }
-			// 		else {current->_parent->_child[childDir(current)] = NULL; }
-			// 	}
-			// 	else if (current->_left == NULL && current->_right){
-			// 		if (current == _root) {_root = current->_right; }
-			// 		else {current->_parent->_right = current->_right; }
-			// 	}
-			// 	else if (current->_right == NULL && current->_left){
-			// 		if (current == _root) {_root = current->_left; }
-			// 		else {current->_parent->_left = current->_left; }
-			// 	}
-			// 	else
-			// 		return false;
-			// 	// delete current node;
-			// 	return true;
-			// } -> dit is nieuwe versie, maar klopt niet, want hij kleurt niet
-			// opnieuw als hij een zwarte weghaalt. 
-
-			void delete_node(node_ptr current){
-				if (simple_delete(current)) {return; }
-				std::cout << "not simple delete" << std::endl;
-			// 	if (current == _root){
-			// 		if (current->_left == NULL && current->_right == NULL){
-			// 			_root = NULL;
-			// 			// delete current
-			// 			return ;
-			// 		}
-			// 		else if (current->_color = RED){
-						
-			// 		}
-			// 		else if (current->_left == NULL){
-			// 			_root = current->_right;
-			// 			// delete current;
-			// 			return ;
-			// 		}
-			// 		else{
-			// 			_root = current->_left;
-			// 			// delet current;
-			// 			return ;
-			// 		}
-			// 	}
-				
+			void complex_delete(node_ptr node){
+				std::cout << "Moet ik nog schrijven" << std::endl;
+				std::cout << "Trying to delete: " << node->_content << std::endl;				
 			}
+
+			void two_child_delete(node_ptr node){
+				node_ptr	replace;
+				int 		dir 	= childDir(node);
+				
+				if (dir == 1)
+					replace = predecessor(node);
+				else
+					replace = successor(node);
+
+				int	Rdir	= childDir(replace);
+				std::swap(node->_content, replace->_content);
+				if (node->_color != replace->_color){
+					replace->_parent->_child[Rdir] = NULL;
+					node->_color = BLACK;
+				}
+				else {complex_delete(replace); }
+			}
+			
+			void delete_node(node_ptr node){
+				if (!node->_left && !node->_right){
+					if (node == _root) {_root = NULL; return; }
+					else if (node->_color == RED) {
+						int dir = childDir(node);
+						node->_parent->_child[dir] = NULL; return; 
+					}
+					else {complex_delete(node); }
+				}
+				else if (node->_left && node->_right){two_child_delete(node); return; }
+				else if (node->_left && node->_left->_color != node->_color){
+					node->_left->_color = BLACK;
+					node->_parent->_left = node->_left;
+				}
+				else if (node->_right && node->_right->_color != node->_color){
+					node->_right->_color = BLACK;					
+					node->_parent->_right = node->_right;
+				}
+				else {complex_delete(node); }
+			}
+
+			/* ******************************************************************** */
+			/* visualise															*/
+			/* ******************************************************************** */
 
 			void visualise(){
 				visualise(_root, "", false);
