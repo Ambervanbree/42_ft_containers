@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/29 14:56:50 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/29 15:28:55 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,26 +269,41 @@ namespace ft{
 			}
 
 			void delete_black_leaf(node_ptr node){
+				
+				
 				std::cout << "Moet ik nog schrijven" << std::endl;
 				std::cout << "Trying to delete: " << node->_content << std::endl;				
 			}
 
 			void two_child_delete(node_ptr node){
 				node_ptr	replace;
-				int 		dir 	= childDir(node);
 				
-				if (dir == 1)
-					replace = predecessor(node);
-				else
-					replace = successor(node);
-
-				int	Rdir	= childDir(replace);
-				std::swap(node->_content, replace->_content);
-				if (node->_color != replace->_color){
-					replace->_parent->_child[Rdir] = NULL;
-					node->_color = BLACK;
+				if (node == _root){
+					replace = successor(_root);
+					if (successor->_color == BLACK) {replace = predecessor(_root); }
+					std::swap(node->_content, replace->_content);
+					delete_node(replace);
 				}
-				else {delete_black_leaf(replace); }
+				else{
+					int 	dir 	= childDir(node);
+					
+					if (dir == 1)
+						replace = predecessor(node);
+					else
+						replace = successor(node);
+					int		Rdir	= childDir(replace);
+					
+					std::swap(node->_content, replace->_content);
+					if (node->_color != replace->_color){
+						replace->_parent->_child[Rdir] = NULL;
+						node->_color = BLACK;
+						// delete replace for real
+						return ;
+					}
+					else {delete_black_leaf(replace); }
+				}
+				delete_node(replace);
+						
 			}
 			
 			void delete_node(node_ptr node){
@@ -296,11 +311,15 @@ namespace ft{
 					if (node == _root) {_root = NULL; return; }
 					else if (node->_color == RED) {
 						int dir = childDir(node);
-						node->_parent->_child[dir] = NULL; return; 
+						node->_parent->_child[dir] = NULL;
+						return; 
 					}
 					else {delete_black_leaf(node); }
 				}
-				else if (node->_left && node->_right){two_child_delete(node); return; }
+				else if (node->_left && node->_right){
+					two_child_delete(node); 
+					return; 
+				}
 				else if (node->_left && node->_left->_color != node->_color){
 					node->_left->_color = BLACK;
 					node->_parent->_left = node->_left;
