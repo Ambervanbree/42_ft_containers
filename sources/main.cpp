@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/29 14:51:13 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:01:15 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,13 @@ int		main(void){
 		tree.insert_node(&node[i], parent, parent->_content < node[i]._content);
 	}
 
-	tree.visualise();
 	tree.delete_node(&node[22]);
 	tree.delete_node(&node[23]);
 	tree.delete_node(&node[15]);
-	tree.delete_node(&node[21]);
 	tree.visualise();
+	tree.delete_node(&node[21]);
+	tree.delete_node(&node[24]);
+	tree.delete_node(&node[7]);
+	tree.visualise();
+	std::cout << "tree is valid: " << tree.valid() << std::endl;
 }

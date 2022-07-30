@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/29 15:28:55 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:02:28 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,26 @@ namespace ft{
 				return *this;
 			}
 
-			void swap(node_ptr other){
-				node_ptr	temp = NULL;
-
-				*temp = *other;
-				*other = *this;
-				*this = *temp;
+			void print_contents(){
+				std::cout << "Content: " << _content << std::endl;
+				std::cout << "Color: " << _color << std::endl;
+				if (_parent)
+					std::cout << "Parent: " << _parent->_content << std::endl;
+				if (_left)
+					std::cout << "Left child: " << _left->_content << std::endl;
+				if (_right)
+					std::cout << "Right child: " << _right->_content << std::endl;
+				std::cout << std::endl;
 			}
-	};
+			
+			// void swap(node_ptr other){
+			// 	node_ptr	temp = NULL;
 
-	// // template <class key, class value>
-	// node * create_node(int n){
-	// 	node *new_node	= new node(n);
-	// 	return new_node;
-	// }
+			// 	*temp = *other;
+			// 	*other = *this;
+			// 	*this = *temp;
+			// }
+	};
 
 	template <class T, class Compare, class Allocator = std::allocator<T> >
 	struct RBtree{
@@ -189,6 +195,7 @@ namespace ft{
 				node_ptr	current = _root;
 				
 				while (1){
+					// TODO : build in function to see if node exists
 					node_ptr next = current->_child[_comp(current->_content, new_node->_content)];
 					
 					if (next == NULL)
@@ -260,7 +267,7 @@ namespace ft{
 					
 					// case 2: we repaint grandma, aunt and parent. With these color changes
 					// it's possible the tree becomes invalid higher up (connected red nodes).
-					// Thus this process is repeated until the tree is balanced.
+					// We repeat the process with a higher node until the tree is balanced.
 					parent->_color = BLACK;
 					aunt->_color = BLACK;
 					grandma->_color = RED;
@@ -268,11 +275,76 @@ namespace ft{
 				}while ((parent = current->_parent) != NULL);
 			}
 
-			void delete_black_leaf(node_ptr node){
-				
-				
-				std::cout << "Moet ik nog schrijven" << std::endl;
-				std::cout << "Trying to delete: " << node->_content << std::endl;				
+			void delete_black_leaf(node_ptr current){
+				node_ptr	parent 	= current->_parent;
+				int			dir		= childDir(current); // safe, because current != _root
+				node_ptr	sister;
+				node_ptr	niece;
+				node_ptr	far_niece;
+
+				parent->_child[dir] = NULL;
+				do{
+					sister 		= parent->_child[1 - dir];
+					niece 		= sister->_child[dir];
+					far_niece	= sister->_child[1 - dir];
+
+					// case 3: sister is red, we rotate so she will become the grandparent
+					// and we can repaint the parent. This way we end up with a black
+					// leaf root and we can continue the cycle until tree is balanced.
+					if (sister->_color == RED){
+						// std::cout << "sister red " << std::endl;
+						rotate_dir(parent, dir);
+						parent->_color = RED;
+						sister->_color = BLACK;
+						// rotation moved sister up, niece becomes parent's other child.
+						// We update the situation and make her children niece and far niece. 
+						// We know sister is black, so we can fall through.
+						sister = niece;
+						far_niece = sister->_child[1 - dir];
+						niece = sister->_child[dir];
+					}
+					
+					// case 5: the inner child (niece) is red. We rotate so that niece comes
+					// between parent and sister and flip colors. Sister becomes the new far
+					// niece and is red, so we can continue our loop.
+					if (niece && niece->_color == RED){
+						// std::cout << "niece red " << std::endl;
+						rotate_dir(sister, 1 - dir);
+						sister->_color = RED;
+						niece->_color = BLACK;
+						far_niece = sister;
+						sister = niece;
+					}
+					
+					// case 6: outer child (far niece) or both children are red. We rotate 
+					// sister up and have parent and sister switch colors. Black height has 
+					// been restored, we can return.
+					if (far_niece && far_niece->_color == RED){
+						// std::cout << "far niece red " << std::endl;
+						rotate_dir(parent, dir);
+						sister->_color = parent->_color;
+						parent->_color = BLACK;
+						far_niece->_color = BLACK;
+						return ;
+					}
+
+					// case 4: both sister's children are black and parent is red. 
+					// We balance the tree by flipping colors of parent and sister.
+					if (parent->_color == RED){
+						// std::cout << "parent red " << std::endl;
+						sister->_color = RED;
+						parent->_color = BLACK;
+						return ;
+					}
+					
+					// std::cout << "all black " << std::endl;
+					// case 1: repainting sister balances the subtree of parent, but
+					// it will have one less black node than the rest of the tree.
+					// We go a level up and iterate through until full tree is balanced.
+					sister->_color = RED;
+					current = parent;
+					dir = childDir(current);
+				} while ((parent = current->_parent) != NULL);	
 			}
 
 			void two_child_delete(node_ptr node){
@@ -280,59 +352,45 @@ namespace ft{
 				
 				if (node == _root){
 					replace = successor(_root);
-					if (successor->_color == BLACK) {replace = predecessor(_root); }
-					std::swap(node->_content, replace->_content);
-					delete_node(replace);
+					if (replace->_color == BLACK) {replace = predecessor(_root); }
 				}
 				else{
 					int 	dir 	= childDir(node);
 					
-					if (dir == 1)
-						replace = predecessor(node);
-					else
-						replace = successor(node);
-					int		Rdir	= childDir(replace);
-					
-					std::swap(node->_content, replace->_content);
-					if (node->_color != replace->_color){
-						replace->_parent->_child[Rdir] = NULL;
-						node->_color = BLACK;
-						// delete replace for real
-						return ;
-					}
-					else {delete_black_leaf(replace); }
-				}
+					if (dir == 1) {replace = predecessor(node); }
+					else {replace = successor(node); }
+				}			
+				std::swap(node->_content, replace->_content);
 				delete_node(replace);
-						
 			}
 			
 			void delete_node(node_ptr node){
-				if (!node->_left && !node->_right){
-					if (node == _root) {_root = NULL; return; }
+				if (node->_left && node->_right) {two_child_delete(node); }
+				else if (!node->_left && !node->_right){
+					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED) {
 						int dir = childDir(node);
 						node->_parent->_child[dir] = NULL;
-						return; 
 					}
 					else {delete_black_leaf(node); }
 				}
-				else if (node->_left && node->_right){
-					two_child_delete(node); 
-					return; 
-				}
-				else if (node->_left && node->_left->_color != node->_color){
+				else if (node->_left){
 					node->_left->_color = BLACK;
+					node->_left->_parent = node->_parent;
 					node->_parent->_left = node->_left;
 				}
-				else if (node->_right && node->_right->_color != node->_color){
-					node->_right->_color = BLACK;					
+				else if (node->_right){
+					node->_right->_color = BLACK;
+					node->_right->_parent = node->_parent;			
 					node->_parent->_right = node->_right;
 				}
-				else {delete_black_leaf(node); }
+				else
+					std::cout << "Something is not right, black single child found" << std::endl;
+				// delete node for real
 			}
 
 			/* ******************************************************************** */
-			/* visualise															*/
+			/* utils																*/
 			/* ******************************************************************** */
 
 			void visualise(){
@@ -357,6 +415,37 @@ namespace ft{
 					visualise(node->_right, indent, true);
 				}
 				
+			}
+
+			bool valid(){
+				int 		black_height = 0;
+				node_ptr 	current = _root;
+				
+				if (_root == NULL) {return true; }
+				while (current != NULL){
+					if (current->_color == BLACK) {black_height++;}
+					current = current->_left;
+				}
+				if (valid(_root, 0, black_height) == false) {return false; }
+				return true ;
+			}
+
+			bool valid(node_ptr node, int black_nodes, int black_height){
+				if (node != NULL){
+					if (node->_color == BLACK) {black_nodes++; }
+					else{
+						if (node->_parent && node->_parent->_color == RED) {
+							return false ; 
+						}
+					}
+					if (valid(node->_left, black_nodes, black_height) == false)
+						return false;
+					if (valid(node->_right, black_nodes, black_height) == false)
+						return false;
+				}
+				if (black_nodes > black_height)
+					return false ;
+				return true ;
 			}
 
 	};
