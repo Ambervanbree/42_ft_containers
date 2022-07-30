@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/27 12:48:41 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:49:24 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@
 # include "RBtree.hpp"
 
 namespace ft{
-	template<class key, class value, class Compare = std::less<key>, class Allocator = std::allocator<ft::pair<const key, value> > >
+	template<class key, class value, class Compare = std::less<key>, class Allocator = std::allocator<std::pair<const key, value> > >
 	class map{
 		public:
 			//types:
 			typedef key												key_type;
 			typedef value											mapped_type;
-			typedef ft::pair<const key, value>						value_type;
+			typedef std::pair<const key, value>						value_type;
+			typedef RBtree<value_type, Compare, Allocator>			tree_type;
+			typedef RBnode<value_type, Compare>						node_type;
+			// typedef node_type *										node_ptr;
 			typedef Compare											key_compare;
 			typedef Allocator										allocator_type;
 			typedef typename Allocator::reference					reference;
@@ -84,7 +87,15 @@ namespace ft{
 		// 	T& operator[](const key_type& x);
 
 		// 	// modifiers:
-		// 	pair<iterator, bool> insert(const value_type& x);
+			pair<iterator, bool> insert(const value_type& x){
+				node_type *	new_node;
+
+				(void)x;
+				
+				new_node = _tree.get_allocator().allocate(1);
+				// _tree.insert_node(new_node);
+			}
+			
 		// 	iterator insert(iterator position, const value_type& x);
 			
 		// 	template <class InputIterator>

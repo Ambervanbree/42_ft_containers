@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/30 16:02:28 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/07/30 17:48:35 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,6 @@ namespace ft{
 					std::cout << "Right child: " << _right->_content << std::endl;
 				std::cout << std::endl;
 			}
-			
-			// void swap(node_ptr other){
-			// 	node_ptr	temp = NULL;
-
-			// 	*temp = *other;
-			// 	*other = *this;
-			// 	*this = *temp;
-			// }
 	};
 
 	template <class T, class Compare, class Allocator = std::allocator<T> >
@@ -123,7 +115,8 @@ namespace ft{
 			typedef size_t								size_type;
 			typedef Allocator							allocator_type;
 			typedef Compare								value_compare;
-			typedef typename Allocator::template rebind<node_type>::other	node_allocator;
+			typedef typename Allocator::template 
+							rebind<node_type>::other	node_allocator;
 
 
 			/* ******************************************************************** */
@@ -204,6 +197,12 @@ namespace ft{
 						current = next;
 				}
 			}
+
+			/* ******************************************************************** */
+			/* allocator															*/
+			/* ******************************************************************** */
+			
+			node_allocator get_allocator() const {return _alloc; }
 
 			/* ******************************************************************** */
 			/* insert and delete													*/
@@ -348,6 +347,11 @@ namespace ft{
 			}
 
 			void two_child_delete(node_ptr node){
+				// if a node has 2 children, we are going to swap it with
+				// its predecessor (if subtree direction is left) or else
+				// with its successor. The swap makes that the node to be
+				// deleted is now a leaf node, so we call delete on that.
+				
 				node_ptr	replace;
 				
 				if (node == _root){
@@ -365,6 +369,11 @@ namespace ft{
 			}
 			
 			void delete_node(node_ptr node){
+				// For a node with 2 children, see function above. Else, if
+				// a node has no children and is red or has one child
+				// we can delete as if it was a normal BST. For the difficult
+				// case: deleting a black leaf node, we use a special function.
+				
 				if (node->_left && node->_right) {two_child_delete(node); }
 				else if (!node->_left && !node->_right){
 					if (node == _root) {_root = NULL; }
@@ -386,7 +395,7 @@ namespace ft{
 				}
 				else
 					std::cout << "Something is not right, black single child found" << std::endl;
-				// delete node for real
+				// TODO delete node for real
 			}
 
 			/* ******************************************************************** */
