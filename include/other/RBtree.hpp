@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/30 17:48:35 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:10:27 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <memory>
 # include <cassert>
 # include "pair.hpp"
+# include "enable_if.hpp"
+# include "is_integral.hpp"
 
 # define LEFT  0
 # define RIGHT 1
@@ -27,7 +29,7 @@
 namespace ft{
 	enum	color_t {RED, BLACK};
 	
-	template <class T, class Compare>
+	template <class T>
 	struct RBnode{
 
 			/* ******************************************************************** */
@@ -35,12 +37,11 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			typedef T									value_type;
-			typedef ft::RBnode<T, Compare>				node_type;
+			typedef ft::RBnode<T>						node_type;
 			typedef node_type *							node_ptr;
 			typedef node_type &							node_ref;
 			typedef size_t								size_type;
 			typedef const node_type &					const_node_ref;
-			typedef Compare								value_compare;
 
 			/* ******************************************************************** */
 			/* variables															*/
@@ -50,33 +51,29 @@ namespace ft{
 			node_ptr		_child[2];
 			color_t			_color;
 			value_type		_content;
-			value_compare	_comp;
 			size_type		_depth;
 
 			/* ******************************************************************** */
 			/* constructors															*/
 			/* ******************************************************************** */
 
-			RBnode(value_type value, value_compare &comp = Compare()) :
+			RBnode(value_type value) : 
 				_parent(NULL), 
 				_color(RED), 
-				_content(value), 
-				_comp(comp){
-				_left = NULL;
+				_content(value) { 
+				_left = NULL; 
 				_right = NULL;
 			}
 			
-			RBnode(value_compare &comp = Compare()) :
+			RBnode() :
 				_parent(NULL), 
 				_color(RED), 
-				_content(), 
-				_comp(comp){
+				_content() {
 				_left = NULL;
 				_right = NULL;
 			}
 						
 			node_ref operator=(const_node_ref x){
-				_comp = x._comp;
 				_content = x._content;
 				_color = x._color;
 				_parent = x._parent;
@@ -107,14 +104,14 @@ namespace ft{
 			
 			typedef T									value_type;
 			typedef RBtree<T, Compare, Allocator>		tree_type;
-			typedef ft::RBnode<T, Compare>				node_type;
+			typedef ft::RBnode<T>						node_type;
 			typedef node_type *							node_ptr;
 			typedef node_type &							node_ref;
 			typedef tree_type *							tree_ptr;
 			typedef tree_type &							tree_ref;
 			typedef size_t								size_type;
 			typedef Allocator							allocator_type;
-			typedef Compare								value_compare;
+			typedef Compare								key_compare;
 			typedef typename Allocator::template 
 							rebind<node_type>::other	node_allocator;
 
@@ -125,17 +122,17 @@ namespace ft{
 			
 			node_ptr									_root;
 			node_allocator								_alloc;
-			value_compare								_comp;
+			key_compare									_comp;
 			size_type									_height;
 			
 			/* ******************************************************************** */
 			/* constructors															*/
 			/* ******************************************************************** */
 			
-			RBtree() : 
+			RBtree(const key_compare &comp) : 
 				_root(NULL), 
 				_alloc(node_allocator()), 
-				_comp(value_compare()), 
+				_comp(comp), 
 				_height(0) {}
 			
 			/* ******************************************************************** */
@@ -184,12 +181,15 @@ namespace ft{
 				}
 			}
 			
-			node_ptr find_parent(node_ptr new_node){
+		 	node_ptr find_parent(node_ptr new_node){
+				if (_root == NULL)
+					return NULL;
+				
 				node_ptr	current = _root;
 				
 				while (1){
-					// TODO : build in function to see if node exists
-					node_ptr next = current->_child[_comp(current->_content, new_node->_content)];
+					node_ptr next = current->_child[_comp(current->_content, 
+						new_node->_content)];
 					
 					if (next == NULL)
 						return current;
@@ -199,7 +199,7 @@ namespace ft{
 			}
 
 			/* ******************************************************************** */
-			/* allocator															*/
+			/* getters																*/
 			/* ******************************************************************** */
 			
 			node_allocator get_allocator() const {return _alloc; }
@@ -226,6 +226,20 @@ namespace ft{
 					_root = daughter;
 				return daughter;
 			}
+
+			// void insert(node_ptr new_node){
+			// 	node_ptr	parent;
+			// 	int			dir = 0;
+
+			// 	insert = find_parent(new_node);
+			// 	if (insert.second == false){
+			// 		std::cout << "assign new value to node " << std::endl;
+			// 		return ;
+			// 	}
+			// 	if (insert.first && (insert.second == true))
+			// 		dir = _comp(insert.first->_content, new_node->_content);
+			// 	insert_node(new_node, insert.first, dir);
+			// }
 			
 			void insert_node(node_ptr current, node_ptr parent, int dir){
 				node_ptr	grandma;

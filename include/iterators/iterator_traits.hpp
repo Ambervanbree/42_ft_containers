@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:55:20 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/18 17:15:35 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/01 14:51:19 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,3 @@ namespace ft {
 
 #endif
 
-/*
-Pointers generally have all the 
-*/

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/30 17:35:19 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/01 18:20:57 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,30 @@ int		main(void){
 	{
 		std::map<int, char> map;
 		map.insert(std::make_pair(3, 'f'));
-		// map.insert(std::make_pair(3, 'f'));
-		// map.insert(std::make_pair(6, 'e'));
-		// map.insert(std::make_pair(8, 'p'));
-		// map.insert(std::make_pair(0, 'q'));
+		map.insert(std::make_pair(1, 'a'));
+		map.insert(std::make_pair(6, 'e'));
+		map.insert(std::make_pair(8, 'p'));
+		map.insert(std::make_pair(0, 'q'));
+		
+		std::map<int, char>::iterator	it = map.begin();
+		std::cout << it->first << std::endl;
+		std::map<int, char>::iterator	ite = --map.end();
+		std::cout << ite->first << std::endl;
+		std::cout << "max size is " << map.max_size() << std::endl;
 	}
 	{
 		ft::map<int, char> map;
-		map.insert(std::make_pair(3, 'f'));
-		// map.insert(std::make_pair(3, 'f'));
-		// map.insert(std::make_pair(6, 'e'));
-		// map.insert(std::make_pair(8, 'p'));
-		// map.insert(std::make_pair(0, 'q'));
+		map.insert(ft::make_pair(3, 'f'));
+		map.insert(ft::make_pair(1, 'a'));
+		map.insert(ft::make_pair(6, 'e'));
+		map.insert(ft::make_pair(8, 'p'));
+		map.insert(ft::make_pair(0, 'q'));
+
+		ft::map<int, char>::iterator	it = map.begin();
+		std::cout << it->first << std::endl;
+		ft::map<int, char>::iterator	ite = map.end();
+		std::cout << ite->first << std::endl;
+		std::cout << "max size is " << map.max_size() << std::endl;
 	}
 	
 
