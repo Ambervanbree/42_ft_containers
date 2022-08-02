@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/01 18:20:57 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:58:21 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,20 @@ int		main(void){
 		map.insert(std::make_pair(8, 'p'));
 		map.insert(std::make_pair(0, 'q'));
 		
+		std::map<int, char> map2;
+		map2.insert(std::make_pair(3, 'f'));
+		map2.insert(std::make_pair(1, 'a'));
+		map2.insert(std::make_pair(6, 'e'));
+		map2.insert(std::make_pair(8, 'p'));
+		map2.insert(std::make_pair(0, 'q'));
+		
 		std::map<int, char>::iterator	it = map.begin();
-		std::cout << it->first << std::endl;
-		std::map<int, char>::iterator	ite = --map.end();
-		std::cout << ite->first << std::endl;
-		std::cout << "max size is " << map.max_size() << std::endl;
+		std::cout << "iterator start " << it->first << std::endl;
+		it++; it++;
+		std::cout << "iterator later " << it->first << std::endl;
+		std::map<int, char>::iterator	it2 = map.begin();
+		it--; it2++;
+		std::cout << "iterator " << it->first << " " << it2->first << std::endl;
 	}
 	{
 		ft::map<int, char> map;
@@ -37,12 +46,21 @@ int		main(void){
 		map.insert(ft::make_pair(6, 'e'));
 		map.insert(ft::make_pair(8, 'p'));
 		map.insert(ft::make_pair(0, 'q'));
-
+		
+		ft::map<int, char> map2;
+		map2.insert(ft::make_pair(3, 'f'));
+		map2.insert(ft::make_pair(1, 'a'));
+		map2.insert(ft::make_pair(6, 'e'));
+		map2.insert(ft::make_pair(8, 'p'));
+		map2.insert(ft::make_pair(0, 'q'));
+		
 		ft::map<int, char>::iterator	it = map.begin();
-		std::cout << it->first << std::endl;
-		ft::map<int, char>::iterator	ite = map.end();
-		std::cout << ite->first << std::endl;
-		std::cout << "max size is " << map.max_size() << std::endl;
+		std::cout << "iterator start " << it->first << std::endl;
+		it++; it++;
+		std::cout << "iterator later " << it->first << std::endl;
+		ft::map<int, char>::iterator	it2 = map.begin();
+		it--; it2++;
+		std::cout << "iterator " << it->first << " " << it2->first << std::endl;
 	}
 	
 

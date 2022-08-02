@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/01 18:10:27 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/02 11:48:30 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,6 @@ namespace ft{
 				_left = NULL;
 				_right = NULL;
 			}
-						
-			node_ref operator=(const_node_ref x){
-				_content = x._content;
-				_color = x._color;
-				_parent = x._parent;
-				_left = x._left;
-				_right = x._right;
-				return *this;
-			}
 
 			void print_contents(){
 				std::cout << "Content: " << _content << std::endl;
@@ -92,6 +83,69 @@ namespace ft{
 				if (_right)
 					std::cout << "Right child: " << _right->_content << std::endl;
 				std::cout << std::endl;
+			}
+
+			/* ******************************************************************** */
+			/* accessors															*/
+			/* ******************************************************************** */
+			
+			node_ptr min_value(){
+				node_ptr current = this;
+
+				while (current->_left != NULL)
+					current = current->_left;
+				return current;
+			}
+			
+			node_ptr max_value(){
+				node_ptr current = this;
+
+				while (current->_right != NULL)
+					current = current->_right;
+				return current;
+			}
+			
+			node_ptr successor(){
+				if (_right != NULL)
+					return _right->min_value();
+				else{
+					node_ptr 	parent 	= _parent;
+					node_ptr 	current = this;
+					
+					while(parent != NULL && current == parent->_right){
+						current = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
+
+			node_ptr predecessor(){
+				if (_left != NULL)
+					return _left->max_value();
+				else{
+					node_ptr 	parent 	= _parent;
+					node_ptr	current	= this;
+					
+					while(parent != NULL && current == parent->_left){
+						current = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
+
+			friend bool operator==(const RBnode& x, const RBnode& y){
+			if ((x._color != y._color) ||
+				(x._content != y._content) ||
+				(x._parent != y._parent) ||
+				(x._child[0] != y._child[0]) ||
+				(x._child[1] != y._child[1])) {return false; }
+			return true;
+			}
+
+			friend bool operator!=(const RBnode& x, const RBnode& y){
+			return !(x == y);
 			}
 	};
 
@@ -135,51 +189,51 @@ namespace ft{
 				_comp(comp), 
 				_height(0) {}
 			
-			/* ******************************************************************** */
-			/* accessors															*/
-			/* ******************************************************************** */
+			// /* ******************************************************************** */
+			// /* accessors															*/
+			// /* ******************************************************************** */
 			
-			node_ptr min_value(node_ptr subtree){
-				node_ptr current = subtree;
+			// node_ptr min_value(node_ptr subtree){
+			// 	node_ptr current = subtree;
 
-				while (current->_left != NULL)
-					current = current->_left;
-				return current;
-			}
+			// 	while (current->_left != NULL)
+			// 		current = current->_left;
+			// 	return current;
+			// }
 			
-			node_ptr max_value(node_ptr subtree){
-				node_ptr current = subtree;
+			// node_ptr max_value(node_ptr subtree){
+			// 	node_ptr current = subtree;
 
-				while (current->_right != NULL)
-					current = current->_right;
-				return current;
-			}
+			// 	while (current->_right != NULL)
+			// 		current = current->_right;
+			// 	return current;
+			// }
 			
-			node_ptr successor(node_ptr node){
-				if (node->_right != NULL)
-					return min_value(node->_right);
-				else{
-					node_ptr parent = node->_parent;
-					while(parent != NULL && node == parent->_right){
-						node = parent;
-						parent = parent->_parent;
-					}
-					return parent;
-				}
-			}
+			// node_ptr successor(node_ptr node){
+			// 	if (node->_right != NULL)
+			// 		return min_value(node->_right);
+			// 	else{
+			// 		node_ptr parent = node->_parent;
+			// 		while(parent != NULL && node == parent->_right){
+			// 			node = parent;
+			// 			parent = parent->_parent;
+			// 		}
+			// 		return parent;
+			// 	}
+			// }
 
-			node_ptr predecessor(node_ptr node){
-				if (node->_left != NULL)
-					return (max_value(node->_left));
-				else{
-					node_ptr parent = node->_parent;
-					while(parent != NULL && node == parent->_left){
-						node = parent;
-						parent = parent->_parent;
-					}
-					return parent;
-				}
-			}
+			// node_ptr predecessor(node_ptr node){
+			// 	if (node->_left != NULL)
+			// 		return (max_value(node->_left));
+			// 	else{
+			// 		node_ptr parent = node->_parent;
+			// 		while(parent != NULL && node == parent->_left){
+			// 			node = parent;
+			// 			parent = parent->_parent;
+			// 		}
+			// 		return parent;
+			// 	}
+			// }
 			
 		 	node_ptr find_parent(node_ptr new_node){
 				if (_root == NULL)
@@ -369,14 +423,14 @@ namespace ft{
 				node_ptr	replace;
 				
 				if (node == _root){
-					replace = successor(_root);
-					if (replace->_color == BLACK) {replace = predecessor(_root); }
+					replace = _root->successor();
+					if (replace->_color == BLACK) {replace = _root->predecessor(); }
 				}
 				else{
 					int 	dir 	= childDir(node);
 					
-					if (dir == 1) {replace = predecessor(node); }
-					else {replace = successor(node); }
+					if (dir == 1) {replace = node->predecessor(); }
+					else {replace = node->successor(); }
 				}			
 				std::swap(node->_content, replace->_content);
 				delete_node(replace);
