@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:55:20 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/01 14:51:19 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/02 12:14:01 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #define ITERATOR_TRAITS_HPP
 
 namespace ft {
-	// iterator_traits<Iterator>::difference_type
-	// iterator_traits<Iterator>::value_type
-	// iterator_traits<Iterator>::iterator_category
-
 	template<class Iterator> 
 	struct iterator_traits {
 		typedef typename Iterator::difference_type 		difference_type;

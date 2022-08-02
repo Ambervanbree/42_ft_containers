@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:51:10 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/02 11:59:17 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:56:32 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ namespace ft{
 			/* member operator overload												*/
 			/* ******************************************************************** */		
 			
-			value_type	operator*(void)	{return _current->_content; }
+			node_ptr	operator*(void)	{return _current; }
 			value_ptr	operator->(void) {return &(_current->_content); }
 			
 			RBiterator&	operator++(void) {_current = _current->successor(); return *this; }
 			RBiterator	operator++(int) {_current = _current->successor(); return *this; }
 			RBiterator&	operator--(void) {_current = _current->predecessor(); return *this; }
-			RBiterator	operator--(int) {_current = _current->predecessor(); return *this; }			
+			RBiterator	operator--(int) {_current = _current->predecessor(); return *this; }		
 	};
 
 	/* ******************************************************************** */

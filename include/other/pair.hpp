@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:24:39 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/02 11:30:03 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:53:58 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ namespace ft{
 		pair(const pair<U, V> &p) : first(p.first), second(p.second) {}
 		
 		pair& operator=(const pair& other) {
-			this->first = other.first;
-			this->second = other.second;
+			if (*this != other){
+				// first = T1(other.first);
+				second = other.second;
+			}
 			return *this;
 		}
+// TODO --------------->> this is not good
 	};
 
 	template <class T1, class T2>
