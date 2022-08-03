@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/02 18:19:04 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/03 16:16:49 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include "RBiterators.hpp"
 
 namespace ft{
-	template<class key, class value, class Compare = std::less<key>, class Allocator = std::allocator<ft::pair<const key, value> > >
+	template<class key, class value, class Compare = std::less<key>, 
+		class Allocator = std::allocator<ft::pair<const key, value> > >
 	class map {
 		public:
 		
@@ -68,17 +69,16 @@ namespace ft{
 			/* construct, copy, destroy												*/
 			/* ******************************************************************** */
 			
-			explicit map(const value_compare& comp = value_compare(key_compare()), const allocator_type& alloc = allocator_type()) :
-			_size(0), _alloc(alloc), _tree(comp), _comp(comp) {}
+			explicit map(const value_compare& comp = value_compare(key_compare()), 
+				const allocator_type& alloc = allocator_type()) :
+			_alloc(alloc), _tree(comp), _comp(comp) {}
 
 		// 	template <class InputIterator>
 		// 	map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& = Allocator());
 
 		// 	map(const map<Key,T,Compare,Allocator>& x);
 		
-			~map(){ 
-				erase(begin(), end());
-			}
+			~map(){}
 		
 		// 	map<Key,T,Compare,Allocator>& operator=(const map<Key,T,Compare,Allocator>& x);
 		
@@ -105,8 +105,8 @@ namespace ft{
 			/* capacity																*/
 			/* ******************************************************************** */
 			
-			bool empty() const {return _size < 1 ? 1 : 0; }
-			size_type size() const {return _size; }
+			bool empty() const {return _tree._size < 1 ? 1 : 0; }
+			size_type size() const {return _tree._size; }
 			size_type max_size() const {return _tree.get_allocator().max_size(); }
 			
 			/* ******************************************************************** */
@@ -117,53 +117,36 @@ namespace ft{
 				return find(x)->second;
 			}
 
+			void visualise(){
+				_tree.visualise();
+			}
+
+// TODO -------------->> delete!!
+
 			/* ******************************************************************** */
 			/* modifiers															*/
 			/* ******************************************************************** */
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
-				node_ptr		new_node;
-				node_ptr		parent;
-				int				dir 		= 0;
-				iterator		it;
-
-				new_node = _tree.get_allocator().allocate(1);
-				_tree.get_allocator().construct(new_node, x);
-				parent = _tree.find_parent(new_node);
-				if (parent){
-					dir = _comp(parent->_content, new_node->_content);
-					if ((parent->_content.first == x.first )||
-						(parent->_child[dir] && parent->_child[dir]->_content.first == x.first)){
-						return (ft::make_pair(find(x.first), false));
-// TODO ----------------->> dit is niet heel optimaal, want ik iterate twee keer door de boom
-					}
+				if (size()){				
+					if (find(x.first) != end())
+						return ft::make_pair(find(x.first), false);
 				}
-				_tree.insert_node(new_node, parent, dir);
-				_size++;
-				return ft::make_pair(iterator(new_node), true);
+				return _tree.insert(x);
 			}
-			
-			// iterator insert(iterator position, const value_type& x){
-			// 	_tree.insert_node(*position, *(position->_parent), 0);
-			// }
 			
 		// 	template <class InputIterator> 
 		// 	void insert(InputIterator first, InputIterator last);
 
 			void erase(iterator position){
-				// iterator deleted = 
-				_tree.delete_node(*position);
-				// _tree.get_allocator().destroy(*deleted);
-				// _tree.get_allocator().deallocate(*deleted, 1);
-				_size--;
-// TODO ---->> dit werkt, behalve dat dus die nodes niet goed geswapt worden.
+				_tree.erase(position);
 			}
 
-		// 	size_type erase(const key_type& x);
-			void erase(iterator first, iterator last){
-				for(; first != last; first++)
-					erase(first);
-			}
+		// // 	size_type erase(const key_type& x);
+		// 	void erase(iterator first, iterator last){
+		// 		for(; first != last; first++)
+		// 			erase(first);
+		// 	}
 			
 		// 	void swap(map<Key,T,Compare,Allocator>&);
 		// 	void clear();
@@ -235,7 +218,6 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			private:
-				size_type										_size;
 				allocator_type									_alloc;
 				RBtree<value_type, value_compare, Allocator>	_tree;
 				value_compare									_comp;

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/02 18:23:24 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/03 18:31:24 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define childDir(N) ( N == (N->_parent)->_right ? RIGHT : LEFT )
 
 namespace ft{
-	enum	color_t {RED, BLACK};
+	enum	color_t {RED, BLACK, ORANGE};
 	
 	template <class T>
 	struct RBnode{
@@ -52,7 +52,7 @@ namespace ft{
 			node_ptr		_child[2];
 			color_t			_color;
 			value_type		_content;
-			size_type		_depth;
+			bool			_dummy;
 
 			/* ******************************************************************** */
 			/* constructors															*/
@@ -61,7 +61,8 @@ namespace ft{
 			RBnode(value_type value) : 
 				_parent(NULL), 
 				_color(RED), 
-				_content(value) { 
+				_content(value),
+				_dummy(false) { 
 				_left = NULL; 
 				_right = NULL;
 			}
@@ -69,20 +70,22 @@ namespace ft{
 			RBnode() :
 				_parent(NULL), 
 				_color(RED), 
-				_content() {
+				_content(),
+				_dummy(false) {
 				_left = NULL;
 				_right = NULL;
 			}
 
 			void print_contents(){
-				std::cout << "Content: " << _content << std::endl;
+				std::cout << "Content: " << _content.first << std::endl;
+				std::cout << "Dummy? " << _dummy << std::endl;
 				std::cout << "Color: " << _color << std::endl;
 				if (_parent)
-					std::cout << "Parent: " << _parent->_content << std::endl;
+					std::cout << "Parent: " << _parent->_content.first << std::endl;
 				if (_left)
-					std::cout << "Left child: " << _left->_content << std::endl;
+					std::cout << "Left child: " << _left->_content.first << std::endl;
 				if (_right)
-					std::cout << "Right child: " << _right->_content << std::endl;
+					std::cout << "Right child: " << _right->_content.first << std::endl;
 				std::cout << std::endl;
 			}
 
@@ -101,7 +104,7 @@ namespace ft{
 			node_ptr max_value(){
 				node_ptr current = this;
 
-				while (current->_right != NULL)
+				while (current->_right && current->_right->_dummy == false)
 					current = current->_right;
 				return current;
 			}
@@ -181,6 +184,7 @@ namespace ft{
 			node_ptr									_dummy;
 			node_allocator								_alloc;
 			key_compare									_comp;
+			size_type									_size;
 			size_type									_height;
 			
 			/* ******************************************************************** */
@@ -190,13 +194,22 @@ namespace ft{
 			RBtree(const key_compare &comp) : 
 				_root(NULL),
 				_alloc(node_allocator()), 
-				_comp(comp), 
+				_comp(comp),
+				_size(0),
 				_height(0) {
 					_dummy = _alloc.allocate(1);
 					_alloc.construct(_dummy, value_type());
+					_dummy->_dummy = true;
+					_dummy->_color = ORANGE;
 				}
 
 			~RBtree(void) {
+					clear_tree();
+					// clear tree werkt niet, want iterator wordt ongeldig gemaakt
+					// idee is om de ouder op te slaan als we rechtsaf gaan
+					// of erase op elk element te roepen
+
+					// ook: erase leakt volgens mij
 					_alloc.destroy(_dummy);
 					_alloc.deallocate(_dummy, 1);
 				}
@@ -234,26 +247,23 @@ namespace ft{
 			const_iterator	end() const {return iterator(_dummy); }
 
 			/* ******************************************************************** */
-			/* insert and delete													*/
+			/* insert																*/
 			/* ******************************************************************** */
 
-			node_ptr rotate_dir(node_ptr current, int dir){
-				node_ptr	grandma = current->_parent;
-				node_ptr	daughter = current->_child[1 - dir];
-				node_ptr	temp;
+			ft::pair<iterator, bool> insert(const value_type& x){
+				node_ptr	new_node;
+				node_ptr	parent;
+				int			dir  		= 0;
+				iterator	it;
 
-				assert(daughter != NULL);
-				temp = daughter->_child[dir];
-				current->_child[1 - dir] = temp;
-				if (temp != NULL) {temp->_parent = current;}
-				daughter->_child[dir] = current;
-				current->_parent = daughter;
-				daughter->_parent = grandma;
-				if (grandma != NULL)
-					grandma->_child[current == grandma->_right ? RIGHT : LEFT] = daughter;
-				else
-					_root = daughter;
-				return daughter;
+				new_node = _alloc.allocate(1);
+				_alloc.construct(new_node, x);
+				parent = find_parent(new_node);
+				if (parent)
+					dir = _comp(parent->_content, new_node->_content);
+				insert_node(new_node, parent, dir);
+				_size++;
+				return ft::make_pair(iterator(new_node), true);
 			}
 			
 			void insert_node(node_ptr current, node_ptr parent, int dir){
@@ -261,7 +271,7 @@ namespace ft{
 				node_ptr	aunt;
 
 				current->_parent = parent;
-				if (parent && parent->_right && parent->_right == _dummy){
+				if (parent && dir && parent->_right && parent->_right == _dummy){
 					current->_right = _dummy;
 					_dummy->_parent = current;
 				}
@@ -285,6 +295,8 @@ namespace ft{
 					}
 					dir = childDir(parent);
 					aunt = grandma->_child[1 - dir];
+					if (aunt && aunt->_dummy)
+						aunt = NULL;
 					
 					// case 4 + 5: grandma exists and aunt is black or NULL,
 					// we have to do a color flip (case 4). If the node is the inner grand 
@@ -294,6 +306,8 @@ namespace ft{
 							rotate_dir(parent, dir);
 							current = parent;
 							parent = grandma->_child[dir];
+							if (parent->_dummy)
+								parent = NULL;
 						}
 						rotate_dir(grandma, 1 - dir);
 						parent->_color = BLACK;
@@ -309,8 +323,11 @@ namespace ft{
 					grandma->_color = RED;
 					current = grandma;
 				}while ((parent = current->_parent) != NULL);
-				// return iterator(current);
 			}
+
+			/* ******************************************************************** */
+			/* delete																*/
+			/* ******************************************************************** */
 
 			iterator delete_black_leaf(node_ptr current){
 				node_ptr	parent 	= current->_parent;
@@ -406,10 +423,9 @@ namespace ft{
 				// a node has no children and is red or has one child
 				// we can delete as if it was a normal BST. For the difficult
 				// case: deleting a black leaf node, we use a special function.
-				
+
 				if (node->_left && node->_right) {return two_child_delete(node); }
 				else if (!node->_left && !node->_right){
-					std::cout << "position is " << node->_content.first << " color is " << node->_color << std::endl;
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED) {
 						int dir = childDir(node);
@@ -431,13 +447,66 @@ namespace ft{
 				else
 					std::cout << "Something is not right, black single child found" << std::endl;
 				return iterator(node) ;
-				// TODO delete node for real
+// TODO ----------------> delete node for real
+			}
+
+			void erase(iterator position){
+				iterator	deleted;
+				
+				deleted = delete_node(*position);
+				_alloc.destroy(*deleted);
+				_alloc.deallocate(*deleted, 1);
+				_size--;
 			}
 
 			/* ******************************************************************** */
-			/* utils																*/
+			/* node utils															*/
 			/* ******************************************************************** */
 
+			bool equal_nodes(node_ptr node1, node_ptr node2){
+				if (_comp(node1->_content, node2->_content))
+					return false;
+				if (_comp(node2->_content, node1->_content))
+					return false;
+				return true;
+			}
+
+			/* ******************************************************************** */
+			/* tree utils															*/
+			/* ******************************************************************** */
+
+			void clear_tree(){
+				node_ptr	current;
+
+				iterator	it 	= begin();
+// TODO ---------------->> Make this reverse iterator?
+				
+				while(_size){
+					
+				}
+			}
+			
+			node_ptr rotate_dir(node_ptr current, int dir){
+				node_ptr	grandma = current->_parent;
+				node_ptr	daughter = current->_child[1 - dir];
+				node_ptr	temp;
+
+				assert(daughter != NULL && !daughter->_dummy);
+				temp = daughter->_child[dir];
+				if (temp && temp->_dummy)
+					temp = NULL;
+				current->_child[1 - dir] = temp;
+				if (temp != NULL) {temp->_parent = current;}
+				daughter->_child[dir] = current;
+				current->_parent = daughter;
+				daughter->_parent = grandma;
+				if (grandma != NULL)
+					grandma->_child[current == grandma->_right ? RIGHT : LEFT] = daughter;
+				else
+					_root = daughter;
+				return daughter;
+			}
+			
 			void visualise(){
 				visualise(_root, "", false);
 			}
@@ -455,7 +524,14 @@ namespace ft{
 							indent += "|    ";
 						}
 					}
-					std::cout << node->_content << "(" << (node->_color ? "BLACK" : "RED") << ")" << std::endl;
+					std::cout << node->_content.first << "(";
+						if (node->_color == 0)
+							std::cout << "RED";			
+						if (node->_color == 1)
+							std::cout << "BLACK";					
+						if (node->_color == 2)
+							std::cout << "ORANGE";
+						std::cout << ")" << std::endl;
 					visualise(node->_left, indent, false);
 					visualise(node->_right, indent, true);
 				}
