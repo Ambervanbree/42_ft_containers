@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/03 18:31:24 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/04 12:05:34 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ namespace ft{
 			node_ptr max_value(){
 				node_ptr current = this;
 
-				while (current->_right && current->_right->_dummy == false)
+				while (current->_right && !current->_right->_dummy)
 					current = current->_right;
 				return current;
 			}
@@ -172,6 +172,8 @@ namespace ft{
 			typedef Compare								key_compare;
 			typedef ft::RBiterator<node_type>			iterator;
 			typedef ft::RBiterator<node_type>			const_iterator;
+			typedef ft::RBreverse_iterator<node_type>	reverse_iterator;
+			typedef ft::RBreverse_iterator<node_type>	const_reverse_iterator;
 			typedef typename Allocator::template 
 							rebind<node_type>::other	node_allocator;
 
@@ -204,15 +206,10 @@ namespace ft{
 				}
 
 			~RBtree(void) {
-					clear_tree();
-					// clear tree werkt niet, want iterator wordt ongeldig gemaakt
-					// idee is om de ouder op te slaan als we rechtsaf gaan
-					// of erase op elk element te roepen
-
-					// ook: erase leakt volgens mij
-					_alloc.destroy(_dummy);
-					_alloc.deallocate(_dummy, 1);
-				}
+				clear_tree(_root); 
+				_alloc.destroy(_dummy);
+				_alloc.deallocate(_dummy, 1);
+			}
 			
 			/* ******************************************************************** */
 			/* accessors															*/
@@ -241,10 +238,20 @@ namespace ft{
 			/* iterators															*/
 			/* ******************************************************************** */
 
-			iterator		begin() {return iterator(_root->min_value()); }
-			const_iterator	begin() const {return iterator(_root->min_value()); }
-			iterator		end() {return iterator(_dummy); }
-			const_iterator	end() const {return iterator(_dummy); }
+			iterator				begin() {
+										if (_root)
+											return iterator(_root->min_value()); 
+										return end();
+									}
+							
+			const_iterator			begin() const {return iterator(_root->min_value()); }
+			iterator				end() {return iterator(_dummy); }
+			const_iterator			end() const {return iterator(_dummy); }
+
+			reverse_iterator		rbegin() {return reverse_iterator(_root->max_value()); }
+			const_reverse_iterator	rbegin() const {return reverse_iterator(_root->max_value()); }
+			reverse_iterator		rend() {return reverse_iterator(_dummy); }
+			const_reverse_iterator	rend() const {return reverse_iterator(_dummy); }
 
 			/* ******************************************************************** */
 			/* insert																*/
@@ -274,6 +281,7 @@ namespace ft{
 				if (parent && dir && parent->_right && parent->_right == _dummy){
 					current->_right = _dummy;
 					_dummy->_parent = current;
+					_dummy->_right = current;
 				}
 				
 				// Case 1: tree is empty, current becomes root.
@@ -281,6 +289,7 @@ namespace ft{
 					_root = current; 
 					_root->_right = _dummy;
 					_dummy->_parent = _root;
+					_dummy->_right = _root;
 					return; }
 				parent->_child[dir] = current;
 				do{	
@@ -404,6 +413,9 @@ namespace ft{
 				
 				node_ptr	replace;
 				
+				// replace = node->successor();
+				// if (replace == BLACK) {replace = node->predecessor(); }
+
 				if (node == _root){
 					replace = _root->successor();
 					if (replace->_color == BLACK) {replace = _root->predecessor(); }
@@ -437,12 +449,18 @@ namespace ft{
 				else if (node->_left){
 					node->_left->_color = BLACK;
 					node->_left->_parent = node->_parent;
-					node->_parent->_left = node->_left;
+					if (node == _root)
+						_root = node->_left;
+					else
+						node->_parent->_left = node->_left;
 				}
 				else if (node->_right){
 					node->_right->_color = BLACK;
-					node->_right->_parent = node->_parent;			
-					node->_parent->_right = node->_right;
+					node->_right->_parent = node->_parent;
+					if (node == _root)
+						_root = node->_right;
+					else
+						node->_parent->_right = node->_right;
 				}
 				else
 					std::cout << "Something is not right, black single child found" << std::endl;
@@ -475,14 +493,14 @@ namespace ft{
 			/* tree utils															*/
 			/* ******************************************************************** */
 
-			void clear_tree(){
-				node_ptr	current;
-
-				iterator	it 	= begin();
-// TODO ---------------->> Make this reverse iterator?
-				
-				while(_size){
-					
+			void clear_tree(node_ptr subtree){		
+				if (subtree != NULL && !subtree->_dummy){
+					node_ptr next_left = subtree->_left;
+					node_ptr next_right = subtree->_right;
+					_alloc.destroy(subtree);
+					_alloc.deallocate(subtree, 1);
+					clear_tree(next_left);
+					clear_tree(next_right);
 				}
 			}
 			
@@ -512,7 +530,7 @@ namespace ft{
 			}
 
 			void visualise(node_ptr node, std::string indent, bool right){
-				if (node != NULL){
+				if (node != NULL && !node->_dummy){
 					std::cout << indent;
 					if (right){
 						std::cout << "R----";

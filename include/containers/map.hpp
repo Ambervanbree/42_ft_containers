@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/03 16:16:49 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/04 10:59:17 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ namespace ft{
 			typedef node_type *										node_ptr;
 			typedef ft::RBiterator<node_type>						iterator;
 			typedef ft::RBiterator<node_type>						const_iterator;
-			// typedef std::reverse_iterator<node_type>					reverse_iterator;
-			// typedef std::reverse_iterator<node_type>			const_reverse_iterator;
+			typedef ft::RBreverse_iterator<node_type>				reverse_iterator;
+			typedef ft::RBreverse_iterator<node_type>				const_reverse_iterator;
+
 
 			/* ******************************************************************** */
 			/* construct, copy, destroy												*/
@@ -86,20 +87,14 @@ namespace ft{
 			/* iterators															*/
 			/* ******************************************************************** */
 			
-			// iterator					begin() {return iterator(_tree._root->min_value()); }
-			// const_iterator				begin() const {return iterator(_tree._root->min_value()); }
-			// iterator					end() {return iterator(_tree._dummy); } // TODO should be the item after max value
-			// const_iterator				end() const {return iterator(_tree._dummy); } // TODO should be the item after max value
-			iterator 		begin() {return _tree.begin(); }
-			const_iterator	begin() const {return _tree.begin(); }
-			iterator 		end() {return _tree.end(); }
-			const_iterator 	end() const {return _tree.end(); }
-		
-		
-		// 	reverse_iterator			rbegin();
-		// 	const_reverse_iterator		rbegin() const;
-		// 	reverse_iterator			rend();
-		// 	const_reverse_iterator		rend() const;
+			iterator 					begin() {return _tree.begin(); }
+			const_iterator				begin() const {return _tree.begin(); }
+			iterator 					end() {return _tree.end(); }
+			const_iterator 				end() const {return _tree.end(); }
+			reverse_iterator			rbegin() {return _tree.rbegin(); }
+			const_reverse_iterator		rbegin() const {return _tree.rbegin(); }
+			reverse_iterator			rend() {return _tree.rend(); }
+			const_reverse_iterator		rend() const {return _tree.rend(); }
 
 			/* ******************************************************************** */
 			/* capacity																*/
@@ -113,8 +108,10 @@ namespace ft{
 			/* element access														*/
 			/* ******************************************************************** */
 			
-			value& operator[](const key_type& x){
-				return find(x)->second;
+			mapped_type& operator[](const key_type& x){
+				if (find(x) != end())
+					return find(x)->second;
+				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
 
 			void visualise(){
