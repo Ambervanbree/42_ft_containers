@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/04 10:59:17 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:41:02 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,9 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			mapped_type& operator[](const key_type& x){
-				if (find(x) != end())
+				if (find(x) != end()){
 					return find(x)->second;
+				}
 				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
 
@@ -125,7 +126,7 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
-				if (size()){				
+				if (size()){
 					if (find(x.first) != end())
 						return ft::make_pair(find(x.first), false);
 				}

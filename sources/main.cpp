@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/04 12:07:56 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:38:31 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ int main (){
 
   mymap['x'] = 100;
   mymap['y'] = 200;
+//   mymap.visualise();
   mymap['z'] = 300;
 
   mymap.visualise();
 
   // show content:
+	std::cout << "begin is " << mymap.begin()->first << std::endl;	
 	map<char,int>::reverse_iterator rit = mymap.rbegin();
 	std::cout << "rbegin is " << mymap.rbegin()->first << std::endl;
 	std::cout << "rend is " << mymap.rend()->first << std::endl;

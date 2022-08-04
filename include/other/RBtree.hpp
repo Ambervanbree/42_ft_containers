@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/04 12:05:34 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/04 15:46:45 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define _left  _child[LEFT]
 # define _right _child[RIGHT]
 # define childDir(N) ( N == (N->_parent)->_right ? RIGHT : LEFT )
+# define LEFT_NON_NIL (node->_left && !node->_left->_dummy)
+# define RIGHT_NON_NIL (node->_left && !node->_left->_dummy)
+# define LEFT_NIL (!node->_left || node->_left->_dummy)
+# define RIGHT_NIL (!node->_left || node->_left->_dummy)
 
 namespace ft{
 	enum	color_t {RED, BLACK, ORANGE};
@@ -96,7 +100,7 @@ namespace ft{
 			node_ptr min_value(){
 				node_ptr current = this;
 
-				while (current->_left != NULL)
+				while (current->_left != NULL && !current->_dummy)
 					current = current->_left;
 				return current;
 			}
@@ -104,7 +108,7 @@ namespace ft{
 			node_ptr max_value(){
 				node_ptr current = this;
 
-				while (current->_right && !current->_right->_dummy)
+				while (current->_right && !current->_dummy)
 					current = current->_right;
 				return current;
 			}
@@ -218,14 +222,14 @@ namespace ft{
 		 	node_ptr find_parent(node_ptr new_node){
 				if (_root == NULL)
 					return NULL;
-				
+			
 				node_ptr	current = _root;
 				node_ptr	next;
 				
 				while (1){
 					next = current->_child[_comp(current->_content, new_node->_content)];
 					
-					if (next == NULL || next == _dummy)
+					if (next == NULL || next->_dummy)
 						return current;
 					else
 						current = next;
@@ -239,12 +243,24 @@ namespace ft{
 			/* ******************************************************************** */
 
 			iterator				begin() {
-										if (_root)
-											return iterator(_root->min_value()); 
+
+				//// OKKKK hier moet dus niet de dummy returnen, maar het begin
+				//// even kijken hoe we de successor van dummy kunnen krijgen.
+										if (_root){
+											std::cout << "min value: " << (_root->min_value())->successor()->_content.first << std::endl;
+										}
+									// }
+									// 	if (_root){
+									// 		iterator it = iterator(_root->min_value());
+									// 		std::cout << "it " << it->first << std::endl;
+									// 		it++;
+									// 		std::cout << "it incr " << it->first << std::endl;
+									// 		return it;
+									// 	}
 										return end();
 									}
 							
-			const_iterator			begin() const {return iterator(_root->min_value()); }
+			const_iterator			begin() const {return iterator(_root->min_value())++; }
 			iterator				end() {return iterator(_dummy); }
 			const_iterator			end() const {return iterator(_dummy); }
 
@@ -278,19 +294,10 @@ namespace ft{
 				node_ptr	aunt;
 
 				current->_parent = parent;
-				if (parent && dir && parent->_right && parent->_right == _dummy){
-					current->_right = _dummy;
-					_dummy->_parent = current;
-					_dummy->_right = current;
-				}
-				
+				update_dummy(current, parent, dir);
+
 				// Case 1: tree is empty, current becomes root.
-				if (_root == NULL) {
-					_root = current; 
-					_root->_right = _dummy;
-					_dummy->_parent = _root;
-					_dummy->_right = _root;
-					return; }
+				if (_root == NULL) {_root = current; return; }
 				parent->_child[dir] = current;
 				do{	
 					// case 2: tree is valid, no action needed
@@ -334,9 +341,36 @@ namespace ft{
 				}while ((parent = current->_parent) != NULL);
 			}
 
+			void update_dummy(node_ptr current, node_ptr parent, int dir){
+				if (_root == NULL){
+					current->_right = _dummy;
+					current->_left = _dummy;
+					_dummy->_right = current;
+					_dummy->_left = current;
+				}
+				if (parent){
+					if (dir && parent->_right && parent->_right == _dummy){
+						current->_right = _dummy;
+						_dummy->_left = current;
+					}
+					if (!dir && parent->_left && parent->_left == _dummy){
+						current->_left = _dummy;
+						_dummy->_right = current;
+					}
+				}
+			}	
+
 			/* ******************************************************************** */
 			/* delete																*/
 			/* ******************************************************************** */
+			
+			void not_dummy_assignment(node_ptr dest, node_ptr src){
+				if (src && !src->_dummy)
+					dest = src;
+				else
+					dest = NULL;
+			}
+
 
 			iterator delete_black_leaf(node_ptr current){
 				node_ptr	parent 	= current->_parent;
@@ -347,9 +381,9 @@ namespace ft{
 
 				parent->_child[dir] = NULL;
 				do{
-					sister 		= parent->_child[1 - dir];
-					niece 		= sister->_child[dir];
-					far_niece	= sister->_child[1 - dir];
+					not_dummy_assignment(sister, parent->_child[1 - dir]);
+					not_dummy_assignment(niece, sister->_child[dir]);
+					not_dummy_assignment(far_niece, sister->_child[1 - dir]);
 
 					// case 1: sister is red, we rotate so she will become the grandparent
 					// and we can repaint the parent. This way we end up with a black
@@ -361,9 +395,9 @@ namespace ft{
 						// rotation moved sister up, niece becomes parent's other child.
 						// We update the situation and make her children niece and far niece. 
 						// We know sister is black, so we can fall through.
-						sister = niece;
-						far_niece = sister->_child[1 - dir];
-						niece = sister->_child[dir];
+						not_dummy_assignment(sister, niece);
+						not_dummy_assignment(far_niece, sister->_child[1 - dir]);
+						not_dummy_assignment(niece, sister->_child[dir]);
 					}
 					
 					// case 2: the inner child (niece) is red. We rotate so that niece comes
@@ -373,8 +407,8 @@ namespace ft{
 						rotate_dir(sister, 1 - dir);
 						sister->_color = RED;
 						niece->_color = BLACK;
-						far_niece = sister;
-						sister = niece;
+						not_dummy_assignment(far_niece, sister);
+						not_dummy_assignment(sister, niece);
 					}
 					
 					// case 3: outer child (far niece) or both children are red. We rotate 
@@ -406,15 +440,13 @@ namespace ft{
 			}
 
 			iterator two_child_delete(node_ptr node){
-				// if a node has 2 children, we are going to swap it with
-				// its predecessor (if subtree direction is left) or else
-				// with its successor. The swap makes that the node to be
-				// deleted is now a leaf node, so we call delete on that.
+				// Node has 2 non nil children, so predecessor or successor
+				// can't be the dummy node. We will now switch the node
+				// with a successor (if dir is left) or a predecessor,
+				// which will always be a leaf node. We then pass it through
+				// delete_node again.
 				
 				node_ptr	replace;
-				
-				// replace = node->successor();
-				// if (replace == BLACK) {replace = node->predecessor(); }
 
 				if (node == _root){
 					replace = _root->successor();
@@ -435,37 +467,35 @@ namespace ft{
 				// a node has no children and is red or has one child
 				// we can delete as if it was a normal BST. For the difficult
 				// case: deleting a black leaf node, we use a special function.
-
-				if (node->_left && node->_right) {return two_child_delete(node); }
-				else if (!node->_left && !node->_right){
+				if (LEFT_NON_NIL && RIGHT_NON_NIL){
+					return two_child_delete(node);
+				}
+				else if (LEFT_NIL && RIGHT_NIL){
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED) {
 						int dir = childDir(node);
-						node->_parent->_child[dir] = NULL;
+						node->_parent->_child[dir] = node->_child[dir];
 					}
 					else
-						return delete_black_leaf(node);
+						delete_black_leaf(node);
 				}
-				else if (node->_left){
+				else if (LEFT_NON_NIL){
 					node->_left->_color = BLACK;
 					node->_left->_parent = node->_parent;
 					if (node == _root)
 						_root = node->_left;
 					else
-						node->_parent->_left = node->_left;
+						node->_parent->_left = node->_left;		
 				}
-				else if (node->_right){
+				else if (RIGHT_NON_NIL){
 					node->_right->_color = BLACK;
 					node->_right->_parent = node->_parent;
 					if (node == _root)
 						_root = node->_right;
 					else
-						node->_parent->_right = node->_right;
+						node->_parent->_right = node->_right;		
 				}
-				else
-					std::cout << "Something is not right, black single child found" << std::endl;
 				return iterator(node) ;
-// TODO ----------------> delete node for real
 			}
 
 			void erase(iterator position){
