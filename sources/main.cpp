@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/04 15:38:31 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:14:59 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,58 +25,25 @@ void	print(map<Key, T>& lst)
 }
 
 int main (){
-	{
   map<char,int> mymap;
+  map<char,int>::iterator it;
 
-  mymap['x'] = 100;
-  mymap['y'] = 200;
-//   mymap.visualise();
-  mymap['z'] = 300;
+  mymap['a']=50;
+  mymap['b']=100;
+  mymap['c']=150;
+  mymap['d']=200;
 
-  mymap.visualise();
+	// mymap.visualise();
 
-  // show content:
-	std::cout << "begin is " << mymap.begin()->first << std::endl;	
-	map<char,int>::reverse_iterator rit = mymap.rbegin();
-	std::cout << "rbegin is " << mymap.rbegin()->first << std::endl;
-	std::cout << "rend is " << mymap.rend()->first << std::endl;
+  it = mymap.find('b');
+  if (it != mymap.end())
+    mymap.erase (it);
 
-	std::cout << rit->first << " => " << rit->second << '\n';
-	++rit;
-	std::cout << rit->first << " => " << rit->second << '\n';
-	++rit;
-	std::cout << rit->first << " => " << rit->second << '\n';
-	++rit;
-	std::cout << rit->first << " => " << rit->second << '\n';
-
-//   for (rit=mymap.rbegin(); rit!=mymap.rend(); ++rit)
-
-	// for (map<char,int>::const_reverse_iterator it=mymap.rbegin(); it!=mymap.rend(); it++)
-    // std::cout << it->first << " => " << it->second << '\n';
-
-	// map<char, int>::const_reverse_iterator it = mymap.rbegin();
-	// map<char, int>::const_reverse_iterator ti = mymap.rend();
-
-	// it++;
-	// ++it;
-	// it--;
-	// --it;
-
-	// ti--;
-	// --ti;
-	// ++ti;
-	// ti++;
-
-	// ti = it;
-
-	// map<char, int>::reverse_iterator end = mymap.rend();
-	// while(it != end)
-	// {
-    // 	std::cout << it->first << " => " << it->second << '\n';
-	// 	it++;
-	// }
-
+//   print content:
+  std::cout << "elements in mymap:" << '\n';
+  std::cout << "a => " << mymap.find('a')->second << '\n';
+  std::cout << "c => " << mymap.find('c')->second << '\n';
+  std::cout << "d => " << mymap.find('d')->second << '\n';
 
   return 0;
 	}
-}

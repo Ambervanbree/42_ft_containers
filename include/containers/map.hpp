@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/04 15:41:02 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/05 12:01:12 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,8 @@ namespace ft{
 		// 	}
 			
 		// 	void swap(map<Key,T,Compare,Allocator>&);
-		// 	void clear();
+		
+			void clear(){_tree.clear_tree(); }
 		
 			/* ******************************************************************** */
 			/* observers															*/
@@ -172,8 +173,24 @@ namespace ft{
 				return ite;
 			}
 			
-		// 	const_iterator find(const key_type& x) const;
-		// 	size_type count(const key_type& x) const;
+			const_iterator find(const key_type& x) const{
+				iterator	it 		= begin();
+				iterator	ite 	= end();
+				key_compare	comp	= key_compare();
+
+				for(; it != ite; it++){
+					if (!comp(it->first, x) && !comp(x, it->first))
+						return it;
+				}
+				return ite;				
+			}
+		
+			size_type count(const key_type& x) const{
+				if (find(x) != end())
+					return 1;
+				return 0;
+			}
+		
 		// 	iterator lower_bound(const key_type& x);
 		// 	const_iterator lower_bound(const key_type& x) const;
 		// 	iterator upper_bound(const key_type& x);
