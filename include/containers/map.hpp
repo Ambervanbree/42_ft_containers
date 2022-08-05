@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 12:01:12 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:36:42 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,11 +140,22 @@ namespace ft{
 				_tree.erase(position);
 			}
 
-		// // 	size_type erase(const key_type& x);
-		// 	void erase(iterator first, iterator last){
-		// 		for(; first != last; first++)
-		// 			erase(first);
-		// 	}
+			size_type erase(const key_type& x){
+				if (find(x) != end()){
+					_tree.erase(find(x));
+					return 1;
+				}
+				return 0;
+			}
+			
+			void erase(iterator first, iterator last){
+				iterator temp;
+				
+				for(; first != last; first++){
+					temp = first;
+					_tree.erase(temp);
+				}
+			}
 			
 		// 	void swap(map<Key,T,Compare,Allocator>&);
 		
@@ -154,8 +165,8 @@ namespace ft{
 			/* observers															*/
 			/* ******************************************************************** */
 			
-		// 	key_compare key_comp() const;
-		// 	value_compare value_comp() const;
+			key_compare key_comp() const {return key_compare(); }
+			value_compare value_comp() const {return _comp; }
 
 			/* ******************************************************************** */
 			/* map operations														*/
@@ -167,9 +178,13 @@ namespace ft{
 				key_compare	comp	= key_compare();
 
 				for(; it != ite; it++){
-					if (!comp(it->first, x) && !comp(x, it->first))
+					std::cout << "it " << it->first << std::endl;
+					if (!comp(it->first, x) && !comp(x, it->first)){
+						std::cout << "found " << it->first << std::endl;
 						return it;
+					}
 				}
+				std::cout << "not found " << std::endl;
 				return ite;
 			}
 			

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 17:14:53 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/05 17:57:40 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,8 +263,18 @@ namespace ft{
 			iterator				end() {return iterator(_dummy); }
 			const_iterator			end() const {return iterator(_dummy); }
 
-			reverse_iterator		rbegin() {return reverse_iterator(_dummy->predecessor()); }
-			const_reverse_iterator	rbegin() const {return reverse_iterator(_dummy->predecessor()); }
+			reverse_iterator		rbegin() {
+										if (_root == NULL)
+											return reverse_iterator(_dummy);
+										return reverse_iterator(_dummy->predecessor()); 
+									}
+									
+			const_reverse_iterator	rbegin() const {
+										if (_root == NULL)
+											return reverse_iterator(_dummy);
+										return reverse_iterator(_dummy->predecessor());
+									}
+									
 			reverse_iterator		rend() {return reverse_iterator(_dummy); }
 			const_reverse_iterator	rend() const {return reverse_iterator(_dummy); }
 
