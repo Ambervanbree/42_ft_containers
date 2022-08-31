@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RBtree.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 17:57:40 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/23 10:49:55 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,24 +377,29 @@ namespace ft{
 			/* delete																*/
 			/* ******************************************************************** */
 			
-			node_ptr not_dummy_assignment(node_ptr node){
-				if (node && !node->_dummy)
-					return node;
-				return NULL;
+			// node_ptr not_dummy_assignment(node_ptr node){
+			// 	if (node && !node->_dummy)
+			// 		return node;
+			// 	return NULL;
+			// }
+			
+			void	not_dummy_assignment(node_ref dest, node_ref src){
+				if (!src._dummy)
+					dest = src;
 			}
 
 			void delete_black_leaf(node_ptr current){
 				node_ptr	parent 		= current->_parent;
 				int			dir			= childDir(current); // safe, because current != _root
-				node_ptr	sister;
-				node_ptr	niece;
-				node_ptr	far_niece;
+				node_ptr	sister		= NULL;
+				node_ptr	niece		= NULL;
+				node_ptr	far_niece	= NULL;
 
 				parent->_child[dir] = current->_child[dir]; 
 				do{
-					sister = not_dummy_assignment(parent->_child[1 - dir]);
-					niece = not_dummy_assignment(sister->_child[dir]);
-					far_niece = not_dummy_assignment(sister->_child[1 - dir]);
+					not_dummy_assignment(*sister, *parent->_child[1 - dir]);
+					not_dummy_assignment(*niece, *sister->_child[dir]);
+					not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);;
 
 					// case 1: sister is red, we rotate so she will become the grandparent
 					// and we can repaint the parent. This way we end up with a black
@@ -406,9 +411,9 @@ namespace ft{
 						// rotation moved sister up, niece becomes parent's other child.
 						// We update the situation and make her children niece and far niece. 
 						// We know sister is black, so we can fall through.
-						sister = not_dummy_assignment(niece);
-						far_niece = not_dummy_assignment(sister->_child[1 - dir]);
-						niece = not_dummy_assignment(sister->_child[dir]);
+						not_dummy_assignment(*sister, *niece);
+						not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);
+						not_dummy_assignment(*niece, *sister->_child[dir]);
 					}
 					
 					// case 2: the inner child (niece) is red. We rotate so that niece comes
@@ -418,8 +423,8 @@ namespace ft{
 						rotate_dir(sister, 1 - dir);
 						sister->_color = RED;
 						niece->_color = BLACK;
-						far_niece = not_dummy_assignment(sister);
-						sister = not_dummy_assignment(niece);
+						not_dummy_assignment(*far_niece, *sister);
+						not_dummy_assignment(*sister, *niece);
 					}
 					
 					// case 3: outer child (far niece) or both children are red. We rotate 

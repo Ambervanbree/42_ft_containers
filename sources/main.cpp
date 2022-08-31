@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 17:40:46 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/23 11:10:16 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,18 @@ int main (){
   mymap['c']=30;
   mymap['d']=40;
   mymap['e']=50;
-  mymap['f']=60;
+  // mymap['f']=60;
+  // mymap.visualise();
 
-  it=mymap.find('b');
-  std::cout << "found b\n";
-  mymap.erase (it);                   // erasing by iterator
-  std::cout << "erase iterator to b\n";
-    mymap.visualise();
-  mymap.erase ('c');                  // erasing by key
-  std::cout << "erase by key 'c'\n";
-  mymap.visualise();
-  it=mymap.find ('e');
+  // it=mymap.find('b');
+  // std::cout << "found b\n";
+  // mymap.erase (it);                   // erasing by iterator
+  // std::cout << "erase iterator to b\n";
+  //   mymap.visualise();
+  // mymap.erase ('c');                  // erasing by key
+  // std::cout << "erase by key 'c'\n";
+  // mymap.visualise();
+  // it=mymap.find ('e');
 //   std::cout << "erase by range 'e' to end\n";
 //   mymap.erase ( it, mymap.end() );    // erasing by range
 

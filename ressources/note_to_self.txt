@@ -1,6 +1,12 @@
 Recente problemen:
 * 	Je kunt een pair met een const key niet swappen, omdat een const niet assignable is.
 	Ik heb een functie swap_links gemaakt, maar weet niet of die perfect werkt. 
+	Nieuw idee: een stuctuur met de content. Plus een structuur met alle pointers,
+	waaronder een pointer naar de content. Zo kan alles geswapt worden zonder =.
+*	Nog een ding: de functie om te assignen zonder dummy werkte niet, maar omdat ik
+	een node_ptr doorgaf ipv een node_ref. Deze even herschrijven en goed testen.
+	Game plan: deze functie testen. Een functie met de nieuwe structuur testen
+	en als het werkt, implementeren.
 *	Delete voor deze variatie swapte wel de content (maar dus niet met first...), en 
 	daarom had ik een return iterator naar de gedeletete node. Die heb ik recent weggehaald,
 	dus dat zou nog problemen kunnen opleveren.
