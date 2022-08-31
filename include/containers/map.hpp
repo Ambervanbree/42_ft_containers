@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 17:36:42 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/31 16:00:13 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,6 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			mapped_type& operator[](const key_type& x){
-				if (find(x) != end()){
-					return find(x)->second;
-				}
 				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
 
@@ -127,8 +124,9 @@ namespace ft{
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
 				if (size()){
-					if (find(x.first) != end())
-						return ft::make_pair(find(x.first), false);
+					iterator	found = find(x.first);
+					if (found != end())
+						return ft::make_pair(iterator(found), false);
 				}
 				return _tree.insert(x);
 			}
@@ -141,18 +139,21 @@ namespace ft{
 			}
 
 			size_type erase(const key_type& x){
-				if (find(x) != end()){
-					_tree.erase(find(x));
+				iterator	found = find(x);
+
+				if (found != end()){
+					_tree.erase(found);
 					return 1;
 				}
 				return 0;
 			}
 			
 			void erase(iterator first, iterator last){
-				iterator temp;
-				
-				for(; first != last; first++){
+				iterator	temp;
+
+				while(first != last){
 					temp = first;
+					first++;
 					_tree.erase(temp);
 				}
 			}
@@ -173,31 +174,11 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			iterator find(const key_type& x){
-				iterator	it 		= begin();
-				iterator	ite 	= end();
-				key_compare	comp	= key_compare();
-
-				for(; it != ite; it++){
-					std::cout << "it " << it->first << std::endl;
-					if (!comp(it->first, x) && !comp(x, it->first)){
-						std::cout << "found " << it->first << std::endl;
-						return it;
-					}
-				}
-				std::cout << "not found " << std::endl;
-				return ite;
+				return _tree.find(ft::make_pair(x, mapped_type()), _tree._root);
 			}
 			
 			const_iterator find(const key_type& x) const{
-				iterator	it 		= begin();
-				iterator	ite 	= end();
-				key_compare	comp	= key_compare();
-
-				for(; it != ite; it++){
-					if (!comp(it->first, x) && !comp(x, it->first))
-						return it;
-				}
-				return ite;				
+				return _tree.find(ft::make_pair(x, mapped_type()), _tree._root);		
 			}
 		
 			size_type count(const key_type& x) const{

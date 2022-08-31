@@ -21,9 +21,6 @@ Recente problemen:
 	als er een nieuw element tussen max/min en dummy in komt.
 
 Te doen:
-*	Op dit moment mee bezig: erase(it first, it last), Er is een element dat aan c hangt,
-	dat er niet zou moeten zijn. Ik gok dat het probleem te vinden is in de nieuwe 
-	swap_links functie.
 *	Argumenten update_dummy aanpassen (want parent klopt eigenlijk niet).
 *	De overgebleven map-functies uiteraard.
 *	Een beetje een soort van norm aanhouden.

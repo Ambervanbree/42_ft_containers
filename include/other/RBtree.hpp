@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RBtree.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
+/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/23 10:49:55 by amber            ###   ########.fr       */
+/*   Updated: 2022/08/31 15:57:22 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,29 +377,45 @@ namespace ft{
 			/* delete																*/
 			/* ******************************************************************** */
 			
-			// node_ptr not_dummy_assignment(node_ptr node){
-			// 	if (node && !node->_dummy)
-			// 		return node;
-			// 	return NULL;
+			// void	not_dummy_assignment(node_ref dest, node_ref src){
+			// 	std::cout << "src is " << src._content.first << std::endl;
+			// 	std::cout << "src is dummy: " << src._dummy << std::endl;
+			// 	if (!src._dummy)
+			// 		dest = src;
+			// 	std::cout << "dest is " << dest._content.first << std::endl;
 			// }
-			
-			void	not_dummy_assignment(node_ref dest, node_ref src){
-				if (!src._dummy)
-					dest = src;
+
+			node_ptr not_dummy_assignment(node_ptr node){
+				if (node && !node->_dummy)
+					return node;
+				return NULL;
+			}
+
+			void not_dummy_delete(node_ptr node, int dir){
+				if (node->_child[dir] && node->_child[dir]->_dummy)
+					_dummy->_child[1 - dir] = node->_parent;
+				node->_parent->_child[dir] = node->_child[dir];
 			}
 
 			void delete_black_leaf(node_ptr current){
 				node_ptr	parent 		= current->_parent;
 				int			dir			= childDir(current); // safe, because current != _root
-				node_ptr	sister		= NULL;
-				node_ptr	niece		= NULL;
-				node_ptr	far_niece	= NULL;
+				// node_ptr	sister		= NULL;
+				// node_ptr	niece		= NULL;
+				// node_ptr	far_niece	= NULL;
+
+				node_ptr	sister;
+				node_ptr	niece;
+				node_ptr	far_niece;
 
 				parent->_child[dir] = current->_child[dir]; 
 				do{
-					not_dummy_assignment(*sister, *parent->_child[1 - dir]);
-					not_dummy_assignment(*niece, *sister->_child[dir]);
-					not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);;
+					// not_dummy_assignment(*sister, *parent->_child[1 - dir]);
+					// not_dummy_assignment(*niece, *sister->_child[dir]);
+					// not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);;
+					sister = not_dummy_assignment(parent->_child[1 - dir]);
+					niece = not_dummy_assignment(sister->_child[dir]);
+					far_niece = not_dummy_assignment(sister->_child[1 - dir]);;
 
 					// case 1: sister is red, we rotate so she will become the grandparent
 					// and we can repaint the parent. This way we end up with a black
@@ -411,9 +427,14 @@ namespace ft{
 						// rotation moved sister up, niece becomes parent's other child.
 						// We update the situation and make her children niece and far niece. 
 						// We know sister is black, so we can fall through.
-						not_dummy_assignment(*sister, *niece);
-						not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);
-						not_dummy_assignment(*niece, *sister->_child[dir]);
+						
+						// not_dummy_assignment(*sister, *niece);
+						// not_dummy_assignment(*far_niece, *sister->_child[1 - dir]);
+						// not_dummy_assignment(*niece, *sister->_child[dir]);
+
+						sister = not_dummy_assignment(niece);
+						far_niece = not_dummy_assignment(sister->_child[1 - dir]);
+						niece = not_dummy_assignment(sister->_child[dir]);
 					}
 					
 					// case 2: the inner child (niece) is red. We rotate so that niece comes
@@ -423,8 +444,11 @@ namespace ft{
 						rotate_dir(sister, 1 - dir);
 						sister->_color = RED;
 						niece->_color = BLACK;
-						not_dummy_assignment(*far_niece, *sister);
-						not_dummy_assignment(*sister, *niece);
+						// not_dummy_assignment(*far_niece, *sister);
+						// not_dummy_assignment(*sister, *niece);
+
+						far_niece = not_dummy_assignment(sister);
+						sister = not_dummy_assignment(niece);
 					}
 					
 					// case 3: outer child (far niece) or both children are red. We rotate 
@@ -450,7 +474,8 @@ namespace ft{
 					// We go a level up and iterate through until full tree is balanced.
 					sister->_color = RED;
 					current = parent;
-					dir = childDir(current);
+					if (current->_parent)
+						dir = childDir(current);
 				} while ((parent = current->_parent) != NULL);
 				
 			}
@@ -491,7 +516,7 @@ namespace ft{
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED) {
 						int dir = childDir(node);
-						update_dummy(node->_parent, node, dir);
+						not_dummy_delete(node, dir);
 					}
 					else
 						delete_black_leaf(node);
@@ -506,7 +531,8 @@ namespace ft{
 							node->_right->_left = _root;
 					}
 					else
-						update_dummy(node->_parent, node, LEFT);
+						not_dummy_delete(node, LEFT);
+						// node->_parent->_left = node->_left;
 				}
 				else if (RIGHT_NON_NIL){
 					node->_right->_color = BLACK;
@@ -518,11 +544,12 @@ namespace ft{
 							node->_left->_right = _root;
 					}	
 					else
-						update_dummy(node->_parent, node, RIGHT);
+						not_dummy_delete(node, RIGHT);
+						// node->_parent->_right = node->_right;
 				}
 			}
 
-			void erase(iterator position){				
+			void erase(iterator position){
 				delete_node(*position);
 				_alloc.destroy(*position);
 				_alloc.deallocate(*position, 1);
@@ -589,13 +616,46 @@ namespace ft{
 				if (subtree && !subtree->_dummy){
 					node_ptr next_left = subtree->_left;
 					node_ptr next_right = subtree->_right;
+					
 					_alloc.destroy(subtree);
 					_alloc.deallocate(subtree, 1);
 					clear_tree(next_left);
 					clear_tree(next_right);
 				}
 			}
-			
+
+			iterator find(value_type x, node_ptr subtree){
+				iterator temp;
+				
+				if (subtree && !subtree->_dummy){		
+					if (!(_comp(x, subtree->_content) || _comp(subtree->_content, x)))
+						return (iterator(subtree));
+					else{
+						if ((temp = find(x, subtree->_left)) != end())
+							return temp;
+						if ((temp = find(x, subtree->_right)) != end())
+							return temp;
+					}
+				}
+				return end();
+			}
+
+			const_iterator find(value_type x, node_ptr subtree) const{
+				iterator temp;
+				
+				if (subtree && !subtree->_dummy){		
+					if (!(_comp(x, subtree->_content) || _comp(subtree->_content, x)))
+						return (iterator(subtree));
+					else{
+						if ((temp = find(x, subtree->_left)) != end())
+							return temp;
+						if ((temp = find(x, subtree->_right)) != end())
+							return temp;
+					}
+				}
+				return end();
+			}
+						
 			node_ptr rotate_dir(node_ptr current, int dir){
 				node_ptr	grandma = current->_parent;
 				node_ptr	daughter = current->_child[1 - dir];
