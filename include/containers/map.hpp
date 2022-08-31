@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/31 16:00:13 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/31 18:53:21 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ namespace ft{
 			
 			explicit map(const value_compare& comp = value_compare(key_compare()), 
 				const allocator_type& alloc = allocator_type()) :
-			_alloc(alloc), _tree(comp), _comp(comp) {}
+			_alloc(alloc), _tree(comp), _vcomp(comp), _kcomp(key_compare()) {}
 
 		// 	template <class InputIterator>
 		// 	map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& = Allocator());
@@ -124,22 +124,31 @@ namespace ft{
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
 				if (size()){
-					iterator	found = find(x.first);
+					iterator	found = _tree.find(x, _tree._root);
+
 					if (found != end())
-						return ft::make_pair(iterator(found), false);
+						return ft::make_pair(found, false);
 				}
 				return _tree.insert(x);
 			}
+
+			// iterator insert(iterator hint, const value_type& value){
+				
+			// }
 			
-		// 	template <class InputIterator> 
-		// 	void insert(InputIterator first, InputIterator last);
+			template <class InputIterator> 
+			void insert(InputIterator first, InputIterator last){
+				while (first != last){
+					_tree.insert(first++);
+				}
+			}
 
 			void erase(iterator position){
 				_tree.erase(position);
 			}
 
 			size_type erase(const key_type& x){
-				iterator	found = find(x);
+				iterator	found = find(x.first);
 
 				if (found != end()){
 					_tree.erase(found);
@@ -154,9 +163,13 @@ namespace ft{
 				while(first != last){
 					temp = first;
 					first++;
+					std::cout << "erasing: " << temp->first << std::endl;
 					_tree.erase(temp);
 				}
 			}
+
+			//NOTE: er gaat hier iets mis met de iterators. Ik denk dat dummy
+			// niet terugwijst naar het laatste/eerste element in de boom. 
 			
 		// 	void swap(map<Key,T,Compare,Allocator>&);
 		
@@ -166,8 +179,8 @@ namespace ft{
 			/* observers															*/
 			/* ******************************************************************** */
 			
-			key_compare key_comp() const {return key_compare(); }
-			value_compare value_comp() const {return _comp; }
+			key_compare key_comp() const {return _kcomp; }
+			value_compare value_comp() const {return _vcomp; }
 
 			/* ******************************************************************** */
 			/* map operations														*/
@@ -187,10 +200,45 @@ namespace ft{
 				return 0;
 			}
 		
-		// 	iterator lower_bound(const key_type& x);
-		// 	const_iterator lower_bound(const key_type& x) const;
-		// 	iterator upper_bound(const key_type& x);
-		// 	const_iterator upper_bound(const key_type& x) const;
+			iterator lower_bound(const key_type& x){
+				iterator	it = begin();
+				iterator	ite = end();
+				
+				while (it != ite && _kcomp(it->first, x)){
+					it++;
+				}
+				return it;
+			}
+			
+			const_iterator lower_bound(const key_type& x) const{
+				const_iterator	it = begin();
+				const_iterator	ite = end();
+				
+				while (it != ite && _kcomp(it->first, x)){
+					it++;
+				}
+				return it;
+			}
+			
+			iterator upper_bound(const key_type& x){
+				iterator	it = begin();
+				iterator	ite = end();
+				
+				while (it != ite && !_kcomp(x, it->first)){
+					it++;
+				}
+				return it;			
+			}
+			
+			const_iterator upper_bound(const key_type& x) const{
+				const_iterator	it = begin();
+				const_iterator	ite = end();
+				
+				while (it != ite && !_kcomp(x, it->first)){
+					it++;
+				}
+				return it;						
+			}
 
 		// 	pair<iterator,iterator> equal_range(const key_type& x);
 		// 	pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
@@ -231,7 +279,8 @@ namespace ft{
 			private:
 				allocator_type									_alloc;
 				RBtree<value_type, value_compare, Allocator>	_tree;
-				value_compare									_comp;
+				value_compare									_vcomp;
+				key_compare										_kcomp;
 		};
 		
 }

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:24:39 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/05 15:41:42 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/08/31 18:12:33 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,11 @@ namespace ft{
 		
 		pair& operator=(const pair& other) {
 			if (*this != other){
-				// first = T1(other.first);
+				first = other.first;
 				second = other.second;
 			}
 			return *this;
 		}
-// TODO --------------->> this is not good
 	};
 
 	template <class T1, class T2>
