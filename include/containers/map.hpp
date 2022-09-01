@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 11:08:42 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:06:39 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,28 +131,28 @@ namespace ft{
 			/* ******************************************************************** */
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
-				if (size()){
-					iterator	found = _tree.find(x, _tree._root);
+				iterator	found = _tree.find(x, _tree._root);
 
-					if (found != end())
-						return ft::make_pair(found, false);
-				}
+				if (found != end())
+					return ft::make_pair(found, false);
 				return _tree.insert(x);
 			}
 
-			// iterator insert(iterator hint, const value_type& value){
-				
-			// }
+			iterator insert(iterator hint, const value_type& x){
+				iterator	found = _tree.find(x, _tree._root);
+
+				if (found != end())
+					return found;
+				return _tree.insert(hint, x);
+			}
 			
 			template <class InputIterator> 
 			void insert(InputIterator first, InputIterator last){
-				while (first != last){
-					_tree.insert(first++);
-				}
+				for (; first != last; first++)
+					_tree.insert((*first)->_content);
 			}
 
 			void erase(iterator position){
-				std::cout << "erasing: " << position->first << std::endl;
 				_tree.erase(position);
 			}
 
@@ -160,7 +160,6 @@ namespace ft{
 				iterator	found = find(x.first);
 
 				if (found != end()){
-					std::cout << "erasing: " << found->first << std::endl;
 					_tree.erase(found);
 					return 1;
 				}
@@ -173,15 +172,13 @@ namespace ft{
 				while(first != last){
 					temp = first;
 					first++;
-					std::cout << "erasing: " << temp->first << std::endl;
 					_tree.erase(temp);
 				}
 			}
-
-			//NOTE: er gaat hier iets mis met de iterators. Ik denk dat dummy
-			// niet terugwijst naar het laatste/eerste element in de boom. 
 			
-		// 	void swap(map<Key,T,Compare,Allocator>&);
+		 	// void swap(map<Key,T,Compare,Allocator>&){
+				
+			// }
 		
 			void clear(){_tree.clear_tree(); }
 		

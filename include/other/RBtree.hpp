@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 10:56:16 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:05:06 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ namespace ft{
 			}
 
 			void print_contents(){
-				std::cout << "Content: " << _content.first << std::endl;
+				std::cout << "Content: " << _content.first << " => " << _content.second << std::endl;
 				std::cout << "Dummy? " << _dummy << std::endl;
 				std::cout << "Color: " << _color << std::endl;
 				if (_parent)
@@ -305,6 +305,12 @@ namespace ft{
 				_size++;
 				return ft::make_pair(iterator(new_node), true);
 			}
+
+			iterator insert(iterator hint, const value_type& x){
+				hint = begin();
+
+				return insert(x).first;
+			}
 			
 			void insert_node(node_ptr current, node_ptr parent, int dir){
 				node_ptr	grandma;
@@ -401,9 +407,6 @@ namespace ft{
 
 			void not_dummy_delete(node_ptr node, int dir){
 				if (node->_child[dir] && node->_child[dir]->_dummy){
-					std::cout << "found dummy, dir is " << dir << std::endl;
-					std::cout << "Node is " << node->_content.first << std::endl;
-					std::cout << "Parent is " << node->_parent->_content.first << std::endl;
 					_dummy->_child[1 - dir] = node->_parent;
 				}
 				node->_parent->_child[dir] = node->_child[dir];
@@ -513,16 +516,7 @@ namespace ft{
 					else {replace = node->successor(); }
 				}
 				
-				std::cout << "NODE" << std::endl;
-				node->print_contents();
-				std::cout << "REPLACE" << std::endl;
-				replace->print_contents();
-				
 				swap_links(node, replace);
-				std::cout << "NODE" << std::endl;
-				node->print_contents();
-				std::cout << "REPLACE" << std::endl;
-				replace->print_contents();
 				delete_node(node);
 			}
 			
@@ -574,9 +568,6 @@ namespace ft{
 
 			void erase(iterator position){
 				delete_node(*position);
-				visualise();
-				std::cout << "Dummy in erase points to (left) " << _dummy->_left->_content.first
-				<< " (right) " << _dummy->_right->_content.first << std::endl;
 				_alloc.destroy(*position);
 				_alloc.deallocate(*position, 1);
 				_size--;
@@ -596,6 +587,7 @@ namespace ft{
 
 			void swap_links(node_ptr node1, node_ptr node2){
 				node_ptr	temp = _alloc.allocate(1);
+				
 				_alloc.construct(temp, value_type());
 
 				if (_root == node1)
@@ -622,6 +614,15 @@ namespace ft{
 					: node2->_left = temp->_left;
 				temp->_right == node2 ? node2->_right = node1
 					: node2->_right = temp->_right;
+
+				if (node1->_left)
+					node1->_left->_parent = node1;
+				if (node1->_right)
+					node1->_right->_parent = node1;
+				if (node2->_left)
+					node2->_left->_parent = node2;
+				if (node2->_right)
+					node2->_right->_parent = node2;
 
 				_alloc.destroy(temp);
 				_alloc.deallocate(temp, 1);

@@ -8,13 +8,38 @@ namespace ft{
 	enum	color_t {RED, BLACK, ORANGE};
 	
 	template <class T>
-	struct RBnode{
+	struct RBcontent{
 
 			/* ******************************************************************** */
 			/* types and definitions												*/
 			/* ******************************************************************** */
 			
-			// typedef T									value_type;
+			typedef T									value_type;
+			typedef ft::RBcontent<T>					node_type;
+			typedef node_type *							node_ptr;
+			typedef node_type &							node_ref;
+			typedef size_t								size_type;
+			typedef const node_type &					const_node_ref;
+
+			/* ******************************************************************** */
+			/* variables															*/
+			/* ******************************************************************** */
+
+			
+			// node_ptr		_parent;
+			// node_ptr		_child[2];
+			color_t			_color;
+			value_type		_content;
+			bool			_dummy;					
+	}
+
+	struct RBlinks{
+
+			/* ******************************************************************** */
+			/* types and definitions												*/
+			/* ******************************************************************** */
+			
+			typedef T									value_type;
 			typedef ft::RBnode<T>						node_type;
 			typedef node_type *							node_ptr;
 			typedef node_type &							node_ref;
@@ -25,11 +50,12 @@ namespace ft{
 			/* variables															*/
 			/* ******************************************************************** */
 
-			node_ptr		_parent;
-			node_ptr		_child[2];
-			color_t			_color;
-			value_type		_content;
-			bool			_dummy;					
+			
+			// node_ptr		_parent;
+			// node_ptr		_child[2];
+			// color_t			_color;
+			// value_type		_content;
+			// bool			_dummy;					
 	}
 }
 
