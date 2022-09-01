@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/31 18:51:43 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 11:07:30 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,20 @@ int main ()
   mymap['c']=60;
   mymap['d']=80;
   mymap['e']=100;
-
-  mymap.visualise();
+  
+  mymap.print_contents();
 
   itlow=mymap.lower_bound ('b');  // itlow points to b
   itup=mymap.upper_bound ('d');   // itup points to e (not d!)
 
   std::cout << "low : " << itlow->first << '\n';
   std::cout << "up : " << itup->first << '\n';
-
-  mymap.visualise();
   
-  std::cout << "begin: " << mymap.begin()->first << std::endl;
-  std::cout << "end: " << mymap.end()->first << std::endl;
+  mymap.erase(itlow);
 
-  mymap.erase(itlow,itup);        // erases [itlow,itup)
-
-  std::cout << "begin: " << mymap.begin()->first << std::endl;
-  std::cout << "end: " << mymap.end()->first << std::endl;
+  mymap.print_contents();
+  mymap.visualise();
+//   mymap.erase(itlow,itup);        // erases [itlow,itup)
 
 //   mymap.visualise();
 

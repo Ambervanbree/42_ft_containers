@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/31 15:57:22 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 10:56:16 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,18 @@ namespace ft{
 				std::cout << "Color: " << _color << std::endl;
 				if (_parent)
 					std::cout << "Parent: " << _parent->_content.first << std::endl;
-				if (_left)
-					std::cout << "Left child: " << _left->_content.first << std::endl;
-				if (_right)
-					std::cout << "Right child: " << _right->_content.first << std::endl;
+				if (_left){
+					if (_left->_dummy)
+						std::cout << "Left child: dummy" << std::endl;
+					else
+						std::cout << "Left child: " << _left->_content.first << std::endl;
+				}
+				if (_right){
+					if (_right->_dummy)
+						std::cout << "Right child: dummy" << std::endl;
+					else
+						std::cout << "Right child: " << _right->_content.first << std::endl;
+				}
 				std::cout << std::endl;
 			}
 
@@ -392,8 +400,12 @@ namespace ft{
 			}
 
 			void not_dummy_delete(node_ptr node, int dir){
-				if (node->_child[dir] && node->_child[dir]->_dummy)
+				if (node->_child[dir] && node->_child[dir]->_dummy){
+					std::cout << "found dummy, dir is " << dir << std::endl;
+					std::cout << "Node is " << node->_content.first << std::endl;
+					std::cout << "Parent is " << node->_parent->_content.first << std::endl;
 					_dummy->_child[1 - dir] = node->_parent;
+				}
 				node->_parent->_child[dir] = node->_child[dir];
 			}
 
@@ -408,7 +420,8 @@ namespace ft{
 				node_ptr	niece;
 				node_ptr	far_niece;
 
-				parent->_child[dir] = current->_child[dir]; 
+				not_dummy_delete(current, dir);
+				
 				do{
 					// not_dummy_assignment(*sister, *parent->_child[1 - dir]);
 					// not_dummy_assignment(*niece, *sister->_child[dir]);
@@ -499,7 +512,17 @@ namespace ft{
 					if (dir == 1) {replace = node->predecessor(); }
 					else {replace = node->successor(); }
 				}
+				
+				std::cout << "NODE" << std::endl;
+				node->print_contents();
+				std::cout << "REPLACE" << std::endl;
+				replace->print_contents();
+				
 				swap_links(node, replace);
+				std::cout << "NODE" << std::endl;
+				node->print_contents();
+				std::cout << "REPLACE" << std::endl;
+				replace->print_contents();
 				delete_node(node);
 			}
 			
@@ -551,6 +574,9 @@ namespace ft{
 
 			void erase(iterator position){
 				delete_node(*position);
+				visualise();
+				std::cout << "Dummy in erase points to (left) " << _dummy->_left->_content.first
+				<< " (right) " << _dummy->_right->_content.first << std::endl;
 				_alloc.destroy(*position);
 				_alloc.deallocate(*position, 1);
 				_size--;
