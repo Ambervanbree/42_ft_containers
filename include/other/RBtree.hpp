@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 12:05:06 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:33:11 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <cassert>
 # include "pair.hpp"
 # include "enable_if.hpp"
+# include "equal.hpp"
+# include "lexicographical_compare.hpp"
 # include "is_integral.hpp"
 # include "RBiterators.hpp"
 
@@ -204,7 +206,6 @@ namespace ft{
 			node_allocator								_alloc;
 			key_compare									_comp;
 			size_type									_size;
-			size_type									_height;
 			
 			/* ******************************************************************** */
 			/* constructors															*/
@@ -214,8 +215,7 @@ namespace ft{
 				_root(NULL),
 				_alloc(node_allocator()), 
 				_comp(comp),
-				_size(0),
-				_height(0) {
+				_size(0) {
 					_dummy = _alloc.allocate(1);
 					_alloc.construct(_dummy, value_type());
 					_dummy->_dummy = true;
@@ -577,13 +577,13 @@ namespace ft{
 			/* node utils															*/
 			/* ******************************************************************** */
 
-			bool equal_nodes(node_ptr node1, node_ptr node2){
-				if (_comp(node1->_content, node2->_content))
-					return false;
-				if (_comp(node2->_content, node1->_content))
-					return false;
-				return true;
-			}
+			// bool equal_nodes(node_ptr node1, node_ptr node2){
+			// 	if (_comp(node1->_content, node2->_content))
+			// 		return false;
+			// 	if (_comp(node2->_content, node1->_content))
+			// 		return false;
+			// 	return true;
+			// }
 
 			void swap_links(node_ptr node1, node_ptr node2){
 				node_ptr	temp = _alloc.allocate(1);
@@ -646,6 +646,7 @@ namespace ft{
 					
 					_alloc.destroy(subtree);
 					_alloc.deallocate(subtree, 1);
+					_size--;
 					clear_tree(next_left);
 					clear_tree(next_right);
 				}
@@ -681,6 +682,20 @@ namespace ft{
 					}
 				}
 				return end();
+			}
+
+			void swap(tree_type &x){
+				node_ptr	temp_root	= _root;
+				node_ptr	temp_dummy	= _dummy;
+				size_type	temp_size	= _size;
+
+				_root 	= x._root;
+				_dummy	= x._dummy;
+				_size	= x._size;
+
+				x._root		= temp_root;
+				x._dummy	= temp_dummy;
+				x._size		= temp_size;
 			}
 						
 			node_ptr rotate_dir(node_ptr current, int dir){
@@ -768,6 +783,23 @@ namespace ft{
 				return true ;
 			}
 
+
+			/* ******************************************************************** */
+			/* non member operators													*/
+			/* ******************************************************************** */
+
+			friend bool operator==(const RBtree<T, Compare, Allocator>& x,
+				const RBtree<T, Compare, Allocator>& y) {
+				if (x._size != y._size) return false; 
+				return (ft::equal(x.begin(), x.end(), y.begin()));
+			}
+
+			friend bool operator<(const RBtree<T, Compare, Allocator>& x,
+				const RBtree<T, Compare, Allocator>& y) {
+				if (x._size != y._size) return false;
+				return ft::lexicographical_compare(x.begin(), x.end(), 
+					y.begin(), y.end());
+			}
 	};
 }
 

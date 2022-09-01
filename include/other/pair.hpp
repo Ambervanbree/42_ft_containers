@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:24:39 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/08/31 18:12:33 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:35:11 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ namespace ft{
 
 	template <class T1, class T2>
 	bool	operator<(const pair<T1, T2>& x, const pair<T1, T2>& y){
+		std::cout << "blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << std::endl;
+		std::cout << "x.first < y.first " << (x.first < y.first) << std::endl;
+		std::cout << "y.first < x.first " << (y.first < x.first) << std::endl;
+		std::cout << "x.second < y.second " << (x.second < y.second) << std::endl;
 		return x.first < y.first || (!(y.first < x.first) && x.second < y.second);
 	}
 

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 12:06:32 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:21:57 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,38 +24,22 @@ void	print(map<Key, T>& lst)
 		std::cout << it->first << " => " << it->second << '\n';
 }
 
+
 int main ()
 {
- 	map<char,int> mymap;
+  map<char,int> foo,bar;
+  foo['a']=100;
+  foo['b']=200;
+  bar['a']=10;
+  bar['z']=1000;
 
-  // first insert function version (single parameter):
-  mymap.insert ( pair<char,int>('a',100) );
-  mymap.insert ( pair<char,int>('z',200) );
-
-  pair<map<char,int>::iterator,bool> ret;
-  ret = mymap.insert ( pair<char,int>('z',500) );
-  if (ret.second==false) {
-    std::cout << "element 'z' already exists";
-    std::cout << " with a value of " << ret.first->second << '\n';
-  }
-
-  // second insert function version (with hint position):
-  map<char,int>::iterator it = mymap.begin();
-  mymap.insert (it, pair<char,int>('b',300));  // max efficiency inserting
-  mymap.insert (it, pair<char,int>('c',400));  // no max efficiency inserting
-
-  // third insert function version (range insertion):
-  map<char,int> anothermap;
-  anothermap.insert(mymap.begin(),mymap.find('c'));
-
-  // showing contents:
-  std::cout << "mymap contains:\n";
-  for (it = mymap.begin(); it!=mymap.end(); ++it)
-    std::cout << it->first << " => " << it->second << '\n';
-
-  std::cout << "anothermap contains:\n";
-  for (it=anothermap.begin(); it!=anothermap.end(); ++it)
-    std::cout << it->first << " => " << it->second << '\n';
+  // foo ({{a,100},{b,200}}) vs bar ({a,10},{z,1000}}):
+  if (foo==bar) std::cout << "foo and bar are equal\n";
+  if (foo!=bar) std::cout << "foo and bar are not equal\n";
+  if (foo< bar) std::cout << "foo is less than bar\n";
+  if (foo> bar) std::cout << "foo is greater than bar\n";
+//   if (foo<=bar) std::cout << "foo is less than or equal to bar\n";
+//   if (foo>=bar) std::cout << "foo is greater than or equal to bar\n";
 
   return 0;
 }

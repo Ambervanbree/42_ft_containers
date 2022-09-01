@@ -50,17 +50,17 @@ namespace ft {
 			/* ******************************************************************** */
 
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
-			_array(0), _size(0), _capacity(0), _alloc(alloc) {}
+				_array(0), _size(0), _capacity(0), _alloc(alloc) {}
 
 			explicit vector(size_type n, const value_type& value = value_type(), const allocator_type& alloc= allocator_type()) :
-			_size(n), _capacity(n), _alloc(alloc) {
+				_size(n), _capacity(n), _alloc(alloc) {
 				_array = _alloc.allocate(_capacity);
 				construct_copy(value);
 			}
 			
 			template <class SomeIterator> 
 			vector(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, SomeIterator>::type first, SomeIterator last, const Allocator& alloc = Allocator()) :
-			_size(std::distance(first, last)), _capacity(_size), _alloc(alloc) {
+				_size(std::distance(first, last)), _capacity(_size), _alloc(alloc) {
 				typedef typename std::iterator_traits<SomeIterator>::iterator_category 	category;
 
 				_array = _alloc.allocate(_capacity);
@@ -68,7 +68,7 @@ namespace ft {
 			}
 
 			vector(const vector<T,Allocator>& x) :
-			_array(0), _size(0), _capacity(0), _alloc(x.get_allocator()) {
+				_array(0), _size(0), _capacity(0), _alloc(x.get_allocator()) {
 				*this = x;
 			}
 
@@ -332,7 +332,7 @@ namespace ft {
 				return !ft::lexicographical_compare(x.begin(), x.end(), y.begin(), y.end());
 			}
 
-			friend void swap(vector<T,Allocator>& x, vector<T,Allocator>& y) {y.swap(x);}
+			friend void swap(vector<T,Allocator>& x, vector<T,Allocator>& y) {x.swap(y);}
 						
 		private:
 

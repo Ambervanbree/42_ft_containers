@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 12:06:39 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/01 18:33:14 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,34 @@ namespace ft{
 			
 			explicit map(const value_compare& comp = value_compare(key_compare()), 
 				const allocator_type& alloc = allocator_type()) :
-			_alloc(alloc), _tree(comp), _vcomp(comp), _kcomp(key_compare()) {}
+				_alloc(alloc), _tree(comp), _vcomp(comp), _kcomp(key_compare()) {}
 
-		// 	template <class InputIterator>
-		// 	map(InputIterator first, InputIterator last, const Compare& comp = Compare(), const Allocator& = Allocator());
+			template <class InputIterator>
+			map(InputIterator first, InputIterator last, 
+				const value_compare& comp = value_compare(key_compare()), 
+				const allocator_type& alloc = allocator_type()) :
+				_alloc(alloc), _tree(comp), _vcomp(comp), _kcomp(key_compare()) {
+					insert(first, last);
+			}
 
-		// 	map(const map<Key,T,Compare,Allocator>& x);
+			map(const map<key, value, Compare, Allocator>& x) :
+				_alloc(_tree.get_allocator()), _tree(0), _vcomp(value_comp())
+				, _kcomp(key_compare()) {
+				*this = x;
+			}
 		
 			~map(){}
 		
-		// 	map<Key,T,Compare,Allocator>& operator=(const map<Key,T,Compare,Allocator>& x);
+			map<key, value, Compare, Allocator>& 
+				operator=(const map<key, value, Compare, Allocator>& x){
+				if (*this != x){
+					if (size()){ 
+						_tree.clear_tree();
+					}
+					insert(x.begin(), x.end());
+				}
+				return *this;
+			}
 		
 			/* ******************************************************************** */
 			/* iterators															*/
@@ -112,9 +130,9 @@ namespace ft{
 				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
 
-			void visualise(){
-				_tree.visualise();
-			}
+// TODO -------------->> delete!!
+
+			void visualise() {_tree.visualise(); }
 
 			void print_contents(){
 				iterator it = begin();
@@ -152,12 +170,10 @@ namespace ft{
 					_tree.insert((*first)->_content);
 			}
 
-			void erase(iterator position){
-				_tree.erase(position);
-			}
+			void erase(iterator position){_tree.erase(position); }
 
 			size_type erase(const key_type& x){
-				iterator	found = find(x.first);
+				iterator	found = find(x);
 
 				if (found != end()){
 					_tree.erase(found);
@@ -176,18 +192,18 @@ namespace ft{
 				}
 			}
 			
-		 	// void swap(map<Key,T,Compare,Allocator>&){
-				
-			// }
+		 	void swap(map<key, value, Compare, Allocator> &x){
+				_tree.swap(x._tree);
+			}
 		
-			void clear(){_tree.clear_tree(); }
+			void clear() {_tree.clear_tree(); }
 		
 			/* ******************************************************************** */
 			/* observers															*/
 			/* ******************************************************************** */
 			
-			key_compare key_comp() const {return _kcomp; }
-			value_compare value_comp() const {return _vcomp; }
+			key_compare 	key_comp() const {return _kcomp; }
+			value_compare 	value_comp() const {return _vcomp; }
 
 			/* ******************************************************************** */
 			/* map operations														*/
@@ -247,37 +263,54 @@ namespace ft{
 				return it;						
 			}
 
-		// 	pair<iterator,iterator> equal_range(const key_type& x);
-		// 	pair<const_iterator,const_iterator> equal_range(const key_type& x) const;
+			pair<iterator,iterator> equal_range(const key_type& x){
+				return ft::make_pair(lower_bound(x), upper_bound(x));
+			}
+			
+			pair<const_iterator,const_iterator> equal_range(const key_type& x) const{
+				return ft::make_pair(lower_bound(x), upper_bound(x));
+			}
 
 			/* ******************************************************************** */
 			/* non member operators													*/
 			/* ******************************************************************** */
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator==(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator==(const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y) {
+				return x._tree == y._tree;
+			}
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator< (const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator< (const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y){
+				return x._tree < y._tree;
+			}
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator!=(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator!=(const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y){
+				return !(x._tree == y._tree);	
+			}
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator> (const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator>(const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y){
+				return !(x._tree < y._tree) && !(x._tree == y._tree);
+			}
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator>=(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator>=(const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y){
+					return !(x._tree < y._tree);
+				}
 
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend bool operator<=(const map<Key,T,Compare,Allocator>& x, const map<Key,T,Compare,Allocator>& y);
+			friend bool operator<=(const map<key, value, Compare, Allocator>& x,
+				const map<key, value, Compare, Allocator>& y){
+				return (x._tree < y._tree) || (x._tree == y._tree);
+			}
 
 			/* ******************************************************************** */
 			/* specialised algorithms												*/
 			/* ******************************************************************** */
 			
-			// template <class Key, class T, class Compare, class Allocator>
-			// friend void swap(map<Key,T,Compare,Allocator>& x, map<Key,T,Compare,Allocator>& y);
+			friend void swap(map<key, value, Compare, Allocator>& x, 
+				map<key, value, Compare, Allocator>& y) {x.swap(y); }
 			
 			/* ******************************************************************** */
 			/* variables															*/
