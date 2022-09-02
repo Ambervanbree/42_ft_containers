@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/01 18:33:11 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/02 12:57:30 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,20 +157,27 @@ namespace ft{
 				}
 			}
 
-			friend bool operator==(const RBnode& x, const RBnode& y){
-			if ((x._color != y._color) ||
-				(x._content != y._content) ||
-				(x._parent != y._parent) ||
-				(x._child[0] != y._child[0]) ||
-				(x._child[1] != y._child[1])) {return false; }
-			return true;
-			}
+// TODO -----------> not sure if needed, and if so, do links need to be the same?
 
-			friend bool operator!=(const RBnode& x, const RBnode& y){
-			return !(x == y);
-			}
+			// friend bool operator==(const RBnode& x, const RBnode& y){
+			// 	if ((x._color != y._color) ||
+			// 		(x._content != y._content) ||
+			// 		(x._parent != y._parent) ||
+			// 		(x._child[0] != y._child[0]) ||
+			// 		(x._child[1] != y._child[1])) {return false; }
+			// 	return true;
+			// }
+
+			// friend bool operator!=(const RBnode& x, const RBnode& y){
+			// 	return !(x == y);
+			// }
+
 	};
 
+	template <class T>
+	bool	operator<(const RBnode<T>& x, const RBnode<T>& y){
+		return (x._content < y._content);
+	}
 
 	template <class T, class Compare, class Allocator = std::allocator<T> >
 	struct RBtree{
@@ -190,9 +197,9 @@ namespace ft{
 			typedef Allocator							allocator_type;
 			typedef Compare								key_compare;
 			typedef ft::RBiterator<node_type>			iterator;
-			typedef ft::RBiterator<node_type>			const_iterator;
+			typedef const ft::RBiterator<node_type>		const_iterator;
 			typedef ft::RBreverse_iterator<node_type>	reverse_iterator;
-			typedef ft::RBreverse_iterator<node_type>	const_reverse_iterator;
+			typedef ft::RBreverse_iterator<node_type> const	const_reverse_iterator;
 			typedef typename Allocator::template 
 							rebind<node_type>::other	node_allocator;
 
@@ -294,7 +301,6 @@ namespace ft{
 				node_ptr	new_node;
 				node_ptr	parent;
 				int			dir  		= 0;
-				iterator	it;
 
 				new_node = _alloc.allocate(1);
 				_alloc.construct(new_node, x);
@@ -549,7 +555,6 @@ namespace ft{
 					}
 					else
 						not_dummy_delete(node, LEFT);
-						// node->_parent->_left = node->_left;
 				}
 				else if (RIGHT_NON_NIL){
 					node->_right->_color = BLACK;
@@ -562,14 +567,13 @@ namespace ft{
 					}	
 					else
 						not_dummy_delete(node, RIGHT);
-						// node->_parent->_right = node->_right;
 				}
 			}
 
-			void erase(iterator position){
-				delete_node(*position);
-				_alloc.destroy(*position);
-				_alloc.deallocate(*position, 1);
+			void erase(node_ptr node){
+				delete_node(node);
+				_alloc.destroy(node);
+				_alloc.deallocate(node, 1);
 				_size--;
 			}
 
