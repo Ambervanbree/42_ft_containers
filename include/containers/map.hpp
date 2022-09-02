@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 12:27:27 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:23:36 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ namespace ft{
 			}
 
 			map(const map<key, value, Compare, Allocator>& x) :
-				_alloc(_tree.get_allocator()), _tree(0), _vcomp(value_comp())
-				, _kcomp(key_compare()) {
+				_tree(x._tree), _vcomp(x._vcomp) {
 				*this = x;
 			}
 		

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:51:10 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 12:58:05 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/02 14:12:31 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ namespace ft{
 		/* member operator overload												*/
 		/* ******************************************************************** */		
 		
-		value_ref	operator*(void)	{return _current->_content; }
+		value_ref	operator*(void)	const {return _current->_content; }
 		value_ptr	operator->(void) const {return &(_current->_content); }
 		
 		RBiterator&	operator++(void) {
@@ -150,8 +150,8 @@ template <class T>
 		/* member operator overload												*/
 		/* ******************************************************************** */		
 
-		value_ref	operator*(void)	{return _current->_content; }
-		value_ptr	operator->(void) {return &(_current->_content); }
+		value_ref	operator*(void) const {return _current->_content; }
+		value_ptr	operator->(void) const {return &(_current->_content); }
 		
 		RBreverse_iterator&	operator++(void) {
 			_current = _current->predecessor(); 
