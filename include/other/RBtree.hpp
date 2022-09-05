@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/05 18:22:31 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:24:06 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -585,7 +585,7 @@ namespace ft{
 				// case: deleting a black leaf node, we use a special function.
 								
 				if (LEFT_NON_NIL && RIGHT_NON_NIL){
-					two_child_delete(node);
+					return two_child_delete(node);
 				}
 				else if (LEFT_NIL && RIGHT_NIL){
 					if (node == _root) {_root = NULL; }
