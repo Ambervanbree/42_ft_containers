@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 17:50:26 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:45:06 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ template <typename MAP, typename U>
 void	ft_erase(MAP &mp, U param)
 {
 	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	std::cout << "param: " << param->first << " => " << param->second << std::endl;
-	mp.visualise();
-	// for (ft::map<T1, T2>::iterator it = mp.begin(); it != mp.end(); it++)
-	// 	it.base()->print_contents();
 	mp.erase(param);
 	printSize(mp);
 }
@@ -39,7 +35,10 @@ template <typename MAP, typename U, typename V>
 void	ft_erase(MAP &mp, U param, V param2)
 {
 	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	mp.erase(param, param2);
+	mp.visualise();
+	std::cout << "param is " << param->first << std::endl;
+	std::cout << "param2 is " << param2->first << std::endl;
+	// mp.erase(param, param2);
 	printSize(mp);
 }
 
@@ -54,8 +53,8 @@ int		main(void)
 
 	ft_erase(mp, ++mp.begin());
 
-	// ft_erase(mp, mp.begin());
-	// ft_erase(mp, --mp.end());
+	ft_erase(mp, mp.begin());
+	ft_erase(mp, --mp.end());
 
 	// ft_erase(mp, mp.begin(), ++(++(++mp.begin())));
 	// ft_erase(mp, --(--(--mp.end())), --mp.end());

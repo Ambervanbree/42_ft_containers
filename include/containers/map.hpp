@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 16:23:36 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/05 16:35:39 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,10 @@ namespace ft{
 
 // TODO -------------->> delete!!
 
+			// void swapppp(iterator node1, iterator node2){
+			// 	_tree.swappp(node1.base(), node2.base());
+			// }
+
 			void visualise() {_tree.visualise(); }
 
 			void print_contents(){
@@ -187,7 +191,9 @@ namespace ft{
 				while(first != last){
 					temp = first;
 					first++;
+					std::cout << "erasing: " << temp->first << std::endl;
 					_tree.erase(temp.base());
+					visualise();
 				}
 			}
 			

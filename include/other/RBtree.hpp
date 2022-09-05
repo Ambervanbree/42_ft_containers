@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 18:33:59 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/05 18:22:31 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,33 +87,44 @@ namespace ft{
 			// }
 
 			// RBnode<T>& operator=(const RBnode<T>& x){
-			// 	if (*this != x){
+			// 	// if (*this != x){
 			// 		_parent = x._parent;
 			// 		_child[0] = x._child[0];
 			// 		_child[1] = x._child[0];
 			// 		_color = x._color;
-			// 		_content(x._content);
+			// 		_content = value_type(x._content);
+			// 		// _content(x._content);
 			// 		_dummy = x._dummy;
-			// 	}
+			// 	// }
+			// 	return *this;
 			// }
 
 			void print_contents(){
 				std::cout << "Content: " << _content.first << " => " << _content.second << std::endl;
 				std::cout << "Dummy? " << _dummy << std::endl;
 				std::cout << "Color: " << _color << std::endl;
-				if (_parent)
+				if (_parent){
 					std::cout << "Parent: " << _parent->_content.first << std::endl;
+					if (_parent->_left)
+						std::cout << "Parent's left child: " << _parent->_left->_content.first << std::endl;
+					if (_parent->_right)
+						std::cout << "Parent's right child: " << _parent->_right->_content.first << std::endl;
+				}
 				if (_left){
 					if (_left->_dummy)
 						std::cout << "Left child: dummy" << std::endl;
-					else
+					else{
 						std::cout << "Left child: " << _left->_content.first << std::endl;
+						std::cout << "Left child's parent: " << _left->_parent->_content.first << std::endl;
+					}
 				}
 				if (_right){
 					if (_right->_dummy)
 						std::cout << "Right child: dummy" << std::endl;
-					else
+					else{
 						std::cout << "Right child: " << _right->_content.first << std::endl;
+						std::cout << "Right child's parent: " << _right->_parent->_content.first << std::endl;
+					}
 				}
 				std::cout << std::endl;
 			}
@@ -173,6 +184,14 @@ namespace ft{
 			}
 
 // TODO -----------> not sure if needed, and if so, do links need to be the same?
+
+			// bool equal_nodes(node_ptr node1, node_ptr node2){
+			// 	if (_comp(node1->_content, node2->_content))
+			// 		return false;
+			// 	if (_comp(node2->_content, node1->_content))
+			// 		return false;
+			// 	return true;
+			// }
 
 			// friend bool operator==(const RBnode& x, const RBnode& y){
 			// 	if ((x._color != y._color) ||
@@ -453,7 +472,7 @@ namespace ft{
 				node->_parent->_child[dir] = node->_child[dir];
 			}
 
-			void delete_black_leaf(node_ptr current){
+			node_ptr delete_black_leaf(node_ptr current){
 				node_ptr	parent 		= current->_parent;
 				int			dir			= childDir(current); // safe, because current != _root
 				// node_ptr	sister		= NULL;
@@ -463,9 +482,7 @@ namespace ft{
 				node_ptr	sister;
 				node_ptr	niece;
 				node_ptr	far_niece;
-				
-				std::cout << "BL delete" << std::endl;
-				
+							
 				no_dummy_delete(current, dir);
 				do{
 					// no_dummy_assign(*sister, *parent->_child[1 - dir]);
@@ -517,7 +534,7 @@ namespace ft{
 						sister->_color = parent->_color;
 						parent->_color = BLACK;
 						far_niece->_color = BLACK;
-						return ;
+						return current;
 					}
 
 					// case 4: both sister's children are black and parent is red. 
@@ -525,7 +542,7 @@ namespace ft{
 					if (parent->_color == RED){
 						sister->_color = RED;
 						parent->_color = BLACK;
-						return ;
+						return current;
 					}
 					// case 5: repainting sister balances the subtree of parent, but
 					// it will have one less black node than the rest of the tree.
@@ -535,10 +552,10 @@ namespace ft{
 					if (current->_parent)
 						dir = childDir(current);
 				} while ((parent = current->_parent) != NULL);
-				
+				return current;
 			}
 
-			void two_child_delete(node_ptr node){
+			node_ptr two_child_delete(node_ptr node){
 				// Node has 2 non nil children, so predecessor or successor
 				// can't be the dummy node. We will now switch the node
 				// with a successor (if dir is left) or a predecessor,
@@ -557,25 +574,17 @@ namespace ft{
 					if (dir == 1) {replace = node->predecessor(); }
 					else {replace = node->successor(); }
 				}
-				replace->print_contents();
-				node->print_contents();
-				
 				swap_links(node, replace);
-				replace->print_contents();
-				node->print_contents();
-				begin().base()->print_contents();
-				delete_node(node);
+				return delete_node(replace);
 			}
 			
-			void delete_node(node_ptr node){
+			node_ptr delete_node(node_ptr node){
 				// For a node with 2 children, see function above. Else, if
 				// a node has no children and is red or has one child
 				// we can delete as if it was a normal BST. For the difficult
 				// case: deleting a black leaf node, we use a special function.
-				std::cout << "deleting" << node->_content.first << std::endl;
-				
+								
 				if (LEFT_NON_NIL && RIGHT_NON_NIL){
-					std::cout << "two child delete" << std::endl;
 					two_child_delete(node);
 				}
 				else if (LEFT_NIL && RIGHT_NIL){
@@ -585,7 +594,7 @@ namespace ft{
 						no_dummy_delete(node, dir);
 					}
 					else
-						delete_black_leaf(node);
+						return delete_black_leaf(node);
 				}
 				else if (LEFT_NON_NIL){
 					node->_left->_color = BLACK;
@@ -611,12 +620,13 @@ namespace ft{
 					else
 						no_dummy_delete(node, RIGHT);
 				}
+				return node;
 			}
 
 			void erase(node_ptr node){
-				delete_node(node);
-				_alloc.destroy(node);
-				_alloc.deallocate(node, 1);
+				node_ptr	to_delete = delete_node(node);
+				_alloc.destroy(to_delete);
+				_alloc.deallocate(to_delete, 1);
 				_size--;
 			}
 
@@ -624,70 +634,125 @@ namespace ft{
 			/* node utils															*/
 			/* ******************************************************************** */
 
-			// bool equal_nodes(node_ptr node1, node_ptr node2){
-			// 	if (_comp(node1->_content, node2->_content))
-			// 		return false;
-			// 	if (_comp(node2->_content, node1->_content))
-			// 		return false;
-			// 	return true;
+			void swap_links(node_ptr node, node_ptr replace){				
+				node_ptr	new_node = _alloc.allocate(1);
+
+				_alloc.construct(new_node, value_type(replace->_content));
+				
+				new_node->_color = node->_color;
+				new_node->_dummy = 0;
+				new_node->_parent = node->_parent;
+
+				node->_left == replace ? new_node->_left = replace
+					: new_node->_left = node->_left;
+				node->_right == replace ? new_node->_right = replace
+					: new_node->_right = node->_right;				
+				// if (node->_left != replace)
+				// 	new_node->_left = node->_left;
+				// if (node->_right != replace)
+				// 	new_node->_right = node->_right;
+				if (node->_parent){
+					int dir = childDir(node);
+					node->_parent->_child[dir] = new_node;
+				}
+				if (node->_left)
+					node->_left->_parent = new_node;
+				if (node->_right)
+					node->_right->_parent = new_node;
+				
+				// new_node->print_contents();
+				// replace->print_contents();
+
+				_alloc.destroy(node);
+				_alloc.deallocate(node, 1);
+			}
+
+			// void swap_links(node_ptr node1, node_ptr node2){
+			// 	node_ptr	temp = _alloc.allocate(1);
+				
+			// 	_alloc.construct(temp, value_type());
+			// 	std::swap(node1->_color, node2->_color);
+
+			// 	// Updating _root variable in the tree structure if needed:
+			// 	if (_root == node1){
+			// 		_root = node2;
+			// 		node2->_parent = NULL;
+			// 	}
+			// 	else if (_root == node2){
+			// 		_root = node1;
+			// 		node1->_parent = NULL;	
+			// 	}
+
+			// 	// If nodes have a parent or child(ren), these respective nodes have
+			// 	// to point back to the swapped node. When swapping the links for these,
+			// 	// we have to keep in mind that their current parent can be the other
+			// 	// node, which is why we have to add protection to prevent the node
+			// 	// will point at itself after the swap.
+
+			// 	int cd1 = -1;
+			// 	int cd2 = -1;
+
+			// 	if (node1->_parent)
+			// 		cd1 = childDir(node1);
+			// 	if (node2->_parent)
+			// 		cd2 = childDir(node2);
+				
+			// 	// Swapping links in the nodes themselves through a temporary node:
+			// 	temp->_parent	= node1->_parent;
+			// 	temp->_left 	= node1->_left;
+			// 	temp->_right	= node1->_right;
+
+			// 	// Swapping links concerning node2:
+			// 	if (node2->_parent && node2->_parent != node1)
+			// 		node2->_parent->_child[cd2] = node1;
+			// 	if (node2->_left && node2->_left != node2)
+			// 		node2->_left->_parent = node1;
+			// 	if (node2->_right && node2->_right != node2)
+			// 		node2->_right->_parent = node1;
+					
+			// 	if (node1->_parent && node1->_parent != node2)
+			// 		node1->_parent->_child[cd1] = node2;
+			// 	if (node1->_left && node1->_left != node1)
+			// 		node1->_left->_parent = node2;
+			// 	if (node1->_right && node1->_right != node1)
+			// 		node1->_right->_parent = node2;
+				
+			// 	node2->_parent == node1 ? node1->_parent = node2
+			// 		: node1->_parent = node2->_parent;
+			// 	temp->_parent == node2 ? node2->_parent = node1
+			// 		: node2->_parent = temp->_parent;
+
+			// 	node2->_left == node1 ? node1->_left = node2
+			// 		: node1->_left = node2->_left;
+			// 	temp->_left == node2 ? node2->_left = node1
+			// 		: node2->_left = temp->_left;
+
+			// 	node2->_right == node1 ? node1->_right = node2
+			// 		: node1->_right = node2->_right;
+			// 	temp->_right == node2 ? node2->_right = node1
+			// 		: node2->_right = temp->_right;
+				
+			// 	_alloc.destroy(temp);
+			// 	_alloc.deallocate(temp, 1);
 			// }
 
-			void swap_links(node_ptr node1, node_ptr node2){
-				node_ptr	temp = _alloc.allocate(1);
+			// void swappp(node_ptr node1, node_ptr node2){			
+			// 	std::cout << "Node 1 contains: " << std::endl;
+			// 	node1->print_contents();
+
+			// 	std::cout << "Node 2 contains: " << std::endl;
+			// 	node2->print_contents();
+
+			// 	swap_links(node1, node2);
 				
-				_alloc.construct(temp, value_type());
+			// 	std::cout << "after swap: " << std::endl << std::endl;
 
-				if (_root == node1){
-					_root = node2;
-					node2->_parent = NULL;
-				}
-				else if (_root == node2){
-					_root = node1;
-					node1->_parent = NULL;	
-				}
+			// 	std::cout << "Node 1 contains: " << std::endl;
+			// 	node1->print_contents();
 
-				std::swap(node1->_color, node2->_color);
-				
-				int cd1 = childDir(node1);
-				int cd2 = childDir(node2);
-			
-				if (node1->_parent && node1->_parent != node2)
-					node1->_parent->_child[cd1] = node2;
-				if (node2->_parent && node2->_parent != node1)
-					node2->_parent->_child[cd2] = node1;
-
-				temp->_parent	= node1->_parent;
-				temp->_left 	= node1->_left;
-				temp->_right	= node1->_right;
-
-				node2->_parent == node1 ? node1->_parent = node2
-					: (node1->_parent = node2->_parent);
-				node2->_left == node1 ? node1->_left = node2
-					: node1->_left = node2->_left;
-				node2->_right == node1 ? node1->_right = node2
-					: node1->_right = node2->_right;
-
-				temp->_parent == node2 ? node2->_parent = node1
-					: (node2->_parent = temp->_parent) ;
-				temp->_left == node2 ? node2->_left = node1
-					: node2->_left = temp->_left;
-				temp->_right == node2 ? node2->_right = node1
-					: node2->_right = temp->_right;
-
-				if (node1->_left) // && node1->_left != node2 etc
-					node1->_left->_parent = node1;
-				if (node1->_right)
-					node1->_right->_parent = node1;
-
-				
-				if (node2->_left)
-					node2->_left->_parent = node1;
-				if (node2->_right)
-					node2->_right->_parent = node1;
-
-				_alloc.destroy(temp);
-				_alloc.deallocate(temp, 1);
-			}
+			// 	std::cout << "Node 2 contains: " << std::endl;
+			// 	node2->print_contents();				
+			// }
 
 			/* ******************************************************************** */
 			/* tree utils															*/
@@ -704,10 +769,7 @@ namespace ft{
 				if (subtree && !subtree->_dummy){
 					node_ptr next_left = subtree->_left;
 					node_ptr next_right = subtree->_right;
-					
-					// subtree->_left = NULL;
-					// subtree->_right = NULL;
-					// subtree->_parent = NULL;
+
 					_alloc.destroy(subtree);
 					_alloc.deallocate(subtree, 1);
 					_size--;
