@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 12:28:37 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:10:10 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -468,8 +468,14 @@ namespace ft{
 			void no_dummy_delete(node_ptr node, int dir){
 				if (node->_child[dir] && node->_child[dir]->_dummy){
 					_dummy->_child[1 - dir] = node->_parent;
+					std::cout << "changing dummy " << (1 - dir) << " to " << node->_parent->_content.first << std::endl; 
 				}
 				node->_parent->_child[childDir(node)] = node->_child[dir];
+				std::cout << "dummy is now: " << std::endl;
+				_dummy->print_contents();
+				node->_parent->print_contents();
+				node->_parent->_left->print_contents();
+				node->_parent->_left->successor()->print_contents();
 			}
 
 			void delete_black_leaf(node_ptr current){
@@ -576,7 +582,6 @@ namespace ft{
 				std::cout << "node is " << node->_content.first << std::endl;
 				std::cout << "replace is " << replace->_content.first << std::endl;
 				swap_links(node, replace);
-				visualise();
 				return delete_node(replace);
 			}
 
@@ -593,8 +598,7 @@ namespace ft{
 				else if (LEFT_NIL && RIGHT_NIL){
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED){
-						node->_parent->_left = node->_left;
-						node->_parent->_right = node->_right;
+						no_dummy_delete(node, childDir(node));
 					}
 					else{
 						std::cout << "BL delete" << std::endl;
@@ -651,9 +655,7 @@ namespace ft{
 				node_ptr	new_node = _alloc.allocate(1);
 
 				_alloc.construct(new_node, value_type(replace->_content));
-
-				replace->print_contents();
-				
+			
 				if (_root == node)
 					_root = new_node;
 				new_node->_color = node->_color;
@@ -670,9 +672,9 @@ namespace ft{
 				if (new_node->_right)
 					new_node->_right->_parent = new_node;
 
-				new_node->print_contents();
-				replace->print_contents();
-				node->print_contents();
+				// new_node->print_contents();
+				// replace->print_contents();
+				// node->print_contents();
 
 				_alloc.destroy(node);
 				_alloc.deallocate(node, 1);

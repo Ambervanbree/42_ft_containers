@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 12:10:25 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:11:16 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ template <typename MAP, typename U>
 void	ft_erase(MAP &mp, U param)
 {
 	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	mp.visualise();
 	std::cout << "param is " << param->first << std::endl;
 	mp.erase(param);
-	mp.visualise();
+	
 	printSize(mp);
 }
 
@@ -58,7 +57,7 @@ int		main(void)
 	ft_erase(mp, ++mp.begin());
 
 	ft_erase(mp, mp.begin());
-	// ft_erase(mp, --mp.end());
+	ft_erase(mp, --mp.end());
 
 	// mp.visualise();
 	// ft_erase(mp, mp.begin(), ++(++(++mp.begin())));
