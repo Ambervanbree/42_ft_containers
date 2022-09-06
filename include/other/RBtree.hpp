@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 16:03:30 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:54:45 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -609,17 +609,14 @@ namespace ft{
 				// we can delete as if it was a normal BST. For the difficult
 				// case: deleting a black leaf node, we use a special function.
 
-				std::cout << "hallo" << std::endl;
-				visualise();
-				_root->print_contents();
-				node->print_contents();
-								
+				// std::cout << "hallo" << std::endl;
+												
 				if (LEFT_NON_NIL && RIGHT_NON_NIL){
-					std::cout << "two child delete" << std::endl;
+					// std::cout << "two child delete" << std::endl;
 					return two_child_delete(node);
 				}
 				else if (LEFT_NIL && RIGHT_NIL){
-					std::cout << "no child delete" << std::endl;
+					// std::cout << "no child delete" << std::endl;
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED){
 						node->_parent->_child[childDir(node)] = NULL;
@@ -632,7 +629,7 @@ namespace ft{
 					}
 				}
 				else if (LEFT_NON_NIL){
-					std::cout << "left child delete" << std::endl;
+					// std::cout << "left child delete" << std::endl;
 					node->_left->_color = BLACK;
 					node->_left->_parent = node->_parent;
 					if (node == _root){
@@ -645,7 +642,7 @@ namespace ft{
 						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_left);
 				}
 				else if (RIGHT_NON_NIL){
-					std::cout << "right child delete" << std::endl;
+					// std::cout << "right child delete" << std::endl;
 					node->_right->_color = BLACK;
 					node->_right->_parent = node->_parent;
 					if (node == _root){
@@ -659,16 +656,14 @@ namespace ft{
 						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_right);
 					}
 				}
-				std::cout << "niks" << std::endl;
+				// std::cout << "niks" << std::endl;
 				return node;
 			}
 
 			void erase(node_ptr node){
-				std::cout << "erasing " << node->_content.first << std::endl;
 				node_ptr	to_delete = delete_node(node);
 
 				update_dummy();
-				visualise();
 				_alloc.destroy(to_delete);
 				_alloc.deallocate(to_delete, 1);
 				_size--;

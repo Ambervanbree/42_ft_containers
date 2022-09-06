@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 15:44:08 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:12:35 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +170,7 @@ namespace ft{
 			template <class InputIterator> 
 			void insert(InputIterator first, InputIterator last){
 				while (first != last)
-					_tree.insert(*first++);
+					insert(*first++);
 			}
 
 			void erase(iterator position){_tree.erase(position.base()); }
@@ -185,13 +185,15 @@ namespace ft{
 				return 0;
 			}
 			
-			void erase(iterator first, iterator last){
-				iterator	temp;
-				
-				while(first != last){
-					temp = first;
-					first++;
-					_tree.erase(temp.base());
+			void erase(iterator first, iterator last){				
+				key_type	to_delete 	= first->first;
+				key_type	last_key	= last->first;
+				key_type	next_key;
+
+				while (to_delete != last_key){
+					next_key = upper_bound(to_delete)->first;
+					erase(to_delete);
+					to_delete = next_key;
 				}
 			}
 			

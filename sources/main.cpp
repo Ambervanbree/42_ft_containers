@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 16:12:31 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 18:14:19 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,47 @@
 // #include "../containers_test/srcs/base.hpp"
 #include "../containers_test/srcs/map/common.hpp"
 
+#define T1 float
+#define T2 foo<int>
+typedef _pair<const T1, T2> T3;
+
 int		main(void)
 {
- ft::map<char,int> mymap;
-  ft::map<char,int>::iterator itlow,itup;
+	std::list<T3> lst;
+	unsigned int lst_size = 5;
+	for (unsigned int i = 0; i < lst_size; ++i)
+		lst.push_back(T3(2.5 + i, i + 1));
 
-  mymap['a']=20;
-  mymap['b']=40;
-  mymap['c']=60;
-  mymap['d']=80;
-  mymap['e']=100;
+	TESTED_NAMESPACE::map<T1, T2> mp(lst.begin(), lst.end());
+	TESTED_NAMESPACE::map<T1, T2>::iterator it(mp.begin());
+	TESTED_NAMESPACE::map<T1, T2>::const_iterator ite(mp.begin());
+	printSize(mp);
 
-  itlow=mymap.lower_bound ('b');  // itlow points to b
-  itup=mymap.upper_bound ('d');   // itup points to e (not d!)
+	printPair(++ite);
+	printPair(ite++);
+	printPair(ite++);
+	printPair(++ite);
 
-  std::cout << "low : " << itlow->first << '\n';
-  std::cout << "up : " << itup->first << '\n';
+	it->second.m();
+	ite->second.m();
 
-  while (itlow != itup){
-	itlow.base()->print_contents();
-	itlow++;
-  }
+	printPair(++it);
+	printPair(it++);
+	printPair(it++);
+	printPair(++it);
 
-//   mymap.erase(itlow,itup);        // erases [itlow,itup)
+	printPair(--ite);
+	printPair(ite--);
+	printPair(--ite);
+	printPair(ite--);
 
-  // print content:
-  for (ft::map<char,int>::iterator it=mymap.begin(); it!=mymap.end(); ++it)
-    std::cout << it->first << " => " << it->second << '\n';
+	(*it).second.m();
+	(*ite).second.m();
 
-  return 0;
+	printPair(--it);
+	printPair(it--);
+	printPair(it--);
+	printPair(--it);
+
+	return (0);
 }
