@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 15:52:53 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 16:12:31 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ int		main(void)
   std::cout << "low : " << itlow->first << '\n';
   std::cout << "up : " << itup->first << '\n';
 
-  mymap.visualise();
+  while (itlow != itup){
+	itlow.base()->print_contents();
+	itlow++;
+  }
 
-  mymap.erase(itlow,itup);        // erases [itlow,itup)
+//   mymap.erase(itlow,itup);        // erases [itlow,itup)
 
   // print content:
   for (ft::map<char,int>::iterator it=mymap.begin(); it!=mymap.end(); ++it)
