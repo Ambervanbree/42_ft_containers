@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 14:34:17 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:45:07 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -465,15 +465,37 @@ namespace ft{
 				return NULL;
 			}
 
-			void no_dummy_delete(node_ptr node, int dir){
-				if (node->_child[dir] && node->_child[dir]->_dummy)
-					_dummy->_child[1 - dir] = node->_parent;
-				if (node->_child[1 - dir] && node->_child[1 - dir]->_dummy){
-					_dummy->_child[1 - dir] = node->_child[dir];
-					node->_child[dir]->_child[1 - dir] = _dummy;
+			void update_dummy(){
+				if (_root == NULL){
+					_dummy->_left = NULL;
+					_dummy->_right = NULL;
+					return ;
 				}
-				node->_parent->_child[childDir(node)] = node->_child[dir];
+
+				node_ptr	max	= 	_root->max_value();
+				node_ptr	min =	_root->min_value();
+				
+				if (max != _dummy){
+					_dummy->_left->_right = NULL;
+					_dummy->_left = max;
+					max->_right = _dummy;
+				}
+				if (min != _dummy){
+					_dummy->_right->_left = NULL;
+					_dummy->_right = min;
+					min->_left = _dummy;
+				}
 			}
+
+			// void no_dummy_delete(node_ptr node, int dir){
+			// 	if (node->_child[dir] && node->_child[dir]->_dummy)
+			// 		_dummy->_child[1 - dir] = node->_parent;
+			// 	if (node->_child[1 - dir] && node->_child[1 - dir]->_dummy){
+			// 		_dummy->_child[1 - dir] = node->_child[dir];
+			// 		node->_child[dir]->_child[1 - dir] = _dummy;
+			// 	}
+			// 	node->_parent->_child[childDir(node)] = node->_child[dir];
+			// }
 
 			void delete_black_leaf(node_ptr current){
 				node_ptr	parent 		= current->_parent;
@@ -486,7 +508,8 @@ namespace ft{
 				node_ptr	niece;
 				node_ptr	far_niece;
 				
-				no_dummy_delete(current, dir);
+				current->_parent->_child[dir] = NULL;
+				// no_dummy_delete(current, dir);
 				do{
 					// no_dummy_assign(*sister, *parent->_child[1 - dir]);
 					// no_dummy_assign(*niece, *sister->_child[dir]);
@@ -587,16 +610,17 @@ namespace ft{
 				// case: deleting a black leaf node, we use a special function.
 								
 				if (LEFT_NON_NIL && RIGHT_NON_NIL){
-					std::cout << "two child delete" << std::endl;
+					// std::cout << "two child delete" << std::endl;
 					return two_child_delete(node);
 				}
 				else if (LEFT_NIL && RIGHT_NIL){
 					if (node == _root) {_root = NULL; }
 					else if (node->_color == RED){
-						no_dummy_delete(node, childDir(node));
+						node->_parent->_child[childDir(node)] = NULL;
+						// no_dummy_delete(node, childDir(node));
 					}
 					else{
-						std::cout << "BL delete" << std::endl;
+						// std::cout << "BL delete" << std::endl;
 						delete_black_leaf(node);
 						return node;
 					}
@@ -611,7 +635,7 @@ namespace ft{
 							node->_right->_left = _root;
 					}
 					else
-						no_dummy_delete(node, LEFT);
+						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_left);
 				}
 				else if (RIGHT_NON_NIL){
 					node->_right->_color = BLACK;
@@ -623,8 +647,8 @@ namespace ft{
 							node->_left->_right = _root;
 					}	
 					else{
-						std::cout << "here we are" << std::endl;
-						no_dummy_delete(node, RIGHT);
+						// std::cout << "here we are" << std::endl;
+						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_right);
 					}
 				}
 				return node;
@@ -633,6 +657,7 @@ namespace ft{
 			void erase(node_ptr node){
 				node_ptr	to_delete = delete_node(node);
 
+				update_dummy();
 				_alloc.destroy(to_delete);
 				_alloc.deallocate(to_delete, 1);
 				_size--;

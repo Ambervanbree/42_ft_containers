@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 14:43:48 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:52:53 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,66 +17,30 @@
 // #include "../containers_test/srcs/base.hpp"
 #include "../containers_test/srcs/map/common.hpp"
 
-#define T1 int
-#define T2 std::string
-typedef _pair<const T1, T2> T3;
-
-static int iter = 0;
-
-template <typename MAP, typename U>
-void	ft_erase(MAP &mp, U param)
-{
-	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	std::cout << "param is " << param->first << std::endl;
-	mp.erase(param);
-	printSize(mp);
-}
-
-template <typename MAP, typename U, typename V>
-void	ft_erase(MAP &mp, U param, V param2)
-{
-	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	// mp.erase(param++);
-	// mp.visualise();
-	// mp.erase(param++);
-	// mp.visualise();
-	mp.erase(param, param2);
-	mp.visualise();
-	// printSize(mp);
-}
-
 int		main(void)
 {
-	std::list<T3> lst;
-	unsigned int lst_size = 11;
-	for (unsigned int i = 1; i < lst_size; ++i)
-		lst.push_back(T3(i, std::string((lst_size - i), i + 65)));
-	ft::map<T1, T2> mp(lst.begin(), lst.end());
-	printSize(mp);
+ ft::map<char,int> mymap;
+  ft::map<char,int>::iterator itlow,itup;
 
-	ft_erase(mp, ++mp.begin());
+  mymap['a']=20;
+  mymap['b']=40;
+  mymap['c']=60;
+  mymap['d']=80;
+  mymap['e']=100;
 
-	ft_erase(mp, mp.begin());
-	ft_erase(mp, --mp.end());
+  itlow=mymap.lower_bound ('b');  // itlow points to b
+  itup=mymap.upper_bound ('d');   // itup points to e (not d!)
 
-	ft_erase(mp, mp.begin(), ++(++(++mp.begin())));
-	mp.visualise();
-	ft::map<T1, T2>::iterator ite = mp.end();
-	std::cout << "end is " << ite--->first << std::endl;
-	std::cout << "end is " << ite->first << std::endl;
-	ft_erase(mp, --(--(--mp.end())), --mp.end());
+  std::cout << "low : " << itlow->first << '\n';
+  std::cout << "up : " << itup->first << '\n';
 
-	// mp[10] = "Hello";
-	// mp[11] = "Hi there";
-	// printSize(mp);
-	// ft_erase(mp, --(--(--mp.end())), mp.end());
+  mymap.visualise();
 
-	// mp[12] = "ONE";
-	// mp[13] = "TWO";
-	// mp[14] = "THREE";
-	// mp[15] = "FOUR";
-	// printSize(mp);
-	// ft_erase(mp, mp.begin(), mp.end());
+  mymap.erase(itlow,itup);        // erases [itlow,itup)
 
-	return (0);
+  // print content:
+  for (ft::map<char,int>::iterator it=mymap.begin(); it!=mymap.end(); ++it)
+    std::cout << it->first << " => " << it->second << '\n';
+
+  return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 10:22:33 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 15:44:08 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,9 +173,7 @@ namespace ft{
 					_tree.insert(*first++);
 			}
 
-			void erase(iterator position){
-				std::cout << "erasing: " << position->first << std::endl;
-				_tree.erase(position.base()); }
+			void erase(iterator position){_tree.erase(position.base()); }
 
 			size_type erase(const key_type& x){
 				iterator	found = find(x);
@@ -189,13 +187,10 @@ namespace ft{
 			
 			void erase(iterator first, iterator last){
 				iterator	temp;
-
+				
 				while(first != last){
 					temp = first;
 					first++;
-					visualise();
-					std::cout << "erasing: " << temp->first << std::endl;
-					std::cout << "next is: " << first->first << std::endl;
 					_tree.erase(temp.base());
 				}
 			}
