@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 14:10:10 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:34:17 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,16 +466,13 @@ namespace ft{
 			}
 
 			void no_dummy_delete(node_ptr node, int dir){
-				if (node->_child[dir] && node->_child[dir]->_dummy){
+				if (node->_child[dir] && node->_child[dir]->_dummy)
 					_dummy->_child[1 - dir] = node->_parent;
-					std::cout << "changing dummy " << (1 - dir) << " to " << node->_parent->_content.first << std::endl; 
+				if (node->_child[1 - dir] && node->_child[1 - dir]->_dummy){
+					_dummy->_child[1 - dir] = node->_child[dir];
+					node->_child[dir]->_child[1 - dir] = _dummy;
 				}
 				node->_parent->_child[childDir(node)] = node->_child[dir];
-				std::cout << "dummy is now: " << std::endl;
-				_dummy->print_contents();
-				node->_parent->print_contents();
-				node->_parent->_left->print_contents();
-				node->_parent->_left->successor()->print_contents();
 			}
 
 			void delete_black_leaf(node_ptr current){
@@ -579,8 +576,6 @@ namespace ft{
 					if (dir == 1) {replace = node->predecessor(); }
 					else {replace = node->successor(); }
 				}
-				std::cout << "node is " << node->_content.first << std::endl;
-				std::cout << "replace is " << replace->_content.first << std::endl;
 				swap_links(node, replace);
 				return delete_node(replace);
 			}
@@ -615,11 +610,8 @@ namespace ft{
 						if (node->_right && node->_right->_dummy)
 							node->_right->_left = _root;
 					}
-					else{
+					else
 						no_dummy_delete(node, LEFT);
-						// node->_parent->_child[childDir(node)] = node->_left;
-						// no_dummy_delete(node, node->_left);
-					}
 				}
 				else if (RIGHT_NON_NIL){
 					node->_right->_color = BLACK;
@@ -631,9 +623,8 @@ namespace ft{
 							node->_left->_right = _root;
 					}	
 					else{
+						std::cout << "here we are" << std::endl;
 						no_dummy_delete(node, RIGHT);
-						// node->_parent->_child[childDir(node)] = node->_right;
-						// no_dummy_delete(node, node->_right);
 					}
 				}
 				return node;

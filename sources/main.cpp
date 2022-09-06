@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 14:11:16 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/06 14:43:48 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_erase(MAP &mp, U param)
 	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
 	std::cout << "param is " << param->first << std::endl;
 	mp.erase(param);
-	
 	printSize(mp);
 }
 
@@ -37,12 +36,13 @@ template <typename MAP, typename U, typename V>
 void	ft_erase(MAP &mp, U param, V param2)
 {
 	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
-	mp.visualise();
-	std::cout << "param is " << param->first << std::endl;
-	std::cout << "param2 is " << param2->first << std::endl;
-	// mp.erase(param);
+	// mp.erase(param++);
+	// mp.visualise();
+	// mp.erase(param++);
+	// mp.visualise();
 	mp.erase(param, param2);
-	printSize(mp);
+	mp.visualise();
+	// printSize(mp);
 }
 
 int		main(void)
@@ -59,9 +59,12 @@ int		main(void)
 	ft_erase(mp, mp.begin());
 	ft_erase(mp, --mp.end());
 
-	// mp.visualise();
-	// ft_erase(mp, mp.begin(), ++(++(++mp.begin())));
-	// ft_erase(mp, --(--(--mp.end())), --mp.end());
+	ft_erase(mp, mp.begin(), ++(++(++mp.begin())));
+	mp.visualise();
+	ft::map<T1, T2>::iterator ite = mp.end();
+	std::cout << "end is " << ite--->first << std::endl;
+	std::cout << "end is " << ite->first << std::endl;
+	ft_erase(mp, --(--(--mp.end())), --mp.end());
 
 	// mp[10] = "Hello";
 	// mp[11] = "Hi there";
