@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 18:12:35 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:43:01 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "pair.hpp"
 # include "RBtree.hpp"
 # include "RBiterators.hpp"
+# include "reverse_iterators.hpp"
 
 namespace ft{
 	template<class key, class value, class Compare = std::less<key>, 
@@ -59,11 +60,14 @@ namespace ft{
 
 			typedef RBtree<value_type, value_compare, Allocator>	tree_type;
 			typedef RBnode<value_type>								node_type;
+			// typedef RBnode<const value_type>						cnode_type;
 			typedef node_type *										node_ptr;
 			typedef ft::RBiterator<node_type>						iterator;
-			typedef ft::RBiterator<node_type>						const_iterator;
+			typedef ft::const_RBiterator<node_type> 				const_iterator;
 			typedef ft::RBreverse_iterator<node_type>				reverse_iterator;
-			typedef ft::RBreverse_iterator<node_type>				const_reverse_iterator;
+			typedef ft::const_RBreverse_iterator<node_type> 		const_reverse_iterator;
+			// typedef ft::reverse_iterator<node_type>					reverse_iterator;
+			// typedef const ft::reverse_iterator<node_type>	 		const_reverse_iterator;
 
 
 			/* ******************************************************************** */
@@ -128,12 +132,6 @@ namespace ft{
 			mapped_type& operator[](const key_type& x){
 				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
-
-// TODO -------------->> delete!!
-
-			// void swapppp(iterator node1, iterator node2){
-			// 	_tree.swappp(node1.base(), node2.base());
-			// }
 
 			void visualise() {_tree.visualise(); }
 

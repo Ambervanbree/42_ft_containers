@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/06 17:54:45 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:43:17 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "lexicographical_compare.hpp"
 # include "is_integral.hpp"
 # include "RBiterators.hpp"
+# include "reverse_iterators.hpp"
 
 # define LEFT  0
 # define RIGHT 1
@@ -46,6 +47,7 @@ namespace ft{
 			typedef T									value_type;
 			typedef ft::RBnode<T>						node_type;
 			typedef node_type *							node_ptr;
+			typedef const node_type *					const_node_ptr;
 			typedef node_type &							node_ref;
 			typedef size_t								size_type;
 			typedef const node_type &					const_node_ref;
@@ -166,6 +168,23 @@ namespace ft{
 				}
 			}
 
+			const_node_ptr successor() const{
+				if (_dummy)
+					return _right;
+				if (_right != NULL)
+					return _right->min_value();
+				else{
+					const_node_ptr 	parent 	= _parent;
+					const_node_ptr 	current = this;
+					
+					while(parent != NULL && current == parent->_right){
+						current = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
+
 			node_ptr predecessor(){
 				if (_dummy)
 					return _left;
@@ -174,6 +193,23 @@ namespace ft{
 				else{
 					node_ptr 	parent 	= _parent;
 					node_ptr	current	= this;
+					
+					while(parent != NULL && current == parent->_left){
+						current = parent;
+						parent = parent->_parent;
+					}
+					return parent;
+				}
+			}
+
+			const_node_ptr predecessor() const{
+				if (_dummy)
+					return _left;
+				if (_left != NULL)
+					return _left->max_value();
+				else{
+					const_node_ptr 	parent 	= _parent;
+					const_node_ptr	current	= this;
 					
 					while(parent != NULL && current == parent->_left){
 						current = parent;
@@ -220,33 +256,35 @@ namespace ft{
 			/* types and definitions												*/
 			/* ******************************************************************** */
 			
-			typedef T									value_type;
-			typedef RBtree<T, Compare, Allocator>		tree_type;
-			typedef ft::RBnode<T>						node_type;
-			typedef node_type *							node_ptr;
-			typedef node_type &							node_ref;
-			typedef tree_type *							tree_ptr;
-			typedef tree_type &							tree_ref;
-			typedef size_t								size_type;
-			typedef Allocator							allocator_type;
-			typedef Compare								key_compare;
-			typedef ft::RBiterator<node_type>			iterator;
-			typedef const ft::RBiterator<node_type>		const_iterator;
-			typedef ft::RBreverse_iterator<node_type>	reverse_iterator;
-			typedef ft::RBreverse_iterator<node_type> const	const_reverse_iterator;
+			typedef T											value_type;
+			typedef RBtree<T, Compare, Allocator>				tree_type;
+			typedef ft::RBnode<T>								node_type;
+			typedef node_type *									node_ptr;
+			typedef node_type &									node_ref;
+			typedef tree_type *									tree_ptr;
+			typedef tree_type &									tree_ref;
+			typedef size_t										size_type;
+			typedef Allocator									allocator_type;
+			typedef Compare										key_compare;
+			typedef ft::RBiterator<node_type>					iterator;
+			typedef ft::const_RBiterator<node_type> 			const_iterator;
+			typedef ft::RBreverse_iterator<node_type>				reverse_iterator;
+			typedef ft::const_RBreverse_iterator<node_type> 		const_reverse_iterator;
+			// typedef ft::reverse_iterator<node_type>					reverse_iterator;
+			// typedef const ft::reverse_iterator<node_type>	 		const_reverse_iterator;
 			typedef typename Allocator::template 
-							rebind<node_type>::other	node_allocator;
+							rebind<node_type>::other			node_allocator;
 
 
 			/* ******************************************************************** */
 			/* variables															*/
 			/* ******************************************************************** */
 			
-			node_ptr									_root;
-			node_ptr									_dummy;
-			node_allocator								_alloc;
-			key_compare									_comp;
-			size_type									_size;
+			node_ptr			_root;
+			node_ptr			_dummy;
+			node_allocator		_alloc;
+			key_compare			_comp;
+			size_type			_size;
 			
 			/* ******************************************************************** */
 			/* constructors															*/
@@ -283,7 +321,7 @@ namespace ft{
 					_dummy->_color = ORANGE;
 					if (_size)
 						clear_tree();
-					iterator it = x.begin(), ite = x.end();
+					const_iterator it = x.begin(), ite = x.end();
 					for (; it != ite; it++)
 						insert(*it);
 				}
@@ -325,12 +363,12 @@ namespace ft{
 			
 			const_iterator			begin() const {									
 										if (_root == NULL)
-											return iterator(_dummy);
-										return iterator(_dummy->successor()); 
+											return const_iterator(_dummy);
+										return const_iterator(_dummy->successor()); 
 									}
 									
 			iterator				end() {return iterator(_dummy); }
-			const_iterator			end() const {return iterator(_dummy); }
+			const_iterator			end() const {return const_iterator(_dummy); }
 
 			reverse_iterator		rbegin() {
 										if (_root == NULL)
@@ -340,12 +378,12 @@ namespace ft{
 									
 			const_reverse_iterator	rbegin() const {
 										if (_root == NULL)
-											return reverse_iterator(_dummy);
-										return reverse_iterator(_dummy->predecessor());
+											return const_reverse_iterator(_dummy);
+										return const_reverse_iterator(_dummy->predecessor());
 									}
 									
 			reverse_iterator		rend() {return reverse_iterator(_dummy); }
-			const_reverse_iterator	rend() const {return reverse_iterator(_dummy); }
+			const_reverse_iterator	rend() const {return const_reverse_iterator(_dummy); }
 
 			/* ******************************************************************** */
 			/* insert																*/
@@ -743,11 +781,11 @@ namespace ft{
 			}
 
 			const_iterator find(value_type x, node_ptr subtree) const{
-				iterator temp;
+				const_iterator temp;
 				
 				if (subtree && !subtree->_dummy){		
 					if (!(_comp(x, subtree->_content) || _comp(subtree->_content, x)))
-						return (iterator(subtree));
+						return (const_iterator(subtree));
 					else{
 						if ((temp = find(x, subtree->_left)) != end())
 							return temp;
