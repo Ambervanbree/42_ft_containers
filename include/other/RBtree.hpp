@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/07 17:43:17 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/08 11:12:26 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,10 +268,8 @@ namespace ft{
 			typedef Compare										key_compare;
 			typedef ft::RBiterator<node_type>					iterator;
 			typedef ft::const_RBiterator<node_type> 			const_iterator;
-			typedef ft::RBreverse_iterator<node_type>				reverse_iterator;
-			typedef ft::const_RBreverse_iterator<node_type> 		const_reverse_iterator;
-			// typedef ft::reverse_iterator<node_type>					reverse_iterator;
-			// typedef const ft::reverse_iterator<node_type>	 		const_reverse_iterator;
+			typedef ft::reverse_iterator<iterator>				reverse_iterator;
+			typedef ft::reverse_iterator<const_iterator>		const_reverse_iterator;
 			typedef typename Allocator::template 
 							rebind<node_type>::other			node_allocator;
 
@@ -372,18 +370,24 @@ namespace ft{
 
 			reverse_iterator		rbegin() {
 										if (_root == NULL)
-											return reverse_iterator(_dummy);
-										return reverse_iterator(_dummy->predecessor()); 
+											return reverse_iterator(end());
+										return reverse_iterator(end()--);
+										// if (_root == NULL)
+										// 	return reverse_iterator(_dummy);
+										// return reverse_iterator(_dummy->predecessor()); 
 									}
 									
 			const_reverse_iterator	rbegin() const {
 										if (_root == NULL)
-											return const_reverse_iterator(_dummy);
-										return const_reverse_iterator(_dummy->predecessor());
+											return const_reverse_iterator(end());
+										return const_reverse_iterator(end()--);
+										// if (_root == NULL)
+										// 	return const_reverse_iterator(_dummy);
+										// return const_reverse_iterator(_dummy->predecessor());
 									}
 									
-			reverse_iterator		rend() {return reverse_iterator(_dummy); }
-			const_reverse_iterator	rend() const {return const_reverse_iterator(_dummy); }
+			reverse_iterator		rend() {return reverse_iterator(begin()); }
+			const_reverse_iterator	rend() const {return const_reverse_iterator(begin()); }
 
 			/* ******************************************************************** */
 			/* insert																*/
