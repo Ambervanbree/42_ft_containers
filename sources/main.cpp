@@ -6,62 +6,73 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 11:14:41 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/08 15:23:16 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <map>
-#include "map.hpp"
+#include <set>
+#include "set.hpp"
 #include <iostream>
 #include <list>
 // #include "../containers_test/srcs/base.hpp"
-#include "../containers_test/srcs/map/common.hpp"
+#include "../containers_test/srcs/set/common.hpp"
 
-#define T1 float
-#define T2 foo<int>
-typedef _pair<const T1, T2> T3;
+#define T1 int
+typedef TESTED_NAMESPACE::set<T1>::iterator ft_iterator;
+typedef TESTED_NAMESPACE::set<T1>::const_iterator ft_const_iterator;
 
-#define T1 float
-#define T2 foo<int>
-typedef _pair<const T1, T2> T3;
+static int iter = 0;
+
+template <typename SET>
+void	ft_bound(SET &st, const T1 &param)
+{
+	ft_iterator ite = st.end(), it[2];
+	_pair<ft_iterator, ft_iterator> ft_range;
+
+	std::cout << "\t-- [" << iter++ << "] --" << std::endl;
+	std::cout << "with key [" << param << "]:" << std::endl;
+	it[0] = st.lower_bound(param); it[1] = st.upper_bound(param);
+	ft_range = st.equal_range(param);
+	std::cout << "lower_bound: " << (it[0] == ite ? "end()" : printPair(it[0], false)) << std::endl;
+	std::cout << "upper_bound: " << (it[1] == ite ? "end()" : printPair(it[1], false)) << std::endl;
+	std::cout << "equal_range: " << (ft_range.first == it[0] && ft_range.second == it[1]) << std::endl;
+}
+
+template <typename SET>
+void	ft_const_bound(const SET &st, const T1 &param)
+{
+	ft_const_iterator ite = st.end(), it[2];
+	_pair<ft_const_iterator, ft_const_iterator> ft_range;
+
+	std::cout << "\t-- [" << iter++ << "] (const) --" << std::endl;
+	std::cout << "with key [" << param << "]:" << std::endl;
+	it[0] = st.lower_bound(param); it[1] = st.upper_bound(param);
+	ft_range = st.equal_range(param);
+	std::cout << "lower_bound: " << (it[0] == ite ? "end()" : printPair(it[0], false)) << std::endl;
+	std::cout << "upper_bound: " << (it[1] == ite ? "end()" : printPair(it[1], false)) << std::endl;
+	std::cout << "equal_range: " << (ft_range.first == it[0] && ft_range.second == it[1]) << std::endl;
+}
 
 int		main(void)
 {
-	std::list<T3> lst;
-	unsigned int lst_size = 5;
+	std::list<T1> lst;
+	unsigned int lst_size = 10;
 	for (unsigned int i = 0; i < lst_size; ++i)
-		lst.push_back(T3(2.5 + i, i + 1));
+		lst.push_back((i + 1) * 3);
+	TESTED_NAMESPACE::set<T1> st(lst.begin(), lst.end());
+	printSize(st);
 
-	TESTED_NAMESPACE::map<T1, T2> mp(lst.begin(), lst.end());
-	TESTED_NAMESPACE::map<T1, T2>::iterator it(mp.begin());
-	TESTED_NAMESPACE::map<T1, T2>::const_iterator ite(mp.begin());
-	printSize(mp);
+	ft_const_bound(st, -10);
+	ft_const_bound(st, 1);
+	ft_const_bound(st, 5);
+	ft_const_bound(st, 10);
+	ft_const_bound(st, 50);
 
-	printPair(++ite);
-	printPair(ite++);
-	printPair(ite++);
-	printPair(++ite);
+	printSize(st);
 
-	it->second.m();
-	ite->second.m();
+	ft_bound(st, 5);
+	ft_bound(st, 7);
 
-	printPair(++it);
-	printPair(it++);
-	printPair(it++);
-	printPair(++it);
-
-	printPair(--ite);
-	printPair(ite--);
-	printPair(--ite);
-	printPair(ite--);
-
-	(*it).second.m();
-	(*ite).second.m();
-
-	printPair(--it);
-	printPair(it--);
-	printPair(it--);
-	printPair(--it);
-
+	printSize(st);
 	return (0);
 }
