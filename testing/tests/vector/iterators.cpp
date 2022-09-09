@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:34:27 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/19 15:02:48 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 14:39:30 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,25 @@ TYPED_TEST(VectorIterators, Increment){
 
 TYPED_TEST(VectorIterators, Decrement){
 	VECTOR				v1(5);
-	VECTOR::iterator	it = v1.end();
-	
+	VECTOR::iterator	it = v1.end() - 1;
+
 	for (int i = v1.size(); i; i--, it--)
 		*it = i;
 	EXPECT_EQ(v1.size(), 5);
 
 	it = v1.end() - 1;
 
-	EXPECT_EQ(*--it, 3);
-	EXPECT_EQ(*it--, 3);
-	EXPECT_EQ(*it, 2);
+	EXPECT_EQ(*--it, 4);
+	EXPECT_EQ(*it--, 4);
+	EXPECT_EQ(*it, 3);
 
 	it -= 1;
 	
-	EXPECT_EQ(*it, 1);
+	EXPECT_EQ(*it, 2);
 	
 	it = it - 1;
 	
-	EXPECT_EQ(*it, 0);
+	EXPECT_EQ(*it, 1);
 }
 
 TYPED_TEST(VectorIterators, SquareBrackets){

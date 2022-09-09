@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 10:51:10 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 12:34:13 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 16:55:38 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <iostream>
 # include "iterator_traits.hpp"
-# include "RBnode.hpp"
+# include "../other/RBnode.hpp"
 # include <iterator>
 
 namespace ft{
@@ -27,21 +27,12 @@ namespace ft{
 		/* ******************************************************************** */
 		/* types and definitions												*/
 		/* ******************************************************************** */
-
-		// typedef 	std::bidirectional_iterator_tag 	iterator_category;
-		// typedef  	std::ptrdiff_t						difference_type;
-		// typedef		typename T::value_type				value_type;
-		// typedef		typename T::value_type *			pointer;
-		// typedef		typename T::value_type &			reference;
-		// typedef		T									node_type;
-		// typedef  	T *									node_ptr;
-		// typedef		T &									node_ref;
-
+		
 		typedef 	std::bidirectional_iterator_tag 	iterator_category;
 		typedef  	std::ptrdiff_t						difference_type;
-		typedef		T									value_type;	
-		typedef		T *									pointer;	
-		typedef		T &									reference;	
+		typedef		T									value_type;
+		typedef		T *									pointer;
+		typedef		T &									reference;
 		typedef		ft::RBnode<T> *						node_ptr;
 
 	protected:
@@ -75,7 +66,7 @@ namespace ft{
 		pointer	operator->(void) const {return &(_current->_content); }
 		
 		RBiterator&	operator++(void) {
-			_current = _current->successor(); 
+			_current = _current->successor();
 			return *this; 
 		}
 		
@@ -86,7 +77,7 @@ namespace ft{
 		}
 		
 		RBiterator&	operator--(void) {
-			_current = _current->predecessor(); 
+			_current = _current->predecessor();
 			return *this; 
 		}
 		
@@ -106,22 +97,12 @@ template <class T>
 		/* types and definitions												*/
 		/* ******************************************************************** */
 
-		// typedef 	std::bidirectional_iterator_tag 	iterator_category;
-		// typedef  	std::ptrdiff_t						difference_type;
-		// typedef		typename T::value_type 				value_type;
-		// typedef		typename T::value_type * 			pointer;
-		// typedef		typename T::value_type & 			reference;
-		// typedef		T									node_type;
-		// typedef  	T *									node_ptr;
-		// typedef		T &									node_ref;
-		// typedef		const node_ptr						const_node_ptr;
-
 		typedef 	std::bidirectional_iterator_tag 	iterator_category;
 		typedef  	std::ptrdiff_t						difference_type;
 		typedef		T									value_type;	
 		typedef		const T *							pointer;	
-		typedef		const T &							reference;	
-		typedef		ft::RBnode<value_type>*				node_ptr;		
+		typedef		const T &							reference;
+		typedef		ft::RBnode<value_type> *			node_ptr;
 
 	protected:
 
@@ -152,7 +133,7 @@ template <class T>
 		/* ******************************************************************** */		
 		
 		reference	operator*(void)	const {return _current->_content; }
-		pointer	operator->(void) const {return &(_current->_content); }
+		pointer		operator->(void) const {return &(_current->_content); }
 		
 		const_RBiterator&	operator++ (void) {
 			_current = _current->successor();
@@ -220,83 +201,6 @@ template <class T>
 	bool operator!=(const const_RBiterator<T>& x, const RBiterator<U>& y){
 		return !(x == y);
 	}
-
-	// // /* ******************************************************************** */
-	// // /* non member operator overload reverse iterators						*/
-	// // /* ******************************************************************** */	
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator==(const RBreverse_iterator<LeftIterator>& x, 
-	// 	const RBreverse_iterator<RightIterator>& y){
-	// 	return x.base() == y.base();
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator==(const RBreverse_iterator<LeftIterator>& x, 
-	// 	const const_RBreverse_iterator<RightIterator>& y){
-	// 	return x.base() == y.base();
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator==(const const_RBreverse_iterator<LeftIterator>& x, 
-	// 	const RBreverse_iterator<RightIterator>& y){
-	// 	return x.base() == y.base();
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator==(const const_RBreverse_iterator<LeftIterator>& x, 
-	// 	const const_RBreverse_iterator<RightIterator>& y){
-	// 	return x.base() == y.base();
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator!=(const RBreverse_iterator<LeftIterator>& x, 
-	// 	const RBreverse_iterator<RightIterator>& y){
-	// 	return !(x == y);
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator!=(const const_RBreverse_iterator<LeftIterator>& x, 
-	// 	const const_RBreverse_iterator<RightIterator>& y){
-	// 	return !(x == y);
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator!=(const RBreverse_iterator<LeftIterator>& x, 
-	// 	const const_RBreverse_iterator<RightIterator>& y){
-	// 	return !(x == y);
-	// }
-
-	// template <typename LeftIterator, typename RightIterator>
-	// bool operator!=(const const_RBreverse_iterator<LeftIterator>& x, 
-	// 	const RBreverse_iterator<RightIterator>& y){
-	// 	return !(x == y);
-	// }
-
-	// // template <typename LeftIterator, typename RightIterator>
-	// // bool operator==(const RBreverse_iterator<LeftIterator>& x, 
-	// // 	const RBreverse_iterator<RightIterator>& y){
-	// // 	return x.base() == y.base();
-	// // }
-
-	// // template <typename LeftIterator, typename RightIterator>
-	// // bool operator!=(const RBreverse_iterator<LeftIterator>& x, 
-	// // 	const RBreverse_iterator<RightIterator>& y){
-	// // 	return !(x == y);
-	// // }
-
-	// // template <typename LeftIterator, typename RightIterator>
-	// // bool operator==(const const_RBreverse_iterator<LeftIterator>& x, 
-	// // 	const const_RBreverse_iterator<RightIterator>& y){
-	// // 	return x.base() == y.base();
-	// // }
-
-	// // template <typename LeftIterator, typename RightIterator>
-	// // bool operator!=(const const_RBreverse_iterator<LeftIterator>& x, 
-	// // 	const const_RBreverse_iterator<RightIterator>& y){
-	// // 	return !(x == y);
-	// // }
-	
 }
 
 

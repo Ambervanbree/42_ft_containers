@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 15:16:52 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 13:04:56 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,220 +36,6 @@
 # define RIGHT_NIL (!node->_right || node->_right->_dummy)
 
 namespace ft{
-// 	enum	color_t {RED, BLACK, ORANGE};
-	
-// 	template <class T>
-// 	struct RBnode{
-
-// 			/* ******************************************************************** */
-// 			/* types and definitions												*/
-// 			/* ******************************************************************** */
-			
-// 			typedef T									value_type;
-// 			typedef ft::RBnode<T>						node_type;
-// 			typedef node_type *							node_ptr;
-// 			typedef const node_type *					const_node_ptr;
-// 			typedef node_type &							node_ref;
-// 			typedef size_t								size_type;
-// 			typedef const node_type &					const_node_ref;
-
-// 			/* ******************************************************************** */
-// 			/* variables															*/
-// 			/* ******************************************************************** */
-
-// 			node_ptr		_parent;
-// 			node_ptr		_child[2];
-// 			color_t			_color;
-// 			value_type		_content;
-// 			bool			_dummy;
-
-// 			/* ******************************************************************** */
-// 			/* constructors															*/
-// 			/* ******************************************************************** */
-
-// 			RBnode(const value_type value) : 
-// 				_parent(NULL), 
-// 				_color(RED), 
-// 				_content(value),
-// 				_dummy(false) { 
-// 				_left = NULL; 
-// 				_right = NULL;
-// 			}
-			
-// 			RBnode() :
-// 				_parent(NULL), 
-// 				_color(RED), 
-// 				_content(),
-// 				_dummy(false) {
-// 				_left = NULL;
-// 				_right = NULL;
-// 			}
-
-// 			// RBnode(const node_type& x) { 
-// 			// 	*this = x;
-// 			// }
-
-// 			// RBnode<T>& operator=(const RBnode<T>& x){
-// 			// 	// if (*this != x){
-// 			// 		_parent = x._parent;
-// 			// 		_child[0] = x._child[0];
-// 			// 		_child[1] = x._child[0];
-// 			// 		_color = x._color;
-// 			// 		_content = value_type(x._content);
-// 			// 		// _content(x._content);
-// 			// 		_dummy = x._dummy;
-// 			// 	// }
-// 			// 	return *this;
-// 			// }
-
-// 			void print_contents(){
-// 				std::cout << "Content: " << _content.first << " => " << _content.second << std::endl;
-// 				std::cout << "Dummy? " << _dummy << std::endl;
-// 				std::cout << "Color: " << _color << std::endl;
-// 				if (_parent){
-// 					std::cout << "Parent: " << _parent->_content.first << std::endl;
-// 					if (_parent->_left)
-// 						std::cout << "Parent's left child: " << _parent->_left->_content.first << std::endl;
-// 					if (_parent->_right)
-// 						std::cout << "Parent's right child: " << _parent->_right->_content.first << std::endl;
-// 				}
-// 				if (_left){
-// 					if (_left->_dummy)
-// 						std::cout << "Left child: dummy" << std::endl;
-// 					else{
-// 						std::cout << "Left child: " << _left->_content.first << std::endl;
-// 						std::cout << "Left child's parent: " << _left->_parent->_content.first << std::endl;
-// 					}
-// 				}
-// 				if (_right){
-// 					if (_right->_dummy)
-// 						std::cout << "Right child: dummy" << std::endl;
-// 					else{
-// 						std::cout << "Right child: " << _right->_content.first << std::endl;
-// 						std::cout << "Right child's parent: " << _right->_parent->_content.first << std::endl;
-// 					}
-// 				}
-// 				std::cout << std::endl;
-// 			}
-
-// 			/* ******************************************************************** */
-// 			/* accessors															*/
-// 			/* ******************************************************************** */
-			
-// 			node_ptr min_value(){
-// 				node_ptr current = this;
-
-// 				while (current->_left != NULL && !current->_dummy)
-// 					current = current->_left;
-// 				return current;
-// 			}
-			
-// 			node_ptr max_value(){
-// 				node_ptr current = this;
-
-// 				while (current->_right && !current->_dummy)
-// 					current = current->_right;
-// 				return current;
-// 			}
-			
-// 			node_ptr successor(){
-// 				if (_dummy)
-// 					return _right;
-// 				if (_right != NULL)
-// 					return _right->min_value();
-// 				else{
-// 					node_ptr 	parent 	= _parent;
-// 					node_ptr 	current = this;
-					
-// 					while(parent != NULL && current == parent->_right){
-// 						current = parent;
-// 						parent = parent->_parent;
-// 					}
-// 					return parent;
-// 				}
-// 			}
-
-// 			const_node_ptr successor() const{
-// 				if (_dummy)
-// 					return _right;
-// 				if (_right != NULL)
-// 					return _right->min_value();
-// 				else{
-// 					const_node_ptr 	parent 	= _parent;
-// 					const_node_ptr 	current = this;
-					
-// 					while(parent != NULL && current == parent->_right){
-// 						current = parent;
-// 						parent = parent->_parent;
-// 					}
-// 					return parent;
-// 				}
-// 			}
-
-// 			node_ptr predecessor(){
-// 				if (_dummy)
-// 					return _left;
-// 				if (_left != NULL)
-// 					return _left->max_value();
-// 				else{
-// 					node_ptr 	parent 	= _parent;
-// 					node_ptr	current	= this;
-					
-// 					while(parent != NULL && current == parent->_left){
-// 						current = parent;
-// 						parent = parent->_parent;
-// 					}
-// 					return parent;
-// 				}
-// 			}
-
-// 			const_node_ptr predecessor() const{
-// 				if (_dummy)
-// 					return _left;
-// 				if (_left != NULL)
-// 					return _left->max_value();
-// 				else{
-// 					const_node_ptr 	parent 	= _parent;
-// 					const_node_ptr	current	= this;
-					
-// 					while(parent != NULL && current == parent->_left){
-// 						current = parent;
-// 						parent = parent->_parent;
-// 					}
-// 					return parent;
-// 				}
-// 			}
-
-// // TODO -----------> not sure if needed, and if so, do links need to be the same?
-
-// 			// bool equal_nodes(node_ptr node1, node_ptr node2){
-// 			// 	if (_comp(node1->_content, node2->_content))
-// 			// 		return false;
-// 			// 	if (_comp(node2->_content, node1->_content))
-// 			// 		return false;
-// 			// 	return true;
-// 			// }
-
-// 			// friend bool operator==(const RBnode& x, const RBnode& y){
-// 			// 	if ((x._color != y._color) ||
-// 			// 		(x._content != y._content) ||
-// 			// 		(x._parent != y._parent) ||
-// 			// 		(x._child[0] != y._child[0]) ||
-// 			// 		(x._child[1] != y._child[1])) {return false; }
-// 			// 	return true;
-// 			// }
-
-// 			// friend bool operator!=(const RBnode& x, const RBnode& y){
-// 			// 	return !(x == y);
-// 			// }
-
-// 	};
-
-// 	template <class T>
-// 	bool	operator<(const RBnode<T>& x, const RBnode<T>& y){
-// 		return (x._content < y._content);
-// 	}
-
 	template <class T, class Compare, class Allocator = std::allocator<T> >
 	struct RBtree{
 		
@@ -295,29 +81,40 @@ namespace ft{
 				_comp(comp),
 				_size(0) {
 					_dummy = _alloc.allocate(1);
-					_alloc.construct(_dummy, value_type());
+					_alloc.construct(_dummy, node_type());
 					_dummy->_dummy = true;
 					_dummy->_color = ORANGE;
+					_dummy->_left = NULL;
+					_dummy->_right = NULL;
+					_dummy->_parent = NULL;
+			}
+
+			RBtree(const RBtree& x) : 
+				_root(NULL),
+				_alloc(node_allocator()),
+				_comp(x._comp),
+				_size(0) {
+				_dummy = _alloc.allocate(1);
+				_alloc.construct(_dummy, node_type());
+				_dummy->_dummy = true;
+				_dummy->_color = ORANGE;
+				_dummy->_left = NULL;
+				_dummy->_right = NULL;
+				_dummy->_parent = NULL;
+				*this = x;
 			}
 
 			~RBtree(void) {
-				clear_tree(_root); 
+				if (_size)
+					clear_tree(_root); 
 				_alloc.destroy(_dummy);
 				_alloc.deallocate(_dummy, 1);
 				_root = NULL;
 			}
 
-			RBtree(const RBtree& x) : _comp(x._comp), _size(0) {
-				*this = x;
-			}
-
 			RBtree<T, Compare, Allocator>& 
 				operator=(const RBtree<T, Compare, Allocator> &x) {
 				if (*this != x){
-					_dummy = _alloc.allocate(1);
-					_alloc.construct(_dummy, value_type());
-					_dummy->_dummy = true;
-					_dummy->_color = ORANGE;
 					if (_size)
 						clear_tree();
 					const_iterator it = x.begin(), ite = x.end();
@@ -373,18 +170,12 @@ namespace ft{
 										if (_root == NULL)
 											return reverse_iterator(end());
 										return reverse_iterator(end()--);
-										// if (_root == NULL)
-										// 	return reverse_iterator(_dummy);
-										// return reverse_iterator(_dummy->predecessor()); 
 									}
 									
 			const_reverse_iterator	rbegin() const {
 										if (_root == NULL)
 											return const_reverse_iterator(end());
 										return const_reverse_iterator(end()--);
-										// if (_root == NULL)
-										// 	return const_reverse_iterator(_dummy);
-										// return const_reverse_iterator(_dummy->predecessor());
 									}
 									
 			reverse_iterator		rend() {return reverse_iterator(begin()); }
@@ -396,11 +187,11 @@ namespace ft{
 
 			ft::pair<iterator, bool> insert(const value_type& x){
 				node_ptr	new_node;
-				node_ptr	parent;
+				node_ptr	parent = NULL;
 				int			dir  		= 0;
 
 				new_node = _alloc.allocate(1);
-				_alloc.construct(new_node, x);
+				_alloc.construct(new_node, node_type(x));
 				parent = find_parent(new_node);
 				if (parent)
 					dir = _comp(parent->_content, new_node->_content);
@@ -499,14 +290,6 @@ namespace ft{
 			/* ******************************************************************** */
 			/* delete																*/
 			/* ******************************************************************** */
-			
-			// void	no_dummy_assign(node_ref dest, node_ref src){
-			// 	std::cout << "src is " << src._content.first << std::endl;
-			// 	std::cout << "src is dummy: " << src._dummy << std::endl;
-			// 	if (!src._dummy)
-			// 		dest = src;
-			// 	std::cout << "dest is " << dest._content.first << std::endl;
-			// }
 
 			node_ptr no_dummy_assign(node_ptr node){
 				if (node && !node->_dummy)
@@ -536,33 +319,15 @@ namespace ft{
 				}
 			}
 
-			// void no_dummy_delete(node_ptr node, int dir){
-			// 	if (node->_child[dir] && node->_child[dir]->_dummy)
-			// 		_dummy->_child[1 - dir] = node->_parent;
-			// 	if (node->_child[1 - dir] && node->_child[1 - dir]->_dummy){
-			// 		_dummy->_child[1 - dir] = node->_child[dir];
-			// 		node->_child[dir]->_child[1 - dir] = _dummy;
-			// 	}
-			// 	node->_parent->_child[childDir(node)] = node->_child[dir];
-			// }
-
 			void delete_black_leaf(node_ptr current){
 				node_ptr	parent 		= current->_parent;
 				int			dir			= childDir(current); // safe, because current != _root
-				// node_ptr	sister		= NULL;
-				// node_ptr	niece		= NULL;
-				// node_ptr	far_niece	= NULL;
-
 				node_ptr	sister;
 				node_ptr	niece;
 				node_ptr	far_niece;
 				
 				current->_parent->_child[dir] = NULL;
-				// no_dummy_delete(current, dir);
 				do{
-					// no_dummy_assign(*sister, *parent->_child[1 - dir]);
-					// no_dummy_assign(*niece, *sister->_child[dir]);
-					// no_dummy_assign(*far_niece, *sister->_child[1 - dir]);;
 					sister = no_dummy_assign(parent->_child[1 - dir]);
 					niece = no_dummy_assign(sister->_child[dir]);
 					far_niece = no_dummy_assign(sister->_child[1 - dir]);;
@@ -577,11 +342,6 @@ namespace ft{
 						// rotation moved sister up, niece becomes parent's other child.
 						// We update the situation and make her children niece and far niece. 
 						// We know sister is black, so we can fall through.
-						
-						// no_dummy_assign(*sister, *niece);
-						// no_dummy_assign(*far_niece, *sister->_child[1 - dir]);
-						// no_dummy_assign(*niece, *sister->_child[dir]);
-
 						sister = no_dummy_assign(niece);
 						far_niece = no_dummy_assign(sister->_child[1 - dir]);
 						niece = no_dummy_assign(sister->_child[dir]);
@@ -594,9 +354,6 @@ namespace ft{
 						rotate_dir(sister, 1 - dir);
 						sister->_color = RED;
 						niece->_color = BLACK;
-						// no_dummy_assign(*far_niece, *sister);
-						// no_dummy_assign(*sister, *niece);
-
 						far_niece = no_dummy_assign(sister);
 						sister = no_dummy_assign(niece);
 					}
@@ -657,28 +414,20 @@ namespace ft{
 				// a node has no children and is red or has one child
 				// we can delete as if it was a normal BST. For the difficult
 				// case: deleting a black leaf node, we use a special function.
-
-				// std::cout << "hallo" << std::endl;
-												
+																
 				if (LEFT_NON_NIL && RIGHT_NON_NIL){
-					// std::cout << "two child delete" << std::endl;
 					return two_child_delete(node);
 				}
 				else if (LEFT_NIL && RIGHT_NIL){
-					// std::cout << "no child delete" << std::endl;
 					if (node == _root) {_root = NULL; }
-					else if (node->_color == RED){
+					else if (node->_color == RED)
 						node->_parent->_child[childDir(node)] = NULL;
-						// no_dummy_delete(node, childDir(node));
-					}
 					else{
-						// std::cout << "BL delete" << std::endl;
 						delete_black_leaf(node);
 						return node;
 					}
 				}
 				else if (LEFT_NON_NIL){
-					// std::cout << "left child delete" << std::endl;
 					node->_left->_color = BLACK;
 					node->_left->_parent = node->_parent;
 					if (node == _root){
@@ -691,7 +440,6 @@ namespace ft{
 						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_left);
 				}
 				else if (RIGHT_NON_NIL){
-					// std::cout << "right child delete" << std::endl;
 					node->_right->_color = BLACK;
 					node->_right->_parent = node->_parent;
 					if (node == _root){
@@ -700,12 +448,9 @@ namespace ft{
 						if (node->_left && node->_left->_dummy)
 							node->_left->_right = _root;
 					}	
-					else{
-						// std::cout << "here we are" << std::endl;
+					else
 						node->_parent->_child[childDir(node)] = no_dummy_assign(node->_right);
-					}
 				}
-				// std::cout << "niks" << std::endl;
 				return node;
 			}
 
@@ -725,7 +470,7 @@ namespace ft{
 			void swap_links(node_ptr node, node_ptr replace){
 				node_ptr	new_node = _alloc.allocate(1);
 
-				_alloc.construct(new_node, value_type(replace->_content));
+				_alloc.construct(new_node, node_type(replace->_content));
 			
 				if (_root == node)
 					_root = new_node;
@@ -742,10 +487,6 @@ namespace ft{
 				new_node->_right = node->_right;	
 				if (new_node->_right)
 					new_node->_right->_parent = new_node;
-
-				// new_node->print_contents();
-				// replace->print_contents();
-				// node->print_contents();
 
 				_alloc.destroy(node);
 				_alloc.deallocate(node, 1);

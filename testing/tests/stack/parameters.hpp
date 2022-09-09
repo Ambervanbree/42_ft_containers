@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/21 15:38:04 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:56:03 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stack>
 # include "stack.hpp"
-# include <gtest/gtest.h>
 
 // Macro for VECTOR
 # define STACK typename TestFixture::Types
@@ -37,11 +36,13 @@ using ComplexTypes = ::testing::Types
 	ft::stack<int>,
 	std::stack<int>,
 	ft::stack<char>,
-	std::stack<char>,	
-	ft::stack<A>,
-	std::stack<A>,
-	ft::stack<B>,
-	std::stack<B>
+	std::stack<char>,
+	ft::stack<std::string>,
+	std::stack<std::string>
+	// ft::stack<A>,
+	// std::stack<A>
+	// ft::stack<B>,
+	// std::stack<B>
 >;
 
 // Test suites

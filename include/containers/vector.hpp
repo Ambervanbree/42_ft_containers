@@ -18,10 +18,10 @@
 # include <algorithm>
 # include <new>
 # include <iterator>
-# include "reverse_iterators.hpp"
-# include "enable_if.hpp"
-# include "is_integral.hpp"
-# include "lexicographical_compare.hpp"
+# include "../iterators/reverse_iterators.hpp"
+# include "../other/enable_if.hpp"
+# include "../other/is_integral.hpp"
+# include "../other/lexicographical_compare.hpp"
 
 namespace ft {
 	template <class T, class Allocator = std::allocator<T> >

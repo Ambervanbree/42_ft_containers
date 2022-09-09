@@ -31,7 +31,7 @@ CMAKE_BUILD_TYPE:STRING=Debug
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
+CMAKE_CXX_COMPILER:STRING=/usr/bin/c++
 
 //LLVM archiver
 CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/lib/llvm-12/bin/llvm-ar
@@ -55,7 +55,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:STRING=/usr/bin/cc
 
 //LLVM archiver
 CMAKE_C_COMPILER_AR:FILEPATH=/usr/lib/llvm-12/bin/llvm-ar
@@ -275,17 +275,20 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 // may want to turn this OFF.)
 INSTALL_GTEST:BOOL=ON
 
-//Path to a program.
-_Python_EXECUTABLE:FILEPATH=/usr/bin/python3.8
-
 //Value Computed by CMake
 ft_containers_BINARY_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build
+
+//Value Computed by CMake
+ft_containers_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 ft_containers_SOURCE_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing
 
 //Value Computed by CMake
 gmock_BINARY_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googlemock
+
+//Value Computed by CMake
+gmock_IS_TOP_LEVEL:STATIC=OFF
 
 //Dependencies for the target
 gmock_LIB_DEPENDS:STATIC=general;gtest;
@@ -303,10 +306,16 @@ gmock_main_LIB_DEPENDS:STATIC=general;gmock;
 googletest-distribution_BINARY_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest
 
 //Value Computed by CMake
+googletest-distribution_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
 googletest-distribution_SOURCE_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest
+
+//Value Computed by CMake
+gtest_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 gtest_SOURCE_DIR:STATIC=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/googletest/googletest
@@ -344,9 +353,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=16
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=22
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -487,7 +496,7 @@ CMAKE_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.16
+CMAKE_ROOT:INTERNAL=/usr/share/cmake-3.22
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -519,16 +528,16 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Python
-FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python3.8][cfound components: Interpreter ][v3.8.10()]
+FIND_PACKAGE_MESSAGE_DETAILS_Python:INTERNAL=[/usr/bin/python3.10][cfound components: Interpreter ][v3.10.4()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
-//ADVANCED property for variable: _Python_EXECUTABLE
-_Python_EXECUTABLE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: _Python_INTERPRETER_SIGNATURE
-_Python_INTERPRETER_SIGNATURE-ADVANCED:INTERNAL=1
-_Python_INTERPRETER_SIGNATURE:INTERNAL=60fbcba4d3ec42cb22d9b25de2c7c03a
+//Path to a program.
+_Python_EXECUTABLE:INTERNAL=/usr/bin/python3.10
+//Python Properties
+_Python_INTERPRETER_PROPERTIES:INTERNAL=Python;3;10;4;64;;cpython-310-x86_64-linux-gnu;/usr/lib/python3.10;/usr/lib/python3.10;/usr/lib/python3/dist-packages;/usr/lib/python3/dist-packages
+_Python_INTERPRETER_SIGNATURE:INTERNAL=b91b4035ecb3bb3f5760d35922531bcd
 cmake_package_name:INTERNAL=GTest
 generated_dir:INTERNAL=/sgoinfre/goinfre/Perso/avan-bre/Projects/Circle04/ft_containers/testing/build/googletest/googletest/generated
 //ADVANCED property for variable: gmock_build_tests

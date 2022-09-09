@@ -10,7 +10,5 @@ include_directories(../include/containers)
 include_directories(../include/iterators)
 
 # including sources
-# add_subdirectory(tests/ft)
-# add_subdirectory(tests/std)
 add_subdirectory(tests)
 add_subdirectory(googletest)

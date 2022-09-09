@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:25:13 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 12:27:07 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 12:44:50 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ namespace ft{
 				_left = NULL; 
 				_right = NULL;
 			}
-			
+
 			RBnode() :
 				_parent(NULL), 
 				_color(RED), 
@@ -67,23 +67,6 @@ namespace ft{
 				_left = NULL;
 				_right = NULL;
 			}
-
-			// RBnode(const node_type& x) { 
-			// 	*this = x;
-			// }
-
-			// RBnode<T>& operator=(const RBnode<T>& x){
-			// 	// if (*this != x){
-			// 		_parent = x._parent;
-			// 		_child[0] = x._child[0];
-			// 		_child[1] = x._child[0];
-			// 		_color = x._color;
-			// 		_content = value_type(x._content);
-			// 		// _content(x._content);
-			// 		_dummy = x._dummy;
-			// 	// }
-			// 	return *this;
-			// }
 
 			void print_contents(){
 				std::cout << "Content: " << _content.first << " => " << _content.second << std::endl;
@@ -152,22 +135,22 @@ namespace ft{
 				}
 			}
 
-			const_node_ptr successor() const{
-				if (_dummy)
-					return _right;
-				if (_right != NULL)
-					return _right->min_value();
-				else{
-					const_node_ptr 	parent 	= _parent;
-					const_node_ptr 	current = this;
+			// const_node_ptr successor() const{
+			// 	if (_dummy)
+			// 		return _right;
+			// 	if (_right != NULL)
+			// 		return _right->min_value();
+			// 	else{
+			// 		const_node_ptr 	parent 	= _parent;
+			// 		const_node_ptr 	current = this;
 					
-					while(parent != NULL && current == parent->_right){
-						current = parent;
-						parent = parent->_parent;
-					}
-					return parent;
-				}
-			}
+			// 		while(parent != NULL && current == parent->_right){
+			// 			current = parent;
+			// 			parent = parent->_parent;
+			// 		}
+			// 		return parent;
+			// 	}
+			// }
 
 			node_ptr predecessor(){
 				if (_dummy)
@@ -186,22 +169,22 @@ namespace ft{
 				}
 			}
 
-			const_node_ptr predecessor() const{
-				if (_dummy)
-					return _left;
-				if (_left != NULL)
-					return _left->max_value();
-				else{
-					const_node_ptr 	parent 	= _parent;
-					const_node_ptr	current	= this;
+			// const_node_ptr predecessor() const{
+			// 	if (_dummy)
+			// 		return _left;
+			// 	if (_left != NULL)
+			// 		return _left->max_value();
+			// 	else{
+			// 		const_node_ptr 	parent 	= _parent;
+			// 		const_node_ptr	current	= this;
 					
-					while(parent != NULL && current == parent->_left){
-						current = parent;
-						parent = parent->_parent;
-					}
-					return parent;
-				}
-			}
+			// 		while(parent != NULL && current == parent->_left){
+			// 			current = parent;
+			// 			parent = parent->_parent;
+			// 		}
+			// 		return parent;
+			// 	}
+			// }
 
 // TODO -----------> not sure if needed, and if so, do links need to be the same?
 

@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 09:58:31 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/19 15:14:23 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:01:10 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "parameters.hpp"
 #include <list>
 
-TYPED_TEST_SUITE_P(VectorComplexConstruct);
+TYPED_TEST_SUITE_P(Vector_ComplexConstruct);
 
 TYPED_TEST(VectorComplexConstruct, DefaultConstruct){
 	VECTOR	v1;

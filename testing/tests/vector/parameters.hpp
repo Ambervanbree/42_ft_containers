@@ -6,7 +6,7 @@
 /*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/21 15:38:58 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/09 11:28:52 by avan-bre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <vector>
 # include "vector.hpp"
+# include "../complex_types.hpp"
 
 // Macro for VECTOR
 # define VECTOR typename TestFixture::Types
@@ -27,9 +28,11 @@ using SimpleType = ::testing::Types
 	std::vector<int>
 >;
 
-struct A {};
-
-class B {};
+using StringType = ::testing::Types
+<
+	ft::vector<std::string>,
+	std::vector<std::string>
+>;
 
 using ComplexTypes = ::testing::Types
 <
@@ -37,16 +40,12 @@ using ComplexTypes = ::testing::Types
 	std::vector<int>,
 	ft::vector<char>,
 	std::vector<char>,	
-	ft::vector<A>,
-	std::vector<A>,
+	ft::vector<A<int> >,
+	std::vector<A<int> >,
+	ft::vector<A<float> >,
+	std::vector<A<float> >,
 	ft::vector<B>,
 	std::vector<B>
->;
-
-using StringType = ::testing::Types
-<
-	ft::vector<std::string>,
-	std::vector<std::string>
 >;
 
 // Test suites
