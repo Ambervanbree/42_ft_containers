@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterators.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 14:37:41 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 16:55:11 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/10 21:41:26 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,23 @@ TYPED_TEST(MapIterators, Decrement){
 		ite--;
 		
 	EXPECT_EQ(ite->second, 'a');
+};
+
+TYPED_TEST_SUITE_P(MapConstIterators);
+
+TYPED_TEST(MapConstIterators, ConstReturn){
+	MAP				m1;
+	PAIR			p1;
+	PAIR			p2;
+	PAIR			p3;
+
+	m1.insert(p1);
+	m1.insert(p2);
+	m1.insert(p3);
+
+	MAP::iterator		it = m1.begin();
+	MAP::const_iterator	cit = m1.begin();
+	
+	EXPECT_EQ(it->second.m(), "non const called");
+	EXPECT_EQ(cit->second.m(), "const called");
 };

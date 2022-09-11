@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parameters.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 16:57:21 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/11 18:49:20 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ using ComplexTypes = ::testing::Types
 	std::pair<std::map<std::map<int, char>, A<std::map<int, std::string> > >, std::pair<char, int> >
 >;
 
+using ClassType = ::testing::Types
+<
+	std::pair<ft::map<int, B>, ft::pair<int, B> >,
+	std::pair<std::map<int, B>, std::pair<int, B> >
+>;
+
 // Test suites
 template<typename T>
 struct MapComplexConstruct : public testing::Test { using Types = T; };
@@ -55,8 +61,16 @@ struct MapIterators : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(MapIterators, SimpleType);
 
 template<typename T>
+struct MapConstIterators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapConstIterators, ClassType);
+
+template<typename T>
 struct MapReverseIterators : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(MapReverseIterators, SimpleType);
+
+template<typename T>
+struct MapConstReverseIterators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapConstReverseIterators, ClassType);
 
 template<typename T>
 struct MapCapacity : public testing::Test { using Types = T; };
@@ -69,5 +83,13 @@ TYPED_TEST_SUITE(MapElementAccess, SimpleType);
 template<typename T>
 struct MapModifiers : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(MapModifiers, SimpleType);
+
+template<typename T>
+struct MapOperators : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapOperators, SimpleType);
+
+template<typename T>
+struct MapOperations : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapOperations, SimpleType);
 
 #endif

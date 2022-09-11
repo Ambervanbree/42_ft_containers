@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   modifiers.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 16:15:28 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 18:38:00 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/10 17:50:39 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,50 @@ TYPED_TEST(MapModifiers, EraseRange){
 	m1.erase(it, ite);
 
 	EXPECT_EQ(m1.size(), 0);
+};
+
+TYPED_TEST(MapModifiers, Swap){
+	MAP		m1;
+	MAP		m2;
+
+	m1[1] = 'a';
+	m1[2] = 'b';
+	m1[3] = 'c';
+	
+	m2[4] = 'd';
+	m2[5] = 'e';
+	m2[6] = 'f';
+	m2[7] = 'g';
+
+	EXPECT_EQ(m1.size(), 3);
+	EXPECT_EQ(m1.begin()->first, 1);
+	EXPECT_EQ(m1.rbegin()->first, 3);
+	EXPECT_EQ(m2.size(), 4);
+	EXPECT_EQ(m2.begin()->first, 4);
+	EXPECT_EQ(m2.rbegin()->first, 7);
+
+	m1.swap(m2);
+	
+	EXPECT_EQ(m1.size(), 4);
+	EXPECT_EQ(m1.begin()->first, 4);
+	EXPECT_EQ(m1.rbegin()->first, 7);
+	EXPECT_EQ(m2.size(), 3);
+	EXPECT_EQ(m2.begin()->first, 1);
+	EXPECT_EQ(m2.rbegin()->first, 3);
+};
+
+TYPED_TEST(MapModifiers, Clear){
+	MAP		m1;
+	
+	m1[1] = 'a';
+	m1[2] = 'b';
+	m1[3] = 'c';
+	m1[4] = 'd';
+	m1[5] = 'e';
+	m1[6] = 'f';
+	
+	EXPECT_EQ(m1.size(), 6);
+	m1.clear();
+	EXPECT_EQ(m1.size(), 0);
+	EXPECT_TRUE(m1.empty());
 };

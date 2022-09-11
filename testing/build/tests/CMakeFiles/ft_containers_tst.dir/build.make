@@ -122,9 +122,22 @@ tests/CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.s"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/map/iterators.cpp -o CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.s
 
+tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o: ../tests/map/map_operations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/map/map_operations.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.i"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amber/Projects/ft_containers/testing/tests/map/map_operations.cpp > CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.s"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/map/map_operations.cpp -o CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.s
+
 tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o: ../tests/map/modifiers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/map/modifiers.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.i: cmake_force
@@ -137,7 +150,7 @@ tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o: ../tests/map/operators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/map/operators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.i: cmake_force
@@ -150,7 +163,7 @@ tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o: ../tests/map/reverse_iterators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/map/reverse_iterators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.i: cmake_force
@@ -163,7 +176,7 @@ tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o: ../tests/other/enable_if.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/enable_if.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.i: cmake_force
@@ -176,7 +189,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/enable_if.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o: ../tests/other/equal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/equal.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/equal.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.i: cmake_force
@@ -189,7 +202,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/equal.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o: ../tests/other/is_integral.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/is_integral.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.i: cmake_force
@@ -202,7 +215,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/is_integral.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o: ../tests/other/lexicographical_compare.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/lexicographical_compare.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.i: cmake_force
@@ -215,7 +228,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/lexicographical_compare.cpp.s: cmak
 
 tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o: ../tests/other/make_pair.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/make_pair.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.i: cmake_force
@@ -228,7 +241,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o: ../tests/other/pair.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/other/pair.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.i: cmake_force
@@ -241,7 +254,7 @@ tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o: ../tests/set/capacity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/set/capacity.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.i: cmake_force
@@ -254,7 +267,7 @@ tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o: ../tests/set/constructors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/set/constructors.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.i: cmake_force
@@ -264,19 +277,6 @@ tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.i: cmake_force
 tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.s"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/set/constructors.cpp -o CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.s
-
-tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
-tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o: ../tests/set/element_access.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o"
-	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/set/element_access.cpp
-
-tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.i"
-	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amber/Projects/ft_containers/testing/tests/set/element_access.cpp > CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.i
-
-tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.s"
-	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/set/element_access.cpp -o CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.s
 
 tests/CMakeFiles/ft_containers_tst.dir/set/iterators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/set/iterators.cpp.o: ../tests/set/iterators.cpp
@@ -330,9 +330,35 @@ tests/CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.s"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/set/reverse_iterators.cpp -o CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.s
 
+tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o: ../tests/set/set_operations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/set/set_operations.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.i"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amber/Projects/ft_containers/testing/tests/set/set_operations.cpp > CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.s"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/set/set_operations.cpp -o CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.s
+
+tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
+tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o: ../tests/set/specialised_algorithms.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/set/specialised_algorithms.cpp
+
+tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.i"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amber/Projects/ft_containers/testing/tests/set/specialised_algorithms.cpp > CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.i
+
+tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.s"
+	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amber/Projects/ft_containers/testing/tests/set/specialised_algorithms.cpp -o CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.s
+
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o: ../tests/stack/constructors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/stack/constructors.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.i: cmake_force
@@ -345,7 +371,7 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o: ../tests/stack/member_functions.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/stack/member_functions.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.i: cmake_force
@@ -358,7 +384,7 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o: ../tests/stack/operators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/stack/operators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.i: cmake_force
@@ -371,7 +397,7 @@ tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o: ../tests/vector/capacity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/capacity.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.i: cmake_force
@@ -384,7 +410,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/capacity.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o: ../tests/vector/constructors.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/constructors.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.i: cmake_force
@@ -397,7 +423,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/constructors.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o: ../tests/vector/element_acces.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/element_acces.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.i: cmake_force
@@ -410,7 +436,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/element_acces.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o: ../tests/vector/iterators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/iterators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.i: cmake_force
@@ -423,7 +449,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/iterators.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o: ../tests/vector/modifiers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/modifiers.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.i: cmake_force
@@ -436,7 +462,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/modifiers.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o: ../tests/vector/operators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/operators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.i: cmake_force
@@ -449,7 +475,7 @@ tests/CMakeFiles/ft_containers_tst.dir/vector/operators.cpp.s: cmake_force
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o: tests/CMakeFiles/ft_containers_tst.dir/flags.make
 tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o: ../tests/vector/reverse_iterators.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.o -c /home/amber/Projects/ft_containers/testing/tests/vector/reverse_iterators.cpp
 
 tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_iterators.cpp.i: cmake_force
@@ -467,6 +493,7 @@ ft_containers_tst_OBJECTS = \
 "CMakeFiles/ft_containers_tst.dir/map/constructors.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/map/element_access.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o" \
@@ -478,11 +505,12 @@ ft_containers_tst_OBJECTS = \
 "CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o" \
-"CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/iterators.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/modifiers.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/operators.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o" \
+"CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o" \
 "CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o" \
@@ -502,6 +530,7 @@ tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/capacity.cpp
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/constructors.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/element_access.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/modifiers.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/operators.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/map/reverse_iterators.cpp.o
@@ -513,11 +542,12 @@ tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/other/make_pair.
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/other/pair.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/capacity.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.o
-tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/iterators.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/modifiers.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/operators.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o
+tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/constructors.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/member_functions.cpp.o
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/stack/operators.cpp.o
@@ -531,7 +561,7 @@ tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/vector/reverse_i
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/build.make
 tests/ft_containers_tst: lib/libgtest.a
 tests/ft_containers_tst: tests/CMakeFiles/ft_containers_tst.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX executable ft_containers_tst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/amber/Projects/ft_containers/testing/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Linking CXX executable ft_containers_tst"
 	cd /home/amber/Projects/ft_containers/testing/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ft_containers_tst.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

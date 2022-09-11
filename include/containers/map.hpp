@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 18:36:26 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/10 21:53:37 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,8 @@ namespace ft{
 			key_compare 	key_comp() const {return _kcomp; }
 			value_compare 	value_comp() const {return _vcomp; }
 
+// TODO ------------>> How can we test observers?
+
 			/* ******************************************************************** */
 			/* map operations														*/
 			/* ******************************************************************** */
@@ -250,11 +252,11 @@ namespace ft{
 				return it;						
 			}
 
-			pair<iterator,iterator> equal_range(const key_type& x){
+			pair<iterator, iterator> equal_range(const key_type& x){
 				return ft::make_pair(lower_bound(x), upper_bound(x));
 			}
 			
-			pair<const_iterator,const_iterator> equal_range(const key_type& x) const{
+			pair<const_iterator, const_iterator> equal_range(const key_type& x) const{
 				return ft::make_pair(lower_bound(x), upper_bound(x));
 			}
 

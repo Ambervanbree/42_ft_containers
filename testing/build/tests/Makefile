@@ -306,6 +306,33 @@ map/iterators.cpp.s:
 	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/map/iterators.cpp.s
 .PHONY : map/iterators.cpp.s
 
+map/map_operations.o: map/map_operations.cpp.o
+
+.PHONY : map/map_operations.o
+
+# target to build an object file
+map/map_operations.cpp.o:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.o
+.PHONY : map/map_operations.cpp.o
+
+map/map_operations.i: map/map_operations.cpp.i
+
+.PHONY : map/map_operations.i
+
+# target to preprocess a source file
+map/map_operations.cpp.i:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.i
+.PHONY : map/map_operations.cpp.i
+
+map/map_operations.s: map/map_operations.cpp.s
+
+.PHONY : map/map_operations.s
+
+# target to generate assembly for a file
+map/map_operations.cpp.s:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/map/map_operations.cpp.s
+.PHONY : map/map_operations.cpp.s
+
 map/modifiers.o: map/modifiers.cpp.o
 
 .PHONY : map/modifiers.o
@@ -603,33 +630,6 @@ set/constructors.cpp.s:
 	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/constructors.cpp.s
 .PHONY : set/constructors.cpp.s
 
-set/element_access.o: set/element_access.cpp.o
-
-.PHONY : set/element_access.o
-
-# target to build an object file
-set/element_access.cpp.o:
-	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.o
-.PHONY : set/element_access.cpp.o
-
-set/element_access.i: set/element_access.cpp.i
-
-.PHONY : set/element_access.i
-
-# target to preprocess a source file
-set/element_access.cpp.i:
-	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.i
-.PHONY : set/element_access.cpp.i
-
-set/element_access.s: set/element_access.cpp.s
-
-.PHONY : set/element_access.s
-
-# target to generate assembly for a file
-set/element_access.cpp.s:
-	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/element_access.cpp.s
-.PHONY : set/element_access.cpp.s
-
 set/iterators.o: set/iterators.cpp.o
 
 .PHONY : set/iterators.o
@@ -737,6 +737,60 @@ set/reverse_iterators.s: set/reverse_iterators.cpp.s
 set/reverse_iterators.cpp.s:
 	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/reverse_iterators.cpp.s
 .PHONY : set/reverse_iterators.cpp.s
+
+set/set_operations.o: set/set_operations.cpp.o
+
+.PHONY : set/set_operations.o
+
+# target to build an object file
+set/set_operations.cpp.o:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.o
+.PHONY : set/set_operations.cpp.o
+
+set/set_operations.i: set/set_operations.cpp.i
+
+.PHONY : set/set_operations.i
+
+# target to preprocess a source file
+set/set_operations.cpp.i:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.i
+.PHONY : set/set_operations.cpp.i
+
+set/set_operations.s: set/set_operations.cpp.s
+
+.PHONY : set/set_operations.s
+
+# target to generate assembly for a file
+set/set_operations.cpp.s:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/set_operations.cpp.s
+.PHONY : set/set_operations.cpp.s
+
+set/specialised_algorithms.o: set/specialised_algorithms.cpp.o
+
+.PHONY : set/specialised_algorithms.o
+
+# target to build an object file
+set/specialised_algorithms.cpp.o:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.o
+.PHONY : set/specialised_algorithms.cpp.o
+
+set/specialised_algorithms.i: set/specialised_algorithms.cpp.i
+
+.PHONY : set/specialised_algorithms.i
+
+# target to preprocess a source file
+set/specialised_algorithms.cpp.i:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.i
+.PHONY : set/specialised_algorithms.cpp.i
+
+set/specialised_algorithms.s: set/specialised_algorithms.cpp.s
+
+.PHONY : set/specialised_algorithms.s
+
+# target to generate assembly for a file
+set/specialised_algorithms.cpp.s:
+	cd /home/amber/Projects/ft_containers/testing/build && $(MAKE) -f tests/CMakeFiles/ft_containers_tst.dir/build.make tests/CMakeFiles/ft_containers_tst.dir/set/specialised_algorithms.cpp.s
+.PHONY : set/specialised_algorithms.cpp.s
 
 stack/constructors.o: stack/constructors.cpp.o
 
@@ -1036,6 +1090,9 @@ help:
 	@echo "... map/iterators.o"
 	@echo "... map/iterators.i"
 	@echo "... map/iterators.s"
+	@echo "... map/map_operations.o"
+	@echo "... map/map_operations.i"
+	@echo "... map/map_operations.s"
 	@echo "... map/modifiers.o"
 	@echo "... map/modifiers.i"
 	@echo "... map/modifiers.s"
@@ -1069,9 +1126,6 @@ help:
 	@echo "... set/constructors.o"
 	@echo "... set/constructors.i"
 	@echo "... set/constructors.s"
-	@echo "... set/element_access.o"
-	@echo "... set/element_access.i"
-	@echo "... set/element_access.s"
 	@echo "... set/iterators.o"
 	@echo "... set/iterators.i"
 	@echo "... set/iterators.s"
@@ -1084,6 +1138,12 @@ help:
 	@echo "... set/reverse_iterators.o"
 	@echo "... set/reverse_iterators.i"
 	@echo "... set/reverse_iterators.s"
+	@echo "... set/set_operations.o"
+	@echo "... set/set_operations.i"
+	@echo "... set/set_operations.s"
+	@echo "... set/specialised_algorithms.o"
+	@echo "... set/specialised_algorithms.i"
+	@echo "... set/specialised_algorithms.s"
 	@echo "... stack/constructors.o"
 	@echo "... stack/constructors.i"
 	@echo "... stack/constructors.s"

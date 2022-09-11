@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:08:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 15:37:24 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/11 19:48:42 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ namespace ft {
 			/* modifiers															*/
 			/* ******************************************************************** */
 
-			pair<iterator,bool> insert(const value_type& x){
+			pair<iterator, bool> insert(const value_type& x){
 				iterator	found = _tree.find(x, _tree._root);
 
 				if (found != end())

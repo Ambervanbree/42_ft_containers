@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:50:55 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 13:16:45 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/11 19:48:15 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include "map.hpp"
 #include <iostream>
 #include <list>
-// #include "../containers_test/srcs/base.hpp"
-#include "../containers_test/srcs/set/common.hpp"
 #include "../testing/tests/complex_types.hpp"
 
 int main(void)
