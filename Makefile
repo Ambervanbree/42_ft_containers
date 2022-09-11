@@ -6,7 +6,7 @@
 #    By: amber <amber@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/09/11 19:52:31 by amber            ###   ########.fr        #
+#    Updated: 2022/09/11 20:37:29 by amber            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 # **************************************************************************** #
 
 NAMEFT		=	ft_containers
-NAMESTL		=	stl_containers
+NAMESTD		=	stl_containers
 SRC_DIR		=	sources/
 OBJ_DIR		=	objects/
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_FILES))
@@ -45,16 +45,16 @@ MEM			=	-fsanitize=address
 #                               RULES                                          #
 # **************************************************************************** #
 
-all:	$(NAMEFT) # $(NAMESTL)
+all:	$(NAMEFT) # $(NAMESTD)
 
 ft:		$(NAMEFT)
 
-#stl:	$(NAMESTL)
+#stl:	$(NAMESTD)
 
 $(NAMEFT):	$(OBJ_DIR) $(OBJS)
 		$(CC) $(CFLAGS) $(OBJS) -o $@
 
-#$(NAMESTL):	$(OBJ_DIR) $(OBJS)
+#$(NAMESTD):	$(OBJ_DIR) $(OBJS)
 #		$(CC) $(CFLAGS) $(OBJS) -o $@
 
 $(OBJ_DIR):
