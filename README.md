@@ -22,12 +22,12 @@ To test ft_containers you have 2 options at your disposal:
 	./tests/ft_containers_tst
 
 	To run subtests, the gtest filter can be used, below are some example 
-	commands:
-	./tests/ft_containers_tst --gtest_filter='Stack*'
-	./tests/ft_containers_tst --gtest_filter='Vector*'
-	./tests/ft_containers_tst --gtest_filter='Map*'
-	./tests/ft_containers_tst --gtest_filter='Set*'
-	./tests/ft_containers_tst --gtest_filter='*Performance*'
+	commands:\n
+	./tests/ft_containers_tst --gtest_filter='Stack*'\n
+	./tests/ft_containers_tst --gtest_filter='Vector*'\n
+	./tests/ft_containers_tst --gtest_filter='Map*'\n
+	./tests/ft_containers_tst --gtest_filter='Set*'\n
+	./tests/ft_containers_tst --gtest_filter='*Performance*'\n
 
 	You can find the executed tests for containers, iterators and other
 	functions in their respective folders in "/testing/tests/"
