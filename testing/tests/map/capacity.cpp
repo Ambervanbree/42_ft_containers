@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   capacity.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 16:00:48 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 16:18:19 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 09:44:16 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,11 @@ TYPED_TEST(MapCapacity, Size){
 	m1.clear();
 
 	EXPECT_EQ(m1.size(), 0);
+};
+
+TYPED_TEST(MapCapacity, MaxSize){
+	MAP									m1;
+	std::allocator<ft::RBnode<PAIR> >	alloc;
+	
+	EXPECT_EQ(m1.max_size(), alloc.max_size());
 };

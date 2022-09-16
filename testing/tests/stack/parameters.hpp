@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parameters.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 17:56:03 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 09:48:53 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stack>
 # include "stack.hpp"
+# include "../complex_types.hpp"
 
 // Macro for VECTOR
 # define STACK typename TestFixture::Types
@@ -28,9 +29,6 @@ using SimpleTypes = ::testing::Types
 	std::stack<char>
 >;
 
-class A {};
-struct B {};
-
 using ComplexTypes = ::testing::Types
 <
 	ft::stack<int>,
@@ -39,10 +37,16 @@ using ComplexTypes = ::testing::Types
 	std::stack<char>,
 	ft::stack<std::string>,
 	std::stack<std::string>
-	// ft::stack<A>,
-	// std::stack<A>
-	// ft::stack<B>,
-	// std::stack<B>
+>;
+
+using ftPerfType = ::testing::Types
+<
+	ft::stack<int>
+>;
+
+using stdPerfType = ::testing::Types
+<
+	std::stack<int>
 >;
 
 // Test suites
@@ -61,5 +65,13 @@ TYPED_TEST_SUITE(StackMemberFunctions, SimpleTypes);
 template<typename T>
 struct StackOperators : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(StackOperators, SimpleTypes);
+
+template<typename T>
+struct StackPerformance_ft : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(StackPerformance_ft, ftPerfType);
+
+template<typename T>
+struct StackPerformance_std : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(StackPerformance_std, stdPerfType);
 
 #endif

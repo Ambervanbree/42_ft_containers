@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parameters.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/09 11:28:52 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 09:52:42 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,16 @@ using ComplexTypes = ::testing::Types
 	std::vector<A<float> >,
 	ft::vector<B>,
 	std::vector<B>
+>;
+
+using ftPerfType = ::testing::Types
+<
+	ft::vector<int>
+>;
+
+using stdPerfType = ::testing::Types
+<
+	std::vector<int>
 >;
 
 // Test suites
@@ -92,5 +102,13 @@ TYPED_TEST_SUITE(VectorIterators, SimpleType);
 template<typename T>
 struct VectorReverseIterators : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(VectorReverseIterators, SimpleType);
+
+template<typename T>
+struct VectorPerformance_ft : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorPerformance_ft, ftPerfType);
+
+template<typename T>
+struct VectorPerformance_std : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(VectorPerformance_std, stdPerfType);
 
 #endif

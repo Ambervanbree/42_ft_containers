@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/11 18:49:20 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 09:46:03 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,30 @@ using ComplexTypes = ::testing::Types
 <
 	std::pair<ft::map<int, std::string>, ft::pair<int, std::string> >,
 	std::pair<std::map<int, std::string>, std::pair<int, std::string> >,
-	std::pair<ft::map<float, B>, ft::pair<char, int> >,
-	std::pair<std::map<float, B>, std::pair<char, int> >,
-	std::pair<ft::map<A<int>, B>, ft::pair<char, int> >,
-	std::pair<std::map<A<int>, B>, std::pair<char, int> >,
-	std::pair<ft::map<ft::map<int, char>, A<ft::map<int, std::string> > >, ft::pair<char, int> >,
-	std::pair<std::map<std::map<int, char>, A<std::map<int, std::string> > >, std::pair<char, int> >
+	std::pair<ft::map<float, B>, ft::pair<float, B> >,
+	std::pair<std::map<float, B>, std::pair<float, B> >,
+	std::pair<ft::map<A<int>, B>, ft::pair<A<int>, B> >,
+	std::pair<std::map<A<int>, B>, std::pair<A<int>, B> >,
+	std::pair<ft::map<ft::map<int, char>, A<ft::map<int, std::string> > >,
+		ft::pair<ft::map<int, char>, A<ft::map<int, std::string> > > >,
+	std::pair<std::map<std::map<int, char>, A<std::map<int, std::string> > >,
+		std::pair<std::map<int, char>, A<std::map<int, std::string> > > >
 >;
 
 using ClassType = ::testing::Types
 <
 	std::pair<ft::map<int, B>, ft::pair<int, B> >,
 	std::pair<std::map<int, B>, std::pair<int, B> >
+>;
+
+using ftPerfType = ::testing::Types
+<
+	std::pair<ft::map<int, char>, ft::pair<int, char> >
+>;
+
+using stdPerfType = ::testing::Types
+<
+	std::pair<std::map<int, char>, std::pair<int, char> >
 >;
 
 // Test suites
@@ -91,5 +103,17 @@ TYPED_TEST_SUITE(MapOperators, SimpleType);
 template<typename T>
 struct MapOperations : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(MapOperations, SimpleType);
+
+template<typename T>
+struct MapObservers : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapObservers, SimpleType);
+
+template<typename T>
+struct MapPerformance_ft : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapPerformance_ft, ftPerfType);
+
+template<typename T>
+struct MapPerformance_std : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(MapPerformance_std, stdPerfType);
 
 #endif

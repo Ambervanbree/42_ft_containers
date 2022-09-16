@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/10 21:53:37 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 10:07:56 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ namespace ft{
 		class Allocator = std::allocator<ft::pair<const key, value> > >
 	class map {
 		public:
-		
-			/* ******************************************************************** */
-			/* types and definitions												*/
-			/* ******************************************************************** */
+
+			/* **************************************************************************** */
+			/* types and definitions														*/
+			/* **************************************************************************** */
 			
 			typedef key												key_type;
 			typedef value											mapped_type;
@@ -66,9 +66,9 @@ namespace ft{
 			typedef ft::reverse_iterator<iterator>					reverse_iterator;
 			typedef ft::reverse_iterator<const_iterator>			const_reverse_iterator;
 
-			/* ******************************************************************** */
-			/* construct, copy, destroy												*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* construct, copy, destruct													*/
+			/* **************************************************************************** */
 			
 			explicit map(const value_compare& comp = value_compare(key_compare()), 
 				const allocator_type& alloc = allocator_type()) :
@@ -100,52 +100,53 @@ namespace ft{
 				return *this;
 			}
 		
-			/* ******************************************************************** */
-			/* iterators															*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* iterators																	*/
+			/* **************************************************************************** */
 			
 			iterator 					begin() {return _tree.begin(); }
+
 			const_iterator				begin() const {return _tree.begin(); }
+
 			iterator 					end() {return _tree.end(); }
+
 			const_iterator 				end() const {return _tree.end(); }
+
 			reverse_iterator			rbegin() {return _tree.rbegin(); }
+
 			const_reverse_iterator		rbegin() const {return _tree.rbegin(); }
+
 			reverse_iterator			rend() {return _tree.rend(); }
+			
 			const_reverse_iterator		rend() const {return _tree.rend(); }
 
-			/* ******************************************************************** */
-			/* capacity																*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* capacity																		*/
+			/* **************************************************************************** */
 			
 			bool empty() const {return _tree._size < 1 ? 1 : 0; }
-			size_type size() const {return _tree._size; }
-			size_type max_size() const {return _tree.get_allocator().max_size(); }
 			
-			/* ******************************************************************** */
-			/* element access														*/
-			/* ******************************************************************** */
+			size_type size() const {return _tree._size; }
+			
+			size_type max_size() const {return _tree.get_allocator().max_size(); }	
+				
+			/* **************************************************************************** */
+			/* element access																*/
+			/* **************************************************************************** */
 			
 			mapped_type& operator[](const key_type& x){
 				return insert(ft::make_pair(x, mapped_type())).first->second;
 			}
 
-			/* ******************************************************************** */
-			/* modifiers															*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* modifiers																	*/
+			/* **************************************************************************** */
 			
 			ft::pair<iterator, bool> insert(const value_type& x){
-				iterator	found = _tree.find(x, _tree._root);
-
-				if (found != end())
-					return ft::make_pair(found, false);
 				return _tree.insert(x);
 			}
 
 			iterator insert(iterator hint, const value_type& x){
-				iterator	found = _tree.find(x, _tree._root);
-
-				if (found != end())
-					return found;
 				return _tree.insert(hint, x);
 			}
 			
@@ -185,18 +186,17 @@ namespace ft{
 		
 			void clear() {_tree.clear_tree(); }
 		
-			/* ******************************************************************** */
-			/* observers															*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* observers																	*/
+			/* **************************************************************************** */
 			
 			key_compare 	key_comp() const {return _kcomp; }
+			
 			value_compare 	value_comp() const {return _vcomp; }
 
-// TODO ------------>> How can we test observers?
-
-			/* ******************************************************************** */
-			/* map operations														*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* map operations																*/
+			/* **************************************************************************** */
 			
 			iterator find(const key_type& x){
 				return _tree.find(ft::make_pair(x, mapped_type()), _tree._root);
@@ -260,9 +260,9 @@ namespace ft{
 				return ft::make_pair(lower_bound(x), upper_bound(x));
 			}
 
-			/* ******************************************************************** */
-			/* non member operators													*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* non member operators															*/
+			/* **************************************************************************** */
 
 			friend bool operator==(const map<key, value, Compare, Allocator>& x,
 				const map<key, value, Compare, Allocator>& y) {
@@ -294,16 +294,16 @@ namespace ft{
 				return (x._tree < y._tree) || (x._tree == y._tree);
 			}
 
-			/* ******************************************************************** */
-			/* specialised algorithms												*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* specialised algorithms														*/
+			/* **************************************************************************** */
 			
-			friend void swap(map<key, value, Compare, Allocator>& x, 
+			void swap(map<key, value, Compare, Allocator>& x, 
 				map<key, value, Compare, Allocator>& y) {x.swap(y); }
 			
-			/* ******************************************************************** */
-			/* variables															*/
-			/* ******************************************************************** */
+			/* **************************************************************************** */
+			/* variables																	*/
+			/* **************************************************************************** */
 			
 			private:
 				allocator_type									_alloc;

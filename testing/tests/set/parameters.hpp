@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:28:08 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/11 19:43:40 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 09:47:57 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ using ComplexTypes = ::testing::Types
 	std::set< A<int> >,
 	ft::set< A<ft::set<int> > >,
 	std::set< A<std::set<int> > >
+>;
+
+using ftPerfType = ::testing::Types
+<
+	ft::set<int>
+>;
+
+using stdPerfType = ::testing::Types
+<
+	std::set<int>
 >;
 
 // Test suites
@@ -78,5 +88,17 @@ TYPED_TEST_SUITE(SetOperators, SimpleType);
 template<typename T>
 struct SetSpecialisedAlgorithms : public testing::Test { using Types = T; };
 TYPED_TEST_SUITE(SetSpecialisedAlgorithms, SimpleType);
+
+template<typename T>
+struct SetObservers : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(SetObservers, SimpleType);
+
+template<typename T>
+struct SetPerformance_ft : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(SetPerformance_ft, ftPerfType);
+
+template<typename T>
+struct SetPerformance_std : public testing::Test { using Types = T; };
+TYPED_TEST_SUITE(SetPerformance_std, stdPerfType);
 
 #endif

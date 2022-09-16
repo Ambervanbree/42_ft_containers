@@ -6,7 +6,7 @@
 #    By: amber <amber@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/09/11 20:37:29 by amber            ###   ########.fr        #
+#    Updated: 2022/09/16 09:43:23 by amber            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,12 @@
 #                             UTILITIES                                        #
 # **************************************************************************** #
 
-NAMEFT		=	ft_containers
-NAMESTD		=	stl_containers
-SRC_DIR		=	sources/
-OBJ_DIR		=	objects/
-SRCS		=	$(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJS		=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
-OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
-
-
-SRC_FILES	=	main.cpp
+NAME			=	ft_containers
+NAME_STD		=	std_containers
+OBJS_FT			=	$(SRCS_FT:.cpp=.o)
+OBJS_STD		=	$(SRCS_STD:.cpp=.o)
+SRCS_FT			=	sources/main_ft.cpp
+SRCS_STD		=	sources/main_std.cpp
 
 # **************************************************************************** #
 #                               ACTIONS                                        #
@@ -40,35 +36,34 @@ CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g
 INCL		=	-Iinclude/other/ -Iinclude/containers/ -Iinclude/iterators
 MEM			=	-fsanitize=address
 
-
 # **************************************************************************** #
 #                               RULES                                          #
 # **************************************************************************** #
 
-all:	$(NAMEFT) # $(NAMESTD)
+all:			$(NAME) $(NAME_STD)
 
-ft:		$(NAMEFT)
+ft:				$(NAME)
 
-#stl:	$(NAMESTD)
+std:			$(NAME_STD)
 
-$(NAMEFT):	$(OBJ_DIR) $(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $@
+$(NAME):		$(OBJS_FT)
+		$(CC) $(OBJS_FT) -o $@
 
-#$(NAMESTD):	$(OBJ_DIR) $(OBJS)
-#		$(CC) $(CFLAGS) $(OBJS) -o $@
+$(NAME_STD):	$(OBJS_STD)
+		$(CC) $(OBJS_STD) -o $@
 
-$(OBJ_DIR):
-		mkdir $(OBJ_DIR)
+$(OBJS_FT):
+		$(CC) -c $(SRCS_FT) $(CFLAGS) -o $@ $(INCL)
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp
-		$(CC) $(CFLAGS) -c $< -o $@ $(INCL)
+$(OBJS_STD):
+		$(CC) -c $(SRCS_STD) $(CFLAGS) -o $@ $(INCL)
 
 clean:
-			$(RM) $(OBJS) $(OBJ_DIR)
+			$(RM) $(OBJS_FT) $(OBJS_STD) $(OBJ_DIR)
 
 fclean:		clean
-			$(RM) $(NAMEFT)
+			$(RM) $(NAME) $(NAME_STD)
 
 re:			fclean all
 
-.PHONY:		re, all, clean,
+.PHONY:		re, all, clean, fclean, std, ft

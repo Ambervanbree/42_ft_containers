@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 16:00:48 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/10 18:36:06 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 09:46:53 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,11 @@ TYPED_TEST(SetCapacity, Size){
 	s1.clear();
 
 	EXPECT_EQ(s1.size(), 0);
+};
+
+TYPED_TEST(SetCapacity, MaxSize){
+	SET									s1;
+	std::allocator<ft::RBnode<int> >	alloc;
+	
+	EXPECT_EQ(s1.max_size(), alloc.max_size());
 };

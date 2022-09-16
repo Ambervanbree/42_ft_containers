@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lexicographical_compare.hpp                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:33:06 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/02 11:37:55 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 10:02:04 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ namespace ft{
 	bool lexicographical_compare(InputIt1 first1, InputIt1 last1, 
 		InputIt2 first2, InputIt2 last2){
 		for ( ; (first1 != last1) && (first2 != last2) ; ++first1, (void) ++first2 ){
-			// std::cout << "first1 : " << first1->first << " => " << first1->second << std::endl;
-			// std::cout << "first2 : " << first2->first << " => " << first2->second << std::endl;
 			if (*first1 < *first2) return true;
 			if (*first2 < *first1) return false;
 		}

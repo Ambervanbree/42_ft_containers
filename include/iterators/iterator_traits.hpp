@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iterator_traits.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 17:55:20 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/08 09:41:28 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 10:00:00 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ namespace ft {
 		typedef const T&						reference;
 		typedef std::random_access_iterator_tag iterator_category;
 	};
-	
 }
 
 #endif
-
