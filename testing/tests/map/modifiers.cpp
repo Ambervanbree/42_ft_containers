@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 16:15:28 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/10 17:50:39 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 15:21:31 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,31 @@ TYPED_TEST(MapModifiers, EraseIterator){
 	EXPECT_EQ(it++->first, 2);
 	EXPECT_EQ(it++->first, 3);
 	EXPECT_EQ(it++->first, 5);
+};
+
+TYPED_TEST(MapModifiers, EraseValidityIterators){
+	MAP	m1;
+
+	m1[1] = 'a';
+	m1[2] = 'b';
+	m1[3] = 'c';
+	m1[4] = 'd';
+	m1[5] = 'e';
+	m1[6] = 'f';
+
+	MAP::iterator	it = m1.begin();
+	MAP::iterator	ite = m1.end();
+
+	it++; it++;
+	
+	m1.erase(4);
+	
+	EXPECT_EQ(it->first, 3);
+	EXPECT_EQ((--ite)->first, 6);
+	EXPECT_EQ((--ite)->first, 5);
+	EXPECT_EQ((--ite)->first, 3);
+	EXPECT_EQ((--ite)->first, 2);
+	EXPECT_EQ((--ite)->first, 1);
 };
 
 TYPED_TEST(MapModifiers, EraseKey){

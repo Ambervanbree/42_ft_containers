@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:05:50 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 09:58:58 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/16 15:07:33 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ namespace ft {
 			/* **************************************************************************** */	
 		
 			explicit stack(const container_type& cont = container_type()) : c(cont) {}
+
+			~stack(void){}
 			
 			stack& operator=(const stack& x) { c = x.c; return *this; }
 			
@@ -67,11 +69,12 @@ namespace ft {
 			/* Non-member operators															*/
 			/* **************************************************************************** */	
 			
-			//	The operator overloads are based on protected and/or private variablesof the 
-			//	class, which they can't use, because they are not member functions. Adding
-			//	the friend declaration to the class will grant these specific functions 
-			//	access to the private and protected variables of the class it is associated 
-			//	with.
+			// Operator overload functions are a binary equation of 2 elements. To compare
+			// two elements of any container we need acces to the private variables, which
+			// only member functions have. But operator overloads can't be member functions
+			// (that would add *this as a variable and it wouldn't be binary). To solve this
+			// issue we add the friend declaration. If a function is declared friend it has
+			// acces to the private and protected variables of its associated class. 
 			
 			friend bool operator==(const ft::stack<T, container_type>& x, 
 				const ft::stack<T, container_type>& y){

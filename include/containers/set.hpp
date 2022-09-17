@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:08:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 10:08:13 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/17 17:45:18 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@
 # include "reverse_iterators.hpp"
 
 namespace ft {
-	template <class key, class Compare = std::less<key>,
-		class Allocator = std::allocator<key> >
+	template <class key, class Compare = std::less<key>, class Allocator = std::allocator<key> >
 	class set {
 		public:
 
@@ -136,7 +135,8 @@ namespace ft {
 					insert(*first++);
 			}
 
-			void erase(iterator position){_tree.erase(position.base()); }
+			void erase(iterator position){
+				_tree.erase(position.base());}
 
 			size_type erase(const key_type& x){
 				iterator	found = find(x);
@@ -149,14 +149,12 @@ namespace ft {
 			}
 
 			void erase(iterator first, iterator last){				
-				key_type	to_delete 	= *first;
-				key_type	last_key	= *last;
-				key_type	next_key;
+				iterator	temp = first;
 
-				while (to_delete != last_key){
-					next_key = *upper_bound(to_delete);
-					erase(to_delete);
-					to_delete = next_key;
+				while (temp != last){
+					first++;
+					erase(temp);
+					temp = first;
 				}
 			}
 
@@ -166,7 +164,6 @@ namespace ft {
 
 			void clear() {_tree.clear_tree(); }
 
-
 			/* **************************************************************************** */
 			/* observers																	*/
 			/* **************************************************************************** */
@@ -174,7 +171,6 @@ namespace ft {
 			key_compare 	key_comp() const {return _comp; }
 			
 			value_compare 	value_comp() const {return _comp; }
-
 
 			/* **************************************************************************** */
 			/* set operations																*/
@@ -249,21 +245,22 @@ namespace ft {
 			}
 
 			/* **************************************************************************** */
-			/* specialised algorithms														*/
-			/* **************************************************************************** */
-			
-			void swap(set<key, Compare, Allocator>& x, 
-				set<key, Compare, Allocator>& y) {x.swap(y); }
-
-			/* **************************************************************************** */
 			/* variables																	*/
 			/* **************************************************************************** */
-			
+
 			private:
 				allocator_type									_alloc;
 				RBtree<value_type, value_compare, Allocator>	_tree;
 				key_compare										_comp;
 	};
+
+/* **************************************************************************** */
+/* specialised algorithms														*/
+/* **************************************************************************** */
+
+template <class key, class Compare, class Allocator>
+void swap(set<key, Compare, Allocator>& x,  
+	set<key, Compare, Allocator>& y) {x.swap(y); }
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 12:25:13 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 10:02:27 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/17 17:51:53 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,40 @@ namespace ft{
 			std::cout << std::endl;
 		}
 
-
+		void print_contents_set(){
+			std::cout << "Content: " << _content << std::endl;
+			std::cout << "Dummy? " << _dummy << std::endl;
+			std::cout << "Color: " << _color << std::endl;
+			if (_parent){
+				std::cout << "Parent: " << _parent->_content << std::endl;
+				if (_parent->_left)
+					std::cout << "Parent's left child: " 
+					<< _parent->_left->_content << std::endl;
+				if (_parent->_right)
+					std::cout << "Parent's right child: " 
+					<< _parent->_right->_content << std::endl;
+			}
+			if (_left){
+				if (_left->_dummy)
+					std::cout << "Left child: dummy" << std::endl;
+				else{
+					std::cout << "Left child: " << _left->_content << std::endl;
+					std::cout << "Left child's parent: " 
+					<< _left->_parent->_content << std::endl;
+				}
+			}
+			if (_right){
+				if (_right->_dummy)
+					std::cout << "Right child: dummy" << std::endl;
+				else{
+					std::cout << "Right child: " << _right->_content << std::endl;
+					std::cout << "Right child's parent: " 
+					<< _right->_parent->_content << std::endl;
+				}
+			}
+			std::cout << std::endl;
+		}
+		
 		/* **************************************************************************** */
 		/* node operations																*/
 		/* **************************************************************************** */

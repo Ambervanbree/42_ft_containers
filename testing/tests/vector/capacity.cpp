@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   capacity.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:34:37 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/18 20:14:54 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:49:37 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include <memory>
 
 TYPED_TEST_SUITE_P(VectorCapacity);
+
+TYPED_TEST(VectorCapacity, Size){
+	VECTOR	v1;
+	VECTOR	v2(5);
+
+	EXPECT_EQ(v1.size(), 0);
+	EXPECT_EQ(v2.size(), 5);
+}
 
 TYPED_TEST(VectorCapacity, MaxSize){
 	VECTOR				v1;
@@ -37,9 +45,13 @@ TYPED_TEST(VectorCapacity, Resize){
 	VECTOR	v1;
 	VECTOR	v2;
 
+	// adding 100 * 23:
 	for (size_t i = 0; i < 100; i++){
 		v1.push_back(23);
 	}
+
+	// resizing to a smaller size,
+	// this doesn't change capacity:
 
 	v1.resize(25);
 
@@ -50,17 +62,13 @@ TYPED_TEST(VectorCapacity, Resize){
 
 	v1.resize(75);
 
+	// resizing to a bigger size
+	// will add default int's: 
+
 	EXPECT_EQ(v1.size(), 75);
 	EXPECT_EQ(v1.capacity(), 128);
 	EXPECT_EQ(v1[0], 23);
 	EXPECT_EQ(v1[74], 0);
-
-	v1.resize(130);
-
-	EXPECT_EQ(v1.size(), 130);
-	EXPECT_EQ(v1.capacity(), 150);
-	EXPECT_EQ(v1[0], 23);
-	EXPECT_EQ(v1[129], 0);
 }
 
 TYPED_TEST(VectorCapacity, Reserve){

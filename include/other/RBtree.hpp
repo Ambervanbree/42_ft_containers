@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 10:57:18 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 10:09:01 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/17 18:06:43 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,17 @@ namespace ft{
 		
 		/* **************************************************************************** */
 		/* tree operations																*/
-		/* **************************************************************************** */	
+		/* **************************************************************************** */
+
+		// Find_parent iterates through the tree recursively to find the leaf under
+		// which the new key can be inserted. It also doubles as a find-function, to
+		// make sure a key is not inserted if it already exists. When an equal key
+		// is found, it returns a pair with an iterator to this element + a bool
+		// false, to indicate that the new element should not be inserted. Else, it
+		// returns a pair with an iterator to the element under which the new key can
+		// be inserted (the parent) + a boolean true.
 		
-		ft::pair<iterator, bool> find_parent(const value_type& x, 
-			node_ptr subtree){	
+		ft::pair<iterator, bool> find_parent(const value_type& x, node_ptr subtree){	
 			ft::pair<iterator, bool>	temp;				
 			
 			if (subtree && !subtree->_dummy){
@@ -152,33 +159,60 @@ namespace ft{
 		// a black leaf. However, when the RBtree is used for ft::map, the value_type
 		// is ft::pair<const key, value>. Because the key is const, it is not possible
 		// to assign the content to another node. Therefore I have written the function
-		// below which creates a new node with the links and color of the node to be 
-		// deleted and the content of the node that replaces it. After using this function
-		// some iterators and pointers will become invalid.
+		// below which swaps all the pointers of two nodes. It will then have the same
+		// memory space (so pointers and iterators will stay intact), but the place in
+		// the tree will be swapped.
 
-		void swap_links(node_ptr node, node_ptr replace){
-			node_ptr	new_node = _alloc.allocate(1);
+		void swap_links_leaf(node_ptr  node, node_ptr replace){
+			node_ptr	node_parent = node->_parent;
+			node_ptr	node_left = node->_left;
+			node_ptr	node_right = node->_right;
+			node_ptr	replace_parent = replace->_parent;
+			node_ptr	replace_left = replace->_left;
+			node_ptr	replace_right = replace->_right;
 
-			_alloc.construct(new_node, node_type(replace->_content));
-		
-			if (_root == node)
-				_root = new_node;
-			new_node->_color = node->_color;
-			new_node->_dummy = 0;
-			new_node->_parent = node->_parent;
-			if (new_node->_parent){
-				int dir = childDir(node);
-				new_node->_parent->_child[dir] = new_node;
+			std::swap(node->_color, replace->_color);
+			
+			// Node and replace can be connected in the tree, we have to make sure that
+			// if we swap links, the node or replace node will not point to itself,
+			// creating an infinite loop in later oprations. Because node will always
+			// be higher up in the tree than replace, there's a few swaps we can do
+			// without problems.
+			int		dir_replace = childDir(replace); // safe, becaue replace != _root
+
+			replace->_parent = node_parent;
+			if (replace->_parent == NULL)
+				_root = replace;
+			else
+				replace->_parent->_child[childDir(node)] = replace;
+			node->_left = replace_left;
+			if (node->_left && node->_left->_dummy)
+				_dummy->_right = node;
+			node->_right = replace_right;
+			if (node->_right && node->_right->_dummy)
+				_dummy->_left = node;
+
+			// The following swaps depend on if two nodes are connected.
+			if (node_left == replace){
+				node->_parent = replace;
+				replace->_left = node;
+				replace->_right = node_right;
+				replace->_right->_parent = replace;
 			}
-			new_node->_left = node->_left;
-			if (new_node->_left)
-				new_node->_left->_parent = new_node;
-			new_node->_right = node->_right;	
-			if (new_node->_right)
-				new_node->_right->_parent = new_node;
-
-			_alloc.destroy(node);
-			_alloc.deallocate(node, 1);
+			else if (node_right == replace){
+				node->_parent = replace;
+				replace->_left = node_left;
+				replace->_left->_parent = replace;
+				replace->_right = node;
+			}
+			else{
+				node->_parent = replace_parent;
+				node->_parent->_child[dir_replace] = node;
+				replace->_left = node_left;
+				replace->_left->_parent = replace;
+				replace->_right = node_right;
+				replace->_right->_parent = replace;		
+			}	
 		}
 
 		iterator find(value_type x, node_ptr subtree){
@@ -230,6 +264,7 @@ namespace ft{
 		}
 					
 		node_ptr rotate_dir(node_ptr current, int dir){
+			// This is the rotation funtion that is used in insert and delete.
 			node_ptr	grandma = current->_parent;
 			node_ptr	daughter = current->_child[1 - dir];
 			node_ptr	temp;
@@ -320,6 +355,10 @@ namespace ft{
 
 			return insert(x).first;
 		}
+
+		// A new node to be inserted will always be red. We then insert it
+		// in the tree under its parent. If this node is red too, the tree
+		// needs to be rebalanced.
 		
 		void insert_node(node_ptr current, node_ptr parent, int dir){
 			node_ptr	grandma;
@@ -377,6 +416,88 @@ namespace ft{
 		/* modifiers: delete															*/
 		/* **************************************************************************** */
 
+		void erase(node_ptr node){
+			delete_node(node);
+			_alloc.destroy(node);
+			_alloc.deallocate(node, 1);
+			_size--;
+		}
+
+		// Deletion of a node generally works the same as for a regular tree. If the
+		// node to be deleted has one child, we will connect it to node's parent (and vv)
+		// and we can delete node. If it has no children, we can just delete it. And if
+		// it has two children we will swap it with its successor or predecessor,
+		// based on its location in the tree. The node then will only have one or zero
+		// children and we delete it.
+		// The only exception with a Red Black Tree is when a black node is deleted.
+		// In that case, the current branch will have one black node less and the
+		// tree needs to be rebalanced. See delete_black_leaf for this.
+
+		void delete_node(node_ptr node){					
+			if (LEFT_NON_NIL && RIGHT_NON_NIL){
+				two_child_delete(node);
+			}
+			else if (LEFT_NIL && RIGHT_NIL){
+				if (node == _root) {
+					_root = NULL; 
+					_dummy->_left = NULL;
+					_dummy->_right = NULL;
+				}
+				else if (node->_color == RED)
+					no_dummy_delete(node);
+				else
+					delete_black_leaf(node);
+			}
+			else if (LEFT_NON_NIL)
+				one_child_delete(node, LEFT);
+			else if (RIGHT_NON_NIL)
+				one_child_delete(node, RIGHT);
+		}
+
+		/* **************************************************************************** */
+		/* modifiers: delete utils														*/
+		/* **************************************************************************** */
+
+		void one_child_delete(node_ptr node, int dir){
+			// Node has one child, since no two red nodes can follow each other, they
+			// both have another color. We make sure that the node's child is black and
+			// connect it to the parent of node to be deleted. Also, the node could be
+			// connected to the _dummy, so we have to make sure it gets updated.
+			node_ptr	child = node->_child[dir];
+			
+			child->_color = BLACK;
+			child->_parent = node->_parent;
+			if (node == _root)
+				_root = child;
+			else
+				node->_parent->_child[childDir(node)] = child;
+			if (node->_child[1 - dir]){
+				child->_child[1 - dir] = _dummy;
+				_dummy->_child[dir] = child;
+			}
+		}
+		
+		void two_child_delete(node_ptr node){
+			// Node has two children, which means we will swap it with its successor
+			// or predecessor as described earlier. Because it is possible that the node
+			// is now a black leaf node, we pass it through the function delete_node
+			// once more.
+			node_ptr	replace;
+
+			if (node == _root){
+				replace = _root->successor();
+				if (replace->_color == BLACK) {replace = _root->predecessor(); }
+			}
+			else{
+				int 	dir 	= childDir(node);
+				
+				if (dir == 1) {replace = node->predecessor(); }
+				else {replace = node->successor(); }
+			}
+			swap_links_leaf(node, replace);
+			delete_node(node);
+		}
+
 		void delete_black_leaf(node_ptr current){
 			node_ptr	parent 		= current->_parent;
 			int			dir			= childDir(current); // safe, because current != _root
@@ -384,7 +505,7 @@ namespace ft{
 			node_ptr	niece;
 			node_ptr	far_niece;
 			
-			current->_parent->_child[dir] = NULL;
+			no_dummy_delete(current);
 			do{
 				sister = no_dummy_assign(parent->_child[1 - dir]);
 				niece = no_dummy_assign(sister->_child[dir]);
@@ -444,83 +565,6 @@ namespace ft{
 			} while ((parent = current->_parent) != NULL);
 		}
 
-		node_ptr two_child_delete(node_ptr node){
-			// Node has 2 non nil children, so predecessor or successor
-			// can't be the dummy node. We will now switch the node
-			// with a successor (if dir is left) or a predecessor,
-			// which will always be a leaf node. We then pass it through
-			// delete_node again.
-			
-			node_ptr	replace;
-
-			if (node == _root){
-				replace = _root->successor();
-				if (replace->_color == BLACK) {replace = _root->predecessor(); }
-			}
-			else{
-				int 	dir 	= childDir(node);
-				
-				if (dir == 1) {replace = node->predecessor(); }
-				else {replace = node->successor(); }
-			}
-			swap_links(node, replace);
-			return delete_node(replace);
-		}
-
-		node_ptr delete_node(node_ptr node){
-			// For a node with 2 children, see function above. Else, if
-			// a node has no children and is red or has one child
-			// we can delete as if it was a normal BST. For the difficult
-			// case: deleting a black leaf node, we use a special function.
-															
-			if (LEFT_NON_NIL && RIGHT_NON_NIL){
-				return two_child_delete(node);
-			}
-			else if (LEFT_NIL && RIGHT_NIL){
-				if (node == _root) {_root = NULL; }
-				else if (node->_color == RED)
-					node->_parent->_child[childDir(node)] = NULL;
-				else{
-					delete_black_leaf(node);
-					return node;
-				}
-			}
-			else if (LEFT_NON_NIL){
-				node->_left->_color = BLACK;
-				node->_left->_parent = node->_parent;
-				if (node == _root){
-					node->_left->_right = node->_right;
-					_root = node->_left;
-					if (node->_right && node->_right->_dummy)
-						node->_right->_left = _root;
-				}
-				else
-					node->_parent->_child[childDir(node)] = no_dummy_assign(node->_left);
-			}
-			else if (RIGHT_NON_NIL){
-				node->_right->_color = BLACK;
-				node->_right->_parent = node->_parent;
-				if (node == _root){
-					node->_right->_left = node->_left;
-					_root = node->_right;
-					if (node->_left && node->_left->_dummy)
-						node->_left->_right = _root;
-				}	
-				else
-					node->_parent->_child[childDir(node)] = no_dummy_assign(node->_right);
-			}
-			return node;
-		}
-
-		void erase(node_ptr node){
-			node_ptr	to_delete = delete_node(node);
-
-			update_dummy();
-			_alloc.destroy(to_delete);
-			_alloc.deallocate(to_delete, 1);
-			_size--;
-		}
-
 		/* **************************************************************************** */
 		/* dummy operations																*/
 		/* **************************************************************************** */
@@ -552,32 +596,19 @@ namespace ft{
 			}
 		}	
 
-		void update_dummy(){
-			if (_root == NULL){
-				_dummy->_left = NULL;
-				_dummy->_right = NULL;
-				return ;
-			}
-
-			node_ptr	max	= 	_root->max_value();
-			node_ptr	min =	_root->min_value();
-			
-			if (max != _dummy){
-				_dummy->_left->_right = NULL;
-				_dummy->_left = max;
-				max->_right = _dummy;
-			}
-			if (min != _dummy){
-				_dummy->_right->_left = NULL;
-				_dummy->_right = min;
-				min->_left = _dummy;
-			}
-		}
-
 		node_ptr no_dummy_assign(node_ptr node){
 			if (node && !node->_dummy)
 				return node;
 			return NULL;
+		}
+
+		void no_dummy_delete(node_ptr node){
+			int	dir = childDir(node); //safe, because node can't be root
+
+			node->_parent->_child[dir] = node->_child[dir];
+			if (node->_child[dir] && node->_child[dir]->_dummy){
+				_dummy->_child[1 - dir] = node->_parent;
+			}
 		}
 
 		/* **************************************************************************** */
@@ -641,6 +672,39 @@ namespace ft{
 			
 		}
 
+		void visualise_set(){
+			visualise_set(_root, "", false);
+		}
+
+		void visualise_set(node_ptr node, std::string indent, bool right){
+			if (node != NULL){
+				std::cout << indent;
+				if (right){
+					std::cout << "R----";
+					indent += "     ";
+				}
+				else{ 
+					if (node != _root){
+						std::cout << "L----";
+						indent += "|    ";
+					}
+				}
+				std::cout << node->_content << "(";
+					if (node->_color == 0)
+						std::cout << "RED";			
+					if (node->_color == 1)
+						std::cout << "BLACK";					
+					if (node->_color == 2)
+						std::cout << "ORANGE";
+					std::cout << ")" << std::endl;
+				if (!node->_dummy)
+					visualise_set(node->_left, indent, false);
+				if (!node->_dummy)
+					visualise_set(node->_right, indent, true);
+			}
+			
+		}
+
 		bool valid(){
 			int 		black_height = 0;
 			node_ptr 	current = _root;
@@ -671,28 +735,31 @@ namespace ft{
 				return false ;
 			return true ;
 		}
-
-		/* **************************************************************************** */
-		/* non member operators															*/
-		/* **************************************************************************** */
-
-		bool operator==(const RBtree<T, Compare, Allocator>& x,
-			const RBtree<T, Compare, Allocator>& y) {
-			if (x._size != y._size) return false; 
-			return (ft::equal(x.begin(), x.end(), y.begin()));
-		}
-
-		bool operator !=(const RBtree<T, Compare, Allocator>& x,
-			const RBtree<T, Compare, Allocator>& y) {
-			return !(x == y);
-		}
-
-		bool operator<(const RBtree<T, Compare, Allocator>& x,
-			const RBtree<T, Compare, Allocator>& y) {
-			return ft::lexicographical_compare(x.begin(), x.end(), 
-				y.begin(), y.end());
-		}
 	};
+	
+	/* **************************************************************************** */
+	/* non member operators															*/
+	/* **************************************************************************** */
+	
+	template <class T, class Compare, class Allocator>
+	bool operator==(const RBtree<T, Compare, Allocator>& x,
+		const RBtree<T, Compare, Allocator>& y) {
+		if (x._size != y._size) return false; 
+		return (ft::equal(x.begin(), x.end(), y.begin()));
+	}
+
+	template <class T, class Compare, class Allocator>
+	bool operator !=(const RBtree<T, Compare, Allocator>& x,
+		const RBtree<T, Compare, Allocator>& y) {
+		return !(x == y);
+	}
+
+	template <class T, class Compare, class Allocator>
+	bool operator<(const RBtree<T, Compare, Allocator>& x,
+		const RBtree<T, Compare, Allocator>& y) {
+		return ft::lexicographical_compare(x.begin(), x.end(), 
+			y.begin(), y.end());
+	}
 }
 
 #endif

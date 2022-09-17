@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile_proj                                      :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amber <amber@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:12:19 by avan-bre          #+#    #+#              #
-#    Updated: 2022/09/16 09:43:23 by amber            ###   ########.fr        #
+#    Updated: 2022/09/16 11:36:50 by amber            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@
 
 NAME			=	ft_containers
 NAME_STD		=	std_containers
+OBJS			=	$(SRCS:.cpp=.o)
+SRCS			=	sources/main.cpp
 OBJS_FT			=	$(SRCS_FT:.cpp=.o)
 OBJS_STD		=	$(SRCS_STD:.cpp=.o)
 SRCS_FT			=	sources/main_ft.cpp

@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 20:53:02 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 10:07:56 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/17 17:44:21 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,22 @@ namespace ft{
 			typedef size_t											difference_type;
 			typedef typename Allocator::pointer						pointer;
 			typedef typename Allocator::const_pointer				const_pointer;
+			typedef RBnode<value_type>								node_type;
+			typedef node_type *										node_ptr;
+			typedef ft::RBiterator<value_type>						iterator;
+			typedef ft::const_RBiterator<value_type> 				const_iterator;
+			typedef ft::reverse_iterator<iterator>					reverse_iterator;
+			typedef ft::reverse_iterator<const_iterator>			const_reverse_iterator;
+
+			/* **************************************************************************** */
+			/* class value compare															*/
+			/* **************************************************************************** */
+
+			// The underlying type of a map is a pair, when a pair is compared the first
+			// and second element are taken into account. But in a map, we only want to
+			// compare the key and not the mapped typed (the second pair element). That is
+			// why a class is created, in which only the first element of a pair is
+			// compared.
 
 			class value_compare : public std::binary_function<value_type, value_type, bool> {
 				friend class map;
@@ -58,18 +74,10 @@ namespace ft{
 						}
 			};
 
-			typedef RBtree<value_type, value_compare, Allocator>	tree_type;
-			typedef RBnode<value_type>								node_type;
-			typedef node_type *										node_ptr;
-			typedef ft::RBiterator<value_type>						iterator;
-			typedef ft::const_RBiterator<value_type> 				const_iterator;
-			typedef ft::reverse_iterator<iterator>					reverse_iterator;
-			typedef ft::reverse_iterator<const_iterator>			const_reverse_iterator;
-
 			/* **************************************************************************** */
 			/* construct, copy, destruct													*/
 			/* **************************************************************************** */
-			
+
 			explicit map(const value_compare& comp = value_compare(key_compare()), 
 				const allocator_type& alloc = allocator_type()) :
 				_alloc(alloc), _tree(comp), _vcomp(comp), _kcomp(key_compare()) {}
@@ -169,14 +177,12 @@ namespace ft{
 			}
 			
 			void erase(iterator first, iterator last){				
-				key_type	to_delete 	= first->first;
-				key_type	last_key	= last->first;
-				key_type	next_key;
+				iterator	temp;
 
-				while (to_delete != last_key){
-					next_key = upper_bound(to_delete)->first;
-					erase(to_delete);
-					to_delete = next_key;
+				while (first != last){
+					temp = first;
+					first++;
+					erase(temp);
 				}
 			}
 			
@@ -221,7 +227,7 @@ namespace ft{
 				}
 				return it;
 			}
-			
+
 			const_iterator lower_bound(const key_type& x) const{
 				const_iterator	it = begin();
 				const_iterator	ite = end();
@@ -293,13 +299,6 @@ namespace ft{
 				const map<key, value, Compare, Allocator>& y){
 				return (x._tree < y._tree) || (x._tree == y._tree);
 			}
-
-			/* **************************************************************************** */
-			/* specialised algorithms														*/
-			/* **************************************************************************** */
-			
-			void swap(map<key, value, Compare, Allocator>& x, 
-				map<key, value, Compare, Allocator>& y) {x.swap(y); }
 			
 			/* **************************************************************************** */
 			/* variables																	*/
@@ -312,6 +311,14 @@ namespace ft{
 				key_compare										_kcomp;
 		};
 		
+/* **************************************************************************** */
+/* specialised algorithms														*/
+/* **************************************************************************** */
+
+template<class key, class value, class Compare, class Allocator>
+void swap(map<key, value, Compare, Allocator>& x, 
+	map<key, value, Compare, Allocator>& y) {x.swap(y); }
+	
 }
 
 #endif

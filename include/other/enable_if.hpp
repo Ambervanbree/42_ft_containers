@@ -6,7 +6,7 @@
 /*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 15:46:13 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/09/16 10:01:06 by amber            ###   ########.fr       */
+/*   Updated: 2022/09/17 17:50:50 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ namespace ft{
 
 // The function takes a bool and a template, if the first condition
 // is true, the type will be set. If the first condition is false,
-// however (for example: enable_if<is_integral::iterator::type, iterator::type>),
+// (for example: enable_if<is_integral::iterator::type, iterator::type>),
 // the type will not be set, so the function will fail, but because of
 // SFINAE the compiler will not give an error, but it will look for the 
 // next possible function to use. 

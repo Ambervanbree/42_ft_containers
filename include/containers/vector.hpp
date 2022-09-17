@@ -52,6 +52,11 @@ namespace ft {
 			explicit vector(const allocator_type& alloc= allocator_type()) : 
 				_array(0), _size(0), _capacity(0), _alloc(alloc) {}
 
+			// A vector that is instantiated with a size_type as argument will allocate
+			// memory space for a vector of that size and fills it with the default 
+			// value of the give type. For example ft::vector<int> v1(5) will contain 
+			// 5 times the default value of int, which is 0.
+
 			explicit vector(size_type n, const value_type& value = value_type(), 
 				const allocator_type& alloc= allocator_type()) :
 				_size(n), _capacity(n), _alloc(alloc) {
@@ -59,12 +64,11 @@ namespace ft {
 				construct_copy(value);
 			}
 
-			/*	iterator_construct() has an overload for a random access iterator and one 
-				for lower iterators. The first is most optimal, but doesn't work if there's 
-				no random access (since we can't do last - first). To catch the difference
-				I have added a typename iterator_category that ensures the right overload
-				will be used.
-			*/			
+			//	iterator_construct() has an overload for a random access iterator and one 
+			//	for lower iterators. The first is most optimal, but doesn't work if there's 
+			//	no random access (since we can't do last - first). To catch the difference
+			//	I have added a typename iterator_category that ensures the right overload
+			//	will be used.			
 				
 			template <class SomeIterator> 
 			vector(typename ft::enable_if<!ft::is_integral<SomeIterator>::value, 
@@ -367,10 +371,6 @@ namespace ft {
 				return !ft::lexicographical_compare(x.begin(), x.end(), 
 					y.begin(), y.end());
 			}
-
-			void swap(vector<T,Allocator>& x, vector<T,Allocator>& y){
-				x.swap(y);
-			}
 						
 		private:
 
@@ -454,6 +454,13 @@ namespace ft {
 				}
 			}		
 	};
+	
+/* **************************************************************************** */
+/* specialised algorithms														*/
+/* **************************************************************************** */
+template <class T, class Allocator>
+void swap(vector<T, Allocator>& x, vector<T, Allocator>& y){x.swap(y); }
+
 }
 
 #endif

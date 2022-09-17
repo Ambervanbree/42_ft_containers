@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operators.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avan-bre <avan-bre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amber <amber@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 10:35:27 by avan-bre          #+#    #+#             */
-/*   Updated: 2022/07/19 12:38:52 by avan-bre         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:28:03 by amber            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ TYPED_TEST(VectorOperators, NonMemberSwap){
 	VECTOR				v1(4);
 	VECTOR				v2(4);
 
-	v1.resize(23);
-	v2.insert(v2.begin(), 3, 12);
+	v1.insert(v1.begin(), 4, 1);
+	v2.insert(v2.begin(), 4, 2);
 
 	VECTOR::iterator	it1 = v1.begin();
 	VECTOR::iterator	it2 = v2.begin();
 
-	EXPECT_EQ(*it1, 0);
-	EXPECT_EQ(*it2, 12);
-	EXPECT_EQ(*(v1.begin()), 0);
-	EXPECT_EQ(*(v2.begin()), 12);	
+	EXPECT_EQ(*it1, 1);
+	EXPECT_EQ(*it2, 2);
+	EXPECT_EQ(*(v1.begin()), 1);
+	EXPECT_EQ(*(v2.begin()), 2);	
 
 	swap(v1, v2);
 	
-	EXPECT_EQ(*it1, 0);
-	EXPECT_EQ(*it2, 12);
-	EXPECT_EQ(*(v1.begin()), 12);
-	EXPECT_EQ(*(v2.begin()), 0);	
+	EXPECT_EQ(*it1, 1);
+	EXPECT_EQ(*it2, 2);
+	EXPECT_EQ(*(v1.begin()), 2);
+	EXPECT_EQ(*(v2.begin()), 1);	
 }
